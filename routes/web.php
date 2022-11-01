@@ -21,4 +21,9 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+/* @TODO A changer quand on aura fait les controllers */
+Route::get('/classes', function () {
+    return view('classes.index');
+})->name('classes');
+
 require __DIR__.'/auth.php';
