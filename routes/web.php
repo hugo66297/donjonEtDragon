@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,8 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->name('home');
+
+/* @TODO A changer quand on aura fait les controllers */
+Route::resource('categories', CategoryController::class)->only('index');
 
 require __DIR__.'/auth.php';
