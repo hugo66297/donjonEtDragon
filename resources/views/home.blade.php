@@ -12,14 +12,16 @@
                         différents maitres de jeu, ils peuvent être confronté à des énigmes, des défis et bien plus encore. Nous vous présentons ici
                         4 bonnes raisons et pourquoi vous lancer dans une aventure D&D...
                     </p>
-                    <a href="#" class="block mt-5 text-lg leading-tight font-medium text-black text-right flex items-center justify-end hover:underline">
-                        Plus de détails
+                    <div class="mt-5 flex items-center justify-end text-lg leading-tight font-medium text-black text-right">
+                        <a href="#" class="hover:underline">
+                            Plus de détails
+                        </a>
                         <span class="ml-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
                         </span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -36,14 +38,16 @@
                         non joueurs) avec des bandits ou autres scélérats et bien-sûr des combats : de nombreuses embuscades, pièges, donjons
                         et défies vous attendent… Peux-être même un dragon, qui sait…
                     </p>
-                    <a href="#" class="block mt-5 text-lg leading-tight font-medium text-black text-right flex items-center justify-end hover:underline">
-                        Plus de détails
+                    <div class="mt-5 flex items-center justify-end text-lg leading-tight font-medium text-black text-right">
+                        <a href="#" class="hover:underline">
+                            Plus de détails
+                        </a>
                         <span class="ml-1">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
                         </span>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,4 +56,6 @@
     <div class="h-full md:h-[100vh] bg-cover bg-center flex flex-col justify-center items-center gap-8 border-t-2 border-red-700" style="background-image: url('{{ asset('storage/img/bg-media-gallery.jpg') }}');">
 
     </div>
+
+    <x-footer/>
 </x-app-layout>
