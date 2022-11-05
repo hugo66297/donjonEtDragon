@@ -1,5 +1,5 @@
-<x-footer class="p-4 bg-white shadow md:p-6 dark:bg-gray-800 flex flex-col items-center justify-center md:flex-row md:justify-between" :bottom="request()->routeIs('categories.index')">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+<footer class="bg-white shadow p-5 dark:bg-gray-800 flex flex-col items-center justify-center md:flex-row md:justify-between">
+    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400 flex flex-wrap items-center justify-center">
         © 2022
         <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>
         . All Rights Reserved.
@@ -18,4 +18,4 @@
             <a href="#" class="hover:underline">Contact</a>
         </li>
     </ul>
-</x-footer>
+</footer>

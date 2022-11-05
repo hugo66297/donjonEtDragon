@@ -16,11 +16,11 @@
         <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen">
+        <div class="min-h-screen flex flex-col">
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-1">
                 {{ $slot }}
             </main>
 

@@ -56,6 +56,4 @@
     <div class="h-full md:h-[100vh] bg-cover bg-center flex flex-col justify-center items-center gap-8 border-t-2 border-red-700" style="background-image: url('{{ asset('storage/img/bg-media-gallery.jpg') }}');">
 
     </div>
-
-    <x-footer/>
 </x-app-layout>
