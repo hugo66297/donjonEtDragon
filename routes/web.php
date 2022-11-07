@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PersonnagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('home');
 });
 
 Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-/* @TODO A changer quand on aura fait les controllers */
-Route::resource('categories', CategoryController::class)->only('index');
+Route::resource('categories', CategoriesController::class)->only('index');
+
+Route::get('categories/{category}/personnages', [PersonnagesController::class, 'index'])->name('personnages.index');
+Route::resource('personnages', PersonnagesController::class)->except('index');
 
 require __DIR__.'/auth.php';
