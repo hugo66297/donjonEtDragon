@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Adventure;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,14 @@ return new class extends Migration
             $table->string('name',191);
             $table->string('abbreviation',20);
         });
+        Adventure::insert([
+            'name' => 'Lost Mine of Phandelver',
+            'abbreviation'=> 'LMOP'
+        ]);
+        Adventure::insert([
+            'name' => 'Icewind Dale, Rime of the Frostmaiden',
+            'abbreviation'=> 'ID'
+        ]);
     }
 
     /**
