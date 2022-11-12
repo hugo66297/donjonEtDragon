@@ -23,6 +23,10 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
+Route::get('/D&D/about', function () {
+    return view('D&D infos et aventures.d_and_d');
+})->name('aboutD&D');
+
 Route::resource('categories', CategoriesController::class)->only('index');
 
 Route::get('categories/{category}/personnages', [PersonnagesController::class, 'index'])->name('personnages.index');
