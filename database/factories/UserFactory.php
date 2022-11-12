@@ -20,7 +20,7 @@ class UserFactory extends Factory
     {
         return [
             'pseudo' => 'admin',
-            'password' => '$2y$10$Epx4bvPBGRlKf18k4qUs5.9EGkA2p5JIBYOvo2YiXCqvR/DqZkpP2', // password
+            'password' => '$2y$10$Epx4bvPBGRlKf18k4qUs5.9EGkA2p5JIBYOvo2YiXCqvR/DqZkpP2', // DonjonDragon2022!
             'remember_token' => Str::random(10),
         ];
     }
