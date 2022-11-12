@@ -39,7 +39,7 @@
                         et défies vous attendent… Peux-être même un dragon, qui sait…
                     </p>
                     <div class="mt-5 flex items-center justify-end text-lg leading-tight font-medium text-black text-right">
-                        <a href="#" class="hover:underline">
+                        <a href="{{ route('lmop') }}" class="hover:underline">
                             Plus de détails
                         </a>
                         <span class="ml-1">
