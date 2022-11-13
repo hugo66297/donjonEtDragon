@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="p-8 bg-cover bg-center bg-scroll flex flex-col justify-center items-center gap-8 border-y-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_first.jpg') }}');">
-        <div class="bg-[#e7e7db]/75 rounded-xl shadow-md">
-            <div class="text-xl">
+    <div class="min-h-screen p-8 bg-cover bg-center bg-scroll flex flex-col justify-center items-center gap-8 md:grid grid-cols-3 border-y-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_first.jpg') }}');">
+        <div class="bg-[#e7e7db]/75 rounded-xl shadow-md col-span-3">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <p class="">
                         Donjon et dragon est un jeu de rôle qui pousse les joueurs à créer, s’aventurer et évoluer dans
@@ -18,12 +18,12 @@
                 </div>
             </div>
         </div>
-        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden">
-            <div class="text-xl">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <h1 class="text-2xl font-extrabold tracking-tight leading-none text-pink-600">
                         1 -
-                        <span class="underline underline-offset-3 decoration-4 decoration-red-400">On joue ensemble</span>
+                        <span class="underline underline-offset-3 decoration-4 decoration-pink-600">On joue ensemble</span>
                     </h1>
                     <p class="">
                         Au festival du plus gros cliché longtemps associé au jeu de rôle, celui qui reprochait à D&D de
@@ -40,12 +40,12 @@
                 </div>
             </div>
         </div>
-        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden">
-            <div class="text-xl">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <h1 class="text-2xl font-extrabold tracking-tight leading-none text-pink-600">
                         2 -
-                        <span class="underline underline-offset-3 decoration-4 decoration-red-400">L'esprit d'équipe</span>
+                        <span class="underline underline-offset-3 decoration-4 decoration-pink-600">L'esprit d'équipe</span>
                     </h1>
                     <p>
                         D&D a une caractéristique qu’il partage d’ailleurs avec beaucoup de jeux de rôle : toute partie
@@ -85,13 +85,13 @@
             </div>
         </div>
     </div>
-    <div class="p-8 bg-cover bg-center flex flex-col justify-center items-center gap-8 border-b-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_snd.jpg') }}');">
-        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden">
-            <div class="text-xl">
+    <div class="min-h-screen p-8 bg-cover bg-center flex flex-col justify-center items-center md:grid grid-cols-4 gap-8 border-b-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_snd.jpg') }}');">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2 col-start-3">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <h1 class="text-2xl font-extrabold tracking-tight leading-none text-cyan-700">
                         3 -
-                        <span class="underline underline-offset-3 decoration-4 decoration-red-400">La table, un « Safe Space »</span>
+                        <span class="underline underline-offset-3 decoration-4 decoration-cyan-700">La table, un « Safe Space »</span>
                     </h1>
                     <p>
                         En plus de cinquante ans, D&D a évolué et ses joueurs avec. Comme personne ne sait avec quel
@@ -120,12 +120,12 @@
                 </div>
             </div>
         </div>
-        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden">
-            <div class="text-xl">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <h1 class="text-2xl font-extrabold tracking-tight leading-none text-cyan-700">
                         4 -
-                        <span class="underline underline-offset-3 decoration-4 decoration-red-400">Être soi-même mais autrement</span>
+                        <span class="underline underline-offset-3 decoration-4 decoration-cyan-700">Être soi-même mais autrement</span>
                     </h1>
                     <p>
                         Mais le plus bel atout de D&D s’est construit avec le temps, avec les joueurs aussi. Les
@@ -153,7 +153,7 @@
             </div>
         </div>
     </div>
-    <div class="p-8 bg-cover bg-center flex flex-col justify-center items-center gap-8 border-b-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_third.jpg') }}');">
+    <div class="min-h-screen p-8 bg-cover bg-center flex flex-col justify-start items-center gap-8 border-b-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_third.jpg') }}');">
         <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden">
             <div class="text-xl">
                 <div class="p-4 text-justify space-y-3">
@@ -163,7 +163,7 @@
                         <span class="text-red-900 font-bold">Curse of Strahd</span>,
                         un des scénarios emblématiques de D&D situé dans un univers qui évoque les Carpates version
                         Dracula, ne faisait pas forcément dans la finesse au moment de décrire les Vistani, un peuple
-                        fictif mais doté des traits de la culture gitane, hélas jusqu’à la caricature. Les rééditions
+                        fictif, mais doté des traits de la culture gitane, hélas jusqu’à la caricature. Les rééditions
                         actuelles corrigent petit à petit ces facilités pour rendre l’univers de D&D plus
                         <span class="text-red-900 font-bold">représentatif</span>
                         / contribuant à faire de chaque table un
@@ -178,5 +178,7 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="min-h-[75vh] p-8 bg-cover bg-center flex flex-col justify-start items-center gap-8 border-b-2 border-red-700" style="background-image: url('{{ asset('storage/img/about_last.jpg') }}');">
     </div>
 </x-app-layout>
