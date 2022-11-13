@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="p-8 bg-cover bg-center flex flex-col justify-center items-center gap-8 border-y-2 border-red-700" style="background-image: url('{{ asset('storage/img/Lost_Mine_of_Phandelver.jpg') }}');">
-        <div class="bg-gray-900/75 rounded-xl shadow-md">
-            <div class="text-xl text-white">
+    <div class="p-8 bg-cover bg-center flex flex-col justify-center items-center md:grid grid-cols-3 gap-8 border-y-2 border-red-700" style="background-image: url('{{ asset('storage/img/bg_lost_my_of_phandelver.jpg') }}');">
+        <div class="bg-[#e7e7db]/75 rounded-xl shadow-md col-span-3">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <p>
                         La mine perdue de Phancreux : « Lost mine of Phandelver »
@@ -23,8 +23,8 @@
                 </div>
             </div>
         </div>
-        <div class="m-2 md:m-0 bg-gray-900/75 rounded-xl shadow-md overflow-hidden">
-            <div class="text-xl text-white">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <p>
                         La mine perdue de Phancreux est un scénario pour 4 ou 5 joueurs qui se déroule dans le monde des
@@ -58,8 +58,8 @@
                 </div>
             </div>
         </div>
-        <div class="m-2 md:m-0 bg-gray-900/75 rounded-xl shadow-md overflow-hidden">
-            <div class="text-xl text-white">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2 col-start-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <p>
                         Afin qu’il n’y ait pas de double et que tout le monde soit satisfait du personnage qu’il va
@@ -102,11 +102,11 @@
         </div>
     </div>
     <div class="p-8 bg-cover bg-center flex flex-col justify-center items-center md:grid grid-cols-3 gap-8 border-b-2 border-red-700" style="background-image: url('{{ asset('storage/img/phandaTown.jpg') }}');">
-        <div class="m-2 md:m-0 bg-gray-900/75 rounded-xl shadow-md overflow-hidden col-span-2">
-            <div class="text-xl text-white">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <h1 class="text-2xl font-extrabold tracking-tight leading-none text-red-900">
-                        <span class="underline underline-offset-3 decoration-4 decoration-red-400">Le contexte</span>
+                        <span class="underline underline-offset-3 decoration-4 decoration-red-900">Le contexte</span>
                     </h1>
                     <p>
                         Des ménestrels et des vendeurs ambulants, des marchands et des gardes, des soldats, des marins
@@ -133,11 +133,11 @@
                 </div>
             </div>
         </div>
-        <div class="m-2 md:m-0 bg-gray-900/75 rounded-xl shadow-md overflow-hidden col-span-2 col-start-2">
-            <div class="text-xl text-white">
+        <div class="m-2 md:m-0 bg-[#e7e7db]/75 rounded-xl shadow-md overflow-hidden col-span-2 col-start-2">
+            <div class="">
                 <div class="p-4 text-justify space-y-3">
                     <h1 class="text-2xl font-extrabold tracking-tight leading-none text-red-900">
-                        <span class="underline underline-offset-3 decoration-4 decoration-red-400">L'amorce</span>
+                        <span class="underline underline-offset-3 decoration-4 decoration-red-900">L'amorce</span>
                     </h1>
                     <p>
                         Afin de vous donner un avant-goût de ce qui vous attend, Voici l’amorce de l’aventure :
