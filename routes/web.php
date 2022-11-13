@@ -27,6 +27,10 @@ Route::get('/D&D/about', function () {
     return view('D&D infos et aventures.d_and_d');
 })->name('aboutD&D');
 
+Route::get('/D&D/aventures/lmop', function () {
+    return view('D&D infos aventures.aventure_lmop');
+})->name('lmop');
+
 Route::resource('categories', CategoriesController::class)->only('index');
 
 Route::get('categories/{category}/personnages', [PersonnagesController::class, 'index'])->name('personnages.index');
