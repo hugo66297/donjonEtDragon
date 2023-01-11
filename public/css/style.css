@@ -1,0 +1,42 @@
+@font-face {
+    font-family: "normal-medieval";
+    src: url("../police/AlteSchwabacher.ttf");
+}
+@font-face {
+    font-family: "bold-medieval";
+    src: url("../police/AlteSchwabacherOSF-DemiBold.ttf");
+}
+@font-face {
+    font-family: "outline-medieval";
+    src: url("../police/AlteSchwabacher-Shadow.ttf");
+}
+
+.flip-card {
+    position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    min-width: 0;
+    transition: all 1s ease;
+    background-color: transparent;
+}
+.flip-card a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.flip-card-front, .flip-card-back {
+    backface-visibility: hidden;
+}
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+.flipTrue {
+    transform: rotateY(180deg);
+}

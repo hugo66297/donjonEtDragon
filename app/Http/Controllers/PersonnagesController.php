@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Character;
 use App\Models\Personnage;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -19,8 +20,8 @@ class PersonnagesController extends Controller
      */
     public function index(Category $category)
     {
-        $personnages = Personnage::where('category_id', $category->getKey());
-        return view('personnages.index', compact('personnages'));
+        $characters = Character::where('category_id', $category->getKey());
+        return view('personnages.index', compact('characters', 'category'));
     }
 
     /**
