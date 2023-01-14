@@ -1,5 +1,18 @@
 @import "@fortawesome/fontawesome-free/css/all.css";
 
+@font-face {
+    font-family: "normal-medieval";
+    src: url("../../public/fonts/AlteSchwabacher.ttf");
+}
+@font-face {
+    font-family: "bold-medieval";
+    src: url("../../public/fonts/AlteSchwabacherOSF-DemiBold.ttf");
+}
+@font-face {
+    font-family: "outline-medieval";
+    src: url("../../public/fonts/AlteSchwabacher-Shadow.ttf");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
