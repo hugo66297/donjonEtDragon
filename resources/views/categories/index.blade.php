@@ -16,7 +16,9 @@
             </li>
         </ol>
     </nav>
-    <h2 class="my-4 px-0.5 sm:px-8 text-xl sm:text-3xl font-extrabold tracking-tight leading-none md:text-4xl text-red-900">Les classes de personnages</h2>
+    <h2 class="my-4 px-0.5 sm:px-8 text-xl sm:text-3xl font-extrabold tracking-tight leading-none md:text-4xl text-red-900 font-boldMedieval">
+        Les classes de personnages
+    </h2>
     <div class="hidden sm:gap-4 sm:px-8 sm:py-4 sm:grid grid-cols-2 grid-rows-6 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3">
         @foreach($categories as $categorie)
             <a href="{{ route('personnages.index', $categorie) }}" class="transition ease-in-out duration-500 block p-6 max-w-sm rounded-lg border border-gray-200 shadow-md bg-cover lg:h-36 md:h-40 h-44 grayscale hover:grayscale-0 hover:scale-105" style="background-image: url({{ asset($categorie->picture_path) }})">

@@ -11,10 +11,11 @@ module.exports = {
     ],
 
     theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
-            },
+        fontFamily: {
+            sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+            normalMedieval: ['normal-medieval'],
+            boldMedieval: ['bold-medieval'],
+            outlineMedieval: ['outline-medieval']
         },
     },
 
