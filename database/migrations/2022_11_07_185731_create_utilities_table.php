@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Utility;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,18 @@ return new class extends Migration
             $table->id();
             $table->string('name',191);
         });
+        Utility::insert([
+            'name' => 'Maîtrises'
+         ]);
+         Utility::insert([
+            'name' => 'Langues'
+         ]);
+         Utility::insert([
+            'name' => 'Connaissance de la pierre'
+         ]);
+         Utility::insert([
+            'name' => 'Expertise'
+         ]);
     }
 
     /**
