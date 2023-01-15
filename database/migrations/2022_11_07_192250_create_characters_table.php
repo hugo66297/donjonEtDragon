@@ -32,7 +32,7 @@ return new class extends Migration
             $table->integer('initiative')->default(0);
             $table->decimal('speed',4,2)->default(0);
             $table->integer('maximum_hp')->default(0);
-            $table->string('hit_dic',191);
+            $table->string('hit_dice',191);
             $table->text('equipment');
         });
     }
@@ -44,6 +44,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('personnages');
+        Schema::dropIfExists('characters');
     }
 };
