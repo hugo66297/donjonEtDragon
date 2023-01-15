@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\PersonnagesController;
+use App\Http\Controllers\CharactersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,7 +33,7 @@ Route::get('/D&D/aventures/lmop', function () {
 
 Route::resource('categories', CategoriesController::class)->only('index');
 
-Route::get('categories/{category}/personnages', [PersonnagesController::class, 'index'])->name('personnages.index');
-Route::resource('personnages', PersonnagesController::class)->except('index');
+Route::get('categories/{category}/characters', [CharactersController::class, 'index'])->name('characters.index');
+Route::resource('characters', CharactersController::class)->except('index');
 
 require __DIR__.'/auth.php';

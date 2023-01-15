@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Adventure extends Model
 {
     use HasFactory;
+
+    public function characters() {
+        return $this->belongsToMany(Character::class);
+    }
 }

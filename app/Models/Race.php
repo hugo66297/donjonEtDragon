@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Race extends Model
 {
     use HasFactory;
+
+    public function character() {
+        return $this->belongsTo(Character::class);
+    }
+
+    public function subRace() {
+        return $this->hasOne(Subrace::class);
+    }
 }
