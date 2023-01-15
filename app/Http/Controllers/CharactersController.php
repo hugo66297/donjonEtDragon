@@ -27,7 +27,8 @@ class CharactersController extends Controller
 
     public function show(Character $character)
     {
-        return view('characters.show', compact('character'));
+        // @TODO compact('character')
+        return view('characters.show');
     }
 
     public function edit(Character $character)

@@ -725,7 +725,7 @@
                     </div>
                     <div class="flex justify-end p-2">
                         <button type="button" class="text-white font-normalMedieval bg-gray-700 focus:outline-none font-medium text-center">
-                            <a class="hover:underline">Plus de détails</a>
+                            <a class="hover:underline" href="{{route('characters.show', 1)}}">Plus de détails</a>
                         </button>
                     </div>
                 </div>
