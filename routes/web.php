@@ -34,6 +34,6 @@ Route::get('/D&D/aventures/lmop', function () {
 Route::resource('categories', CategoriesController::class)->only('index');
 
 Route::get('categories/{category}/characters', [CharactersController::class, 'index'])->name('characters.index');
-Route::resource('characters', CharactersController::class)->except('index');
+Route::resource('heroes', CharactersController::class)->except('index');
 
 require __DIR__.'/auth.php';
