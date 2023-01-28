@@ -96,41 +96,90 @@
             </ul>
         </div>
 
-        <div id="myTabContent" class="mx-0.5">
-            <div class="hidden p-4 rounded-lg bg-gray-800" id="infos" role="tabpanel" aria-labelledby="infos-tab">
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-                <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
+        <div id="myTabContent" class="mx-0.5 w-full">
+            <div class="hidden p-4 rounded-lg bg-[#e7e7db]/[.2]" id="infos" role="tabpanel" aria-labelledby="infos-tab">
+                <div class="flex flex-col md:flex-row gap-y-3 md:gap-y-0 gap-x-5 justify-between items-center">
+                    <div class="grid gap-x-5 gap-y-4 grid-cols-2 md:w-2/5 w-full sm:w-4/5">
+                        <div class="flex flex-col">
+                            <p class="text-gray-500">Guerrier</p>
+                            <hr class="border border-t-gray-500">
+                            <p class="font-normalMedieval md:text-xl text-red-900">Classe</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <p class="text-gray-500">Noble</p>
+                            <hr class="border border-t-gray-500">
+                            <p class="font-normalMedieval md:text-xl text-red-900">Historique</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <p class="text-gray-500">Nain</p>
+                            <hr class="border border-t-gray-500">
+                            <p class="font-normalMedieval md:text-xl text-red-900">Race</p>
+                        </div>
+                        <div class="flex flex-col">
+                                <p class="text-gray-500">Loyal Bon</p>
+                            <hr class="border border-t-gray-500">
+                            <p class="font-normalMedieval md:text-xl text-red-900">Alignement</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 w-full">
+                        <div id="grid-2col" class="grid sm:grid-cols-5 grid-cols-6 md:grid-cols-6 justify-center gap-y-4">
+                            <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
+                                <p class="text-gray-800">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>17</span>
+                                </p>
+                                <p class="font-normalMedieval md:text-xl text-red-900">Classe d'armure</p>
+                            </div>
+                            <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
+                                <p class="text-gray-800">
+                                    <i class="fas fa-lightbulb"></i>
+                                    <span>17</span>
+                                </p>
+                                <p class="font-normalMedieval md:text-xl text-red-900">Initiative</p>
+                            </div>
+                            <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
+                                <p class="text-gray-800">
+                                    <i class="fas fa-running"></i>
+                                    <span>17m</span>
+                                </p>
+                                <p class="font-normalMedieval md:text-xl text-red-900">Vitesse</p>
+                            </div>
+                            <div class="justify-self-center div-col2 col-span-3 sm:col-span-1 md:col-span-3">
+                                <p class="text-gray-800">
+                                    <i class="fas fa-heart"></i>
+                                    <span>17</span>
+                                </p>
+                                <p class="font-normalMedieval md:text-xl text-red-900">Points de vie</p>
+                            </div>
+                            <div class="justify-self-center div-col4 col-span-3 sm:col-span-1 md:col-span-3">
+                                <p class="text-gray-800">
+                                    <i class="fa-solid fa-dice-six"></i>
+                                    <span>17</span>
+                                </p>
+                                <p class="font-normalMedieval md:text-xl text-red-900">Dés de vie</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border border-t-gray-500 my-3">
+                <div>
+                    <div>
+                        <p class="font-normalMedieval text-xl text-red-900">Traits de personnalité</p>
+                        <p class="text-gray-500">Quand je prends une décision, je m'y tiens. J'utilise des mots compliqués pour avoir l'air plus intelligent.</p>
+                    </div>
+                    <div>
+                        <p class="font-normalMedieval text-xl text-red-900">Idéaux</p>
+                        <p class="text-gray-500">Sincérité. Il est inutile que je prétende être ce que je ne suis pas.</p>
+                    </div>
+                    <div>
+                        <p class="font-normalMedieval text-xl text-red-900">Liens</p>
+                        <p class="text-gray-500">Un jour, Arbrefoudre redeviendra une communauté prospère et une statue à mon effigie se trouvera sur la grand place.</p>
+                    </div>
+                    <div>
+                        <p class="font-normalMedieval text-xl text-red-900">Défauts</p>
+                        <p class="text-gray-500">Je suis convaincu qu'une grande destinée m'attend et je refuse de reconnaître mes faiblesses et la possibilité que j'échoue.</p>
+                    </div>
+                </div>
             </div>
             <div class="hidden p-4 rounded-lg bg-gray-800" id="stats" role="tabpanel" aria-labelledby="stats-tab">
                 <p class="text-sm text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
