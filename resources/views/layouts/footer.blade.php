@@ -1,4 +1,4 @@
-<footer class="shadow p-5 bg-gray-800 flex flex-col items-center justify-center md:flex-row md:justify-between">
+<footer class="shadow p-5 bg-gray-800 flex z-50 flex-col items-center justify-center md:flex-row md:justify-between">
     <span class="text-sm sm:text-center text-gray-400 flex flex-wrap items-center justify-center">
         © 2022
         <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>
