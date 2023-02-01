@@ -12,6 +12,14 @@
     font-family: "outline-medieval";
     src: url("../../public/fonts/AlteSchwabacher-Shadow.ttf");
 }
+@font-face {
+    font-family: "title-middle-age";
+    src: url("../../public/fonts/Augusta.ttf");
+}
+@font-face {
+    font-family: "title-middle-age-outlined";
+    src: url("../../public/fonts/Augusta-Shadow.ttf");
+}
 
 @tailwind base;
 @tailwind components;

@@ -15,7 +15,9 @@ module.exports = {
             sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             normalMedieval: ['normal-medieval'],
             boldMedieval: ['bold-medieval'],
-            outlineMedieval: ['outline-medieval']
+            outlineMedieval: ['outline-medieval'],
+            titleMiddleAge : ['title-middle-age'],
+            titleMiddleAgeOutlined : ['title-middle-age-outlined'],
         },
     },
 

@@ -17,9 +17,9 @@ const tabElements = [
 
 const options = {
     defaultTabId: 'settings',
-    activeClasses: 'text-red-700',
+    activeClasses: 'text-red-700 hover:text-red-700 dark:text-red-700 dark:hover:text-red-700 border-red-700 dark:border-red-700',
     inactiveClasses: 'text-gray-500',
 };
 
 const tabs = new Tabs(tabElements, options);
-tabs.show('infos-tab')
+tabs.show('stats-tab')

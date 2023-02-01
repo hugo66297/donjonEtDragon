@@ -76,35 +76,35 @@
                     <div class="md:w-1/2 w-full">
                         <div id="grid-2col" class="grid sm:grid-cols-5 grid-cols-6 md:grid-cols-6 justify-center gap-y-4">
                             <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
-                                <p class="text-gray-800">
+                                <p class="text-gray-800 text-center">
                                     <i class="fas fa-shield-alt"></i>
                                     <span>17</span>
                                 </p>
                                 <p class="font-normalMedieval md:text-xl text-red-900">Classe d'armure</p>
                             </div>
                             <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
-                                <p class="text-gray-800">
+                                <p class="text-gray-800 text-center">
                                     <i class="fas fa-lightbulb"></i>
                                     <span>17</span>
                                 </p>
                                 <p class="font-normalMedieval md:text-xl text-red-900">Initiative</p>
                             </div>
                             <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
-                                <p class="text-gray-800">
+                                <p class="text-gray-800 text-center">
                                     <i class="fas fa-running"></i>
                                     <span>17m</span>
                                 </p>
                                 <p class="font-normalMedieval md:text-xl text-red-900">Vitesse</p>
                             </div>
                             <div class="justify-self-center div-col2 col-span-3 sm:col-span-1 md:col-span-3">
-                                <p class="text-gray-800">
+                                <p class="text-gray-800 text-center">
                                     <i class="fas fa-heart"></i>
                                     <span>17</span>
                                 </p>
                                 <p class="font-normalMedieval md:text-xl text-red-900">Points de vie</p>
                             </div>
                             <div class="justify-self-center div-col4 col-span-3 sm:col-span-1 md:col-span-3">
-                                <p class="text-gray-800">
+                                <p class="text-gray-800 text-center">
                                     <i class="fa-solid fa-dice-six"></i>
                                     <span>17</span>
                                 </p>
@@ -134,6 +134,132 @@
                 </div>
             </x-tab-item>
             <x-tab-item :title="'Statistiques'" :id="'stats'" :ariaLabel="'stats-tab'">
+            <div class="grid grid-cols-6 gap-12">
+                <x-stat-bloc :textColor="'text-yellow-600'" :borderColor="'border-yellow-600'" :name="'Force'" :modifier="'+2'" :value="14"/>
+                <x-stat-bloc :textColor="'text-lime-600'" :borderColor="'border-lime-600'" :name="'Dextérité'" :modifier="'+2'" :value="16"/>
+                <x-stat-bloc :textColor="'text-blue-800'" :borderColor="'border-blue-800'" :name="'Constitution'" :modifier="'+3'" :value="17"/>
+                <x-stat-bloc :textColor="'text-red-700'" :borderColor="'border-red-700'" :name="'Intelligence'" :modifier="'-3'" :value="9"/>
+                <x-stat-bloc :textColor="'text-fuchsia-800'" :borderColor="'border-fuchsia-800'" :name="'Sagesse'" :modifier="'-1'" :value="6"/>
+                <x-stat-bloc :textColor="'text-amber-500'" :borderColor="'border-amber-500'" :name="'Charisme'" :modifier="'+5'" :value="19"/>
+            </div>
+            <div class="grid grid-cols-6 gap-12 mt-2">
+                <div class="space-y-4 p-2">
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Jet sauvegarde</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full bg-black mr-2"></p>
+                            <p>+4</p>
+                            <p>Force</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Compétence</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 p-2">
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Jet sauvegarde</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full bg-black mr-2"></p>
+                            <p>+4</p>
+                            <p>Dextérité</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Compétences</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 p-2">
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Jet sauvegarde</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full bg-black mr-2"></p>
+                            <p>+4</p>
+                            <p>Constitution</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 p-2">
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Jet sauvegarde</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full bg-black mr-2"></p>
+                            <p>+4</p>
+                            <p>Intelligence</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Compétences</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 p-2">
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Jet sauvegarde</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full bg-black mr-2"></p>
+                            <p>+4</p>
+                            <p>Sagesse</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Compétences</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Athlétisme</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4 p-2">
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Jet sauvegarde</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full bg-black mr-2"></p>
+                            <p>+4</p>
+                            <p>Force</p>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-titleMiddleAge text-xl text-center underline">Compétences</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <p class="w-2 h-2 rounded-full border border-black mr-2"></p>
+                            <p>+2</p>
+                            <p>Charisme</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             </x-tab-item>
             <x-tab-item :title="'Attaques et équipements'" :id="'attaques'" :ariaLabel="'attaques-tab'">
             </x-tab-item>
