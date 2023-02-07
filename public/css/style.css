@@ -29,3 +29,10 @@
     }
 }
 
+@media (max-width: 400px){
+    #flex-col {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
