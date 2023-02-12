@@ -18,26 +18,32 @@ return new class extends Migration
             $table->id();
             $table->string('name',191);
             $table->string('abbreviation',10);
+            $table->string('coin_path',200);
         });
         Coin::insert([
             'name' => 'Pièce de Cuivre',
-            'abbreviation' => 'PC'
+            'abbreviation' => 'PC',
+            'coin_path' => 'storage/img/coins/copper_coin.png'
          ]);
          Coin::insert([
             'name' => 'Pièce d\'Argent',
-            'abbreviation' => 'PA'
+            'abbreviation' => 'PA',
+            'coin_path' => 'storage/img/coins/silver_coin.png'
          ]);
          Coin::insert([
             'name' => 'Pièce d\'Electrum',
-            'abbreviation' => 'PE'
+            'abbreviation' => 'PE',
+            'coin_path' => 'storage/img/coins/electrum_coin.png'
          ]);
          Coin::insert([
             'name' => 'Pièce d\'Or',
-            'abbreviation' => 'PO'
+            'abbreviation' => 'PO',
+            'coin_path' => 'storage/img/coins/gold_coin.png'
          ]);
          Coin::insert([
             'name' => 'Pièce de Platine',
-            'abbreviation' => 'PP'
+            'abbreviation' => 'PP',
+            'coin_path' => 'storage/img/coins/platinum_coin.png'
          ]);
 
     }
