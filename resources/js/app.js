@@ -22,4 +22,4 @@ const options = {
 };
 
 const tabs = new Tabs(tabElements, options);
-tabs.show('stats-tab')
+tabs.show('attaques-tab')
