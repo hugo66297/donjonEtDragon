@@ -265,140 +265,77 @@
             </div>
             </x-tab-item>
             <x-tab-item :title="'Attaques et équipements'" :id="'attaques'" :ariaLabel="'attaques-tab'">
-                <div>
+                <div class="p-4">
                     <h2 class="text-center text-xl text-red-900 font-normalMedieval tracking-wide p-4">
                         Attaques et incantations
                     </h2>
-
-                    <div class="relative flex justify-center">
-                        <table class="w-4/5 text-left border-separate border-spacing-4">
-                            <thead class="font-titleMiddleAge text-xl">
-                            <tr class="">
-                                <th scope="col" class="px-6">
-                                    Nom
-                                </th>
-                                <th scope="col" class="px-6">
-                                    Bonus d'attaque
-                                </th>
-                                <th scope="col" class="px-6">
-                                    Dégât/Type
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="text-center">
-                                <th scope="row" class="px-6 py-4 border rounded-tl-2xl rounded-br-2xl bg-[#e7e7db]/[.2] shadow-md">
+                    <div class="space-y-2 w-full md:w-4/5 md:ml-[10%]">
+                        <div class="font-titleMiddleAge grid grid-cols-3 gap-4">
+                            <p class="text-xs md:text-sm lg:text-base">
+                                Nom
+                            </p>
+                            <p class="text-xs md:text-sm lg:text-base">
+                                Bonus d'attaque
+                            </p>
+                            <p class="text-xs md:text-base lg:text-xl">
+                                Dégât/Type
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-3 items-center text-center gap-4">
+                            <div class="px-4 py-2 border rounded-tl-2xl rounded-br-2xl bg-[#e7e7db]/[.2] shadow-md font-bold">
+                                <p class="text-xs md:text-sm lg:text-base">
                                     Hache à deux mains
-                                </th>
-                                <td class="px-6 py-4 border rounded-tl-xl rounded-br-xl bg-[#e7e7db]/[.2] shadow-md">
+                                </p>
+                            </div>
+                            <div class="px-4 py-2 border rounded-tl-2xl rounded-br-2xl bg-[#e7e7db]/[.2] shadow-md">
+                                <p class="text-xs md:text-sm lg:text-base">
                                     +5
-                                </td>
-                                <td class="px-6 py-4 border rounded-tl-xl rounded-br-xl bg-[#e7e7db]/[.2] shadow-md">
+                                </p>
+                            </div>
+                            <div class="px-4 py-2 border rounded-tl-2xl rounded-br-2xl bg-[#e7e7db]/[.2] shadow-md">
+                                <p class="text-xs md:text-sm lg:text-base">
                                     1d12 + 3 tranchants
-                                </td>
-                            </tr>
-                            <tr class="text-center">
-                                <th scope="row" class="px-6 py-4 border rounded-tl-xl rounded-br-xl bg-[#e7e7db]/[.2] shadow-md">
-                                    Javeline
-                                </th>
-                                <td class="px-6 py-4 border rounded-tl-xl rounded-br-xl bg-[#e7e7db]/[.2] shadow-md">
-                                    +5
-                                </td>
-                                <td class="px-6 py-4 border rounded-tl-xl rounded-br-xl bg-[#e7e7db]/[.2] shadow-md">
-                                    1d6 + 3 perforants
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <hr class="my-4 w-4/5 ml-[10%]">
-                <div class="flex justify-center space-x-6">
-                    <div class="w-2/5">
+                <hr class="my-4 w-full md:w-4/5 md:ml-[10%]">
+                <div class="sm:flex sm:flex-row sm:space-x-6 md:space-x-10 md:justify-center">
+                    <div class="w-full md:ml-[10%] md:w-2/5">
                         <h2 class="text-xl text-red-900 font-normalMedieval tracking-wide p-4 text-center">
                             Pièces
                         </h2>
-
-                        <div class="relative overflow-x-auto">
-                            <table class="w-full text-left border-separate border-spacing-y-4">
-                                <thead class="font-titleMiddleAge text-xl">
-                                <tr>
-                                    <th scope="col" class="px-6">
-                                        <span class="sr-only">Image</span>
-                                    </th>
-                                    <th scope="col" class="px-6">
-                                        Nom
-                                    </th>
-                                    <th scope="col" class="px-6">
-                                        Quantité
-                                    </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-[#e7e7db]/[.2]">
-                                        <td class="rounded-tl-xl p-2 border-y border-l">
-                                            <img src="{{asset('/storage/img/coins/copper_coin.png')}}" class="w-16 h-16" alt="Apple Watch">
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold border-y">
-                                            Apple Watch
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold rounded-br-xl border-y border-r">
-                                            $599
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-[#e7e7db]/[.2]">
-                                        <td class="rounded-tl-xl p-2 border-y border-l">
-                                            <img src="{{asset('/storage/img/coins/copper_coin.png')}}" class="w-16 h-16" alt="Apple Watch">
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold border-y">
-                                            Apple Watch
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold rounded-br-xl border-y border-r">
-                                            $599
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-[#e7e7db]/[.2]">
-                                        <td class="rounded-tl-xl p-2 border-y border-l">
-                                            <img src="{{asset('/storage/img/coins/copper_coin.png')}}" class="w-16 h-16" alt="Apple Watch">
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold border-y">
-                                            Apple Watch
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold rounded-br-xl border-y border-r">
-                                            $599
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-[#e7e7db]/[.2]">
-                                        <td class="rounded-tl-xl p-2 border-y border-l">
-                                            <img src="{{asset('/storage/img/coins/copper_coin.png')}}" class="w-16 h-16" alt="Apple Watch">
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold border-y">
-                                            Apple Watch
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold rounded-br-xl border-y border-r">
-                                            $599
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-[#e7e7db]/[.2]">
-                                        <td class="rounded-tl-xl p-2 border-y border-l">
-                                            <img src="{{asset('/storage/img/coins/copper_coin.png')}}" class="w-16 h-16" alt="Apple Watch">
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold border-y">
-                                            Apple Watch
-                                        </td>
-                                        <td class="px-6 py-4 font-semibold rounded-br-xl border-y border-r">
-                                            $599
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="space-y-2">
+                            <div class="font-titleMiddleAge grid grid-cols-3">
+                                <p class="px-6">
+                                    <span class="sr-only">Image</span>
+                                </p>
+                                <p class="">
+                                    Nom
+                                </p>
+                                <p class="">
+                                    Quantité
+                                </p>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="bg-[#e7e7db]/[.2] border rounded-br-xl rounded-tl-xl grid grid-cols-3 items-center text-center shadow-md">
+                                    <img src="{{asset('/storage/img/coins/copper_coin.png')}}" class="h-14 p-2" alt="Apple Watch">
+                                    <p class="font-semibold">
+                                        Apple Watch
+                                    </p>
+                                    <p class="font-semibold">
+                                        $599
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="w-2/5">
+                    <div class="w-full md:ml-[10%] md:w-2/5">
                         <h2 class="text-xl text-red-900 font-normalMedieval tracking-wide p-4 text-center">
                             Équipements
                         </h2>
-                        <div>
+                        <div class="text-justify">
                             <p>
                                 Une cotte de mailles*, une hache à deux mains, 3 javelines, un sac à dos, une couverture, une boite à amadou,
                                 2 jours de rations, une outre, de beaux habits, une chevalière, une lettre de noblesse

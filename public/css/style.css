@@ -14,22 +14,22 @@
 .flipTrue {
     transform: rotateY(180deg);
 }
-@media (max-width: 320px){
+@media (max-width: 320px) {
     #grid-2col{
         grid-template-columns: repeat(4, minmax(0, 1fr));
 
     }
-    .div-col2{
+    .div-col2 {
         grid-column: span 2 / span 2 !important;
         justify-self : start !important;
     }
-    .div-col4{
+    .div-col4 {
         grid-column-start: 2 !important;
         grid-column-end: 4 !important;
     }
 }
 
-@media (max-width: 400px){
+@media (max-width: 400px) {
     #flex-col {
         display: flex;
         flex-direction: column;
