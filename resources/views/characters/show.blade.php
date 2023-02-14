@@ -32,7 +32,7 @@
                     </x-sidebar-button>
                 </div>
                 <div class="rounded-lg bg-gray-800">
-                    <x-sidebar-button :id="'maitrises-tab'" :tabs="'#maitrises'" :controls="'maitrises'" :title="'Maîtrises et aptitudes'" :tooltip="'tooltip-maitrises'">
+                    <x-sidebar-button :id="'competences-tab'" :tabs="'#competences'" :controls="'competences'" :title="'Competences et aptitudes'" :tooltip="'tooltip-competences'">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="flex-shrink-0 w-6 h-6 transition duration-75" fill="currentColor">
                             <path d="M0 80v48c0 17.7 14.3 32 32 32H48 96V80c0-26.5-21.5-48-48-48S0 53.5 0 80zM112 32c10 13.4 16 30 16 48V384c0 35.3 28.7 64 64 64s64-28.7 64-64v-5.3c0-32.4 26.3-58.7 58.7-58.7H480V128c0-53-43-96-96-96H112zM464 480c61.9 0 112-50.1 112-112c0-8.8-7.2-16-16-16H314.7c-14.7 0-26.7 11.9-26.7 26.7V384c0 53-43 96-96 96H368h96z"/>
                         </svg>
@@ -50,85 +50,92 @@
 
         <div id="myTabContent" class="flex grow sm:ml-16">
             <x-tab-item :title="'Informations globales'" :id="'infos'" :ariaLabel="'infos-tab'">
-                <div class="flex flex-col md:flex-row gap-y-3 md:gap-y-0 gap-x-5 justify-between items-center">
-                    <div class="grid gap-x-5 gap-y-4 grid-cols-2 md:w-2/5 w-full sm:w-4/5">
+                <div class="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-4 p-4 justify-between items-center">
+                    <div class="grid gap-x-4 gap-y-4 grid-cols-2 md:w-2/5 w-full sm:w-4/5">
                         <div class="flex flex-col">
                             <p class="text-gray-500">Guerrier</p>
                             <hr class="border border-t-gray-500">
-                            <p class="font-normalMedieval md:text-xl text-red-900">Classe</p>
+                            <p class="font-titleMiddleAge md:text-xl text-red-900">Classe</p>
                         </div>
                         <div class="flex flex-col">
                             <p class="text-gray-500">Noble</p>
                             <hr class="border border-t-gray-500">
-                            <p class="font-normalMedieval md:text-xl text-red-900">Historique</p>
+                            <p class="font-titleMiddleAge md:text-xl text-red-900">Historique</p>
                         </div>
                         <div class="flex flex-col">
                             <p class="text-gray-500">Nain</p>
                             <hr class="border border-t-gray-500">
-                            <p class="font-normalMedieval md:text-xl text-red-900">Race</p>
+                            <p class="font-titleMiddleAge md:text-xl text-red-900">Race</p>
                         </div>
                         <div class="flex flex-col">
                             <p class="text-gray-500">Loyal Bon</p>
                             <hr class="border border-t-gray-500">
-                            <p class="font-normalMedieval md:text-xl text-red-900">Alignement</p>
+                            <p class="font-titleMiddleAge md:text-xl text-red-900">Alignement</p>
                         </div>
                     </div>
                     <div class="md:w-1/2 w-full">
-                        <div id="grid-2col" class="grid sm:grid-cols-5 grid-cols-6 md:grid-cols-6 justify-center gap-y-4">
-                            <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
+                        <div id="grid-2col" class="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-3 justify-center gap-y-4">
+                            <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
                                     <i class="fas fa-shield-alt"></i>
                                     <span>17</span>
                                 </p>
-                                <p class="font-normalMedieval md:text-xl text-red-900">Classe d'armure</p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Classe d'armure</p>
                             </div>
-                            <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
+                            <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
                                     <i class="fas fa-lightbulb"></i>
                                     <span>17</span>
                                 </p>
-                                <p class="font-normalMedieval md:text-xl text-red-900">Initiative</p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Initiative</p>
                             </div>
-                            <div class="justify-self-center div-col2 col-span-2 sm:col-span-1 md:col-span-2">
+                            <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
                                     <i class="fas fa-running"></i>
                                     <span>17m</span>
                                 </p>
-                                <p class="font-normalMedieval md:text-xl text-red-900">Vitesse</p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Vitesse</p>
                             </div>
-                            <div class="justify-self-center div-col2 col-span-3 sm:col-span-1 md:col-span-3">
+                            <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
                                     <i class="fas fa-heart"></i>
                                     <span>17</span>
                                 </p>
-                                <p class="font-normalMedieval md:text-xl text-red-900">Points de vie</p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Points de vie</p>
                             </div>
-                            <div class="justify-self-center div-col4 col-span-3 sm:col-span-1 md:col-span-3">
+                            <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
                                     <i class="fa-solid fa-dice-six"></i>
                                     <span>17</span>
                                 </p>
-                                <p class="font-normalMedieval md:text-xl text-red-900">Dés de vie</p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Dés de vie</p>
+                            </div>
+                            <div class="justify-self-center">
+                                <p class="text-gray-800 text-center">
+                                    <i class="fa-solid fa-dice-six"></i>
+                                    <span>13</span>
+                                </p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Sagesse passive</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <hr class="border border-t-gray-500 my-2">
-                <div class="text-justify">
+                <hr class="border border-gray-300 my-4">
+                <div class="text-justify space-y-4 p-4">
                     <div>
-                        <p class="font-normalMedieval text-xl text-red-900">Traits de personnalité</p>
+                        <p class="font-titleMiddleAge text-xl text-red-900">Traits de personnalité</p>
                         <p class="text-gray-500 indent-4">Quand je prends une décision, je m'y tiens. J'utilise des mots compliqués pour avoir l'air plus intelligent.</p>
                     </div>
                     <div>
-                        <p class="font-normalMedieval text-xl text-red-900">Idéaux</p>
+                        <p class="font-titleMiddleAge text-xl text-red-900">Idéaux</p>
                         <p class="text-gray-500 indent-4">Sincérité. Il est inutile que je prétende être ce que je ne suis pas.</p>
                     </div>
                     <div>
-                        <p class="font-normalMedieval text-xl text-red-900">Liens</p>
+                        <p class="font-titleMiddleAge text-xl text-red-900">Liens</p>
                         <p class="text-gray-500 indent-4">Un jour, Arbrefoudre redeviendra une communauté prospère et une statue à mon effigie se trouvera sur la grand place.</p>
                     </div>
                     <div>
-                        <p class="font-normalMedieval text-xl text-red-900">Défauts</p>
+                        <p class="font-titleMiddleAge text-xl text-red-900">Défauts</p>
                         <p class="text-gray-500 indent-4">Je suis convaincu qu'une grande destinée m'attend et je refuse de reconnaître mes faiblesses et la possibilité que j'échoue.</p>
                     </div>
                 </div>
@@ -266,7 +273,7 @@
             </x-tab-item>
             <x-tab-item :title="'Attaques et équipements'" :id="'attaques'" :ariaLabel="'attaques-tab'">
                 <div class="p-4">
-                    <h2 class="text-center text-xl text-red-900 font-normalMedieval tracking-wide p-4">
+                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4">
                         Attaques et incantations
                     </h2>
                     <div class="space-y-2 w-full md:w-4/5 md:ml-[10%]">
@@ -300,10 +307,10 @@
                         </div>
                     </div>
                 </div>
-                <hr class="my-4 w-full md:w-4/5 md:ml-[10%]">
+                <hr class="border border-gray-300 my-4 w-full md:w-4/5 md:ml-[10%]">
                 <div class="sm:flex sm:flex-row sm:space-x-6 md:space-x-10 md:justify-center">
                     <div class="w-full md:ml-[10%] md:w-2/5">
-                        <h2 class="text-xl text-red-900 font-normalMedieval tracking-wide p-4 text-center">
+                        <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4 text-center">
                             Pièces
                         </h2>
                         <div class="space-y-2">
@@ -332,7 +339,7 @@
                         </div>
                     </div>
                     <div class="w-full md:ml-[10%] md:w-2/5">
-                        <h2 class="text-xl text-red-900 font-normalMedieval tracking-wide p-4 text-center">
+                        <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4 text-center">
                             Équipements
                         </h2>
                         <div class="text-justify">
@@ -348,9 +355,152 @@
                     </div>
                 </div>
             </x-tab-item>
-            <x-tab-item :title="'Maitrises et aptitudes'" :id="'maitrises'" :ariaLabel="'maitrises-tab'">
+            <x-tab-item :title="'Compétences et aptitudes'" :id="'competences'" :ariaLabel="'competences-tab'">
+                <div class="p-4">
+                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4">
+                        Compétences
+                    </h2>
+                    <div class="space-y-4">
+                        <p>
+                            <span class="font-titleMiddleAge text-xl text-red-900">Bonus de maitrise : </span>
+                            <span>+2</span>
+                        </p>
+                        <p>
+                            <span class="font-titleMiddleAge text-xl text-red-900">Maitrises.</span>
+                            <span>
+                                Toutes les armures, les boucliers, les armes courantes, les armes de guerre, les jeux de cartes.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="font-titleMiddleAge text-xl text-red-900">Langues.</span>
+                            <span>
+                                Toutes les armures, les boucliers, les armes courantes, les armes de guerre, les jeux de cartes.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <hr class="border border-gray-300 my-4">
+                <div class="px-4 pb-4">
+                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4">
+                        Aptitudes
+                    </h2>
+                    <div class="space-y-4 text-justify">
+                        <p>
+                            <span class="font-titleMiddleAge text-xl text-red-900">Second souffle.</span>
+                            <span>
+                                Vous possédez une réserve limitée d’endurance dans laquelle puiser afin de vous protéger. Lors de votre tour, vous pouvez
+                                utiliser une action bonus pour regagner un nombre de points de vie égal à 1d10 + votre niveau de guerrier. Une fois que vous
+                                avez utilisé cette aptitude, vous devez finir un court ou un long repos avant de pouvoir l’utiliser de nouveau.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="font-titleMiddleAge text-xl text-red-900">Style de combat (défense).</span>
+                            <span>
+                                Quand vous portez une armure, vous gagnez un bonus de +1 à votre CA. Ce bonus est déjà inclus dans votre CA.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="font-titleMiddleAge text-xl text-red-900">Privilégié.</span>
+                            <span>
+                                Grâce à votre noble naissance, les gens ont tendance à penser le meilleur de vous. Vous êtes le bienvenu dans la haute société
+                                et les gens se disent que vous êtes tout à fait en droit de vous trouver où bon vous semble. Les gens du commun font de leur
+                                mieux pour vous satisfaire et éviter votre déplaisir et les gens de haute naissance vous traitent comme un membre de leur sphère
+                                sociale. Si besoin, vous pouvez obtenir une audience auprès d’un noble local.
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </x-tab-item>
             <x-tab-item :title="'Origine du personnage'" :id="'origine'" :ariaLabel="'origine-tab'">
+                <div class="px-4 pt-4 text-justify">
+                    <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
+                        Humain (race)
+                    </h2>
+                    <div class="p-4 space-y-4">
+                        <div class="">
+                            <p class="indent-4">
+                                Les humains forment la plus jeune des races communes. Ils sont arrivés tardivement sur la scène mondiale et leur vie est bien
+                                courte par rapport à celle des nains, des elfes et des dragons. Cependant, ils sont les plus novateurs, n’hésitent pas à
+                                relever des défis et sont les pionniers de ce monde, sans compter qu’ils sont plus adaptables et ambitieux que les membres
+                                des autres races.Quand les humains s’installent, c’est pour longtemps : ils construisent des villes conçues pour résister au
+                                passage du temps et de grands royaumes capables de survivre pendant des siècles. Ils vivent pleinement dans le présent, en
+                                quoi ils sont parfaitement adaptés à la vie d’aventurier, mais ils anticipent également l’avenir et cherchent à laisser un
+                                héritage pérenne.
+                            </p>
+                            <p class="indent-4">
+                                La culture humaine varie en fonction des régions. Dans les Forgotten Realms, par exemple, la mode, l’architecture, la
+                                cuisine, la musique et la littérature ne sont pas les mêmes au nord-ouest, à Neverwinter, qu’à l’est, en Impilitur ou au
+                                lointain Turmish. Les caractéristiques physiques des humains varient en fonction des migrations des premiers membres de leur
+                                espèce, à tel point que les habitants de Neverwinter présentent tous les types de carnation et signes particuliers possibles.
+                            </p>
+                        </div>
+                        <div class="bg-slate-100 shadow-md rounded p-4">
+                            <p class="">
+                                Comme la race humaine possède bien plus de cultures différentes que les autres, les humains n’ont pas de noms typiques.
+                                Certains parents donnent des noms étrangers à leurs enfants, par exemple tirés du nain ou de l’elfique (et prononcés plus ou
+                                moins correctement). Les noms traditionnels des humains varient donc énormément d’une culture à l’autre. On trouve ainsi des
+                                noms comme Haseid (calishite), Kerri (chondathien), Kosef (damarien), Amafrey (illuskien), So-Kehur (mulien), Madislak (rashémi),
+                                Mei (shou), ou Salazar (turami).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border border-gray-300 my-4">
+                <div class="px-4 pt-4 text-justify">
+                    <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
+                        Guerrier (classe)
+                    </h2>
+                    <div class="p-4 space-y-4">
+                        <div class="">
+                            <p class="indent-4">
+                                Les guerriers sont membres de la classe la plus diversifiée des mondes de Dungeons & Dragons. Ils peuvent être des
+                                chevaliers partis accomplir une quête, des seigneurs de guerre conquérants, des champions royaux, des soldats d’élite,
+                                des mercenaires endurcis, des rois, des bandits… En tant que guerriers, ils maîtrisent tous l’art d’utiliser les armures
+                                et les armes et connaissent toutes les astuces et ficelles du combat. Ils sont très familiers avec la mort, qu’ils la
+                                donnent ou la regardent droit dans les yeux.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border border-gray-300 my-4">
+                <div class="p-4 text-justify">
+                    <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
+                        Historique
+                    </h2>
+                    <div class="p-4 space-y-4">
+                        <div class="">
+                            <p class="indent-4">
+                                Les guerriers sont membres de la classe la plus diversifiée des mondes de Dungeons & Dragons. Ils peuvent être des
+                                chevaliers partis accomplir une quête, des seigneurs de guerre conquérants, des champions royaux, des soldats d’élite,
+                                des mercenaires endurcis, des rois, des bandits… En tant que guerriers, ils maîtrisent tous l’art d’utiliser les armures
+                                et les armes et connaissent toutes les astuces et ficelles du combat. Ils sont très familiers avec la mort, qu’ils la
+                                donnent ou la regardent droit dans les yeux.
+                            </p>
+                        </div>
+                        <div class="">
+                            <p class="indent-4">
+                                <span class="font-titleMiddleAge text-xl text-red-900">Votre objectif : civiliser Phandaline.</span>
+                                Vous étiez destiné à bien plus qu’à être le maître d’un domaine inexistant. Il serait bien difficile de reconstruire la
+                                Colline de Corlinn, le volcan y a veillé. Cependant, au cours des trois ou quatre dernières années, d’aventureux colons
+                                ont entrepris de reconstruire une autre ruine qui se trouve près de la cité : la vieille ville de Phandaline, dévastée par
+                                des orcs il y a cinq siècles de cela. Il vous semble évident que ce qu’il manque aujourd’hui à Phandaline est une influence
+                                civilisatrice, quelqu’un qui prenne les rênes de la ville et y fasse régner la loi et l’ordre. Quelqu’un comme vous. Mais
+                                vous n’êtes pas le seul à avoir eu cette idée. En effet, un chevalier appelé Sildar Hallhiver est récemment parti pour
+                                Phandaline en compagnie d’un nain nommé Gundren Cherchepierre. Ils ont prévu de rouvrir une ancienne mine et de refaire de
+                                Phandaline une ville civilisée, riche et prospère. Dans la mesure où vous partagez les mêmes objectifs, Hallhiver devrait
+                                accepter de vous assister.
+                            </p>
+                        </div>
+                        <div>
+                            <p class="indent-4">
+                                <span class="font-titleMiddleAge text-xl text-red-900">Alignement : Loyal Neutre.</span>
+                                Il est essentiel de rétablir la loi et l’ordre, même s’il faut le faire avec une poigne de fer. L’honneur et la tradition
+                                engagent la noblesse à protéger le peuple qu’elle dirige contre les menaces internes et externes qui remettraient en cause
+                                la stabilité. Une société organisée ne permet pas au mal et au chaos de prendre racine.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </x-tab-item>
         </div>
     </div>

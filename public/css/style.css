@@ -15,8 +15,8 @@
     transform: rotateY(180deg);
 }
 @media (max-width: 320px) {
-    #grid-2col{
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+    #grid-2col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
 
     }
     .div-col2 {

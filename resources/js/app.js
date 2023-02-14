@@ -11,7 +11,7 @@ const tabElements = [
     { id: 'infos-tab', triggerEl: document.querySelector('#infos-tab'), targetEl: document.querySelector('#infos') },
     { id: 'stats-tab', triggerEl: document.querySelector('#stats-tab'), targetEl: document.querySelector('#stats') },
     { id: 'attaques-tab', triggerEl: document.querySelector('#attaques-tab'), targetEl: document.querySelector('#attaques') },
-    { id: 'maitrises-tab', triggerEl: document.querySelector('#maitrises-tab'), targetEl: document.querySelector('#maitrises') },
+    { id: 'competences-tab', triggerEl: document.querySelector('#competences-tab'), targetEl: document.querySelector('#competences') },
     { id: 'origine-tab', triggerEl: document.querySelector('#origine-tab'), targetEl: document.querySelector('#origine') }
 ];
 
@@ -22,4 +22,4 @@ const options = {
 };
 
 const tabs = new Tabs(tabElements, options);
-tabs.show('attaques-tab')
+tabs.show('infos-tab')
