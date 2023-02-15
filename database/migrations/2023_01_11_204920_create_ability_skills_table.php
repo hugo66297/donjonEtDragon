@@ -19,7 +19,7 @@ return new class extends Migration
             $table->primary(['ability_id','skill_id']);
             $table->foreignIdFor(Ability::class)->constrained();
             $table->foreignIdFor(Skill::class)->constrained();
-            $table->boolean('is_proficient');
+            $table->boolean('is_proficient')->default(false);
         });
     }
 

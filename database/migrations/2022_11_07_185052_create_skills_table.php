@@ -18,61 +18,80 @@ return new class extends Migration
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
             $table->string('name',191);
+            $table->foreignIdFor(Ability::class)->constrained();
         });
         Skill::insert([
-            'name' => 'Acrobaties'
+            'name' => 'Acrobaties',
+            'ability_id' => 2
          ]);
-         Skill::insert([
-            'name' => 'Arcanes'
-         ]);
-         Skill::insert([
-            'name' => 'Athlétisme'
-         ]);
-         Skill::insert([
-            'name' => 'Discrétion'
-         ]);
-         Skill::insert([
-            'name' => 'Dressage'
-         ]);
-         Skill::insert([
-            'name' => 'Escamotage'
-         ]);
-         Skill::insert([
-            'name' => 'Histoire'
-         ]);
-         Skill::insert([
-            'name' => 'Intimidation'
-         ]);
-         Skill::insert([
-            'name' => 'Investigation'
-         ]);
-         Skill::insert([
-            'name' => 'Médecine'
-         ]);
-         Skill::insert([
-            'name' => 'Nature'
-         ]);
-         Skill::insert([
-            'name' => 'Perception'
-         ]);
-         Skill::insert([
-            'name' => 'Perspicacité'
-         ]);
-         Skill::insert([
-            'name' => 'Persuasion'
-         ]);
-         Skill::insert([
-            'name' => 'Religion'
-         ]);
-         Skill::insert([
-            'name' => 'Représentation'
-         ]);
-         Skill::insert([
-            'name' => 'Supercherie'
-         ]);
-         Skill::insert([
-            'name' => 'Survie'
-         ]);
+        Skill::insert([
+            'name' => 'Arcanes',
+            'ability_id' => 4
+        ]);
+        Skill::insert([
+             'name' => 'Athlétisme',
+             'ability_id' => 1
+        ]);
+        Skill::insert([
+            'name' => 'Discrétion',
+            'ability_id' => 2
+        ]);
+        Skill::insert([
+            'name' => 'Dressage',
+            'ability_id' => 5
+        ]);
+        Skill::insert([
+            'name' => 'Escamotage',
+            'ability_id' => 2
+        ]);
+        Skill::insert([
+            'name' => 'Histoire',
+            'ability_id' => 4
+        ]);
+        Skill::insert([
+            'name' => 'Intimidation',
+            'ability_id' => 6
+        ]);
+        Skill::insert([
+            'name' => 'Investigation',
+            'ability_id' => 4
+        ]);
+        Skill::insert([
+            'name' => 'Médecine',
+            'ability_id' => 5
+        ]);
+        Skill::insert([
+            'name' => 'Nature',
+            'ability_id' => 4
+        ]);
+        Skill::insert([
+            'name' => 'Perception',
+            'ability_id' => 5
+        ]);
+        Skill::insert([
+            'name' => 'Perspicacité',
+            'ability_id' => 5
+        ]);
+        Skill::insert([
+            'name' => 'Persuasion',
+            'ability_id' => 6
+        ]);
+        Skill::insert([
+            'name' => 'Religion',
+            'ability_id' => 4
+        ]);
+        Skill::insert([
+            'name' => 'Représentation',
+            'ability_id' => 6
+        ]);
+        Skill::insert([
+            'name' => 'Supercherie',
+            'ability_id' => 6
+        ]);
+        Skill::insert([
+            'name' => 'Survie',
+            'ability_id' => 5
+        ]);
     }
 
     /**

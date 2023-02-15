@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',191)->nullable();
             $table->text('description');
-            $table->boolean('is_after');
+            $table->boolean('is_after')->default(false);
             $table->foreignIdFor(Race::class)->constrained();
         });
         Subrace::insert([

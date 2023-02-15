@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Personality extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     public function characters() {
         return $this->belongsToMany(Character::class);

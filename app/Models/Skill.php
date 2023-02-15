@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Skill extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     public function abilities() {
         return $this->belongsToMany(Ability::class);
+    }
+
+    public function ability() {
+        return $this->belongsTo(Ability::class);
     }
 }

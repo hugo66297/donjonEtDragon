@@ -1,4 +1,4 @@
-@props(['textColor','borderColor','name','modifier','value'])
+@props(['textColor', 'borderColor', 'name', 'modifier', 'value'])
 
 <div>
     <div class="rounded-lg border-2 {{$borderColor}} flex flex-col items-center p-2 pb-5 relative">

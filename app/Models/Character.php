@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Character extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     // One-to-one relationships
     public function goal() {

@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCharacterRequest;
+use App\Models\Ability;
+use App\Models\Alignment;
+use App\Models\Background;
 use App\Models\Category;
 use App\Models\Character;
+use App\Models\Race;
+use App\Models\Weapon;
 use Illuminate\Http\Request;
 
 class CharactersController extends Controller
@@ -17,7 +22,21 @@ class CharactersController extends Controller
 
     public function create()
     {
-        return view('characters.create');
+        $categories = Category::all();
+        $backgrounds = Background::all();
+        $races = Race::all();
+        $alignments = Alignment::all();
+        $abilities = Ability::all();
+        $weapons = Weapon::all();
+        return view('characters.create')
+            ->with(
+                compact('categories', 'backgrounds',
+                    'races',
+                    'alignments',
+                    'abilities',
+                    'weapons'
+                )
+            );
     }
 
     public function store(StoreCharacterRequest $request)

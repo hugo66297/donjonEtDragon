@@ -21,5 +21,5 @@ const options = {
     inactiveClasses: 'text-gray-500',
 };
 
-const tabs = new Tabs(tabElements, options);
-tabs.show('infos-tab')
+// const tabs = new Tabs(tabElements, options);
+// tabs.show('infos-tab')

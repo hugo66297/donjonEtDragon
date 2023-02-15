@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Adventure extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
+    protected $fillable = [
+      'name', 'abbreviation'
+    ];
 
     public function characters() {
         return $this->belongsToMany(Character::class);

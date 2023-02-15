@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Background extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+
+    protected $fillable = [
+      'name', 'description'
+    ];
 
     public function character() {
         return $this->belongsTo(Character::class);

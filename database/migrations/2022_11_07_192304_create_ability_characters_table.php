@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignIdFor(Ability::class)->constrained();
             $table->integer('ability_value')->default(0);
             $table->integer('modifier')->default(0);
-            $table->boolean('is_proficient');
+            $table->boolean('is_proficient')->default(false);
             $table->integer('other_modifier')->default(0);
         });
     }

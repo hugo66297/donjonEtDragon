@@ -19,7 +19,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main class="flex-1 bg-[#e7e7db]/[.2]">
+            <main class="flex flex-col flex-1 bg-[#e7e7db]/[.2]">
                 {{ $slot }}
             </main>
 
