@@ -35,7 +35,7 @@ return new class extends Migration
             'range' => '9 mètres',
             'component' => 'V, S, M (une pincée de limaille de fer)',
             'duration' => 'concentration,jusqu\'à 1 minute',
-            'description' => 'Vous agrandissez ou rétrécissez une créature ou un objet situé à portée et dans votre champ de vision pendant toute la durée du sort. Choisissez soit une créature, soit un objet qui n\'est ni porté ni transporté. Si la cible n\'est pas consentante, elle a droit à un jet de sauvegarde de Constitution. Si elle le réussit, le sort reste sans effet.\n Si la cible est une créature, tout ce qu\'elle porte et tout ce qu\'elle transporte change de taille avec elle. En revanche, si elle lâche un objet, il reprend sa taille normale sur-le-champ.\n <B>Agrandir.</B> La cible double dans toutes les dimensions, et son poids est multiplié par huit. Cette croissance augmente sa catégorie de taille d\'un cran, de Moyenne à Grande par exemple. Si la cible n\'a pas assez de place pour doubler de volume, elle atteint la taille maximale possible dans l\'espace dont elle dispose. Elle est avantagée lors des tests de Force et des jets de sauvegarde de Force jusqu\'à la fin du sort. Les armes de la cible grandissent pour s\'adapter à sa nouvelle taille. Tant qu\'elles sont ainsi agrandies, elles infligent ld4 dégâts de plus.\n <B>Rétrécir.</B> La cible réduit de moitié dans toutes les dimensions et son poids est divisé par huit. Ce rétrécissement réduit sa catégorie de taille d\'un cran, de Moyenne à Petite par exemple. La cible est désavantagée lors des tests de Force et des jets de sauvegarde de Force jusqu\'à la fin du sort. Les armes de la cible rétrécissent pour s\'adapter à sa nouvelle taille. Tant qu\'elles sont ainsi réduites, elles infligent ld4 dégâts de moins (mais cela ne peut pas faire passer les dégâts en dessous de 1).'
+            'description' => 'Vous agrandissez ou rétrécissez une créature ou un objet situé à portée et dans votre champ de vision pendant toute la durée du sort. Choisissez soit une créature, soit un objet qui n\'est ni porté ni transporté. Si la cible n\'est pas consentante, elle a droit à un jet de sauvegarde de Constitution. Si elle le réussit, le sort reste sans effet.\n Si la cible est une créature, tout ce qu\'elle porte et tout ce qu\'elle transporte change de taille avec elle. En revanche, si elle lâche un objet, il reprend sa taille normale sur-le-champ.\n <B>Agrandir.</B> La cible double dans toutes les dimensions, et son poids est multiplié par huit. Cette croissance augmente sa catégorie de taille d\'un cran, de Moyenne à Grande par exemple. Si la cible n\'a pas assez de place pour doubler de volume, elle atteint la taille maximale possible dans l\'espace dont elle dispose. Elle est avantagée lors des tests de Force et des jets de sauvegarde de Force jusqu\'à la fin du sort. Les armes de la cible grandissent pour s\'adapter à sa nouvelle taille. Tant qu\'elles sont ainsi agrandies, elles infligent 1d4 dégâts de plus.\n <B>Rétrécir.</B> La cible réduit de moitié dans toutes les dimensions et son poids est divisé par huit. Ce rétrécissement réduit sa catégorie de taille d\'un cran, de Moyenne à Petite par exemple. La cible est désavantagée lors des tests de Force et des jets de sauvegarde de Force jusqu\'à la fin du sort. Les armes de la cible rétrécissent pour s\'adapter à sa nouvelle taille. Tant qu\'elles sont ainsi réduites, elles infligent 1d4 dégâts de moins (mais cela ne peut pas faire passer les dégâts en dessous de 1).'
          ]);
          Spell::insert([
             'name' => 'Aide',
@@ -183,7 +183,7 @@ return new class extends Migration
             'range' => 'contact',
             'component' => 'V, S',
             'duration' => 'concentration,jusqu\'à 1 heure',
-            'description' => 'Vous touchez une arme non magique pour la rendre magique. Choisissez l\'un des types de dégâts suivants : acide, feu, foudre, froid ou tonnerre. Pendant toute la durée du sort, l\'arme bénéficie d\'un bonus de +l aux jets d\'attaque et inflige ld4 dégâts supplémentaires du type choisi.',
+            'description' => 'Vous touchez une arme non magique pour la rendre magique. Choisissez l\'un des types de dégâts suivants : acide, feu, foudre, froid ou tonnerre. Pendant toute la durée du sort, l\'arme bénéficie d\'un bonus de +l aux jets d\'attaque et inflige 1d4 dégâts supplémentaires du type choisi.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou 6, le bonus aux jets d\'attaque passe à +2 et les dégâts supplémentaires à 2d4. Quand vous utilisez un emplacement de sort de niveau 7 ou plus, le bonus passe à +3 et les dégâts supplémentaires à 3d4.'
          ]);
          Spell::insert([
@@ -205,8 +205,8 @@ return new class extends Migration
             'range' => '18 mètres',
             'component' => 'V, S',
             'duration' => '1 minute',
-            'description' => 'Vous créez à portée une arme spectrale flottante qui persiste pendant toute la durée du sort ou jusqu\'à ce que vous le lanciez de nouveau. Lors de l\'incantation, vous pouvez faire une attaque de sort au corps à corps contre une créature située dans un rayon de 1,50 mètre autour de l\'arme. Si vous touchez, la cible reçoit un montant de dégâts de force égal à ld8 + votre modificateur de caractéristique d\'incantation.\n À votre tour et par une action bonus, vous pouvez déplacer l\'arme d\'un maximum de 6 mètres et répéter l\'attaque contre une créature située dans un rayon de 1,50 mètre autour d\'elle.\n L\'arme peut revêtir la forme de votre choix. Les clercs des divinités associées à une arme particulière (comme St Cuthbert, connu pour sa masse ou Thor pour son marteau) font en sorte que l\'arme générée ressemble à l\'arme iconique de leur protecteur.',
-            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts augmentent de ld8 par niveau au-delà du 2e.'
+            'description' => 'Vous créez à portée une arme spectrale flottante qui persiste pendant toute la durée du sort ou jusqu\'à ce que vous le lanciez de nouveau. Lors de l\'incantation, vous pouvez faire une attaque de sort au corps à corps contre une créature située dans un rayon de 1,50 mètre autour de l\'arme. Si vous touchez, la cible reçoit un montant de dégâts de force égal à 1d8 + votre modificateur de caractéristique d\'incantation.\n À votre tour et par une action bonus, vous pouvez déplacer l\'arme d\'un maximum de 6 mètres et répéter l\'attaque contre une créature située dans un rayon de 1,50 mètre autour d\'elle.\n L\'arme peut revêtir la forme de votre choix. Les clercs des divinités associées à une arme particulière (comme St Cuthbert, connu pour sa masse ou Thor pour son marteau) font en sorte que l\'arme générée ressemble à l\'arme iconique de leur protecteur.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 2e.'
          ]);
          Spell::insert([
             'name' => 'Armure d\'Agathys',
@@ -237,7 +237,7 @@ return new class extends Migration
             'range' => 'personnelle',
             'component' => 'V',
             'duration' => 'instantanée',
-            'description' => 'Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous. Le temps ne s\'écoule plus pour les autres créatures tandis que vous disposez de ld4+1 tours d\'affilée, pendant lesquels vous pouvez faire des actions et vous déplacer normalement.\n Ce sort se termine si l\'une des actions que vous effectuez lors de ce laps de temps ou l\'un des effets que vous créez lors de ce laps de temps affecte une créature autre que vous ou un objet porté ou transporté par une créature autre que vous. Le sort se termine également si vous vous éloignez à plus de 300 mètres de l\'endroit où vous l\'avez lancé.'
+            'description' => 'Vous arrêtez brièvement le cours du temps pour tout le monde sauf vous. Le temps ne s\'écoule plus pour les autres créatures tandis que vous disposez de 1d4+1 tours d\'affilée, pendant lesquels vous pouvez faire des actions et vous déplacer normalement.\n Ce sort se termine si l\'une des actions que vous effectuez lors de ce laps de temps ou l\'un des effets que vous créez lors de ce laps de temps affecte une créature autre que vous ou un objet porté ou transporté par une créature autre que vous. Le sort se termine également si vous vous éloignez à plus de 300 mètres de l\'endroit où vous l\'avez lancé.'
          ]);
          Spell::insert([
             'name' => 'Aspersion acide',
@@ -247,7 +247,7 @@ return new class extends Migration
             'range' => '18 mètres',
             'component' => 'V, S',
             'duration' => 'instantanée',
-            'description' => 'Vous lancez une boule d\'acide. Choisissez une créature à portée, ou deux créatures à portée situées à 1,50 mètre ou moins l\'une de l\'autre. Une cible doit réussir un jet de sauvegarde de Dextérité, sinon elle subit ld6 dégâts d\'acide. Les dégâts du sort augmentent de ld6 quand vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).'
+            'description' => 'Vous lancez une boule d\'acide. Choisissez une créature à portée, ou deux créatures à portée situées à 1,50 mètre ou moins l\'une de l\'autre. Une cible doit réussir un jet de sauvegarde de Dextérité, sinon elle subit 1d6 dégâts d\'acide. Les dégâts du sort augmentent de 1d6 quand vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).'
          ]);
          Spell::insert([
             'name' => 'Assassin imaginaire',
@@ -258,7 +258,7 @@ return new class extends Migration
             'component' => 'V, S ',
             'duration' => 'concentration, jusqu\'à 1 minute',
             'description' => 'Vous puisez dans les cauchemars d\'une créature située à portée dans votre champ de vision pour créer une manifestation illusoire de ses pires terreurs, qu\'elle sera la seule à voir. La cible doit faire un jet de sauvegarde de Sagesse. Si elle le rate, elle est terrorisée pendant toute la durée du sort. Tant que le sort n\'est pas terminé, la cible doit faire un jet de sauvegarde de Sagesse à la fin de chacun de ses tours. Elle subit 4d10 dégâts psychiques à chaque échec. Le sort se termine dès qu\'elle réussit un jet de sauvegarde.',
-            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, les dégâts augmentent de ldlO par niveau au-delà du 4e.'
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, les dégâts augmentent de 1dlO par niveau au-delà du 4e.'
          ]);
          Spell::insert([
             'name' => 'Assistance',
@@ -268,7 +268,7 @@ return new class extends Migration
             'range' => 'contact',
             'component' => 'V, S',
             'duration' => 'concentration,jusqu\'à 1 minute',
-            'description' => 'Vous touchez une créature consentante. Une fois avant la fin du sort, la cible peut lancer ld4 et ajouter le chiffre obtenu au test de caractéristique de son choix. Elle peut lancer le dé avant ou après le test. Le sort se termine alors.'
+            'description' => 'Vous touchez une créature consentante. Une fois avant la fin du sort, la cible peut lancer 1d4 et ajouter le chiffre obtenu au test de caractéristique de son choix. Elle peut lancer le dé avant ou après le test. Le sort se termine alors.'
          ]);
          Spell::insert([
             'name' => 'Augure',
@@ -318,7 +318,7 @@ return new class extends Migration
             'range' => 'personnelle',
             'component' => 'V',
             'duration' => 'concentration,jusqu\'à 1 minute',
-            'description' => 'Une puissance sacrée émane de vous et forme une aura d\'un rayon de 9 mètres, réveillant la combativité de vos amis. L\'aura est centrée sur vous et se déplace avec vous jusqu\'à la fin du sort. Toutes les créatures non hostiles (y compris vous-même) situées en son sein infligent ld4 dégâts radiants de plus quand elles touchent une cible avec une attaque armée.'
+            'description' => 'Une puissance sacrée émane de vous et forme une aura d\'un rayon de 9 mètres, réveillant la combativité de vos amis. L\'aura est centrée sur vous et se déplace avec vous jusqu\'à la fin du sort. Toutes les créatures non hostiles (y compris vous-même) situées en son sein infligent 1d4 dégâts radiants de plus quand elles touchent une cible avec une attaque armée.'
          ]);
          Spell::insert([
             'name' => 'Aura magique de Nystul',
@@ -341,16 +341,35 @@ return new class extends Migration
             'description' => 'Une lumière divine émane de votre personne et forme un doux halo qui vous enveloppe dans un rayon de 9 mètres. Les créatures de votre choix se trouvant dans ce rayon au moment où vous lancez ce sort émettent une faible lumière dans un rayon de 1,50 mètre. De plus, jusqu\'à la fin du sort, elles sont avantagées lors des jets de sauvegarde tandis que les autres créatures sont désavantagées quand elles effectuent un jet d\'attaque contre elles. Quand un fiélon ou un mort-vivant touche une créature affectée avec une attaque au corps à corps, l\'aura qui enveloppe la créature flamboie soudain. L\'assaillant doit réussir un jet de sauvegarde de Constitution ou se retrouver aveugle jusqu\'à la fin du sort.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Bagou',
+            'school' => 'Transmutation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => '1 heure',
+            'description' => 'Jusqu\'à la fin du sort, chaque fois que vous faites un test de Charisme, vous pouvez remplacer le nombre obtenu au dé par un 15. De plus, quoi que vous disiez, la magie visant à déterminer si vous dites la vérité vous croit toujours sincère.'
+         ]);
+         Spell::insert([
+            'name' => 'Baies nourricières',
+            'school' => 'Transmutation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (un brin de gui)',
+            'duration' => 'instantanée',
+            'description' => 'Jusqu\'à dix baies apparaissent dans votre main. Elles sont imprégnées de magie pendant une journée. Une créature peut utiliser son action pour manger une baie, ce qui lui rend un point de vie et la nourrit pour la journée. Les baies perdent leurs propriétés si personne ne les mange dans les 24 heures qui suivent l\'incantation.'
+         ]);
+         Spell::insert([
+            'name' => 'Balisage',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => '1 round',
+            'description' => 'Un rayon de lumière frappe une créature de votre choix située à portée. Faites un jet d\'attaque de sort à distance contre elle. Si vous touchez, elle subit 4d6 dégâts radiants et scintille d\'une faible lumière mystique jusqu\'à la fin de votre prochain tour. D\'ici là et grâce à cette lueur, le prochain jet d\'attaque effectué contre elle est avantagé.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d6 par niveau au-delà du 1er.'
          ]);
          Spell::insert([
             'name' => '',
@@ -365,64 +384,141 @@ return new class extends Migration
             'upper_lvl' => ''
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Bannissement',
+            'school' => 'Abjuration',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un objet qui répugne à la cible)',
+            'duration' => 'concentration,jusqu\'à 1 minute',
+            'description' => 'Vous tentez d\'envoyer une créature située dans votre champ de vision dans un autre plan d\'existence. Elle doit réussir un jet de sauvegarde de Charisme ou se faire bannir.\n Si la cible est native du plan d\'existence sur lequel vous vous trouvez, vous l\'exilez dans un demi-plan inoffensif. Elle est neutralisée tant qu\'elle se trouve là-bas et y reste jusqu\'à la fin du sort. À ce moment, elle réapparaît à l\'endroit qu\'elle a quitté ou dans l\'emplacement inoccupé le plus proche si son emplacement de départ est occupé.\n Si la cible est originaire d\'un plan d\'existence autre que celui sur lequel vous vous trouvez, une légère détonation accompagne son retour de force sur son plan d\'origine. Si le sort se termine avant qu\'une minute ne se soit écoulée, la cible réapparaît à l\'endroit qu\'elle a quitté ou dans l\'emplacement inoccupé le plus proche si son emplacement de départ est occupé. Sinon, elle ne revient pas.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, vous pouvez viser une créature de plus par niveau au-delà du 4e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Barrière de lames',
+            'school' => 'Évocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration,jusqu\'à 10 minutes',
+            'description' => 'Vous créez un mur vertical constitué de lames toumoyantes faites d\'énergie magique et tranchantes comme des rasoirs. Le mur apparaît à portée et persiste pour toute la durée du sort. Vous pouvez créer un mur droit d\'un maximum de 30 mètres de long, 6 mètres de haut et 1,50 mètre d\'épaisseur, ou un mur circulaire d\'un maximum de 18 mètres de diamètre, 6 mètres de haut et 1,50 mètre d\'épaisseur. Le mur offre un abri important aux créatures qui se trouvent derrière lui, et son espace est traité comme un terrain difficile.\n Quand une créature pénètre dans la zone du mur pour la première fois au cours de son tour ou quand elle commence son tour dans cette zone, elle doit faire un jet de sauvegarde de Dextérité. Si elle le rate, elle subit 6d10 dégâts tranchants; si elle le réussit, elle en reçoit seulement la moitié.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Bénédiction',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un peu d\'eau bénite à asperger)',
+            'duration' => 'concentration,jusqu\'à 1 minute',
+            'description' => 'Vous bénissez jusqu\'à trois créatures de votre choix situées à portée. Quand une cible fait un jet d\'attaque ou de sauvegarde avant la fin du sort, elle lance 1d4 et ajoute le montant obtenu au jet d\'attaque ou de sauvegarde.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, vous pouvez affecter une créature de plus par niveau au-delà du ler.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Blessure',
+            'school' => 'Nécromancie',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Faites une attaque de sort au corps à corps contre une créature située à une distance inférieure ou égale à votre allonge. Si vous la touchez, elle subit 3d10 dégâts nécrotiques.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d10 par niveau au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Bouche magique',
+            'school' => 'Illusion',
+            'level' => 2,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 minute',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un rayon de miel et de la poussière de jade d\'une valeur de 10 po, que le sort consume)',
+            'duration' => 'jusqu\'à dissipation',
+            'description' => 'Vous implantez un message dans un objet situé à portée. On entend le message dès que les conditions le déclenchant sont remplies. Choisissez un objet situé dans votre champ de vision qui n\'est ni porté ni transporté par une autre créature.Prononcez ensuite le message, qui doit se composer de 25 mots au maximum, mais peut se répéter pendant un maximum de 10 minutes. Enfin, déterminez les circonstances dans lesquelles Je message s\'activera.\n Quand les conditions de déclenchement sont remplies, une bouche magique apparaît sur l\'objet et récite le message avec la même voix que vous et au volume où vous l\'avez prononcé. Si l\'objet choisi possède une bouche ou quelque chose qui y ressemble (comme la bouche d\'une statue), la bouche magique apparaît de manière à donner l\'impression que les paroles sortent des lèvres de l\'objet. Lors de l\'incantation, vous pouvez décider que le sort se termine une fois le message transmis ou qu\'il reste actif et répète le message chaque fois que les conditions de déclenchement sont remplies.\n Ces dernières peuvent être aussi génériques ou spécifiques que vous le désirez, mais elles doivent se baser sur des données visuelles ou audibles, perceptibles dans un rayon de 9 mètres autour de l\'objet. Par exemple, vous pouvez ordonner à la bouche de parler dès qu\'une créature approche à 9 mètres ou moins de l\'objet ou quand une cloche d\'argent retentit dans un rayon de 9 mètres.'
+         ]);
+         Spell::insert([
+            'name' => 'Bouclier',
+            'school' => 'Abjuration',
+            'level' => 1,
+            'cast_time' => '1 réaction à effectuer lorsque vous êtes touché par une attaque ou un sort de projectile magique',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => '1 round',
+            'description' => 'Une barrière invisible faite de force magique apparaît autour de vous et vous protège. Jusqu\'au début de votre prochain tour, vous avez un bonus de +5 à la CA, y compris contre l\'attaque qui a déclenché l\'incantation du sort, et vous ne subissez aucun dégât de la part de projectile magique.'
+         ]);
+         Spell::insert([
+            'name' => 'Bouclier de feu',
+            'school' => 'Évocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (un morceau de phosphore ou une luciole)',
+            'duration' => '10 minutes',
+            'description' => 'De fines volutes de flammes enveloppent votre corps pendant toute la durée du sort, émettant une vive lumière dans un rayon de 3 mètres et une faible lumière dans un rayon de 3 mètres de plus. Vous pouvez mettre un terme prématuré au sort en utilisant une action.\n Les flammes vous offrent un bouclier chaud ou froid, comme bon vous semble. Le bouclier chaud vous apporte une résistance contre les dégâts de froid, le bouclier froid une résistance contre les dégâts de feu.\n De plus, quand une créature située dans un rayon de 1,50 mètre autour de vous vous touche avec une attaque au corps à corps, le bouclier génère une gerbe de flammes. Si le bouclier est chaud, il inflige 2d8 dégâts de feu à l\'assaillant, s\'il est froid, il lui inflige 2d8 dégâts de froid.'
+         ]);
+         Spell::insert([
+            'name' => 'Bouclier de la foi',
+            'school' => 'Abjuration',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un petit parchemin avec un extrait de texte sacré)',
+            'duration' => 'concentration,jusqu\'à 10 minutes',
+            'description' => 'Un champ scintillant apparaît autour d\'une créature de votre choix située à portée et lui donne un bonus de +2 à la CA pendant toute la durée du sort.'
+         ]);
+         Spell::insert([
+            'name' => 'Bouffée de poison',
+            'school' => 'Invocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous tendez la main en direction d\'une créature située à portée dans votre champ de vision et projetez une bouffée de gaz toxique sortie de votre paume. La créature doit réussir un jet de sauvegarde de Constitution ou subir 1d12 dégâts de poison.\n Les dégâts du sort augmentent de 1d12 quand vous atteignez le niveau 5 (2d12), le niveau 11 (3d12) et le niveau 17 (4d12).'
+         ]);
+         Spell::insert([
+            'name' => 'Boule de feu',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S, M (une petite boule de guano de chauve-souris et du soufre)',
+            'duration' => 'instantanée',
+            'description' => 'Une traînée luisante part de votre doigt tendu et file vers un point de votre choix situé à portée et dans votre champ de vision, où elle explose dans une gerbe de flammes grondantes. Chaque créature située dans une sphère de 6 mètres de rayon centrée sur ce point doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 8d6 dégâts de feu, les autres la moitié seulement.\n Le feu s\'étend en contournant les angles. Il embrase les objets inflammables de la zone, à moins que quelqu\'un ne les porte ou ne les transporte.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts augmentent de 1d6 par niveau au-delà du 3e.'
+         ]);
+         Spell::insert([
+            'name' => 'Boule de feu à explosion retardée',
+            'school' => 'Évocation',
+            'level' => 7,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S, M (une petite boule de guano de chauvesouris et du soufre)',
+            'duration' => 'concentration,jusqu\'à 1 minute',
+            'description' => 'Un rayon de lumière jaune jaillit de votre doigt tendu et se condense pour former une bille luisante en un point de votre choix situé à portée pendant toute la durée du sort. Quand le sort se termine, soit parce que votre concentration se brise, soit parce que vous y mettez volontairement un terme, la bille se dilate dans un grondement sourd et explose en une gerbe de feu qui s\'étend en franchissant les angles éventuels. Toutes les créatures situées dans une sphère de 6 mètres de rayon centrée sur le point où se trouvait la bille doivent faire un jet de sauvegarde de Dextérité. Celles qui échouent reçoivent un montant de dégâts de feu égal au total de dégâts accumulés (voir plus loin), les autres reçoivent la moitié de ce montant seulement.\n De base, le sort inflige 12d6 dégâts de feu. À la fin de votre tour, si la bille n\'a pas encore explosé, ces dégâts augmentent de 1d6.\n Si quelqu\'un touche la bille avant la fin de l\'intervalle, il doit faire un jet de sauvegarde de Dextérité. S\'il échoue, le sort se termine immédiatement et la bille explose. S\'il réussit, il peut lancer la bille à une distance maximale de 12 mètres. Si elle touche un objet solide ou une créature, le sort se termine et la bille explose.\n Les flammes endommagent les objets qui se trouvent dans la zone et embrasent les objets inflammables qui ne sont ni portés ni transportés.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 8 ou plus, les dégâts de base augmentent de 1d6 par niveau au-delà du 7e.'
+         ]);
+         Spell::insert([
+            'name' => 'Bourrasque',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (ligne de 18 mètres)',
+            'component' => 'V, S, M (une graine de légume)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Une zone de vent fort de 18 mètres de long sur 3 de large souffle depuis votre position dans la direction que vous avez choisie pendant toute la durée du sort. Chaque créature commençant son tour dans la zone doit réussir un jet de sauvegarde de Force, sans quoi elle est repoussée de 4,50 mètres à l\'opposé de vous, dans la direction où souffle le vent.\n Une créature qui se trouve dans la zone doit dépenser 60 centimètres de mouvement pour se rapprocher de vous de 30 centimètres.\n La bourrasque disperse les gaz et les vapeurs et éteint les bougies, les torches et autres flammes nues similaires dans la zone. Les flammes protégées, par une lanterne par exemple, s\'agitent follement et ont 50% de chance de s\'éteindre.\n Vous pouvez changer la direction dans laquelle souffle la bourrasque par une action bonus à chacun de vos tours jusqu\'à la fin du sort.'
+         ]);
+         Spell::insert([
+            'name' => 'Briser',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un éclat de mica)',
+            'duration' => 'instantanée',
+            'description' => 'Un bruit retentit soudain avec une intensité douloureuse, à partir d\'un point situé à portée. Chaque créature située dans une sphère de 3 mètres de rayon centrée sur ce point doit faire un jet de sauvegarde de Constitution. Les créatures qui le ratent subissent 3d8 dégâts de tonnerre, les autres la moitié seulement. Une créature faite de matière inorganique, comme de la pierre, du cristal ou du métal est désavantagée sur ce jet de sauvegarde.\n Un objet non magique que personne ne porte ni ne transporte subit aussi ces dégâts s\'il se trouve dans la zone du sort.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 2e.'
          ]);
          Spell::insert([
             'name' => '',
