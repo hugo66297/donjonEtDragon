@@ -643,7 +643,7 @@ return new class extends Migration
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (un diadème de jade d\'une valeur minimale de 1 500 po, que vous devez coiffer avant de lancer le sort)',
-            'duration' => 'concentration,jusqu\'à 1 heure',
+            'duration' => 'concentration, jusqu\'à 1 heure',
             'description' => 'Vous prenez la forme d\'une créature différente pendant toute la durée du sort. Vous pouvez revêtir l\'apparence de n\'importe quelle créature dotée d\'un indice de dangerosité égal ou inférieur au vôtre. En revanche, vous ne pouvez pas vous changer en une créature artificielle ni en mort-vivant, et vous devez avoir vu au moins une fois la créature que vous imitez. Vous vous changez en un spécimen ordinaire de cette créature, sans niveau de classe et sans le trait incantation.\n Vos statistiques de jeu sont remplacées par celles de la créature choisie, mais vous conservez votre alignement et vos valeurs d\'intelligence, de Sagesse et de Charisme. Vous gardez également vos compétences et vos maîtrises de jet de sauvegarde, en plus de gagner celles de la créature. Si elle possède les mêmes maîtrises que vous, mais que son bonus est plus élevé, utilisez-le à la place du vôtre. Vous ne pouvez pas utiliser les actions d\'antre ni les actions légendaires de la créature.\n Vous adoptez les dés de vie et les points de vie de votre nouvelle forme. Quand vous reprenez votre forme normale, vous revenez au nombre de points de vie qui était le vôtre avant de vous transformer. Si vous reprenez votre forme normale parce que vous êtes tombé à 0 point de vie, les dégâts en surplus sont déduits des points de vie de votre forme normale. Tant que ces dégâts ne font pas tomber les points de vie de votre forme normale à 0, vous n\'êtes pas inconscient.\n Vous conservez les avantages de vos pouvoirs de race, de classe et autre et vous êtes toujours en mesure de les utiliser, à condition que votre nouvelle forme soit physiquement capable de le faire. Vous ne pouvez pas utiliser vos sens spéciaux (comme la vision dans le noir), à moins que votre nouvelle forme n\'en soit aussi dotée. Vous pouvez parler uniquement si votre nouvelle forme en est normalement capable.\n Quand vous vous transformez, vous choisissez si votre équipement tombe au sol, s\'il fusionne avec votre nouvelle forme ou si cette nouvelle forme le porte sur elle, auquel cas il fonctionne normalement. C\'est au MD de déterminer si la nouvelle forme peut porter une pièce d\'équipement, en fonction de sa taille et de sa morphologie. Votre équipement ne change pas de forme ni de taille pour s\'accorder à votre nouvelle forme ; si cette dernière ne peut s\'en accommoder, l\'équipement ou certaines pièces d\'équipement tombent à terre ou fusionnent avec votre nouvelle silhouette. L\'équipement fusionné ne génère aucun effet.\n Pendant la durée du sort, vous pouvez utiliser votre action pour prendre une nouvelle forme répondant aux mêmes critères et aux mêmes règles que précédemment, à une exception : si votre nouvelle forme possède plus de points de vie que la précédente, votre nombre de points de vie reste tel qu\'il était.'
          ]);
          Spell::insert([
@@ -1222,52 +1222,57 @@ return new class extends Migration
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5, la durée devient « concentration, jusqu\'à 10 minutes ». Si vous lancez ce sort en utilisant un emplacement de niveau 6, la durée devient « concentration, jusqu\'à 1 heure ». Si vous lancez ce sort en utilisant un emplacement de niveau 7, la durée devient « concentration, jusqu\'à 8 heures ».'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Domination de monstre',
+            'school' => 'Enchantement',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous tentez d\'envoûter une créature située à portée dans votre champ de vision. Elle doit réussir un jet de sauvegarde de Sagesse, sans quoi vous la charmez pendant toute la durée du sort. Elle est avantagée lors du jet de sauvegarde si vous ou des créatures amicales envers vous êtes en train de la combattre.\n Tant que la créature est charmée, vous entretenez un lien télépathique avec elle qui persiste tant que vous vous trouvez sur le même plan d\'existence. Vous pouvez utiliser ce lien télépathique pour donner des ordres à cette créature tant que vous êtes conscient (ce qui ne vous demande pas d\'action). Elle fait de son mieux pour vous obéir. Vous pouvez lui donner un ordre simple et générique, comme « attaque cette créature », « cours jusque là-bas » ou « va chercher cet objet ». Si elle ne reçoit pas de nouvelles instructions de votre part une fois l\'ordre exécuté, elle se contente de se défendre et de se préserver au mieux.\n Vous pouvez utiliser votre action pour prendre le contrôle total de votre cible et la diriger de façon précise. Jusqu\'à la fin de votre prochain tour, elle exécute seulement les actions que vous choisissez et ne fait rien que vous ne lui ayez autorisé. Pendant cette période, vous pouvez aussi lui faire exécuter une réaction, mais pour cela, vous devez également dépenser votre propre réaction.\n Chaque fois que la cible subit des dégâts, elle a droit à un nouveau jet de sauvegarde de Sagesse contre le sort. Si elle le réussit, le sort prend fin.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 9, la durée devient « concentration, jusqu\'à 8 heures ».'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Domination de personne',
+            'school' => 'Enchantement',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous tentez d\'envoûter un humanoïde situé à portée et dans votre champ de vision. Il doit réussir un jet de sauvegarde de Sagesse, sans quoi vous le charmez pendant toute la durée du sort. Il est avantagé lors du jet de sauvegarde si vous ou des créatures amicales envers vous êtes en train de le combattre.\n Tant que l\'humanoïde est charmé, vous entretenez un lien télépathique avec lui qui persiste tant que vous vous trouvez sur le même plan d\'existence. Vous pouvez utiliser ce lien télépathique pour donner des ordres à cette créature tant que vous êtes conscient (ce qui ne vous demande pas d\'action). Elle fait de son mieux pour vous obéir. Vous pouvez lui donner un ordre simple et générique, comme « attaque cette créature », « cours jusque là-bas » ou « va chercher cet objet ». Si elle ne reçoit pas de nouvelles instructions de votre part une fois l\'ordre exécuté, elle se contente de se défendre et de se préserver au mieux.\n Vous pouvez utiliser votre action pour prendre le contrôle total de votre cible et la diriger de façon précise. Jusqu\'à la fin de votre prochain tour, elle exécute seulement les actions que vous choisissez et ne fait rien que vous ne lui ayez autorisé. Pendant cette période, vous pouvez aussi lui faire exécuter une réaction, mais pour cela, vous devez également dépenser votre propre réaction.\n Chaque fois que la cible subit des dégâts, elle a droit à un nouveau jet de sauvegarde de Sagesse contre le sort. Si elle le réussit, le sort prend fin.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un  emplacement de niveau 6, la durée devient « concentration, jusqu\'à 10 minutes ». Si vous lancez ce sort en utilisant un emplacement de niveau 7, la durée devient « concentration, jusqu\'à 1 heure ». Si vous lancez ce sort en utilisant un emplacement de niveau 8 ou plus la durée devient « concentration, jusqu\'à 8 heures ».'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Doux repos',
+            'school' => 'Nécromancie',
+            'level' => 2,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une pincée de sel et une pièce de cuivre à poser sur chaque œil du cadavre et qui doivent rester en place pendant toute la durée du sort)',
+            'duration' => '10 jours',
+            'description' => 'Vous touchez un cadavre ou assimilé. Pendant toute la durée du sort, la cible est protégée contre la décomposition et ne peut pas se transformer en mort-vivant.\n Le sort rallonge aussi la période pendant laquelle on peut rappeler la cible d\'entre les morts, car les jours passés sous l\'influence de ce sort ne sont pas décomptés de la période pendant laquelle on peut utiliser des sorts comme relever les morts.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Druidisme',
+            'school' => 'Transmutation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous créez l\'un des effets suivants à portée après quelques murmures adressés aux esprits de la nature.\n Vous créez un effet sensoriel minuscule et inoffensif qui annonce le temps qu\'il fera là où vous vous trouvez pendant les 24 heures à venir. Cet effet peut prendre la forme d\'un orbe doré si le temps va rester dégagé, d\'un nuage s\'il va pleuvoir, de flocons s\'il va neiger, etc. L\'effet persiste pendant 1 round.\n Vous faites instantanément éclore une fleur ou un bourgeon ou germer une graine.\n Vous créez un effet sensoriel instantané inoffensif, comme des feuilles qui tombent, un coup de vent, le bruit que ferait un petit animal ou une légère odeur de moufette. L\'effet doit être contenu dans un cube d\'au maximum 1,50 mètre d\'arête.\n Vous allumez ou éteignez instantanément une chandelle, une torche ou un petit feu de camp.'
+         ]);
+         Spell::insert([
+            'name' => 'Duel forcé',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => '9 mètres',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous poussez une créature à vous affronter en duel. Une créature située à portée dans votre champ de vision doit faire un jet de sauvegarde de Sagesse. Si elle le rate, vous l\'obnubilez et elle ne peut résister à votre injonction divine. Pendant toute la durée du sort, elle est désavantagée lors des jets d\'attaque effectués contre toute créature autre que vous et doit faire un jet de sauvegarde de Sagesse chaque fois qu\'elle tente de s\'éloigner à plus de 9 mètres de vous. Si elle réussit ce jet de sauvegarde, le sort ne gêne pas ses mouvements pour ce tour.\n Le sort se termine si vous attaquez une créature autre que celle visée par ce sort, si vous lancez un sort sur une créature hostile autre qu\'elle, si une créature amicale envers vous la blesse ou lui lance un sort néfaste ou si vous terminez votre tour à plus de 9 mètres d\'elle.'
          ]);
          Spell::insert([
             'name' => '',
