@@ -1275,6 +1275,169 @@ return new class extends Migration
             'description' => 'Vous poussez une créature à vous affronter en duel. Une créature située à portée dans votre champ de vision doit faire un jet de sauvegarde de Sagesse. Si elle le rate, vous l\'obnubilez et elle ne peut résister à votre injonction divine. Pendant toute la durée du sort, elle est désavantagée lors des jets d\'attaque effectués contre toute créature autre que vous et doit faire un jet de sauvegarde de Sagesse chaque fois qu\'elle tente de s\'éloigner à plus de 9 mètres de vous. Si elle réussit ce jet de sauvegarde, le sort ne gêne pas ses mouvements pour ce tour.\n Le sort se termine si vous attaquez une créature autre que celle visée par ce sort, si vous lancez un sort sur une créature hostile autre qu\'elle, si une créature amicale envers vous la blesse ou lui lance un sort néfaste ou si vous terminez votre tour à plus de 9 mètres d\'elle.'
          ]);
          Spell::insert([
+            'name' => 'Éclair',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (ligne de 30 mètres)',
+            'component' => 'V, S, M (un peu de fourrure et une baguette en ambre, en cristal ou en verre)',
+            'duration' => 'instantanée',
+            'description' => 'Un éclair formant une ligne de 30 mètres de long pour 1,50 mètre de large jaillit de votre personne et file dans la direction de votre choix. Chaque créature située sur la ligne doit faire un jet de sauvegarde de Dextérité. Celles qui échouentsubissent 8d6 dégâts de foudre, les autres la moitié seulement.\n La foudre embrase les objets inflammables de la zone qui ne sont ni portés ni transportés par une créature.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts augmentent de ld6 par niveau au-delà du 3e.'
+         ]);
+         Spell::insert([
+            'name' => 'Éclat du soleil',
+            'school' => 'Évocation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S, M (du feu et un éclat d\'héliotrope)',
+            'duration' => 'instantanée',
+            'description' => 'La chaude lumière du soleil illumine une zone de 18 mètres de rayon centrée sur un point de votre choix situé à portée. Chaque créature présente dans cette lumière doit faire un jet de sauvegarde de Constitution. Celles qui échouent subissent 12d6 dégâts radiants et sont aveuglées pendant 1 minute. Les autres subissent seulement la moitié des dégâts et ne sont pas aveuglées par le sort. Les vases et les morts-vivants sont désavantagés lors de ce jet de sauvegarde.\n Une créature aveuglée par le sort fait un autre jet de Constitution à la fin de chacun de ses tours. Dès qu\'elle réussit, sa cécité disparaît.\n Ce sort dissipe toutes les ténèbres présentes dans la zone qui sont issues d\'un sort.'
+         ]);
+         Spell::insert([
+            'name' => 'Embruns prismatiques',
+            'school' => 'Évocation',
+            'level' => 7,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (cône de 18 mètres)',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Huit rayons de lumière multicolores jaillissent de votre main. Chacun a une couleur différente et possède des pouvoirs et objectifs distincts. Chaque créature présente dans un cône de 18 mètres doit faire un jet de sauvegarde de Dextérité. Lancez 1d8 par cible pour savoir quelle couleur l\'affecte.\n <B>1.Rouge.</B> La cible subit 10d6 dégâts de feu si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit.\n <B>2.Orange.</B> La cible subit 10d6 dégâts d\'acide si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit.\n <B>3.Jaune.</B> La cible subit 10d6 dégâts de foudre si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit.\n <B>4.Vert.</B> La cible subit 10d6 dégâts de poison si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit.\n <B>5.Bleu.</B> La cible subit 10d6 dégâcs de froid si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit.\n <B>6.Indigo.</B> Si la cible rate son jet de sauvegarde, elle est entravée et doit alors faire un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle en réussit trois, le sort se termine, si elle en rate trois, elle se change définitivement en pierre et elle est en proie à l\'état pétrifié. Les succès et les échecs n\'ont pas à être consécutifs : tenez le compte dans chaque catégorie jusqu\'à ce que l\'une d\'elles arrive à trois.\n <B>7.Violet.</B> La cible est aveugle si elle rate son jet de sauvegarde. Elle doit alors faire un jet de sauvegarde de Sagesse au début de votre prochain tour. Si elle le réussit, elle recouvre la vue, si elle le rate, elle est emportée sur un autre plan d\'existence choisi par le MD et recouvre aussi la vue. (En général, une créature qui ne se trouve pas sur son propre plan d\'existence est bannie là-bas tandis que les autres créatures sont envoyées sur le plan astral ou éthéré).\n <B>8.Spécial.</B> Deux rayons viennent frapper la cible. Relancez deux fois le dé en le relançant chaque fois que vous sortez un 8.'
+         ]);
+         Spell::insert([
+            'name' => 'Emprisonnement',
+            'school' => 'Abjuration',
+            'level' => 9,
+            'cast_time' => '1 minute',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un portrait sur un vélin ou une statuette sculptée à l\'effigie de la cible et une composante spéciale qui varie en fonction de la version du sort choisie et vaut au moins 500 po par dé de vie de la cible)',
+            'duration' => 'jusqu\'à dissipation',
+            'description' => 'Vous créez des entraves magiques pour immobiliser une créature située à portée dans votre champ de vision. La cible doit réussir un jet de sauvegarde de Sagesse ou se retrouver emprisonnée par le sort. Si elle réussit, elle est immunisée contre ce sort si vous le lancez de nouveau. Tant que la créature est affectée par le sort, elle n\'a pas besoin de respirer, de manger, ni de boire et ne vieillit plus. Les sorts de divination ne parviennent plus à la localiser ni à la percevoir.\n Vous devez opter pour l\'une des formes d\'emprisonnement suivantes quand vous lancez le sort.\n <B>Enseveli.</B> La cible est ensevelie dans les profondeurs de la terre, dans une sphère de force magique tout juste assez grande pour la contenir. Rien ne peut traverser cette sphère et les créatures ne peuvent pas recourir au voyage planaire pour y entrer ou en sortir.\n La composante spéciale de cette version du sort est un petit orbe en mithral.\n <B>Enchaîné.</B> La cible est retenue par de lourdes chaînes fermement ancrées au sol. Elle est entravée jusqu\'à ce que le sort se termine et, jusque-là, elle ne peut pas se déplacer ni être déplacée, par quelque moyen que ce soit.\n La composante spéciale de cette version du sort est une fine chaîne faite de métal précieux.\n <B>Prison isolée.</B> Le sort transporte la cible dans un minuscule demi-plan protégé contre la téléportation et les voyages planaires. Ce demi-plan peut être un labyrinthe, une cage, une tour ou une structure confinée similaire de votre choix.\n La composante spéciale de cette version du sort est une représentation miniature de la prison, faite de jade.\n <B>Confinement minimal.</B> La cible rétrécit jusqu\'à ne plus faire que 2,5 centimètres de haut et se retrouve emprisonnée dans une gemme ou un objet similaire. La lumière traverse la gemme normalement (ce qui permet à la cible de voir l\'extérieur et aux autres créatures de regarder dedans) mais rien d\'autre ne peut traverser sa paroi, pas même les méthodes de téléportation ni les voyages planaires. Il est impossible de tailler la gemme ou de la briser tant que le sort fait effet.\n La composante spéciale de cette version du sort est une grande gemme transparente comme un corindon, un diamant ou un rubis.\n <B>Sommeil.</B> La cible s\'endort et il est impossible de la réveiller.\n La composante spéciale de cette version du sort est un bouquet d\'herbes soporifiques très rares.\n <B>Mettre fin au sort.</B> Lors de l\'incantation et quelle que soit la version du sort, vous pouvez préciser une condition spéciale qui met fin au sort et libère la cible. Cette condition peut être aussi spécifique ou aussi élaborée que vous le désirez, mais le MD doit confirmer que cette condition est réalisable et a une chance d\'être remplie. Elle peut se baser sur le nom de la créature, son identité ou sa divinité, mais sinon elle doit reposer sur des actions ou des qualités observables et non sur des éléments intangibles comme le niveau, la classe ou les points de vie.\n Dissipation de la magie peut mettre fin au sort à condition d\'être lancée depuis un emplacement de sort de niveau 9 en visant la prison ou la composante matérielle spéciale utilisée pour lancer le sort.\n Vous pouvez utiliser une composante spéciale pour créer une prison à la fois seulement. Si vous relancez ce sort en utilisant la même composante, la cible de la première incantation est libérée sur-le-champ.'
+         ]);
+         Spell::insert([
+            'name' => 'Enchevêtrement',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Des herbes et des lianes entremêlées jaillissent du sol dans un carré de 6 mètres de côté centré sur un point à portée. Pendant toute la durée du sort, les végétaux transforment la zone en terrain difficile.\n Une créature qui se trouve dans la zone affectée lorsque vous lancez le sort doit réussir un jet de sauvegarde de Force, sans quoi elle reste entravée dans les plantes jusqu\'à ce que le sort se termine. Une créature entravée peut utiliser une action pour faire un test de Force contre le DD du sort. Si elle réussit, elle se libère.\n Quand le sort se termine, les plantes invoquées se flétrissent.'
+         ]);
+         Spell::insert([
+            'name' => 'Entrave planaire',
+            'school' => 'Abjuration',
+            'level' => 5,
+            'cast_time' => '1 heure',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un bijou d\'une valeur minimale de 1 000 po, que le sort consume)',
+            'duration' => '24 heures',
+            'description' => 'Grâce à ce sort, vous vous attachez de force les services d\'un céleste, d\'un élémentaire, d\'une fée ou d\'un fiélon. La créature doit se trouver à portée pendant toute la durée du sort. (En général, elle est d\'abord invoquée au centre d\'un cercle magique inversé où elle reste piégée le temps de l\'incantation). La cible doit faire un jet de sauvegarde de Charisme à la fin de l\'incantation. Si elle échoue, elle est contrainte de vous servir pendant toute la durée du sort. Si elle a été invoquée ou créée via un autre sort, la durée de ce dernier se prolonge jusqu\'à égaler celle de l\'entrave planaire.\n La créature liée doit suivre vos instructions au mieux de ses capacités. Vous pouvez lui demander de vous accompagner lors d\'une aventure, de protéger un lieu ou de transmettre un message. La créature obéit à vos instructions à la lettre, mais si elle est hostile envers vous, elle peut tout à fait interpréter vos paroles de manière à satisfaire ses propres objectifs. Si la créature a exécuté vos instructions avant la fin du sort, elle revient vers vous pour vous en informer si elle se trouve sur le même plan d\'existence que vous. Si vous êtes sur un autre plan, elle se rend là où vous l\'avez liée et y reste jusqu\'à la fin du sort.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau supérieur, la durée augmente: 10 jours au niveau 6, 30 au niveau 7, 180 au niveau 8 et un an et un jour au niveau 9.'
+         ]);
+         Spell::insert([
+            'name' => 'Envoi de message',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'illimitée',
+            'component' => 'V, S, M (un petit bout de fil de cuivre)',
+            'duration' => '1 round',
+            'description' => 'Vous envoyez un court message d\'au maximum 25 mots à une créature qui vous est familière. Elle entend le message dans son esprit, sait que c\'est vous qui le lui avez envoyé si elle vous connaît, et peut vous répondre immédiatement de la même manière. Le sort permet aux créatures dotées d\'une Intelligence minimale de 1 de comprendre le sens de votre message.\n Vous pouvez envoyer votre message à n\'importe quelle distance et même sur un autre plan d\'existence, mais si la cible est sur un autre plan, il y a 5% de chances que le message n\'arrive pas à destination.'
+         ]);
+         Spell::insert([
+            'name' => 'Envoûtement',
+            'school' => 'Enchantement',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => '1 minute',
+            'description' => 'Vous entonnez une suite de paroles envoûtantes qui obligent les créatures de votre choix qui vous entendent et sont situées à portée et dans votre champ de vision à faire un jet de sauvegarde de Sagesse. Une créature qui ne peut pas être charmée réussit automatiquement ce jet de sauvegarde. Si vous ou vos compagnons vous battez contre une de ces créatures, elle est avantagée lors du jet de sauvegarde. Si la créature rate son jet, elle est désavantagée lors des tests de Sagesse (Perception) destinés à percevoir une créature autre que vous jusqu\'à ce que le sort se termine ou jusqu\'à ce qu\'elle ne puisse plus vous entendre. Le sort se termine si vous êtes neutralisé ou dans l\'incapacité de parler.'
+         ]);
+         Spell::insert([
+            'name' => 'Épargner les mourants',
+            'school' => 'Nécromancie',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez une créature vivante à 0 point de vie, ce qui la stabilise. Ce sort n\'a aucun effet sur les morts-vivants et les créatures artificielles.'
+         ]);
+         Spell::insert([
+            'name' => 'Épée de Mordenkainen',
+            'school' => 'Évocation',
+            'level' => 7,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (une épée en platine miniature avec le pommeau et la poignée en cuivre et zinc, d\'une valeur de 250 po)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez un plan de force en forme d\'épée qui plane à portée et persiste pendant toute la durée du sort.\n Dès que l\'épée apparaît, vous faites une attaque de sort au corps à corps contre une cible de votre choix située dans un rayon de 1,50 mètre autour de l\'épée. Si l\'épée touche, la cible subit 3d10 dégâts de force. Tant que le sort n\'est pas terminé, vous pouvez dépenser une action bonus à chacun de vos tours pour déplacer l\'épée d\'un maximum de 6 mètres afin de la conduire à un endroit situé dans votre champ de vision, puis répéter l\'attaque contre la même cible ou une autre.'
+         ]);
+         Spell::insert([
+            'name' => 'Esprit faible',
+            'school' => 'Enchantement',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S, M (une poignée de sphères en argile, en cristal, en verre ou minérales)',
+            'duration' => 'instantanée',
+            'description' => 'Vous vous attaquez à l\'esprit d\'une créature située à portée dans votre champ de vision en essayant de briser son intellect et sa personnalité. La cible subit 4d6 dégâts psychiques et doit faire un jet de sauvegarde d\'Intelligence.\n Si la cible rate son jet, son Intelligence et son Charisme tombent à 1. Elle ne peut plus lancer de sorts, activer d\'objet magique, comprendre une langue, ni communiquer de manière intelligible. En revanche, elle est toujours capable de reconnaître ses amis, de les suivre et même de les protéger.\n La créature peut refaire un jet de sauvegarde tous les 30 jours. Le sort se termine dès qu\'elle réussit.\n On peut mettre un terme à ce sort avec restauration supérieure, guérison ou souhait.'
+         ]);
+         Spell::insert([
+            'name' => 'Esprit impénétrable',
+            'school' => 'Abjuration',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => '24 heures',
+            'description' => 'Vous touchez une créature consentante et, jusqu\'à la fin du sort, vous l\'immunisez contre les dégâts psychiques, les effets percevant les émotions ou révélant les pensées, les sorts de divination et l\'état charmé. Ce sort déjoue même les souhaits et les sorts et effets de même puissance qui cherchent à affecter l\'esprit de la cible ou à obtenir des informations sur elle.'
+         ]);
+         Spell::insert([
+            'name' => 'Esprits gardiens',
+            'school' => 'Invocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (4,50 mètres de rayon)',
+            'component' => 'V, S, M (un symbole sacré)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous appelez des esprits qui vous protègent. Ils volètent autour de vous dans un rayon de 4,50 mètres pendant toute la durée du sort. Si vous êtes Bon ou Neutre, ils ont une apparence angélique ou féerique (à vous de choisir). Si vous êtes Mauvais, ils ont une apparence fiélone.\n Quand vous lancez le sort, vous pouvez désigner autant de créatures que vous le voulez afin qu\'il ne les affecte pas. Une créature affectée voit sa vitesse réduite de moitié dans la zone et, quand elle y entre pour la première fois de son tour ou quand elle y commence son tour, elle doit faire un jet de sauvegarde de Sagesse. Si elle échoue, elle subit 3d8 dégâts radiants (si vous êtes Bon ou Neutre) ou 3d8 dégâts nécrotiques (si vous êtes Mauvais). Si elle réussit son jet de sauvegarde, elle subit seulement la moitié de ces dégâts.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 3e.'
+         ]);
+         Spell::insert([
+            'name' => 'Étrangeté',
+            'school' => 'Illusion',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous puisez dans les peurs les plus profondes d\'un groupe de créatures et créez des êtres illusoires dans leur esprit, qu\'elles sont les seules à voir. Chaque créature située dans une sphère de 9 mètres de rayon centrée sur un point de votre choix situé à portée doit faire un jet de sauvegarde de Sagesse. Celles qui ratent leur jet sont terrorisées pendant toute la durée. Les illusions se basent sur les peurs enfouies en chaque cible et transforment leurs pires cauchemars en menace implacable.\n À la fin de chacun de ses tours, une créature terrorisée doit faire un jet de sauvegarde de Sagesse. Si elle échoue elle subit 4d10 dégâts psychiques; si elle réussit, le sort se termine pour elle.'
+         ]);
+         Spell::insert([
+            'name' => 'Éveil',
+            'school' => 'Transmutation',
+            'level' => 5,
+            'cast_time' => '8 heures',
+            'range' => 'contact',
+            'component' => 'V, S, M (une agate d\'une valeur minimale de 1 000 po, que le sort consomme)',
+            'duration' => 'instantanée',
+            'description' => 'Une fois que vous avez passé la durée de l\'incantation à tracer des sentiers magiques dans une pierre précieuse, vous touchez un animal ou une plante de taille Très Grande ou inférieure qui doivent être dépourvus de toute valeur d\'intelligence ou posséder une Intelligence de 3 ou moins. La cible reçoit alors une Intelligence de 10 et la possibilité de parler un langage de votre connaissance. Si la cible est une plante, elle peut se déplacer à l\'aide de ses branches, de ses racines, de ses lianes, de ses vrilles ou autre et gagne des sens similaires à ceux d\'un humain. C\'est au MD de choisir les statistiques appropriées à la plante éveillée, en lui appliquant par exemple le profil d\'un buisson ou d\'un arbre éveillé.\n La bête ou la plante éveillée est sous votre charme pendant 30 jours ou jusqu\'à ce que vous ou l\'un de vos compagnons la blessiez. Une fois que l\'effet de charme se termine, la créature éveillée décide seule si elle reste amicale envers vous, selon la façon dont vous l\'avez traitée lorsqu\'elle était charmée.'
+         ]);
+         Spell::insert([
+            'name' => 'Explosion occulte',
+            'school' => 'Évocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Un éclair d\'énergie crépitante file vers une créature à portée. Faites un jet d\'attaque de sort à distance contre la cible. Si vous réussissez, elle subit 1d10 dégâts de force.\n Le sort crée des rayons supplémentaires quand vous atteignez certains niveaux : il lance deux rayons au niveau 5, trois au niveau 11 et quatre au niveau 17. Vous pouvez diriger tous les rayons sur une même cible ou les répartir entre plusieurs. Faites un jet d\'attaque distinct pour chaque rayon.'
+         ]);
+         Spell::insert([
             'name' => '',
             'school' => '',
             'level' => 0,
@@ -1286,6 +1449,535 @@ return new class extends Migration
             'description' => '',
             'upper_lvl' => ''
          ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+
 
 
     }
