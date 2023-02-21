@@ -1438,340 +1438,295 @@ return new class extends Migration
             'description' => 'Un éclair d\'énergie crépitante file vers une créature à portée. Faites un jet d\'attaque de sort à distance contre la cible. Si vous réussissez, elle subit 1d10 dégâts de force.\n Le sort crée des rayons supplémentaires quand vous atteignez certains niveaux : il lance deux rayons au niveau 5, trois au niveau 11 et quatre au niveau 17. Vous pouvez diriger tous les rayons sur une même cible ou les répartir entre plusieurs. Faites un jet d\'attaque distinct pour chaque rayon.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Fabrication',
+            'school' => 'Transmutation',
+            'level' => 4,
+            'cast_time' => '10 minutes',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous convertissez des matériaux bruts en produits finis faits de la même matière. Par exemple, vous pouvez fabriquer un pont de bois à partir de souches d\'arbres, une corde à base d\'un tas de chanvre, et des habits à partir de lin ou de laine.\n Choisissez des matériaux bruts situés à portée et dans votre champ de vision. Vous pouvez fabriquer un objet de taille Grande ou inférieure (contenu dans un cube de 3 mètres de côté ou dans huit cubes reliés de 1,50 mètre de côté) à condition d\'avoir assez de matière première. Toutefois, si vous travaillez avec du métal, de la pierre ou une autre substance minérale, l\'objet fabriqué ne doit pas dépasser la taille Moyenne (donc tenir dans un cube de 1,50 mètre de côté). La qualité de l\'objet fabriqué dépend de celle des matières premières.\n Il est impossible de créer ou de transmuter des créatures ou des objets magiques à l\'aide de ce sort. Vous ne pouvez pas non plus y recourir pour fabriquer des objets demandant un haut degré d\'expertise, comme des bijoux, des armes, du verre ou une armure, à moins que vous ne soyez formé à l\'utilisation des outils d\'artisanat nécessaires à l\'élaboration de tels objets.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Façonnage de la pierre',
+            'school' => 'Transmutation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (argile molle, à façonner pour lui donner approximativement la forme de l\'objet de pierre désiré)',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez un objet de pierre de taille Moyenne ou inférieure ou une section de pierre d\'un maximum de 1,50 mètre dans toutes les dimensions et lui donnez la forme que vous désirez. Vous pouvez, par exemple, façonner un gros caillou de manière à en faire une arme, une idole ou un coffre, ou bien creuser un étroit passage dans un mur, à condition que ce dernier ne fasse pas plus de 1,50 mètre d\'épaisseur. Vous pouvez façonner une porte de pierre ou son chambranle pour la sceller. L\'objet créé peut avoir au maximum deux charnières et un loquet, mais il est impossible de créer des mécanismes plus complexes.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Faveur divine',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vos prières vous imprègnent d\'une aura radieuse. Jusqu\'à la fin du sort, les attaques que vous portez avec une arme infligent 1d4 dégâts radiants supplémentaires en cas de coup au but.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Feindre la mort',
+            'school' => 'Nécromancie',
+            'level' => 3,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une pincée de poussière tombale)',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez une créature consentante et la plongez dans un état cataleptique si profond qu\'elle semble morte.\n Pendant toute la durée du sort ou jusqu\'à ce que vous utilisiez une action pour toucher la cible et révoquer le sort, la cible paraît morte, même suite à un examen externe ou après utilisation d\'un sort visant à déterminer son statut. Elle est aveuglée et neutralisée et sa vitesse passe à 0. Elle est résistante à tous les types de dégâts hormis les dégâts psychiques. Si elle est empoisonnée ou malade au moment où vous lancez le sort ou si elle le devient pendant la durée du sort, la maladie ou le poison n\'a aucun effet tant que ce sort n\'est pas terminé.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Festin des héros',
+            'school' => 'Invocation',
+            'level' => 6,
+            'cast_time' => '10 minutes',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un bol incrusté de gemmes d\'une valeur minimale de 1 000 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous matérialisez un grand festin, comprenant des boissons et des mets de grande qualité. Il faut une heure pour terminer le festin qui disparaît au bout de cette durée. Ses effets bénéfiques se manifestent uniquement une fois cette heure écoulée. Douze créatures au maximum peuvent vous accompagner lors de ce repas.\n Une créature qui participe au festin bénéficie de plusieurs avantages. Elle est guérie de toutes les maladies et de tous les poisons qui l\'affectaient, elle est immunisée contre le poison et l\'état terrorisé, et elle est avantagée lors de tous ses jets de sauvegarde de Sagesse. Son maximum de points de vie augmente de 2d10 et elle gagne le même nombre de points de vie. Ces avantages persistent pendant 24 heures.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Flamme éternelle',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (poussière de rubis d\'une valeur de 50 po, que le sort consume)',
+            'duration' => 'jusqu\'à dissipation',
+            'description' => 'Une flamme à la luminosité égale à celle d\'une torche embrase soudain l\'objet que vous touchez. L\'effet du sort ressemble à une flamme ordinaire, mais ne dégage pas de chaleur et ne consomme pas d\'oxygène. On peut couvrir ou cacher la flamme éternelle, mais pas l\'étouffer ni l\'éteindre avec de l\'eau.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Flamme sacrée',
+            'school' => 'Évocation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Un flamboiement digne d\'une flamme s\'abat sur une créature située à portée dans votre champ de vision. La cible doit réussir un jet de Dextérité ou subir 1d8 dégâts radiants. Même si elle se trouve derrière un abri, la cible n\'est pas avantagée lors du jet de sauvegarde.\n Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Fléau',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (une goutte de sang)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Trois créatures de votre choix au maximum, toutes situées à portée et dans votre champ de vision, sont contraintes de faire un jet de sauvegarde de Charisme. Dès qu\'une cible qui a raté ce jet effectue un jet d\'attaque ou de sauvegarde alors que le sort n\'est pas terminé, elle doit lancer 1d4 et soustraire le nombre obtenu de son jet d\'attaque ou de sauvegarde.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, vous pouvez viser une créature de plus par niveau au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Fléau d\'insectes',
+            'school' => 'Invocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '90 mètres',
+            'component' => 'V, S, M (un peu de sucre en poudre, quelques graines de céréales et une tache de graisse)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Un essaim de sauterelles grouillantes remplit une sphère de 6 mètres de rayon centrée sur un point de votre choix situé à portée. La sphère s\'étend en contournant les angles et persiste pendant toute la durée du sort. La visibilité est réduite dans la zone affectée. L\'intérieur de la sphère devient un terrain difficile.\n Quand la sphère d\'insectes apparaît, chaque créature prise à l\'intérieur doit faire un jet de sauvegarde de Constitution. Une créature subit 4d10 dégâts perforants si elle rate son jet, la moitié seulement si elle le réussit. Une créature doit faire le même jet quand elle entre dans la sphère pour la première fois de son tour ou quand elle y termine son tour.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, les dégâts augmentent de 1d10 par niveau au-delà du 5e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Flèche acide de Melf',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (poudre de feuille de rhubarbe et estomac de vipère)',
+            'duration' => 'instantanée',
+            'description' => 'Une flèche d\'un vert chatoyant file vers une cible située à portée et explose en une gerbe d\'acide. Faites une attaque de sort à distance contre la cible. Si vous touchez, la cible reçoit 4d4 dégâts d\'acide immédiatement et 2d4 dégâts d\'acide à la fin de son prochain tour. Si vous ne touchez pas, l\'acide éclabousse la cible et lui inflige la moitié des dégâts initiaux, mais aucun à la fin de son prochain tour.',
+            'upper_lvl' => 'Quand vous utilisez ce sort via un emplacement de niveau 3 ou plus, les dégâts initiaux et secondaires augmentent de ld4 par niveau au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Flèche de foudre',
+            'school' => 'Transmutation',
+            'level' => 3,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Lors de la prochaine attaque que vous effectuez avec une arme à distance pendant que ce sort est actif, la munition (ou l\'arme s\'il s\'agit d\'une arme de jet) se change en éclair. Faites un jet d\'attaque ordinaire. Si vous touchez, la cible subit 4d8 dégâts de foudre au lieu des dégâts normaux, la moitié si vous la ratez.\n Que vous touchiez ou ratiez votre cible, toutes les créatures situées dans un rayon de 3 mètres autour d\'elle doivent faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 2d8 dégâts de foudre, les autres la moitié seulement.\n La munition ou l\'arme de jet reprend ensuite sa forme normale.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts dus à chacun des deux effets du sort augmentent de ld8 par emplacement de sort au-delà du 3e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Flétrissement',
+            'school' => 'Nécromancie',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'L\'énergie nécromantique inonde une créature de votre choix située à portée dans votre champ de vision, et draine ses fluides corporels et sa vitalité. La cible doit faire un jet de sauvegarde de Constitution. Si elle échoue, elle reçoit 8d8 dégâts nécrotiques, la moitié seulement si elle réussit son jet. Ce sort n\'a aucun effet sur les morts-vivants ou les créatures artificielles.\n Si vous visez une créature végétale ou une plante magique, elle est désavantagée lors du jet de sauvegarde et le sort lui inflige le maximum de dégâts possible.\n Si vous visez une plante non magique qui n\'est pas une créature, comme un arbre ou un buisson, elle n\'a pas droit au moindre jet de sauvegarde, mais se flétrit et meurt.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 4e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Flou',
+            'school' => 'Illusion',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Votre corps devient flou, il ondule et vacille comme une flamme aux yeux d\'autrui. Pendant toute la durée du sort, les créatures sont désavantagées lorsqu\'elles font un jet d\'attaque contre vous. Un attaquant est immunisé contre cet effet s\'il ne se repose pas sur sa vue, s\'il dispose de vision aveugle par exemple, ou s\'il peut percer les illusions à jour, avec vision parfaite.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Force fantasmagorique',
+            'school' => 'Illusion',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un peu de laine)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous façonnez une illusion et l\'implantez dans l\'esprit d\'une créature située à portée dans votre champ de vision. Elle doit faire un jet de sauvegarde d\'intelligence. Si elle échoue, vous créez un objet, une créature ou un phénomène visible fantasmagorique de votre choix. L\'illusion doit tenir dans un cube de 3 mètres d\'arête. La cible est seule à la percevoir, et ce pendant toute la durée du sort. Ce dernier ne fonctionne pas contre les morts-vivants ni les créatures artificielles.\n L\'illusion comprend des bruits, une température et d\'autres stimuli, mais, de même, la cible du sort est la seule à les percevoir.\n La cible peut utiliser une action pour examiner l\'illusion avec un test d\'intelligence (Investigation) contre le DD du jet de sauvegarde de votre sort. Si elle réussit son test, elle comprend qu\'elle a affaire à une simple illusion et le sort se termine.\n Tant que la cible est sous l\'effet du sort, elle traite l\'illusion comme un élément réel et invente une explication rationnelle aux résultats illogiques issus de ses interactions avec elle. Par exemple, si elle tente de traverser un pont fantasmagorique enjambant un ravin et tombe dès qu\'elle pose le pied sur ce pont, si elle survit à la chute, elle croit toujours que le pont est réel et trouve une explication logique à sa chute : on l\'a poussée, elle a glissé, une forte bourrasque l\'a fait basculer...\n Une cible affectée croit si fort à la réalité de l\'illusion que cette dernière peut même la blesser. Une illusion créée à l\'image d\'une créature peut attaquer la cible. De même, une illusion représentant du feu, un bassin d\'acide ou une nappe de lave peut brûler la cible. À chaque round, à votre tour, votre illusion inflige ld6 dégâts psychiques à la cible si elle se trouve au sein de l\'illusion ou dans un rayon de 1,50 mètre autour d\'elle et que cette illusion représente une créature ou un danger qui devrait logiquement la blesser, en l\'attaquant par exemple. La cible perçoit les dégâts comme étant d\'un type approprié à l\'illusion qu\'elle voit.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Forme éthérée',
+            'school' => 'Transmutation',
+            'level' => 7,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'jusqu\'à 8 heures',
+            'description' => 'Vous pénétrez dans la région frontalière du plan éthéré, dans une zone où il chevauche votre plan actuel. Vous restez sur la Frontière éthérée pendant toute la durée du sort ou jusqu\'à ce que vous utilisiez une action pour y mettre fin. Pendant cette période, vous pouvez vous déplacer dans n\'importe quelle direction. Si vous optez pour un déplacement vers le haut ou le bas, le prix du mouvement est doublé, chaque mètre de déplacement vous coûtant un mètre supplémentaire. Vous voyez et entendez ce qui se passe sur le plan d\'où vous venez, mais tout y est gris et vous ne voyez plus rien au-delà de 18 mètres.\n Une fois sur le plan éthéré, vous pouvez affecter uniquement des créatures situées sur ce plan et elles sont les seules à pouvoir vous affecter. Celles qui ne se trouvent pas sur ce plan ne vous perçoivent pas et sont incapables d\'interagir avec vous, à moins qu\'un pouvoir spécial ou magique ne le leur permette.\n Les objets et effets qui ne se trouvent pas sur le plan éthéré n\'ont aucune incidence sur vous, ce qui vous permet de traverser des objets que vous apercevez sur le plan d\'où vous venez.\n Quand le sort se termine, vous retournez immédiatement sur le plan d\'où vous venez, à l\'endroit que vous occupez actuellement. Si vous occupez le même emplacement qu\'un objet solide ou une créature lorsque cela se produit, vous êtes immédiatement projeté dans l\'espace inoccupé le plus proche susceptible de vous accueillir et subissez un montant de dégâts de force égal à 6,5 x le nombre de mètres sur lesquels vous avez été projeté.\n Ce sort n\'a aucun effet si vous le lancez alors que vous vous trouvez sur le plan éthéré ou sur un plan non limitrophe, comme les plans extérieurs.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 8 ou plus, vous pouvez affecter jusqu\'à trois créatures consentantes (vous y compris) par niveau au-delà du 7e. Toutes ces créatures doivent se trouver dans un rayon de 3 mètres autour de vous quand vous lancez le sort.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Forme gazeuse',
+            'school' => 'Transmutation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (un morceau de gaze et une volute de fumée)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous touchez une créature consentante et la transformez, ainsi que tous les objets qu\'elle porte et qu\'elle transporte, en nuage brumeux pour toute la durée du sort. Ce dernier se termine si la créature tombe à 0 point de vie. Le sort n\'affecte pas les créatures intangibles.\n Sous cette forme, la cible n\'a plus qu\'un seul mode de déplacement : le vol, à une vitesse de 3 mètres. Elle peut entrer dans l\'espace d\'une autre créature et l\'occuper. Elle est résistante aux dégâts non magiques et elle est avantagée lors des jets de sauvegarde de Force, de Dextérité et de Constitution. Elle peut passer à travers de petits trous, de minces ouvertures et même de simples fissures. En revanche, les liquides équivalent pour elle à des surfaces solides. Elle ne peut pas tomber et continue de flotter dans les airs même si elle est étourdie ou neutralisée.\n Sous forme de nuage brumeux, la cible ne peut pas parler ni manipuler d\'objet. Il lui est impossible de lâcher les objets qu\'elle portait et qu\'elle transportait et personne ne peut les utiliser ni interagir avec eux. Elle ne peut pas attaquer ni lancer de sort.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Formes animales',
+            'school' => 'Transmutation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 24 heure',
+            'description' => 'Votre magie change autrui en animal. Choisissez autant de créatures consentantes, à portée et dans votre champ de vision que vous désirez. Vous transformez chacune d\'entre elles en bête de taille Grande ou inférieure dotée d\'un indice de dangerosité de 4 ou moins. Lors de vos tours suivants, vous pouvez dépenser votre action pour transformer les créatures affectées en d\'autres animaux.\n La transformation persiste pour chaque cible pendant toute la durée du sort ou jusqu\'à ce que la cible tombe à 0 point de vie ou meure. Vous pouvez attribuer une forme différente à chaque cible. Les statistiques de jeu de la cible sont remplacées par celles de l\'animal choisi, bien qu\'elle conserve son alignement, son Intelligence, sa Sagesse et son Charisme. La cible adopte les points de vie de sa nouvelle forme et, quand elle reprend son apparence normale, elle se retrouve avec le même nombre de points de vie que celui qu\'elle avait avant sa transformation. Si elle recouvre sa forme normale suite à un passage à 0 point de vie, les dégâts en excès sont reportés sur les points de vie de sa forme normale. Tant que ces dégâts en excès ne réduisent pas les points de vie de la forme normale de la cible à 0, elle ne tombe pas inconsciente. Les actions de la créature transformée sont limitées par la nature de sa nouvelle apparence et elle ne peut ni parler ni lancer de sorts.\n L\'équipement de la cible fusionne avec sa nouvelle forme, mais elle ne peut pas activer ni manier la moindre pièce d\'équipement et ne bénéficie pas des avantages qui en découlent habituellement.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Fou rire de Tasha',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (de minuscules tartes et une plume à agiter dans les airs)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Une créature de votre choix située à portée dans votre champ de vision trouve soudain tout ce qui l\'entoure d\'une drôlerie hilarante et succombe à un fou rire irrépressible dès que ce sort l\'affecte. Elle doit réussir un jet de sauvegarde de Sagesse ou se retrouver à terre, neutralisée et incapable de se relever pendant toute la durée du sort. Ce sort n\'affecte pas les créatures dotées d\'une Intelligence de 4 ou moins.\n À la fin de chacun de ses tours et chaque fois qu\'elle subit des dégâts, la cible a droit à un nouveau jet de sauvegarde de Sagesse. Elle est avantagée lors de ce jet si ce sont des dégâts qui l\'ont provoqué. Si la cible le réussit, le sort se termine.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Fouet épineux',
+            'school' => 'Transmutation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (une tige de plante épineuse)',
+            'duration' => 'instantanée',
+            'description' => 'Vous créez un long fouet semblable à une liane couverte d\'épines. Sur votre ordre, il frappe une créature à portée. Faites une attaque de sort au corps à corps contre la cible. Si vous touchez, la créature subit ld6 dégâts perforants et, si la créature est de taille Grande ou inférieure, vous l\'attirez sur 3 mètres dans votre direction.\n Les dégâts du sort augmentent de ld6 quand vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe ardente',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Lors de la prochaine attaque armée qui vous permet de toucher une créature pendant la durée du sort, votre arme flamboie, comme chauffée à blanc, et l\'attaque inflige 1d6 dégâts de feu supplémentaires. Elle embrase également la cible qui doit faire un jet de sauvegarde de Constitution au début de chacun de ses tours jusqu\'à la fin du sort. Si elle échoue, elle subit 1d6 dégâts de feu, si elle réussit le sort se termine. Si la cible ou une créature située dans un rayon de 1,50 mètre autour d\'elle utilise une action pour éteindre les flammes ou si un effet les étouffe (si la cible est plongée dans l\'eau par exemple), le sort se termine.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts initiaux augmentent de 1d6 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe assommante',
+            'school' => 'Évocation',
+            'level' => 4,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Lors de la prochaine attaque armée qui vous permet de toucher une créature pendant la durée du sort, votre arme transperce le corps et l\'esprit de la cible et lui inflige 4d6 dégâts psychiques supplémentaires. La cible doit faire un jet de sauvegarde de Sagesse. Si elle échoue, elle est désavantagée lors des jets d\'attaque et de caractéristique et ne peut pas utiliser de réaction avant la fin de son prochain tour.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe aveuglante',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'La prochaine attaque armée qui vous permet de toucher une créature avant la fin de ce sort voit votre arme briller d\'une vive lumière et inflige 3d8 dégâts radiants de plus à votre cible. De plus, la cible doit réussir un jet de sauvegarde de Constitution, sans quoi elle est aveuglée jusqu\'à la fin du sort.\n Une créature aveuglée par ce sort a droit à un nouveau jet de sauvegarde de Constitution à la fin de chacun de ses tours. Dès qu\'elle en réussit un, elle n\'est plus aveuglée.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe colérique',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Lorsque vous touchez une cible avec une attaque armée au corps à corps pour la première fois pendant la durée de ce sort, votre attaque inflige 1d6 dégâts psychiques supplémentaires. De plus, si la cible est une créature, elle doit réussir un jet de sauvegarde de Sagesse, sans quoi elle est terrorisée à votre vue jusqu\'à ce que le sort se termine. Par une action, elle peut faire un jet de sauvegarde de Sagesse contre le DD du jet de sauvegarde de votre sort pour rassembler son courage et mettre fin au sort.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe du bannissement',
+            'school' => 'Abjuration',
+            'level' => 5,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'La prochaine attaque armée qui vous permet de toucher une créature avant la fin de ce sort voit votre arme crépiter d\'énergie et inflige 5d10 dégâts de force à votre cible. De plus, si cette attaque réduit la cible à 50 pv ou moins, elle la bannit. Si la cible est originaire d\'un plan d\'existence différent de celui sur lequel vous vous trouvez, elle disparaît, renvoyée dans son plan d\'origine. Si elle est originaire du plan sur lequel vous vous trouvez, elle disparaît dans un demi-plan inoffensif. Elle est neutralisée tant qu\'elle s\'y trouve, c\'est-à-dire jusqu\'à la fin du sort. À ce moment, elle réapparaît à l\'emplacement qu\'elle a quitté ou dans l\'emplacement le plus proche si le précédent est occupé.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe lumineuse',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'La prochaine attaque armée qui vous permet de toucher une créature avant la fin de ce sort voit votre arme briller d\'une lumière astrale et inflige 2d6 dégâts radiants de plus à votre cible, qui devient visible si elle était invisible et émet une faible lumière dans un rayon de 1,50 mètre jusqu\'à la fin du sort. Elle ne peut plus devenir invisible pendant toute cette durée.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts supplémentaires augmentent de 1d6 par emplacement de sort au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe piégeuse',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'La prochaine attaque armée, faite avant la fin de ce sort, qui vous permet de toucher une créature fait jaillir une masse grouillante de lianes épineuses au point d\'impact. La cible doit réussir un jet de sauvegarde de Force, sans quoi elle est entravée jusqu\'à la fin du sort. Une créature de taille Grande ou supérieure est avantagée sur ce jet de sauvegarde. Si la cible réussit son jet de sauvegarde, les lianes se flétrissent.\n Tant que la cible est entravée par le sort, elle subit 1d6 dégâts perforants au début de chacun de ses tours. Une créature entravée par les lianes peut utiliser son action pour faire un jet de sauvegarde de Force contre le DD du jet de sauvegarde de votre sort. Une créature suffisamment proche de la cible pour la toucher peut aussi effectuer ce jet. Si le jet est réussi, la cible est libérée.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d6 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Frappe tonitruante',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Lorsque vous touchez une cible avec une attaque armée au corps à corps pour la première fois pendant la durée de ce sort, votre arme fait retentir un fracas tonitruant audible dans un rayon de 90 mètres autour de vous, et l\'attaque inflige 2d6 dégâts de tonnerre supplémentaires. De plus, si la cible est une créature, elle doit réussir un jet de sauvegarde de Force ou se trouver repoussée sur 3 mètres à l\'opposé de votre position et tomber à terre.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Fusion dans la pierre',
+            'school' => 'Transmutation',
+            'level' => 3,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => '8 heures',
+            'description' => 'Vous entrez dans un objet ou une surface de pierre assez grande pour contenir entièrement votre corps, votre personne et votre équipement fusionnant avec la pierre pendant toute la durée du sort. Vous utilisez votre déplacement pour entrer dans la pierre en un point que vous êtes en mesure de toucher. Il ne reste alors rien de visible ni de détectable indiquant votre présence pour des sens non magiques.\n Tant que vous êtes fusionné avec la pierre, vous ne voyez pas ce qui se passe à l\'extérieur et vous êtes désavantagé lors des tests de Sagesse (Perception) destinés à entendre les sons qui retentissent à l\'extérieur de la pierre. Vous restez conscient du temps qui passe et vous pouvez lancer des sorts sur votre propre personne. Vous pouvez utiliser votre déplacement pour quitter la pierre par l\'endroit par où vous y êtes entré, ce qui met fin au sort. En dehors de cela, vous êtes dans l\'incapacité de vous déplacer.\n Vous n\'êtes pas blessé si la pierre subit des dégâts mineurs, mais si elle est partiellement détruite ou change de forme (au point que vous ne tenez plus entièrement à l\'intérieur), elle vous expulse et vous subissez 6d6 dégâts contondants. Si la pierre est complètement détruite (ou transmutée en une substance différente), elle vous expulse et vous subissez 50 dégâts contondants. Si vous vous faites expulser de la pierre, vous vous retrouvez à terre dans l\'emplacement inoccupé le plus proche de celui par lequel vous êtes entré dans la roche.'
          ]);
          Spell::insert([
             'name' => '',
