@@ -1824,28 +1824,25 @@ return new class extends Migration
             'description' => 'Un flot d\'énergie curative émane de vous et enveloppe les créatures blessées qui vous entourent. Vous rendez jusqu\'à 700 points de vie, divisés comme bon vous semble entre autant de créatures situées à portée et dans votre champ de vision que vous le voulez. Le sort débarrasse aussi les créatures qu\'il guérit de leurs maladies et des effets qui les rendent sourdes ou aveugles. Ce sort n\'a aucun effet sur les morts-vivants ni sur les créatures artificielles.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Hâte',
+            'school' => 'Transmutation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un copeau de racine de réglisse)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Choisissez une créature consentante située à portée dans votre champ de vision. Jusqu\'à la fin du sort, la cible voit sa vitesse doubler, gagne un bonus de +2 à la CA, est avantagée lors des jets de sauvegarde de Dextérité et dispose d\'une action de plus par tour. Cette action est uniquement réservée aux actions suivantes : attaquer (une attaque à l\'arme seulement), se précipiter, se désengager, se cacher ou utiliser un objet.\n Quand le sort se termine, la cible ne peut pas se déplacer ni effectuer une action avant que son prochain tour ne se soit écoulé, car une vague de léthargie déferle sur elle.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Héroïsme',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous imprégnez une créature consentante que vous touchez de courage. Jusqu\'à la fin du sort, elle est immunisée contre l\'état terrorisé et, au début de chacun de ses tours, elle gagne un montant de points de vie temporaires égal à votre modificateur de caractéristique d\'incantation. Quand le sort se termine la cible perd les éventuels points de vie temporaires restants issus de ce sort.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, vous pouvez affecter une créature de plus par niveau au-delà du 1er.'
          ]);
          Spell::insert([
             'name' => '',
