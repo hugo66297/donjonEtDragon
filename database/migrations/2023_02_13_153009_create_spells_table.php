@@ -1729,112 +1729,99 @@ return new class extends Migration
             'description' => 'Vous entrez dans un objet ou une surface de pierre assez grande pour contenir entièrement votre corps, votre personne et votre équipement fusionnant avec la pierre pendant toute la durée du sort. Vous utilisez votre déplacement pour entrer dans la pierre en un point que vous êtes en mesure de toucher. Il ne reste alors rien de visible ni de détectable indiquant votre présence pour des sens non magiques.\n Tant que vous êtes fusionné avec la pierre, vous ne voyez pas ce qui se passe à l\'extérieur et vous êtes désavantagé lors des tests de Sagesse (Perception) destinés à entendre les sons qui retentissent à l\'extérieur de la pierre. Vous restez conscient du temps qui passe et vous pouvez lancer des sorts sur votre propre personne. Vous pouvez utiliser votre déplacement pour quitter la pierre par l\'endroit par où vous y êtes entré, ce qui met fin au sort. En dehors de cela, vous êtes dans l\'incapacité de vous déplacer.\n Vous n\'êtes pas blessé si la pierre subit des dégâts mineurs, mais si elle est partiellement détruite ou change de forme (au point que vous ne tenez plus entièrement à l\'intérieur), elle vous expulse et vous subissez 6d6 dégâts contondants. Si la pierre est complètement détruite (ou transmutée en une substance différente), elle vous expulse et vous subissez 50 dégâts contondants. Si vous vous faites expulser de la pierre, vous vous retrouvez à terre dans l\'emplacement inoccupé le plus proche de celui par lequel vous êtes entré dans la roche.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Gardien de la foi',
+            'school' => 'Invocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V',
+            'duration' => '8 heures',
+            'description' => 'Un gardien spectral de taille Grande apparaît et flotte dans un emplacement inoccupé de votre choix situé à portée dans votre champ de vision. Il occupe alors cet emplacement mais sa silhouette reste indistincte, à l\'exception de son épée luisante et de son bouclier frappé du symbole de votre divinité.\n Toute créature hostile envers vous qui entre dans un emplacement situé dans un rayon de 3 mètres autour du gardien pour la première fois de son tour doit réussir un jet de sauvegarde de Dextérité. Si elle échoue, elle subit 20 dégâts radiants, la moitié seulement si elle réussit. Le gardien disparaît dès qu\'il a infligé un total de 60 dégâts.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Globe d\'invulnérabilité',
+            'school' => 'Abjuration',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (3 mètres de rayon)',
+            'component' => 'V, S, M (une perle de verre ou de cristal qui explose à la fin du sort)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Une barrière immobile scintille légèrement dans un rayon de 3 mètres autour de vous et persiste pendant toute la durée du sort.\n Tout sort de niveau 5 ou inférieur lancé depuis l\'extérieur de la barrière se trouve dans l\'incapacité d\'affecter les créatures et les objets se trouvant à l\'intérieur, même si l\'incantateur lance son sort en utilisant un emplacement de niveau supérieur. Le sort peut très bien viser les créatures et les objets situés au sein de la barrière, mais il n\'a aucun effet sur eux. De même, la zone protégée par la barrière est exclue de la zone affectée par les sorts de ces niveaux.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 7 ou plus, la barrière bloque les sorts d\'un niveau de plus par niveau au-delà du 6e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Glyphe de garde',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 heure',
+            'range' => 'contact',
+            'component' => 'V, S, M (encens et poudre de diamant d\'une valeur minimale de 200 po, que le sort consume)',
+            'duration' => 'jusqu\'à dissipation ou déclenchement',
+            'description' => 'Lorsque vous lancez ce sort, vous inscrivez un glyphe capable de blesser autrui, soit sur une surface quelconque, comme une table, le sol ou un mur, soit dans un objet que l\'on peut refermer pour dissimuler l\'inscription, comme un livre, un parchemin ou un coffre au trésor. Si vous optez pour une surface, le glyphe peut couvrir une zone de 3 mètres de diamètre au maximum. Si vous choisissez un objet, il ne faut plus le déplacer par la suite: si quelqu\'un le déplace à plus de 3 mètres de l\'endroit où vous avez jeté ce sort, le glyphe se brise et le sort se termine sans avoir été déclenché.\n Le glyphe est presque invisible. Pour le discerner, il faut réussir un test d\'Intelligence (Investigation) contre le DD du jet de sauvegarde de votre sort.\n Lors de l\'incantation, c\'est à vous de décider de ce qui déclenchera le sort. Pour les glyphes tracés sur une surface quelconque, les déclencheurs les plus courants consistent à toucher le glyphe ou se tenir dessus, à déplacer un objet recouvrant le glyphe, à s\'approcher à une certaine distance du glyphe ou encore à manipuler l\'objet sur lequel le glyphe est tracé. Pour les glyphes inscrits dans un objet, on trouve parmi les déclencheurs les plus répandus le fait d\'ouvrir l\'objet, de s\'en approcher à une certaine distance ou de voir ou de lire le glyphe. Le sort se termine dès que le glyphe se déclenche.\n Vous pouvez affiner le déclencheur, de façon à ce que le sort s\'active sous certaines conditions ou en fonction de certaines caractéristiques physiques (comme le poids ou la taille), selon un type de créature (pour un glyphe destiné aux aberrations ou aux drows par exemple) ou selon l\'alignement. Vous pouvez aussi définir des conditions pour que certaines créatures ne déclenchent pas le glyphe, en prononçant un mot de passe par exemple.\n Lorsque vous dessinez le glyphe, vous devez choisir entre des runes explosives ou un glyphe à sort.\n <B>Runes explosives.</B> Quand le glyphe se déclenche, il explose dans une sphère de 6 mètres de rayon centrée sur lui. La sphère s\'étend en contournant les angles si besoin. Chaque créature de la zone doit faire un jet de sauvegarde de Dextérité. Une créature reçoit 5d8 points de dégâts d\'acide, de froid, de feu, de foudre ou de tonnerre si elle rate son jet (à vous de choisir le type de dégâts lors de l\'incantation), la moitié seulement si elle le réussit.\n <B>Glyphe à sort.</B> Vous pouvez stocker un sort de niveau 3 ou inférieur dans le glyphe en le lançant lors de l\'incantation du glyphe. Ce sort doit viser une créature unique ou une zone. Le sort stocké n\'a aucun effet immédiat quand il est lancé ainsi. Il se lance quand quelqu\'un déclenche le glyphe. Si le sort affecte une cible, il vise celle qui a déclenché le glyphe. S\'il affecte une zone, cette dernière est centrée sur la créature qui a déclenché le glyphe. Si le sort invoque des créatures hostiles ou crée des objets néfastes ou des pièges, ils apparaissent aussi près de l\'intrus que possible et s\'en prennent à lui. Si le sort nécessite de la concentration, il persiste jusqu\'à la fin de sa durée maximale.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts des runes explosives augmentent de 1d8 par niveau au-delà du 3e. Si vous créez un glyphe à sort, vous pouvez stocker un sort d\'un niveau égal ou inférieur à celui employé pour lancer le glyphe.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Gourdin magique',
+            'school' => 'Transmutation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action bonus',
+            'range' => 'contact',
+            'component' => 'V, S, M (du gui, une feuille de trèfle et un bâton ou un gourdin)',
+            'duration' => '1 minute',
+            'description' => 'La puissance du monde naturel imprègne le bois du bâton ou du gourdin que vous tenez. Pendant toute la durée du sort, vous pouvez utiliser votre caractéristique d\'incantation au lieu de votre Force pour effectuer les jets d\'attaque et de dégâts au corps à corps avec cette arme. Le dé de dégâts de l\'arme devient un d8. L\'arme devient magique si elle ne l\'était pas déjà. Le sort se termine si vous le lancez de nouveau ou si vous lâchez votre arme.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Graisse',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (de la couenne de porc ou du beurre)',
+            'duration' => '1 minute',
+            'description' => 'Une couche de graisse particulièrement glissante recouvre le sol dans une zone de 3 mètres de côté centrée sur un point situé à portée et le change en terrain difficile pour toute la durée du sort.\n Lorsque la graisse apparaît, chaque créature se trouvant dans la zone affectée doit réussir un jet de sauvegarde de Dextérité ou tomber à terre. Une créature qui entre dans la zone ou y termine son tour doit aussi réussir ce jet sous peine de se retrouver à terre.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Grande foulée',
+            'school' => 'Transmutation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une pincée de poussière)',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez une créature dont la vitesse augmente de 3 mètres jusqu\'à la fin du sort.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, vous pouvez affecter une créature de plus par niveau au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Grêle d\'épines',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'La prochaine fois que vous touchez une créature avec une attaque armée à distance avant la fin du sort, ce dernier crée une pluie d\'épines qui jaillit de votre arme ou de votre munition. En plus de l\'effet normal de l\'attaque, la cible et toutes les créatures situées dans un rayon de 1,50 mètre autour d\'elle doivent faire un jet de sauvegarde de Dextérité. Une créature subit 1d10 dégâts perforants en cas d\'échec, la moitié en cas de réussite.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d10 par emplacement de sort au-delà du 1er (pour un maximum de 6d10).'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Guérison',
+            'school' => 'Évocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Choisissez une créature située à portée dans votre champ de vision. Une bouffée d\'énergie positive la traverse et lui rend 70 points de vie. Ce sort met aussi un terme à la cécité, la surdité et toutes les maladies qui l\'affectent. Ce sort n\'a aucun effet sur les créatures artificielles et les morts-vivants.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 7 ou plus, la quantité de soins prodigués augmente de 10 points par niveau au-delà du 6e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Guérison de groupe',
+            'school' => 'Évocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Un flot d\'énergie curative émane de vous et enveloppe les créatures blessées qui vous entourent. Vous rendez jusqu\'à 700 points de vie, divisés comme bon vous semble entre autant de créatures situées à portée et dans votre champ de vision que vous le voulez. Le sort débarrasse aussi les créatures qu\'il guérit de leurs maladies et des effets qui les rendent sourdes ou aveugles. Ce sort n\'a aucun effet sur les morts-vivants ni sur les créatures artificielles.'
          ]);
          Spell::insert([
             'name' => '',
