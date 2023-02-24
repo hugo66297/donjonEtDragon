@@ -2088,16 +2088,15 @@ return new class extends Migration
             'description' => 'Vous lancez une arme de jet non magique ou un projectile non magique, afin de créer un cône d\'armes identiques qui filent dans les airs avant de disparaître. Chaque créature située dans un cône de 18 mètres doit réussir un jet de sauvegarde de Dextérité. Celles qui échouent subissent 3d8 dégâts, les autres la moitié seulement. Le type de dégâts est identique à celui du projectile utilisé comme composante.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Jeter une malédiction',
+            'school' => 'Nécromancie',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous touchez une créature qui doit réussir un jet de sauvegarde de Sagesse, sans quoi elle est maudite pour toute la durée du sort. À vous de choisir la nature de cette malédiction parmi les options suivantes au moment de l\'incantation.<LI>Choisissez une caractéristique. Tant que la cible est maudite, elle est désavantagée lors des tests de caractéristique et des jets de sauvegarde basés sur cette caractéristique.</LI> <LI>Tant que la cible est maudite, elle est désavantagée lors de ses jets d\'attaque contre vous.</LI> <LI>Tant que la cible est maudite, elle doit faire un jet de sauvegarde de Sagesse au début de chacun de ses tours. Si elle le rate, elle gaspille son action du tour et ne fait rien.</LI> <LI>Tant que la cible est maudite, les sorts et les attaques émanant de vous lui infligent 1d8 dégâts nécrotiques supplémentaires.</LI> \n Le sort lever une malédiction met un terme à cet effet. Si le MD est d\'accord, vous pouvez choisir un autre effet de malédiction, mais il ne doit pas être plus puissant que ceux proposés ici. C\'est au MD de décider s\'il accepte ou non le nouvel effet de malédiction.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, le sort fait effet tant que vous vous concentrez, sans dépasser un maximum de 10 minutes. Si vous utilisez un emplacement de niveau 5 ou plus, la durée est de 8 heures, tandis qu\'elle passe à 24 heures si vous utilisez un emplacement de sort de niveau 7 ou plus. Si vous utilisez un emplacement de niveau 9, le sort persiste jusqu\'à ce qu\'il soit dissipé. L\'utilisation d\'un emplacement de niveau 5 ou plus vous dispense de vous concentrer.'
          ]);
          Spell::insert([
             'name' => '',
