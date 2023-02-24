@@ -2099,244 +2099,207 @@ return new class extends Migration
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, le sort fait effet tant que vous vous concentrez, sans dépasser un maximum de 10 minutes. Si vous utilisez un emplacement de niveau 5 ou plus, la durée est de 8 heures, tandis qu\'elle passe à 24 heures si vous utilisez un emplacement de sort de niveau 7 ou plus. Si vous utilisez un emplacement de niveau 9, le sort persiste jusqu\'à ce qu\'il soit dissipé. L\'utilisation d\'un emplacement de niveau 5 ou plus vous dispense de vous concentrer.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Labyrinthe',
+            'school' => 'Invocation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous bannissez une créature située à portée dans votre champ de vision dans un demi-plan labyrinthique. La cible y reste pendant toute la durée du sort ou jusqu\'à ce qu\'elle s\'échappe du dédale.\n Elle peut utiliser une action pour tenter de s\'évader. Pour cela, elle effectue un test d\'Intelligence DD 20. Si elle le réussit, elle s\'échappe et le sort se termine (les minotaures et les démons goristros réussissent automatiquement).\n Quand le sort se termine, la cible réapparaît à l\'emplacement qu\'elle a quitté ou, s\'il est occupé, dans l\'emplacement libre le plus proche.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lame de feu',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (feuille de sumac)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous invoquez une lame enflammée dans votre main libre. Au niveau de la taille et de la forme, elle ressemble à un cimeterre et persiste pendant toute la durée du sort. Si vous la lâchez, elle disparaît, mais vous pouvez l\'invoquer de nouveau par une action bonus.\n Vous pouvez utiliser votre action pour faire une attaque de sort au corps à corps avec la lame enflammée. Si vous touchez la cible, cette dernière subit 3d6 dégâts de feu.\n La lame enflammée émet une vive lumière dans un rayon de 3 mètres et une faible lumière dans un rayon de 3 mètres de plus.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts augmentent de 1d6 tous les deux niveaux au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Langues',
+            'school' => 'Divination',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, M (un modèle réduit de ziggourat en argile)',
+            'duration' => '1 heure',
+            'description' => 'Ce sort permet à la créature que vous touchez de comprendre toutes les langues parlées qu\'elle entend. De plus, quand elle parle, toute créature qui maîtrise au moins une langue et l\'entend comprend ce qu\'elle dit.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Légende',
+            'school' => 'Divination',
+            'level' => 5,
+            'cast_time' => '10 minutes',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (de l\'encens d\'une valeur minimale de 250 po que le sort consume et quatre bandelettes d\'ivoire valant au moins 50 po chaque)',
+            'duration' => 'instantanée',
+            'description' => 'Nommez ou décrivez une personne, un lieu ou un objet. Le sort porte à votre connaissance un bref résumé des connaissances essentielles se rapportant à la chose nommée. Ces connaissances peuvent se présenter sous la forme d\'histoires actuelles, de contes oubliés ou même d\'un savoir secret qui n\'a jamais été révélé au grand public. Si la chose que vous nommez n\'est pas digne de figurer dans une légende, vous n\'obtenez aucune information. Plus vous possédez d\'informations sur cette chose, plus celles que vous recevez via le sort sont précises et détaillées.\n Les informations obtenues sont exactes, mais susceptibles de se présenter dans un langage figuré. Par exemple, si vous avez une mystérieuse hache en main, le sort peut vous donner les renseignements suivants : « Malheur au malfaisant qui pose la main sur cette hache, car même son manche peut entailler la main des mécréants. Seul un véritable enfant de la pierre, un être qui aime Moradin et en est aimé en retour, pourra éveiller la véritable puissance de cette hache à condition de prononcer le mot sacré Rudnogg ».'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Léger comme une plume',
+            'school' => 'Transmutation',
+            'level' => 1,
+            'cast_time' => '1 réaction, que vous effectuez quand vous-même ou une créature située dans un rayon de 18 mètres tombe soudain',
+            'range' => '18 mètres',
+            'component' => 'V, M (une petite plume ou un peu de duvet)',
+            'duration' => '1 minute',
+            'description' => 'Choisissez jusqu\'à cinq créatures en train de tomber à portée. La vitesse de chute de chacune passe à 18 mètres par round jusqu\'à la fin du sort. Si une créature atterrit avant la fin du sort, elle ne subit pas de dégâts de chute et se reçoit sur ses pieds, le sort se terminant alors pour elle.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lenteur',
+            'school' => 'Transmutation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (une goutte de mélasse)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous modifiez le cours du temps autour d\'un maximum de six créatures de votre choix situées dans un cube de 12 mètres d\'arête situé à portée. Chaque cible doit réussir un jet de sauvegarde de Sagesse, sans quoi le sort l\'affecte pendant toute sa durée.\n Une cible affectée voit sa vitesse réduite de moitié. De plus, elle subit un malus de -2 à la CA et aux jets de sauvegarde de Dextérité et ne peut plus utiliser de réaction. À son tour, elle peut utiliser une action ou une action bonus, mais pas les deux. Elle ne peut pas faire plus d\'une attaque au corps à corps ou à distance à son tour, quels que soient ses pouvoirs et ses objets magiques.\n Si la créature affectée tente de lancer un sort doté d\'un temps d\'incantation de 1 action, lancez un d20. Sur un 11 ou plus, le sort agit seulement au prochain tour de la créature qui doit utiliser son action de ce tour pour terminer l\'incantation. Si elle est en incapable, le sort est gâché.\n Une créature affectée par ce sort fait un nouveau jet de sauvegarde de Sagesse à la fin de son tour. Si elle le réussit, le sort se termine pour elle.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lever une malédiction',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'À votre contact, toutes les malédictions qui affectent une créature ou un objet disparaissent. Si l\'objet est un objet magique maudit, la malédiction persiste, mais le sort rompt l\'harmonisation entre l\'objet et son détenteur, ce qui permet à ce dernier de l\'ôter ou de s\'en débarrasser.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lévitation',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (soit une petite boucle de cuir, soit un bout de fil de métal doré formant la silhouette d\'une cuillère au long manche)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Une créature ou un objet situé à portée et dans votre champ de vision s\'élève à la verticale à une hauteur de 6 mètres et reste suspendu là pendant toute la durée du sort. Ce dernier peut soulever une cible d\'au maximum 250 kilos. Si la créature visée n\'est pas consentante, elle doit réussir un jet de sauvegarde de Constitution pour que le sort ne l\'affecte pas.\n La cible peut se déplacer uniquement en se propulsant ou se tractant en prenant appui sur un objet fixe ou une surface à proximité (comme un mur ou un plafond). Elle se meut alors comme si elle était en pleine escalade. Quand vient votre tour, vous pouvez modifier l\'altitude de la cible d\'un maximum de 6 mètres dans la direction de votre choix. Si vous êtes la cible, vous pouvez monter ou descendre lors de votre déplacement. En dehors de cela, vous devez dépenser une action pour déplacer la cible qui doit rester dans le rayon de portée du sort. Si la cible est encore en l\'air quand le sort se termine, elle flotte délicatement jusqu\'au sol.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Liane avide',
+            'school' => 'Invocation',
+            'level' => 4,
+            'cast_time' => '1 action bonus',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous invoquez une liane qui sort de terre dans un emplacement inoccupé de votre choix situé à portée dans votre champ de vision. Lorsque vous lancez ce sort, vous pouvez indiquer à la liane de s\'enrouler autour d\'une créature située dans un rayon de 9 mètres autour d\'elle et dans votre champ de vision. La créature doit réussir un jet de sauvegarde de Dextérité, sans quoi elle est traînée sur 6 mètres en direction du pied de la liane.\n Tant que la durée du sort ne s\'est pas écoulée, vous pouvez ordonner à la liane de continuer de s\'en prendre à la même créature ou de changer de cible, et cela par une action bonus à chacun de vos tours.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Liberté de mouvement',
+            'school' => 'Abjuration',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (un lien de cuir enroulé autour d\'un bras ou d\'un appendice similaire)',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez une créature consentante. Pendant toute la durée du sort, ses déplacements ne sont pas affectés par les terrains difficiles, tandis que les sorts et autres effets magiques ne peuvent ni la paralyser, ni l\'entraver, ni réduire sa vitesse.\n La cible peut également dépenser 1,50 mètre de déplacement pour échapper automatiquement à des liens non magiques, comme des menottes ou la prise d\'une créature qui l\'empoigne. Enfin, sous l\'eau, elle ne subit pas de malus aux déplacements ni aux attaques.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lien de protection',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une paire d\'anneaux de platine valant chacun au moins 50 po, que la cible et vous devez porter pendant toute la durée)',
+            'duration' => '1 heure',
+            'description' => 'Ce sort protège une créature consentante et crée un lien mystique entre vous et votre cible jusqu\'à la fin du sort. Tant que la cible se trouve dans un rayon de 18 mètres autour de vous, elle gagne un bonus de +1 à la CA et aux jets de sauvegarde et devient résistante à tous les types de dégâts. En revanche, chaque fois qu\'elle subit des dégâts, vous subissez exactement les mêmes.\n Le sort se termine si vous tombez à 0 point de vie ou si votre cible et vous êtes séparés de plus de 18 mètres. Il se termine aussi si vous le lancez de nouveau sur l\'une des deux créatures liées. Vous pouvez également révoquer le sort par une action.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Lien télépathique de Rary',
+            'school' => 'Divination',
+            'level' => 5,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (bouts de coquille d\'oeuf issus de deux espèces de créatures différentes)',
+            'duration' => '1 heure',
+            'description' => 'Vous forgez un lien télépathique entre maximum huit créatures consentantes situées à portée. Elles sont alors psychiquement liées les unes aux autres pendant la durée du sort. Ce sort n\'affecte pas les créatures dotées d\'une Intelligence de 2 ou moins.\n Jusqu\'à la fin du sort, les cibles peuvent communiquer entre elles par télépathie via le lien créé, qu\'elles partagent un même langage ou non. Cette communication fonctionne quelle que soit la distance séparant les créatures, mais ne s\'étend pas aux autres plans d\'existence.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Localisation d\'animaux ou de plantes',
+            'school' => 'Divination',
+            'level' => 2,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (des poils de chien de chasse)',
+            'duration' => 'instantanée',
+            'description' => 'Décrivez ou nommez un type spécifique de bête ou de plante. Vous vous concentrez sur la voix de la nature qui vous entoure et découvrez dans quelle direction et à quelle distance se trouve le spécimen le plus proche dans un rayon de 7,5 kilomètres, s\'il y en a.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Localisation de créature',
+            'school' => 'Divination',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (des poils de chien de chasse)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Décrivez ou nommez une créature qui vous est familière. Vous sentez dans quelle direction elle se trouve, à condition qu\'elle soit dans un rayon de 300 mètres. Si elle se déplace, vous savez dans quelle direction.\n Le sort permet de localiser une créature spécifique de votre connaissance ou la créature la plus proche du même type (comme un humain ou une licorne), mais pour cela, vous devez avoir déjà vu une telle créature de près, c\'est-à-dire vous être trouvé à 9 mètres d\'elle ou moins au moins une fois dans votre vie. Si la créature que vous décrivez ou nommez se trouve actuellement sous une forme différente, sous l\'effet d\'un sort de métamorphose par exemple, ce sort est incapable de la localiser.\n Le sort ne parvient pas à localiser la créature si le chemin qui vous relie directement est coupé par une étendue d\'eau courante d\'au moins 3 mètres de large.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Localisation d\'objet',
+            'school' => 'Divination',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (une branche fourchue)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Décrivez ou nommez un objet qui vous est familier. Vous sentez dans quelle direction il se trouve, à condition qu\'il soit dans un rayon de 300 mètres. S\'il se déplace, vous savez dans quelle direction.\n Le sort permet de localiser un objet spécifique de votre connaissance à condition que vous l\'ayez vu de près, c\'est-à-dire vous être trouvé à 9 mètres ou moins au moins de lui une fois dans votre vie. Sinon, le sort peut localiser l\'objet d\'un type donné le plus proche, comme un type d\'appareil, de bijou, de meuble, d\'outil ou d\'arme.\n Le sort ne parvient pas à localiser l\'objet si une couche de plomb, aussi mince soit-eJle, bloque une trajectoire directe entre vous et l\'objet.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lueur d\'espoir',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Ce sort offre espoir et robustesse. Choisissez autant de créatures consentantes à portée que vous le désirez. Pendant toute la durée du sort, elles sont avantagées lors des jets de sauvegarde de Sagesse et des jets de sauvegarde contre la mort. De plus, elles récupèrent le maximum de points de vie possible dès qu\'elles reçoivent des soins.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lueurs féeriques',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Tous les objets contenus dans un cube de 6 mètres d\'arête situé à portée sont auréolés d\'une lumière bleue, verte ou violette (à vous de choisir). Les créatures qui se trouvent dans la zone au moment de l\'incantation sont aussi entourées de lumière, à moins de réussir un jet de sauvegarde de Dextérité. Pendant toute la durée du sort, les créatures et les objets affectés émettent une faible luminosité dans un rayon de 3 mètres.\n Un assaillant a l\'avantage lors du jet d\'attaque contre une cible affectée s\'il peut la voir. Les créatures et les objets affectés ne peuvent pas bénéficier des effets de l\'invisibilité.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Lumière',
+            'school' => 'Évocation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, M (une luciole ou de la mousse phosphorescente)',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez un objet qui ne fait pas plus de 3 mètres dans chaque dimension. Jusqu\'à la fin du sort, il émet une vive lumière dans un rayon de 6 mètres et une faible lumière dans un rayon de 6 mètres de plus. Vous pouvez colorer cette lumière comme il vous plaît. Il suffit de recouvrir complètement l\'objet avec quelque chose d\'opaque pour bloquer la lumière. Le sort se termine si vous le lancez de nouveau ou si vous le révoquez en dépensant une action.\n Si vous visez un objet porté ou transporté par une créature hostile, cette dernière doit réussir un jet de sauvegarde de Dextérité pour éviter les effets du sort.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Lumière du jour',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => '1 heure',
+            'description' => 'Une sphère de lumière de 18 mètres de rayon s\'étend depuis un point de votre choix situé à portée. Elle émet une lumière vive dans ce rayon et une lumière faible dans un rayon de 18 mètres de plus.\n Si le point que vous avez choisi est un objet en votre possession ou un objet qui n\'est ni porté ni transporté par autrui, la lumière irradie de l\'objet et se déplace avec lui. Il suffit de recouvrir complètement l\'objet affecté avec un objet opaque, comme un bol ou un heaume, pour bloquer la lumière.\n Si une partie de la zone affectée par ce sort chevauche une zone de ténèbres issue d\'un sort de niveau 3 ou moins, elle dissipe le sort de ténèbres.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Lumières dansantes',
+            'school' => 'Évocation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (un bout de phosphore ou d\'orme, ou un ver luisant)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez jusqu\'à quatre lumières de la taille d\'une torche qui apparaissent à portée. Elles ressemblent à des lanternes, des torches ou des orbes luisantes qui flottent dans les airs pendant toute la durée du sort. Vous pouvez aussi les combiner pour obtenir une forme brillante vaguement humanoïde de taille Moyenne. Quelle que soit l\'option choisie, chaque source lumineuse offre une faible lumière dans un rayon de 3 mètres.\n À votre tour et par une action bonus, vous pouvez déplacer les lumières sur un maximum de 18 mètres pour les installer ailleurs mais toujours à portée. Une lumière créée via ce sort doit toujours se trouver à 6 mètres ou moins d\'une autre émanant du même sort. Elle s\'éteint si elle passe hors de portée.'
          ]);
          Spell::insert([
             'name' => '',
