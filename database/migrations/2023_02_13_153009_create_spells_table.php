@@ -2647,88 +2647,77 @@ return new class extends Migration
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d6 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Nappe de brouillard',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous créez une sphère de brouillard de 6 mètres de rayon centrée sur un point à portée. La sphère s\'étend en contournant les angles et, dans la zone qu\'elle occupe, la visibilité est fortement obstruée. Le brouillard persiste pendant toute la durée du sort ou jusqu\'à ce qu\'un vent modéré ou plus violent (soufflant au moins à 15 kilomètres/heure) le disperse.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, le rayon de la sphère augmente de 6 mètres par niveau au-delà du ler.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Non-détection',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une pincée de poussière de diamant d\'une valeur de 25 po, que le sort consume une fois saupoudrée sur la cible)',
+            'duration' => '8 heures',
+            'description' => 'Pendant toute la durée du sort, vous dissimulez la cible que vous touchez aux yeux de la magie de divination. Vous pouvez prendre pour cible une créature consentante, un endroit ou un objet ne mesurant pas plus de 3 mètres dans chaque dimension. La magie de divination ne peut plus viser votre cible et les organes de scrutation magiques ne la perçoivent plus.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Nuage incendiaire',
+            'school' => 'Invocation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Un nuage de fumée ondoyant constellé de braises rougeoyantes apparaît sous la forme d\'une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se répand en contournant les angles si nécessaire et, à l\'intérieur, la visibilité est fortement obstruée. Le nuage persiste pendant toute la durée du sort ou jusqu\'à ce qu\'un vent fort ou modéré (au moins 15 km/h) le disperse.\n Quand le nuage apparaît, chaque créature se trouvant à l\'intérieur doit faire un jet de sauvegarde de Dextérité. Celles qui échouent reçoivent 10d8 dégâts de feu, les autres la moitié seulement. Une créature doit aussi faire ce jet quand elle entre dans la zone affectée pour la première fois du tour ou qu\'elle y finit son tour.\n Le nuage s\'éloigne de vous sur 3 mètres dans la direction d votre choix au début de chacun de vos tours.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Nuage mortel',
+            'school' => 'Invocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez une sphère de 6 mètres de rayon faite d\'un brouillard vert jaunâtre empoisonné. Il est centré sur un point de votre choix situé à portée. Le brouillard s\'étend en contournant les coins au besoin. Il persiste pendant toute la durée du sort ou jusqu\'à ce qu\'un vent fort (au moins 30 km/h) le disperse et mette un terme au sort. La visibilité est lourdement obstruée dans sa zone d\'effet.\n Quand une créature entre dans la zone du sort pour la première fois de son tour ou qu\'elle y démarre son tour, elle doit faire un jet de sauvegarde de Constitution. Elle subit 5d8 dégâts de poison si elle rate son jet et seulement la moitié si elle le réussit. Le brouillard affecte même les créatures qui retiennent leur souffle ou qui n\'ont pas besoin de respirer.\n Le brouillard s\'éloigne de vous sur une distance de 3 mètres au début de chacun de vos tours, rampant à la surface du sol. Comme ses vapeurs sont plus lourdes que l\'air, il s\'enfonce dans les replis du terrain et s\'infiltre même dans les ouvertures.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 5e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Nuage nauséabond',
+            'school' => 'Invocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (un oeuf pourri ou des feuilles de chou pourri)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez une sphère d\'un gaz jaunâtre et nauséabond de 6 mètres de rayon centrée sur un point à portée. Le nuage se répand en contournant les angles et la visibilité est nulle dans toute sa zone. Le nuage persiste dans la zone affectée pendant toute la durée du sort.\n Chaque créature entièrement englobée dans le nuage au début de son tour doit faire un jet de sauvegarde de Constitution contre le poison. Celles qui échouent passent toute leur action du tour à vomir. Les créatures qui ne respirent pas et celles qui sont immunisées contre le poison réussissent automatiquement ce jet.\n Un vent modéré (au moins 15 km/h) disperse le nuage après 4 rounds. Un vent fort (au moins 30 km/h) le disperse au bout de seulement 1 round.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Nuée de dagues',
+            'school' => 'Invocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un éclat de verre)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous emplissez de dagues tournoyantes un cube de 1,50 mètre d\'arête. Ce cube est centré sur un point de votre choix situé à portée. Une créature subit 4d4 dégâts tranchants quand elle entre dans la zone du sort pour la première fois d\'un tour ou quand elle y débute son tour.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts augmentent de 2d4 par emplacement de sort au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Nuée de météores',
+            'school' => 'Évocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '1,5 kilomètre',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Des orbes de feu flamboyants s\'abattent au sol en quatre points de votre choix situés à portée et dans votre champ de vision. Chaque créature située dans la sphère de 12 mètres de rayon centrée sur chacun de ces points doit faire un jet de sauvegarde de Dextérité. Les sphères s\'étendent en contournant les angles. Une créature qui rate son jet de sauvegarde subit 20d6 dégâts de feu et 20d6 dégâts contondants, les autres la moitié seulement. Une créature qui se trouve prise dans deux sphères à la fois ne subit qu\'une seule fois les dégâts des météores.\n Le sort abîme et embrase les objets inflammables de la zone s\'ils ne sont pas portés ou transportés.'
          ]);
          Spell::insert([
             'name' => '',
