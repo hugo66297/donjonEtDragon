@@ -2741,6 +2741,613 @@ return new class extends Migration
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d8 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
+            'name' => 'Pas brumeux',
+            'school' => 'Invocation',
+            'level' => 2,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous êtes brièvement entouré d\'une brume argentée et vous vous téléportez sur un maximum de 9 mètres jusqu\'à un emplacement inoccupé situé dans votre champ de vision.'
+         ]);
+         Spell::insert([
+            'name' => 'Passage par les arbres',
+            'school' => 'Invocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous êtes soudain capable d\'entrer dans un arbre et de passer de son sein à celui d\'un autre arbre de la même espèce situé dans un rayon de 150 mètres. Ces deux arbres doivent être vivants et au moins de la même taille que vous. Vous devez dépenser 1,50 mètre de déplacement pour entrer dans un arbre. Vous apprenez alors instantanément où se trouvent tous les autres arbres de la même espèce dans un rayon de 150 mètres et vous pouvez gagner l\'un d\'eux ou ressortir par l\'arbre dans lequel vous êtes entré, ce mouvement faisant partie de votre déplacement de 1,50 mètre. Vous apparaissez à l\'endroit de votre choix dans un rayon de 1,50 mètre autour de l\'arbre dans lequel vous êtes arrivé en dépensant de nouveau 1,50 mètre de déplacement. S\'il ne vous reste pas de distance de déplacement à dépenser, vous apparaissez dans un rayon de 1,50 mètre autour de l\'arbre par lequel vous êtes entré.\n Vous pouvez utiliser cette capacité de transport une fois par round pendant toute la durée du sort. Vous devez terminer chaque tour en dehors d\'un arbre.'
+         ]);
+         Spell::insert([
+            'name' => 'Passage sans trace',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (cendres d\'une feuille de gui et une brindille d\'épicéa)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Une aura d\'ombre et de silence émane de vous et enveloppe vos compagnons, vous dissimulant aux sens d\'autrui. Pendant toute la durée du sort, chaque créature que vous choisissez et qui se trouve dans un rayon de 9 mètres (vous y compris) bénéficie d\'un bonus de + 10 aux tests de Dextérité (Discrétion) et il devient impossible de suivre sa piste à moins de recourir à des méthodes magiques. Une créature qui profite de ce bonus ne laisse aucune trace ni autre indice de son passage derrière elle.'
+         ]);
+         Spell::insert([
+            'name' => 'Passe-muraille',
+            'school' => 'Transmutation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (une pincée de graines de sésame)',
+            'duration' => '1 heure',
+            'description' => 'Un passage apparaît en un point de votre choix situé à portée et dans votre champ de vision sur une surface de bois, de plâtre ou de pierre (comme un mur, un sol ou un plafond). Il persiste pendant toute la durée du sort. À vous de décider des dimensions de l\'ouverture qui peut faire, au maximum, 1,50 mètre de large pour 2,50 mètres de haut et 6 mètres de profondeur. L\'apparition du passage ne crée aucune faiblesse dans la structure qui l\'entoure.\n Quand l\'ouverture disparaît, les créatures et les objets qui s\'y trouvaient encore sont expulsés en toute sécurité dans l\'emplacement inoccupé le plus proche de la surface sur laquelle vous avez lancé le sort.'
+         ]);
+         Spell::insert([
+            'name' => 'Pattes d\'araignée',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une goutte de bitume et une araignée)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Jusqu\'à la fin du sort, une créature consentante que vous touchez devient capable de se déplacer sur les surfaces verticales, et même au plafond la tête en bas, tout en gardant les mains libres. La cible bénéficie aussi d\'une vitesse d\'escalade égale à sa vitesse de marche.'
+         ]);
+         Spell::insert([
+            'name' => 'Peau d\'écorce',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une poignée d\'écorce de chêne)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous touchez une créature consentante. Pendant toute la durée du sort, sa peau prend la consistance et l\'apparence de l\'écorce, et sa CA ne peut pas descendre au-dessous de 16, quelle que soit l\'armure qu\'elle porte.'
+         ]);
+         Spell::insert([
+            'name' => 'Peau de pierre',
+            'school' => 'Abjuration',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (poussière de diamant d\'une valeur de 100 po, que le sort consume)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Ce sort modifie la chair d\'une créature consentante pour la rendre aussi dure que de la pierre. Jusqu\'à la fin du sort, la cible est résistante aux dégâts non magiques contondants, perforants et tranchants.'
+         ]);
+         Spell::insert([
+            'name' => 'Petite hutte de Léomund',
+            'school' => 'Évocation',
+            'level' => 3,
+            'is_rituel'=> true,
+            'cast_time' => '1 minute',
+            'range' => 'personnelle (hémisphère de 3 mètres de rayon)',
+            'component' => 'V, S, M (une petite perle de cristal)',
+            'duration' => '8 heures',
+            'description' => 'Un dôme de force immobile, de 3 mètres de rayon, apparaît soudain autour et au-dessus de vous. Il reste stationnaire pendant toute la durée du sort. Ce dernier se termine si vous quittez sa zone.\n Le dôme peut abriter un maximum de neuf créatures de taille Moyenne ou inférieure, en plus de vous. Le sort échoue si la zone comprend une créature de taille supérieure ou plus de neuf créatures. Les créatures et les objets qui se trouvent à l\'intérieur du dôme lors de l\'incantation peuvent en sortir et y entrer librement ; en revanche, les autres créatures sont incapables de franchir ses limites. Les sorts et autres effets magiques ne peuvent pas s\'étendre au-delà de la limite du dôme ni se lancer à travers. L\'atmosphère au sein du dôme est agréable et sèche, quelles que soient les conditions météorologiques à l\'extérieur.\n Tant que le sort n\'est pas terminé, vous pouvez faire en sorte que l\'intérieur du dôme soit faiblement éclairé ou plongé dans le noir. Vu de l\'extérieur, le dôme est opaque, de la couleur que vous désirez, mais vu de l\'intérieur, il est transparent.'
+         ]);
+         Spell::insert([
+            'name' => 'Pétrification',
+            'school' => 'Transmutation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (une pincée de chaux, de l\'eau et de la terre)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous tentez de changer en pierre une créature située à portée dans votre champ de vision. Si le corps de la cible est fait de chair, elle doit faire un jet de sauvegarde de Constitution. Si elle échoue, elle se retrouve entravée, car sa chair se met à durcir. Si elle réussit, elle n\'est pas affectée.\n Une créature entravée par ce sort doit faire un nouveau jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle en réussit trois, le sort se termine. Si elle en rate trois, elle se change en pierre et se retrouve pétrifiée pendant toute la durée du sort. Inutile que les succès et les échecs soient consécutifs, notez juste leur nombre jusqu\'à ce que la cible arrive à en accumuler trois d\'une sorte ou de l\'autre.\n Si quelqu\'un brise le corps physique de la cible alors qu\'elle est pétrifiée, les difformités subies sont conservées par sa forme originelle quand elle la reprend.\n Si vous maintenez votre concentration sur ce sort jusqu\'à la fin de la durée maximale, la cible est définitivement changée en pierre jusqu\'à ce que quelqu\'un dissipe l\'effet.'
+         ]);
+         Spell::insert([
+            'name' => 'Peur',
+            'school' => 'Illusion',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (cône de 9 mètres)',
+            'component' => 'V, S, M (une plume blanche ou un coeur de poule)',
+            'duration' => 'concentration, jusqu\'à 1 minute.',
+            'description' => 'Vous projetez une image fantasmagorique des pires terreurs d\'une créature. Chaque créature située dans un cône de 9 mètres doit réussir un jet de sauvegarde de Sagesse ou lâcher tout ce qu\'elle tient en main et être terrorisée pendant toute la durée du sort.\n Tant qu\'une créature est terrorisée par ce sort, elle est obligée d\'utiliser l\'action se précipiter à chacun de ses tours et de s\'éloigner de vous par l\'itinéraire le plus sûr, à moins qu\'elle n\'ait nulle part où aller. Si elle termine son tour en un endroit où vous ne figurez plus dans son champ de vision, elle peut faire un jet de sauvegarde de Sagesse. Si elle le réussit, le sort se termine pour elle.'
+         ]);
+         Spell::insert([
+            'name' => 'Poigne électrique',
+            'school' => 'Évocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'La foudre jaillit de votre main et bondit sur la créature que vous tentez de toucher. Faites une attaque de sort au corps à corps contre la cible. Vous êtes avantagé lors du jet d\'attaque si votre cible porte une armure métallique. Si vous touchez la cible, elle subit 1d8 dégâts de foudre et ne peut pas effectuer de réaction avant le début de son prochain tour.\n Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
+         ]);
+         Spell::insert([
+            'name' => 'Portail',
+            'school' => 'Invocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un diamant d\'une valeur minimale de 5 000 po)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous invoquez un portail reliant un espace inoccupé, situé à portée et dans votre champ de vision, à un autre plan d\'existence. Ce portail se présente sous la forme d\'une ouverture circulaire de 1,50 à 6 mètres de diamètre, à votre guise. Vous pouvez orienter le portail dans la direction de votre choix et il persiste pendant toute la durée du sort.\n Le portail a une face avant et une face arrière sur chaque plan où il apparaît. Pour voyager grâce au portail, il faut impérativement le franchir en passant par l\'avant. Tout ce qui le traverse ainsi apparaît instantanément sur l\'autre plan, dans l\'espace inoccupé le plus proche du portail.\n Les divinités et autres dirigeants planaires peuvent empêcher un portail né de ce sort de s\'ouvrir en leur présence ou en n\'importe quel point de leur domaine.\n Quand vous lancez ce sort, vous pouvez prononcer le nom d\'une créature spécifique (sachant que les pseudonymes, les titres et les surnoms ne fonctionnent pas). Si cette créature se trouve sur un autre plan que celui sur lequel vous vous trouvez, le portail s\'ouvre dans ses environs immédiats et attire la créature en son sein. Elle réapparaît de votre côté du portail, dans l\'espace inoccupé le plus proche. Cela ne vous donne aucun contrôle sur la créature qui agit librement, comme le MD le désire. Elle peut s\'en aller, vous attaquer ou vous aider.'
+         ]);
+         Spell::insert([
+            'name' => 'Portail arcanique',
+            'school' => 'Invocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '150 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez des portails de téléportation reliés qui restent ouverts pendant toute la durée du sort. Choisissez deux points au sol, tous deux situés dans votre champ de vision, l\'un devant se trouver dans un rayon de 3 mètres autour de vous, l\'autre dans un rayon de 150 mètres autour de vous. Un portail circulaire de 3 mètres de diamètre s\'ouvre en chaque point. Si un portail est censé s\'ouvrir dans l\'emplacement qu\'occupe une créature, le sort échoue et l\'incantation est gaspillée.\n Ces portails se présentent sous forme d\'anneaux luisants en deux dimensions emplis de brume, qui flottent à quelques centimètres du sol, perpendiculaires aux points que vous avez choisis. Chaque anneau se voit seulement d\'un côté (celui de votre choix), qui correspond à la face fonctionnant comme un portail.\n Toute créature ou tout objet entrant dans un portail ressort par l\'autre, comme si les deux étaient adjacents. En revanche, il ne se passe rien si quelque chose traverse l\'emplacement du portail en passant par la face qui ne fait pas office de portail. La brume qui emplit chaque portail est opaque et bloque toute visibilité. À votre tour, vous pouvez faire pivoter le portail par une action bonus pour que la face active se tourne dans une nouvelle direction.'
+         ]);
+         Spell::insert([
+            'name' => 'Porte dimensionnelle',
+            'school' => 'Invocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '150 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous vous téléportez depuis votre position actuelle vers n\'importe quel emplacement désiré situé à portée. Vous arrivez exactement à l\'endroit voulu. Ce peut être un endroit que vous voyez, que vous visualisez ou que vous pouvez décrire en donnant sa distance et sa direction, par exemple « 60 mètres plus bas en ligne droite » ou « en montant au nord-ouest à un angle de 45° sur 90 mètres ».\n Vous pouvez amener des objets avec vous, tant que leur poids ne dépasse pas la charge que vous êtes capable de porter. Vous pouvez également emmener avec vous une créature consentante de votre taille ou d\'une taille inférieure, qui peut transporter du matériel dans la limite de ses capacités. Elle doit se trouver dans un rayon de 1,50 mètre autour de vous quand vous lancez le sort.\n Si vous deviez arriver dans un emplacement déjà occupé par un objet ou une créature, vous et la créature qui voyage avec vous subissez chacun 4d6 dégâts de force tandis que le sort s\'avère incapable de vous téléporter.'
+         ]);
+         Spell::insert([
+            'name' => 'Possession',
+            'school' => 'Nécromancie',
+            'level' => 6,
+            'cast_time' => '1 minute',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (une gemme, un cristal, un reliquaire ou un autre réceptacle ornemental d\'une valeur minimale de 500 po)',
+            'duration' => 'jusqu\'à dissipation',
+            'description' => 'Votre corps tombe en catatonie tandis que votre âme le quitte et pénètre dans le réceptacle utilisé comme composante de sort. Tant qu\'elle se trouve là, vous percevez votre environnement comme si votre corps occupait le même espace que le réceptacle. En revanche, vous ne pouvez pas bouger ni utiliser de réaction. Vous ne pouvez accomplir qu\'une action: projeter votre âme dans un rayon de 30 mètres au maximum autour du réceptacle, soit pour retourner dans votre corps (ce qui met fin au sort), soit pour prendre possession d\'un autre corps humanoïde.\n Vous pouvez tenter de prendre possession de n\'importe quel humanoïde situé dans votre champ de vision et dans un rayon de 30 mètres (sachant que les créatures protégées par une protection contre le bien et le mal ou par un cercle magique sont immunisées contre la possession). La cible doit faire un jet de sauvegarde de Charisme. Si elle échoue, votre âme s\'installe dans son corps et la sienne est prisonnière du réceptacle. Si elle réussit son test, elle résiste à votre tentative de possession et vous ne pouvez plus essayer de la posséder pendant 24 heures.\n Une fois que vous avez pris possession du corps d\'une autre créature, vous le contrôlez totalement. Vos statistiques de jeu sont remplacées par celles de cette créature, bien que vous conserviez votre alignement et vos valeurs d\'Intelligence, de Sagesse et de Charisme. Vous conservez les avantages de vos pouvoirs de classe. Si votre cible possède des niveaux de classe, vous n\'avez pas accès à ses pouvoirs de classe.\n Pendant ce temps, l\'âme de la créature possédée perçoit ce qui se passe autour du réceptacle grâce à ses propres sens, mais elle ne peut pas se déplacer ni effectuer la moindre action.\n Tant que vous possédez le corps d\'autrui, vous pouvez utiliser votre action pour le quitter et regagner le réceptacle s\'il se trouve à 30 mètres de vous ou moins. L\'âme de votre hôte retourne alors dans son propre corps. Si le corps de l\'hôte périt alors que vous l\'occupez, l\'hôte meurt et vous devez faire un jet de sauvegarde de Charisme contre votre propre DD d\'incantation. Si vous réussissez, vous regagnez le réceptacle, à condition qu\'il se trouve dans un rayon de 30 mètres. Sinon, vous mourez.\n Si le réceptacle est détruit ou que le sort se termine, votre âme regagne immédiatement votre corps, à moins qu\'il ne se trouve à plus de 30 mètres d\'elle ou qu\'il ait succombé, auquel cas vous périssez. Si l\'âme d\'une autre créature occupe le réceptacle au moment où il est détruit, cette âme retourne immédiatement dans son corps, à condition qu\'il se trouve dans un rayon de 30 mètres et soit encore en vie Sinon, elle meurt. Le réceptacle est détruit quand le sort se termine.'
+         ]);
+         Spell::insert([
+            'name' => 'Prémonition',
+            'school' => 'Divination',
+            'level' => 9,
+            'cast_time' => '1 minute',
+            'range' => 'contact',
+            'component' => 'V, S, M (une plume d\'oiseau chanteur)',
+            'duration' => '8 heures',
+            'description' => 'Vous touchez une créature consentante et lui conférez une aptitude limitée à voir dans le futur immédiat. Pendant toute la durée du sort, elle ne peut pas être prise par surprise et elle a l\'avantage sur les jets d\'attaque, les tests de caractéristique et les jets de sauvegarde. De plus, les autres créatures sont désavantagées lors de leurs jets d\'attaque contre elle pendant toute la durée du sort.\n Le sort se termine immédiatement si vous le lancez de nouveau avant la fin de sa durée.'
+         ]);
+         Spell::insert([
+            'name' => 'Prestidigitation',
+            'school' => 'Transmutation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V, S',
+            'duration' => 'jusqu\'à 1 heure',
+            'description' => 'Ce sort est un tour de magie basique que les incantateurs novices utilisent pour s\'entraîner. Vous l\'utilisez pour créer à portée l\'un des effets magiques suivants:<LI>Vous créez un effet sensoriel immédiat et inoffensif, comme une pluie d\'étincelles, un coup de vent, de faibles notes de musique ou une odeur étrange.</LI> <LI>Vous allumez ou éteignez instantanément une chandelle, une torche ou un petit feu de camp.</LI> <LI>Vous nettoyez ou salissez instantanément un objet ne faisant pas plus de 30 décimètres cubes.</LI> <LI>Vous refroidissez, réchauffez ou aromatisez jusqu\'à 30 décimètres cubes de matière non vivante pendant 1 heure.</LI> <LI>Vous faites apparaître une couleur, une petite marque ou un symbole sur un objet ou une surface pendant 1 heure.</LI> <LI>Vous créez un colifichet non magique ou une image illusoire tenant dans votre main, qui persiste jusqu\'à la fin de votre prochain tour.</LI> \n Si vous lancez le sort à plusieurs reprises, vous ne pouvez pas avoir plus de trois effets non instantanés actifs à la fois. Vous pouvez révoquer un tel effet par une action.'
+         ]);
+         Spell::insert([
+            'name' => 'Prière de guérison',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '10 minutes',
+            'range' => '9 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Un maximum de six créatures de votre choix, situées à portée et dans votre champ de vision, récupèrent chacune un montant de points de vie égal à 2d8 + votre modificateur de caractéristique d\'incantation. Ce sort n\'a aucun effet sur les morts-vivants et les créatures artificielles.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les soins augmentent de 1d8 par niveau au-delà du 2e.'
+         ]);
+         Spell::insert([
+            'name' => 'Produire une flamme',
+            'school' => 'Invocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => '10 minutes',
+            'description' => 'Une flamme vacillante apparaît dans votre main. Elle y reste pendant toute la durée du sort et ne vous blesse pas, pas plus qu\'elle n\'endommage votre équipement. La flamme émet une vive lumière dans un rayon de 3 mètres et une faible lumière dans un rayon de 3 mètres de plus. Le sort se termine si vous le révoquez par une action ou si vous le lancez de nouveau.\n Vous pouvez attaquer avec la flamme, mais cela met fin au sort. Pour cela, quand vous lancez le sort, ou par une action lors d\'un tour ultérieur, vous lancez la flamme sur une créature située dans un rayon de 9 mètres. Faites une attaque de sort à distance. Si vous touchez, la cible subit 1d8 dégâts de feu. Les dégâts de ce sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et Je niveau 17 (4d8).'
+         ]);
+         Spell::insert([
+            'name' => 'Projectile magique',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous créez trois fléchettes faites d\'énergie magique luisante. Chacune touche une créature de votre choix, située à portée dans votre champ de vision. Une fléchette inflige 1d4+1 dégâts de force à la cible. Toutes les fléchettes frappent leur cible en même temps, sachant que vous pouvez toutes les diriger contre une seule et même créature ou les répartir entre plusieurs.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, le sort crée une fléchette de plus par niveau au-delà du 1er.'
+         ]);
+         Spell::insert([
+            'name' => 'Projection astrale',
+            'school' => 'Nécromancie',
+            'level' => 9,
+            'cast_time' => '1 heure',
+            'range' => '3 mètres',
+            'component' => 'V, S, M (un zircon jaune d\'une valeur minimale de 1 000 po et un lingot d\'argent gravé d\'une valeur minimale de 100 po par créature ; le sort consume ces composantes)',
+            'duration' => 'spéciale',
+            'description' => 'Vous et un maximum de huit créatures consentantes à portée projetez vos corps astraux sur le plan astral (si vous vous trouvez déjà sur ce plan, le sort échoue et l\'incantation est gâchée). Les corps physiques que vous laissez derrière vous sont inconscients, en état d\'animation suspendue. Ils n\'ont pas besoin de nourriture ni d\'air et ne vieillissent pas.\n Votre corps astral ressemble fort à votre corps physique, jusqu\'à reproduire ses caractéristiques de jeu et dupliquer ses possessions. La principale différence, c\'est le cordon argenté qui sort entre vos omoplates et se prolonge derrière vous, disparaissant du champ de vision après une trentaine de centimètres. C\'est lui qui vous relie à votre corps physique. Tant que ce lien est intact, vous pourrez rentrer chez vous, mais s\'il est coupé (ce qui se produit seulement si un effet précise qu\'il agit ainsi), votre âme est soudain séparée de votre corps et vous mourez sur-le-champ.\n Votre forme astrale se déplace librement sur le plan astral et peut traverser les portails menant à d\'autres plans. Si vous pénétrez sur un nouveau plan ou si vous retournez sur le plan où vous étiez lorsque vous avez lancé ce sort, votre corps et vos possessions physiques sont transportés le long du cordon argenté, ce qui vous permet de réintégrer votre corps dès que vous arrivez sur le nouveau plan. Votre forme astrale est une incarnation distincte : les dégâts et autres effets s\'appliquant sur elle n\'ont aucun effet sur votre corps physique et ne vous affectent plus dès que vous le regagnez.\n Le sort se termine pour vous et vos compagnons dès que vous utilisez une action pour y mettre fin. À ce moment, les créatures affectées regagnent leurs corps physiques qui se réveillent.\n Le sort peut se terminer plus tôt pour vous ou pour l\'un de vos camarades. Si quelqu\'un réussit une dissipation de la magie contre le corps astral ou physique d\'une créature affectée, le sort se termine pour elle seule. Il en va de même si la forme astrale ou le corps physique d\'une créature affectée tombe à 0 point de vie. Si le sort se termine alors que le cordon argenté est intact, celui-ci ramène la forme astrale dans le corps physique, mettant un terme à l\'état d\'animation suspendue. Si vous êtes prématurément renvoyé dans votre corps physique, vos compagnons restent sous forme astrale et doivent se débrouiller seuls pour regagner leur corps physique, en général en se laissant tomber à 0 point de vie.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre l\'énergie',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Pendant toute la durée du sort, la créature consentante que vous touchez devient résistante à un type de dégâts de votre choix : acide, feu, froid, foudre ou tonnerre.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre la mort',
+            'school' => 'Abjuration',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => '8 heures',
+            'description' => 'Vous touchez une créature et lui donnez une protection relative contre la mort.\n Quand elle devrait tomber à 0 point de vie pour la première fois suite à des dégâts, elle tombe à la place à 1 point de vie et le sort se termine.\n Si le sort est encore actif quand la cible est soumise à un effet qui devrait la tuer sur-le-champ sans lui infliger de dégâts, l\'effet est annulé contre cette cible et le sort se termine.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre le bien et le mal',
+            'school' => 'Abjuration',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (eau bénite ou poudre de fer et d\'argent, que le sort consume)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Jusqu\'à la fin du sort, une créature consentante que vous touchez est protégée contre certains types de créatures : les aberrations, les célestes, les élémentaires, les fées, les fiélons et les morts-vivants.\n Cette protection se traduit par plusieurs avantages. Les créatures des types précédemment nommés sont désavantagées lors des jets d\'attaque contre la cible et ne peuvent pas la charmer, la terroriser, ni la posséder. Si elle est déjà sous l\'effet d\'un tel état émanant d\'une telle créature, elle est avantagée lors d\'un éventuel nouveau jet de sauvegarde contre l\'effet en question.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre le poison',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez une créature. Si elle est empoisonnée, vous neutralisez ce poison. Si elle est victime de plusieurs poisons, vous en neutralisez un dont vous avez détecté la présence ou un au hasard.\n Pendant toute la durée du sort, la cible est avantagée lors des jets de sauvegarde contre le poison et se montre résistante aux dégâts de poison.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre les armes',
+            'school' => 'Abjuration',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => '1 round',
+            'description' => 'Vous tendez la main et tracez un symbole de protection dans les airs. Jusqu\'à la fin de votre prochain tour, vous êtes résistant aux dégâts perforants, contondants et tranchants découlant d\'une attaque armée.'
+         ]);
+         Spell::insert([
+            'name' => 'Protections et sceaux',
+            'school' => 'Abjuration',
+            'level' => 6,
+            'cast_time' => '10 minutes',
+            'range' => 'contact',
+            'component' => 'V, S, M (encens incandescent, petite dose de soufre et d\'huile, cordelette avec des noeuds, petite dose de sang de mastodonte des ombres et petit sceptre en argent d\'une valeur minimale de 10 po)',
+            'duration' => '24 heures',
+            'description' => 'Vous créez un sceau protégeant une zone au sol de 225m² (soit une zone de 15 mètres de côté, soit une centaine de zones de 1,50 mètre de côté, soit vingt-zones de 3 mètres de côté). La zone protégée fait au maximum 6 mètres de haut et prend la forme de votre choix. Vous pouvez protéger ainsi plusieurs étages d\'une place forte en répartissant la zone affectée entre eux tant que vous pouvez relier toutes les zones contiguës en marchant lorsque vous lancez le sort.\n Lors de l\'incantation, vous pouvez définir quels individus ne seront pas affectés par un ou tous les effets du sort. Vous pouvez aussi choisir un mot de passe qui immunise celui qui le prononce à haute voix contre ces effets.\n Protections et sceaux produit les effets suivants dans la zone protégée.\n <B>Couloirs.</B> Le brouillard envahit tous les couloirs où la visibilité est alors fortement obstruée. De plus, à chaque intersection ou embranchement laissant un choix de direction, il y a 50% de chances que les créatures autres que vous soient persuadées d\'aller dans la direction opposée à celle qu\'elles ont choisie.\n <B>Portes.</B> Toutes les portes de la zone protégée sont fermées par magie, comme scellées avec un verrou magique. De plus, vous pouvez recouvrir jusqu\'à dix portes d\'une illusion (comme la fonction d\'objet illusoire du sort illusion mineure), afin de les faire passer pour une section de mur ordinaire.\n <B>Escaliers.</B> Des toiles d\'araignées, comme le sort du même nom, emplissent tous les escaliers de la zone protégée, du sol au plafond. Tant que protections et sceaux persiste, ces fils repoussent en 10 minutes si quelqu\'un les brûle ou les arrache.\n <B>Autres effets de sort.</B> Vous pouvez placer l\'un des effets suivants, au choix, dans la zone protégée par le sort.<LI>Placer lumières dansantes dans quatre couloirs. Vous pouvez choisir un programme très simple que les lumières suivront pendant toute la durée de protections et sceaux.</LI> <LI>Placer une bouche magique en deux endroits.</LI> <LI>Placer un nuage puant en deux endroits. Les vapeurs apparaissent à l\'endroit de votre choix. Tant que protections et sceaux persiste, elles réapparaissent au bout de 10 minutes si le vent les disperse.</LI> <LI>Placer une bourrasque constante dans un couloir ou une pièce.</LI> <LI>Placer une suggestion en un endroit. Choisissez une zone d\'au maximum 1,50 mètre de côté : toute créature qui y pénètre ou la traverse reçoit une suggestion mentale.</LI> \n Toute la zone protégée émet une aura magique. Si quelqu\'un lance avec succès une dissipation de la magie sur un effet spécifique, il élimine seulement cet effet.\n Vous pouvez protéger une structure en permanence si vous lancez ce sort tous les jours pendant un an.'
+         ]);
+         Spell::insert([
+            'name' => 'Purification de la nourriture et de l\'eau',
+            'school' => 'Transmutation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Toute la nourriture et les boissons non magiques présentes dans une sphère d\'un rayon de 1,50 mètre centrée autour d\'un point de votre choix situé à portée sont purifiées et débarrassées de tout poison et maladie.'
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
             'name' => '',
             'school' => '',
             'level' => 0,
