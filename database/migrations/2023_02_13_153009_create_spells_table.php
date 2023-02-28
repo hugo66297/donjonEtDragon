@@ -2720,28 +2720,25 @@ return new class extends Migration
             'description' => 'Des orbes de feu flamboyants s\'abattent au sol en quatre points de votre choix situés à portée et dans votre champ de vision. Chaque créature située dans la sphère de 12 mètres de rayon centrée sur chacun de ces points doit faire un jet de sauvegarde de Dextérité. Les sphères s\'étendent en contournant les angles. Une créature qui rate son jet de sauvegarde subit 20d6 dégâts de feu et 20d6 dégâts contondants, les autres la moitié seulement. Une créature qui se trouve prise dans deux sphères à la fois ne subit qu\'une seule fois les dégâts des météores.\n Le sort abîme et embrase les objets inflammables de la zone s\'ils ne sont pas portés ou transportés.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Oeil du mage',
+            'school' => 'Divination',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (des poils de chauve-souris',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous créez un oeil magique invisible à portée qui flotte dans les airs pendant toute la durée du sort.\n Il vous envoie mentalement des informations visuelles grâce à sa vision normale et dans le noir dans un rayon de 9 mètres. Il peut regarder dans toutes les directions.\n Par une action, vous pouvez déplacer l\'oeil d\'un maximum de 9 mètres dans la direction de votre choix. Il peut s\'éloigner de vous sur une distance illimitée, mais il ne peut pas entrer dans un autre plan d\'existence. Une barrière solide l\'empêche de passer, mais il peut se glisser à travers une ouverture d\'au minimum 2,5 centimètres de diamètre.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Orbe chromatique',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (un diamant d\'une valeur minimale de 50 po)',
+            'duration' => 'instantanée',
+            'description' => 'Vous lancez une sphère d\'énergie de 10 centimètres de diamètre sur une créature située à portée dans votre champ de vision. Cet orbe est fait d\'acide, de feu, de froid, de foudre, de poison ou de tonnerre (à vous de choisir). Vous effectuez ensuite un jet d\'attaque à distance contre votre cible. Si vous la touchez, elle subit 3d8 dégâts du type de l\'orbe.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d8 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
             'name' => '',
