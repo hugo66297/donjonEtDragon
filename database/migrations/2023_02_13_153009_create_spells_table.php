@@ -2302,184 +2302,726 @@ return new class extends Migration
             'description' => 'Vous créez jusqu\'à quatre lumières de la taille d\'une torche qui apparaissent à portée. Elles ressemblent à des lanternes, des torches ou des orbes luisantes qui flottent dans les airs pendant toute la durée du sort. Vous pouvez aussi les combiner pour obtenir une forme brillante vaguement humanoïde de taille Moyenne. Quelle que soit l\'option choisie, chaque source lumineuse offre une faible lumière dans un rayon de 3 mètres.\n À votre tour et par une action bonus, vous pouvez déplacer les lumières sur un maximum de 18 mètres pour les installer ailleurs mais toujours à portée. Une lumière créée via ce sort doit toujours se trouver à 6 mètres ou moins d\'une autre émanant du même sort. Elle s\'éteint si elle passe hors de portée.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Main de Bigby',
+            'school' => 'Évocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (une coquille d\'oeuf et un gant en peau de serpent)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez une main de force luisante et translucide, de taille Grande, dans un espace inoccupé situé à portée et dans votre champ de vision. La main existe pendant toute la durée du sort, se déplace sur votre ordre et imite les mouvements de votre propre main.\n La main est un objet doté d\'une CA 20 et d\'un nombre de points de vie égal à votre maximum de points de vie. Si elle tombe à 0 point de vie, le sort se dissipe. La main possède une Force de 26 (+8) et une Dextérité de 10 (+0). Elle n\'occupe pas la case où elle se trouve.\n Lorsque vous lancez le sort, puis via une action bonus lors de vos tours ultérieurs, vous pouvez déplacer la main sur une distance maximale de 18 mètres et lui faire appliquer l\'un des effets suivants.\n <B>Poing serré.</B> La main frappe une créature ou un objet situés dans un rayon de 1,50 mètre d\'elle. Faites une attaque de sort de contact pour la main en utilisant vos propres statistiques. Si elle touche, la cible subit 4d8 dégâts de force.\n <B>Main percutante.</B> La main tente de repousser une créature située dans un rayon de 1,50 mètre dans la direction de votre choix. Faites un test avec la Force de la main opposé au test de Force (Athlétisme) de la cible. Si cette dernière est de taille Moyenne ou inférieure, vous êtes avantagé lors du test. Si vous l\'emportez, la main repousse la cible sur 1,50 mètre plus un nombre de mètres égal à une fois et demie votre modificateur de caractéristique d\'incantation. La main se déplace avec la cible de manière à rester dans un rayon de 1,50 mètre autour d\'elle.\n <B>Main agrippeuse.</B> La main tente d\'empoigner une créature de taille Très Grande ou inférieure qui se trouve dans un rayon de 1,50 mètre. Utilisez la valeur de Force de la main pour résoudre le test d\'empoignade. Si la cible est de taille Moyenne ou inférieure, vous êtes avantagé lors du test. Tant que la main agrippe la cible, vous pouvez utiliser une action bonus pour que la main la broie. Dans ce cas, la cible subit un montant de dégâts contondants égal à 2d6 + votre modificateur de caractéristique d\'incantation.\n <B>Main interposée.</B> La main s\'interpose entre vous et une créature de votre choix jusqu\'à ce que vous lui donniez un autre ordre. Elle se déplace de manière à toujours rester entre vous et la cible désignée et vous offre un abri partiel contre elle. La cible ne peut pas franchir la zone occupée par la main si sa valeur de Force est inférieure ou égale à celle de la main. Si elle est supérieure, elle peut se déplacer dans votre direction en traversant la zone de la main, qui est considérée comme un terrain difficile pour la cible.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, les dégâts de l\'option poing serré augmentent de 2d8 et ceux de la main agrippeuse de 2d6 par niveau au-delà du 5e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Main du mage',
+            'school' => 'Invocation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => '1 minute',
+            'description' => 'Une main spectrale flottante apparaît à portée, en un point de votre choix. Elle persiste pendant toute la durée du sort ou jusqu\'à ce que vous révoquiez le sort par une action. La main disparaît si elle s\'éloigne à plus de 9 mètres de vous ou si vous relancez le sort.\n Vous pouvez utiliser votre action pour contrôler la main et vous en servir pour manipuler un objet, ouvrir une porte ou un récipient qui ne sont pas verrouillés, placer un objet dans un récipient ouvert ou l\'en sortir ou bien verser le contenu d\'une flasque. Vous pouvez déplacer la main d\'un maximum de 9 mètres chaque fois que vous l\'utilisez.\n La main ne peut pas attaquer, activer un objet magique, ni transporter plus de 5 kilos.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Mains brûlantes',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact (cône de 4,50 mètres)',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Alors que vous vous tenez les doigts écartés en éventail et les pouces l\'un contre l\'autre, une mince nappe de feu s\'étend depuis vos mains tendues. Chaque créature située dans un cône de 4,50 mètres doit faire un jet de sauvegarde de Dextérité. Celles qui échouent reçoivent 3d6 dégâts de feu, les autres la moitié seulement.\n Le feu embrase tous les objets inflammables de la zone, à moins que quelqu\'un ne les porte ou ne les transporte.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d6 par niveau au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Maléfice',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (oeil de triton pétrifié)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous lancez une malédiction sur une créature située à portée dans votre champ de vision. Tant que la durée du sort n\'a pas expiré, vous infligez 1d6 dégâts nécrotiques supplémentaires à la cible chaque fois que vous la touchez avec une attaque. Lorsque vous lancez le sort, choisissez une caractéristique. La cible est désavantagée lors des tests concernant cette caractéristique.\n Si la cible tombe à 0 point de vie avant que le sort n\'expire, vous pouvez utiliser votre action bonus lors d\'un tour ultérieur pour affecter une nouvelle créature.\n Si la cible bénéficie du sort lever une malédiction, maléfice se termine immédiatement.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou 4, vous pouvez vous concentrer sur le sort pendant 8 heures. Si vous utilisez un emplacement de niveau 5 ou plus, vous pouvez maintenir votre concentration sur le sort jusqu\'à 24 heures.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Manoir somptueux de Mordenkainen',
+            'school' => 'Invocation',
+            'level' => 7,
+            'cast_time' => '1 minute',
+            'range' => '90 mètres',
+            'component' => 'V, S, M (un portrait miniature gravé dans de l\'ivoire, un bout de marbre poli et une minuscule cuillère en argent, chaque objet devant valoir au minimum5 po)',
+            'duration' => '24 heures',
+            'description' => 'Vous invoquez une demeure extraplanaire à portée qui persiste pendant toute la durée du sort. À vous de choisir où se situe sa seule entrée. Cette dernière scintille légèrement et mesure 1,50 mètre de large pour 3 mètres de haut. Vous et toutes les créatures que vous désignez lors de l\'incantation êtes libres d\'entrer et de sortir de cette demeure extraplanaire, tant que son portail reste ouvert. Vous pouvez l\'ouvrir ou le fermer si vous vous tenez à 9 mètres ou moins de lui. Quand le portail est fermé, il est invisible.\n Un splendide vestibule s\'ouvre derrière le portail et dessert de nombreuses pièces. Les lieux sont propres et l\'atmosphère tiède et agréable.\n Vous pouvez disposer le plan des lieux comme bon vous semble, mais la surface totale ne peut pas excéder 50 cubes, chaque cube mesurant 3 mètres d\'arête. L\'endroit est meublé et décoré selon vos souhaits et contient assez de nourriture pour un banquet de neuf plats destiné à une centaine de convives au maximum. Une équipe de cent serviteurs presque translucides s\'occupent de tous ceux qui pénètrent dans la demeure. À vous de décider de l\'apparence visuelle de ces domestiques et de leur tenue. Ils obéissent aveuglément à tous vos ordres. Chacun est en mesure d\'accomplir n\'importe quelle tâche à la portée d\'un serviteur humain ordinaire, mais les domestiques ne peuvent ni attaquer ni effectuer une action visant à nuire directement à une autre créature. Ils peuvent donc aller chercher des affaires, faire le ménage, raccommoder et plier les habits, allumer la cheminée, servir les plats et la boisson, etc. Ils peuvent se rendre partout dans la demeure, mais sont incapables de la quitter. Les meubles et autres objets créés à l\'aide de ce sort se dissipent en volutes de fumée si quelqu\'un les sort de la demeure. Quand le sort se termine, toutes les créatures qui se trouvent dans l\'espace extradimensionnel sont expulsées dans les emplacements libres les plus proches de l\'entrée.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Marche sur l\'onde',
+            'school' => 'Transmutation',
+            'level' => 3,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un bout de liège)',
+            'duration' => '1 heure',
+            'description' => 'Ce sort permet de se déplacer sur n\'importe quelle surface liquide (comme de l\'eau, de l\'acide, de la boue, de la neige, des sables mouvants ou de la lave) comme s\'il s\'agissait d\'un sol ferme et inoffensif (ceci dit, les créatures qui marchent sur la lave subissent tout de même les dégâts liés à la chaleur dégagée). Vous pouvez accorder cette capacité pendant toute la durée du sort à un maximum de dix créatures consentantes situées à portée et dans votre champ de vision.\n Si vous prenez pour cible une créature immergée dans un liquide, le sort la ramène à la surface du liquide à une vitesse de 18 mètres par round.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Marche sur le vent',
+            'school' => 'Transmutation',
+            'level' => 6,
+            'cast_time' => '1 minute',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (du feu et de l\'eau bénite)',
+            'duration' => '8 heures',
+            'description' => 'Vous et un maximum de dix créatures consentantes, situées à portée et dans votre champ de vision, prenez une forme gazeuse pendant toute la durée du sort et ressemblez à des volutes de nuages. Sous cette forme, une créature affectée a une vitesse de vol de 90 mètres et une résistance aux dégâts des armes non magiques. Elle est limitée dans ses actions : elle peut juste se précipiter ou reprendre sa forme normale. Il lui faut une minute pour reprendre sa forme normale et, pendant toute cette période, elle est neutralisée et incapable de bouger. Elle peut de nouveau se muer en nuage tant que le sort n\'est pas terminé, cette nouvelle transformation lui demandant aussi une minute.\n Si une créature est sous forme de nuage et en plein vol quand le sort se termine, elle descend de 18 mètres par round pendant 1 minute, jusqu\'à ce qu\'elle atterrisse, en parfaite sécurité. Si elle n\'arrive pas à atterrir avant la fin de cette minute, elle tombe sur la distance qui lui reste à parcourir.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Marque du chasseur',
+            'school' => 'Divination',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => '27 mètres',
+            'component' => 'V',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous choisissez une créature située à portée dans votre champ de vision et lui apposez une marque mystique la désignant comme votre proie. Jusqu\'à la fin du sort, vous lui infligez 1d6 dégâts supplémentaires chaque fois que vous la touchez avec une attaque armée et vous êtes avantàgé sur les éventuels tests de Sagesse (Perception) ou Sagesse (Survie) que vous faites pour la retrouver. Si la cible tombe à 0 point de vie avant que ce sort n\'arrive à expiration, vous pouvez utiliser une action bonus lors d\'un tour ultérieur pour marquer une nouvelle créature.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou 4, vous pouvez vous concentrer sur le sort pendant 8 heures. Si vous utilisez un emplacement de niveau 5 ou plus, vous pouvez maintenir votre concentration sur le sort jusqu\'à 24 heures.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Mauvais oeil',
+            'school' => 'Nécromancie',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Pendant la durée du sort, vos yeux deviennent deux trous noirs regorgeant d\'un pouvoir terrifiant. Une créature de votre choix, située dans votre champ de vision et dans un rayon de 18 mètres doit réussir un jet de sauvegarde de Sagesse ou se voir affectée par l\'un des effets suivants, choisi par vos soins, pendant toute la durée du sort. À chacun de vos tours jusqu\'à ce que le sort se termine, vous pouvez utiliser votre action pour viser une autre créature, mais vous ne pouvez pas reprendre pour cible une créature ayant déjà réussi un jet de sauvegarde contre l\'incantation de mauvais oeil en cours.\n <B>Endormi.</B> La cible tombe inconsciente. Elle se réveille si elle subit le moindre dégât ou si une tierce personne utilise une action pour la réveiller en la secouant.\n <B>Paniqué.</B> Vous terrorisez la cible. À chacun de ses tours, la cible terrorisée doit utiliser l\'action se précipiter et s\'éloigner de vous via l\'itinéraire le plus rapide et le plus sûr, à moins qu\'elle n\'ait nulle part où aller. Cet effet se termine si la cible gagne un emplacement situé à au moins 18 mètres de vous et d\'où elle ne vous voit plus.\n <B>Écoeuré.</B> La cible est désavantagée lors des jets d\'attaque et des tests de caractéristique. Elle a droit à un nouveau jet de sauvegarde de Sagesse à la fin de chacun de ses tours. L\'effet se termine si elle le réussit.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Message',
+            'school' => 'Transmutation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (un petit bout de fil de cuivre)',
+            'duration' => '1 round',
+            'description' => 'Vous pointez du doigt une créature à portée et murmurez un message. La cible (et elle seule) l\'entend et peut répondre dans un murmure que vous êtes le seul à entendre.\n Vous pouvez lancer ce sort au travers d\'un objet solide si vous connaissez bien la cible et savez qu\'elle se trouve de l\'autre côté de cet obstacle. Le sort est bloqué par un silence magique, 30 centimètres de pierre, 2,5 centimètres de métal ordinaire, une mince couche de plomb ou 90 centimètres de bois. Le sort n\'a pas besoin de voyager en ligne directe, il peut contourner les angles et franchir les ouvertures.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Messager Animal',
+            'school' => 'Enchantement',
+            'level' => 2,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un peu de nourriture)',
+            'duration' => '24 heures',
+            'description' => 'Grâce à ce sort, vous chargez un animal de livrer un message pour vous. Choisissez une bête de taille Très Petite située à portée dans votre champ de vision, comme un écureuil, un geai ou une chauve-souris. Vous lui précisez l\'endroit où se rendre (où vous devez vous être déjà vous-même rendu auparavant) et donnez une description générale du destinataire, comme « un homme ou une femme vêtus de l\'uniforme de la garde de la ville » ou « un nain roux avec un chapeau pointu ». Vous prononcez ensuite votre message, de vingt-cinq mots au maximum. La bête chargée du message fait alors route vers la destination indiquée pendant toute la durée du sort. Elle parcourt dans les 75 kilomètres par 24 heures si elle vole ou dans les 35 kilomètres si elle en est incapable.\n Quand elle arrive sur place, elle transmet votre message à la créature que vous avez décrite, imitant le son de votre voix. Le messager parle uniquement à une créature correspondant à la description que vous lui avez donnée. S\'il n\'atteint pas sa destination avant la fin du sort, le message est perdu et l\'animal retourne là où vous avez lancé le sort.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, la durée du sort augmente de 48 heures par niveau au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Métamorphose',
+            'school' => 'Transmutation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un cocon de chenille)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Ce sort change la forme d\'une créature située à portée dans votre champ de vision. Une créature non consentante doit faire un jet de sauvegarde de Sagesse pour éviter cet effet. Le sort n\'a aucun effet sur un métamorphe ou une créature à 0 point de vie.\n La transformation persiste pendant toute la durée du sort ou jusqu\'à ce que la cible tombe à 0 point de vie ou meure. Vous pouvez donner comme nouvelle forme celle de n\'importe quelle bête dont l\'indice de dangerosité est égal ou inférieur à celui de la cible (ou à son niveau, si elle n\'a pas d\'indice de dangerosité). Les statistiques de jeu de la cible, y compris ses valeurs de caractéristique mentales, sont remplacées par celles de la bête choisie. Elle conserve en revanche son alignement et sa personnalité.\n La cible possède les points de vie correspondant à sa nouvelle forme. Quand elle reprend sa forme normale, elle se retrouve avec le nombre de points de vie qui était le sien avant la transformation. Si elle reprend sa forme normale parce qu\'elle est tombée à 0 point de vie, les éventuels dégâts en excès sont déduits des points de vie de sa forme normale. Tant que les dégâts en excès ne réduisent pas les points de vie normaux de la créature à 0, elle n\'est pas inconsciente.\n La nouvelle forme de la créature limite les actions qu\'elle peut entreprendre et elle ne peut ni parler, ni lancer de sorts, ni effectuer une action qui nécessite de parler ou de se servir de ses mains.\n L\'équipement de la cible fusionne avec sa nouvelle forme, mais elle ne peut pas activer, utiliser, ni manier la moindre pièce d\'équipement et ne peut pas non plus bénéficier de ses effets.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Métamorphose suprême',
+            'school' => 'Transmutation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (une goutte de mercure, une cuillérée de gomme arabique et une volute de fumée)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Choisissez une créature ou un objet non magique situés à portée et dans votre champ de vision. Vous transformez la créature en une autre créature, la créature en un objet ou l\'objet en une créature (cet objet ne doit pas être porté ni transporté par autrui). La transformation persiste pendant toute la durée du sort ou jusqu\'à ce que la cible tombe à 0 point de vie ou meure. Si vous vous concentrez sur ce sort pendant toute sa durée, la transformation persiste jusqu\'à dissipation. Ce sort n\'a aucun effet sur un métamorphe ou une créature tombée à 0 point de vie. Si la cible n\'est pas consentante, elle peut faire un jet de sauvegarde de Sagesse. Si elle le réussit, le sort ne l\'affecte pas.\n <B>Créature en créature.</B> Si vous changez une créature en créature d\'un autre type, vous pouvez lui attribuer la forme de votre choix, à condition qu\'elle corresponde à une créature dotée d\'un indice de dangerosité égal ou inférieur au sien (ou à son niveau si la cible n\'a pas d\'indice de dangerosité). Les statistiques de jeu de la cible (y compris ses caractéristiques mentales) sont remplacées par celles de sa nouvelle forme, mais elle conserve son alignement et sa personnalité.\n La cible adopte les points de vie de sa nouvelle forme. Quand elle reprend son apparence normale, elle se retrouve avec le même nombre de points de vie que celui qui était le sien avant sa transformation. Si elle reprend sa véritable forme parce qu\'elle est tombée à 0 point de vie, les dégâts en excès sont transférés sur sa forme normale. Tant que ces dégâts en excès ne font pas tomber sa forme normale à 0 point de vie, la cible n\'est pas inconsciente.\n La nouvelle forme de la créature limite ses actions. Elle ne peut pas parler, lancer de sorts, ni effectuer une action nécessitant des mains ou la parole, à moins que sa nouvelle forme ne soit à même d\'accomplir ces actes.\n L\'équipement de la cible fusionne avec sa nouvelle forme. La créature est donc dans l\'incapacité d\'activer, utiliser, ou manier son équipement ou de bénéficier de ses effets.\n <B>Objet en créature.</B> Vous pouvez changer un objet en créature, à condition que la taille de la créature ne dépasse pas celle de l\'objet et que son indice de dangerosité soit de 9 ou moins. La créature est amicale envers vous et vos compagnons. Elle agit à chacun de vos tours. C\'est à vous de décider des actions qu\'elle entreprend et de ses déplacements, mais c\'est le MD qui dispose de ses statistiques et résout ses actions et ses déplacements.\n Si le sort devient permanent, vous ne contrôlez plus la créature, mais elle peut rester amicale envers vous selon la manière dont vous l\'avez traitée.\n <B>Créature en objet.</B> Si vous transformez une créature en objet, tous les objets qu\'elle porte et transporte se métamorphosent avec elle. Les statistiques de l\'objet remplacent celles de la créature qui, une fois revenue à sa forme normale à la fin du sort, n\'aura aucun souvenir de la période pendant laquelle elle a été métamorphosée.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Mirage',
+            'school' => 'Illusion',
+            'level' => 7,
+            'cast_time' => '10 minutes',
+            'range' => 'vision',
+            'component' => 'V, S',
+            'duration' => '10 jours',
+            'description' => 'Vous donnez à un terrain d\'au maximum 2,5 kilomètres carrés la même apparence visuelle, sonore, olfactive et générale qu\'un autre type de terrain. En revanche, sa forme globale ne change pas. Vous pouvez maquiller un champ ou une route pour lui donner l\'air d\'un marais, d\'une colline, d\'une crevasse ou d\'un autre terrain difficile ou impraticable. Vous pouvez faire passer une mare pour une prairie herbeuse, un précipice pour une pente douce ou un goulet rocailleux pour une route aussi large que lisse.\n Vous pouvez aussi modifier l\'apparence des structures ou en ajouter là où n\'y en a pas. En revanche, le sort est incapable de déguiser, dissimuler ou ajouter des créatures.\n L\'illusion comprend des composantes auditives, visuelles, tactiles et olfactives, elle peut donc changer un sol dégagé en terrain difficile (ou inversement) ou gêner les déplacements dans la zone. Tout élément de terrain illusoire (comme une pierre ou une brindille) disparaît dès qu\'il quitte la zone d\'effet du sort.\n Les créatures dotées de vision parfaite distinguent le véritable terrain derrière l\'illusion, mais les autres composantes restent en place ; elles savent donc qu\'elles ont affaire à une illusion, mais peuvent toujours interagir physiquement avec celle-ci.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Modification d\'apparence',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous revêtez une forme différente. Quand vous lancez ce sort, choisissez l\'une des options suivantes, dont les effets dureront aussi longtemps que le sort. Tant qu\'il est actif, vous pouvez utiliser une action pour mettre un terme à une option afin de bénéficier d\'une autre.\n <B>Adaptation aquatique.</B> Vous adaptez votre corps à un environnement aquatique, générant des branchies et des palmures entre vos doigts. Vous pouvez respirer sous l\'eau et gagnez une vitesse de nage égale à votre vitesse de marche.\n <B>Changer d\'apparence.</B> Vous modifiez votre apparence et choisissez votre taille, votre poids, vos traits, le son de votre voix, la longueur de vos cheveux, votre pigmentation, et toute caractéristique distinctive désirée. Vous pouvez vous faire passer pour un membre d\'une autre race, mais vos caractéristiques ne changent pas. Vous ne pouvez pas vous faire passer pour une créature d\'une catégorie de taille différente de la vôtre, et votre silhouette générale doit rester la même (par exemple, si vous êtes un bipède, vous ne pouvez pas utiliser ce sort pour prendre l\'apparence d\'un quadrupède). À tout moment lors de la durée du sort, vous pouvez dépenser une action pour modifier de nouveau votre apparence de cette manière.\n <B>Armes naturelles.</B> Vous gagnez des griffes, des crocs, des épines, des cornes ou une autre arme naturelle de votre choix. Vos attaques à mains nues infligent 1d6 dégâts contondants, perforants ou tranchants, comme il sied à l\'arme naturelle que vous avez choisie et vous maîtrisez automatiquement les attaques à mains nues. Enfin, votre arme naturelle est de nature magique et vous disposez d\'un bonus de +1 aux jets d\'attaque et de dégâts quand vous l\'utilisez.'
+         ]);
+         Spell::insert([
+            'name' => 'Modification de mémoire',
+            'school' => 'Enchantement',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous tentez de remodeler les souvenirs d\'autrui. Une créature située dans votre champ de vision doit faire un jet de sauvegarde de Sagesse. Si vous combattez cette créature, elle a l\'avantage lors du jet. Si elle échoue, vous la charmez pendant toute la durée du sort. Elle est alors neutralisée et n\'a plus conscience de ce qui l\'entoure, mais elle vous entend toujours. Le sort se termine si elle subit le moindre dégât ou si elle est la cible d\'un autre sort, auquel cas ses souvenirs restent tous intacts.\n Tant que le sort persiste, vous pouvez influer sur les souvenirs de la cible liés à un événement qui s\'est déroulé dans les 24 heures précédentes et qui n\'a pas duré plus de 10 minutes. Vous pouvez éliminer définitivement tout souvenir de cet événement, permettre à la cible de s\'en souvenir parfaitement dans les moindres détails, modifier les détails dont elle se souvient ou créer un souvenir décrivant un tout autre événement.\n Vous devez parler à votre cible pour décrire comment ses souvenirs sont affectés et, pour que les nouveaux souvenirs s\'implantent dans sa mémoire, elle doit être à même de comprendre votre langue. Son esprit se charge de combler les manques dans votre description. Si le sort se termine avant que vous ayez fini de décrire les souvenirs modifiés, la mémoire de la cible ne subit aucune modification. Sinon, elle tient compte des modifications qui lui ont été apportées dès que le sort se termine.\n Les souvenirs modifiés ne changent pas forcément l\'attitude de la créature, surtout s\'ils entrent en contradiction avec ses penchants naturels, son alignement ou ses croyances. Un souvenir modifié illogique sera ignoré: par exemple, si la cible se souvient combien elle a aimé se baigner dans de l\'acide, elle prendra cela pour un mauvais rêve. Le MD peut estimer qu\'un souvenir est modifié de manière tellement insensée qu\'il n\'affecte pas la cible de manière significative.\n Si la cible bénéficie de lever une malédiction ou de restauration supérieure, elle retrouve ses véritables souvenirs.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, vous pouvez modifier les souvenirs d\'un événement remontant à 7 jours (niveau 6), 30 jours (niveau 7), 1 an (niveau 8) ou issus de n\'importe quelle période du passé de la cible (niveau 9).'
+         ]);
+         Spell::insert([
+            'name' => 'Monture fantôme',
+            'school' => 'Illusion',
+            'level' => 3,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => '1 heure',
+            'description' => 'Une créature équine de taille Grande quasi réelle apparaît dans un emplacement au sol de votre choix situé à portée. À vous de décider de l\'apparence de la créature, mais elle est systématiquement équipée d\'une selle, d\'un mors et d\'un filet. Toutes les pièces d\'équipement nées de ce sort disparaissent dans une volute de fumée si quelqu\'un les emporte à plus de 3 mètres de la monture.\n Pendant toute la durée du sort, vous et une créature de votre choix pouvez chevaucher la monture. Cette dernière possède les mêmes statistiques qu\'un cheval de selle, sauf qu\'elle a une vitesse de 30 mètres et peut parcourir 15 kilomètres en une heure ou 20 kilomètres si elle galope. Quand le sort se termine, la monture s\'estompe progressivement, ce qui laisse une minute au cavalier pour mettre pied à terre. Le sort se termine si vous utilisez une action pour le révoquer ou si la monture subit le moindre dégât.'
+         ]);
+         Spell::insert([
+            'name' => 'Moquerie cruelle',
+            'school' => 'Enchantement',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous lancez une bordée d\'insultes empreintes d\'un subtil enchantement à une créature située à portée dans votre champ de vision. Si elle vous entend (elle n\'a pas besoin de vous comprendre), elle doit réussir un jet de sauvegarde de Sagesse, sans quoi elle subit 1d4 dégâts psychiques et se trouve désavantagée sur le prochain jet d\'attaque qu\'elle effectue avant la fin de son prochain tour.\n Les dégâts du sort augmentent de 1d4 quand vous atteignez le niveau 5 (2d4), le niveau 11 (3d4) et le niveau 17 (4d4).'
+         ]);
+         Spell::insert([
+            'name' => 'Mot de guérison',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Une créature de votre choix située à portée dans votre champ de vision récupère un montant de points de vie égal à 1d4 + votre modificateur de caractéristique d\'incantation. Ce sort n\'a aucun effet sur les créatures artificielles et les morts-vivants.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les soins augmentent de 1d4 par niveau au-delà du 1er.'
+         ]);
+         Spell::insert([
+            'name' => 'Mot de guérison de groupe',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action bonus',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous prononcez des paroles curatives qui rendent un montant de points de vie égal à ld4 + votre modificateur de caractéristique d\'incantation à un maximum de six créatures de votre choix situées à portée et dans votre champ de vision. Ce sort reste sans effet sur les morts-vivants et les créatures artificielles.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les soins augmentent de 1d4 par niveau au-delà du 3e.'
+         ]);
+         Spell::insert([
+            'name' => 'Mot de pouvoir étourdissant',
+            'school' => 'Enchantement',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous prononcez un mot de pouvoir capable de submerger l\'esprit d\'une créature située à portée dans votre champ de vision. Elle en est abasourdie. Si elle possède 150 points de vie ou moins, elle est étourdie, sinon le sort est sans effet. Une cible étourdie a droit à un jet de sauvegarde de Constitution à la fin de chacun de ses tours. L\'effet d\'étourdissement se termine dès qu\'elle en réussit un.'
+         ]);
+         Spell::insert([
+            'name' => 'Mot de pouvoir guérisseur',
+            'school' => 'Évocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Une vague d\'énergie curative parcourt la créature que vous touchez et lui rend tous ses points de vie. Si elle est charmée, terrorisée, paralysée ou étourdie, cet état se dissipe. Si la créature est à terre, elle peut utiliser sa réaction pour se relever. Ce sort n\'a aucun effet sur les morts-vivants et les créatures artificielles.'
+         ]);
+         Spell::insert([
+            'name' => 'Mot de pouvoir mortel',
+            'school' => 'Enchantement',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous prononcez un mot de pouvoir capable d\'obliger une créature située à portée dans votre champ de vision à mourir instantanément. Si la créature choisie a 100 points de vie ou moins, elle meurt, sinon le sort n\'a aucun effet.'
+         ]);
+         Spell::insert([
+            'name' => 'Mot de retour',
+            'school' => 'Invocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '1,50 mètre',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous et un maximum de cinq créatures consentantes situées dans un rayon de 1,50 mètre autour de vous vous téléportez immédiatement dans un sanctuaire précédemment choisi. Vous et les créatures qui se téléportent éventuellement avec vous apparaissez dans l\'emplacement inoccupé le plus proche de l\'endroit que vous avez désigné lorsque vous avez préparé votre sanctuaire (voir plus bas). Si vous lancez ce sort sans avoir préparé un sanctuaire au préalable, il n\'a aucun effet.\n Pour désigner un sanctuaire, vous devez lancer ce sort en un lieu dédié à votre divinité, comme un temple, ou entretenant des liens étroits avec elle. Si vous tentez de lancer ainsi le sort dans une zone qui n\'est pas dédiée à votre divinité, il n\'a aucun effet.'
+         ]);
+         Spell::insert([
+            'name' => 'Motif hypnotique',
+            'school' => 'Illusion',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'S, M (un bâtonnet d\'encens incandescent ou une fiole de cristal remplie d\'une matière phosphorescente)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous tissez dans les airs un motif aux couleurs mouvantes dans un cube de 9 mètres d\'arête situé à portée. Le motif apparaît pendant un bref instant avant de s\'évanouir. Chaque créature qui se trouve dans la zone et voit le motif doit faire un jet de sauvegarde de Sagesse. Celles qui échouent sont charmées pendant la durée du sort. Tant qu\'une créature est charmée par ce sort, elle est neutralisée et a une vitesse de 0.\n Le sort se termine pour une créature donnée si elle subit le moindre dégât ou si quelqu\'un d\'autre utilise son action pour la secouer et la sortir de sa torpeur.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur d\'épines',
+            'school' => 'Invocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (une poignée d\'épines)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez un mur fait de buissons souples et robustes, enchevêtrés et hérissés d\'épines acérées. Il apparaît à portée sur une surface solide et persiste pendant toute la durée du sort. Vous pouvez faire un mur de 18 mètres de long, 3 mètres de haut et 1,50 mètre d\'épaisseur, ou le disposer en un cercle de 6 mètres de diamètre pour une hauteur maximum de 6 mètres et une épaisseur de 1,50 mètre. Le mur bloque le champ de vision.\n Quand le mur apparaît, chaque créature située dans sa zone doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 7d8 dégâts perforants, les autres la moitié seulement.\n Une créature peut traverser le mur, mais lentement et dans la douleur. Elle doit dépenser 1,20 mètre de déplacement pour avancer de 30 centimètres au sein du mur. De plus, quand elle entre dans le mur pour la première fois de son tour ou quand elle y termine son tour, elle doit faire un jet de sauvegarde de Dextérité. Elle subit 7d8 dégâts perforants si elle rate son jet, la moitié si elle le réussit.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 7 ou plus, les deux types de dégâts augmentent chacun de 1d8 par niveau au-delà du 6e.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur de feu',
+            'school' => 'Évocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (un éclat de phosphore)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez un mur de feu sur une surface solide située à portée. Il peut faire un maximum de 18 mètres de long, 6 mètres de haut et 30 centimètres d\'épaisseur, ou prendre une forme circulaire de 6 mètres de diamètre pour 6 mètres de haut et 30 centimètres d\'épaisseur. Le mur est opaque et persiste toute la durée du sort.\n Quand le mur apparaît, chaque créature présente dans sa zone d\'effet doit faire un jet de sauvegarde de Dextérité. Celles qui échouent reçoivent 5d8 dégâts de feu, les autres la moitié seulement.\n Une face du mur (celle de votre choix) inflige 5d8 dégâts de feu à chaque créature qui termine son tour à 3 mètres d\'elle ou moins ou au sein du mur. Une créature qui pénètre dans le mur pour la première fois de son tour ou y termine son tour subit les mêmes dégâts. L\'autre face du mur n\'inflige pas de dégâts.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 4e.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur de force',
+            'school' => 'Évocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (une pincée de poudre de gemme translucide)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Un mur de force invisible se matérialise soudain en un point de votre choix situé à portée. Il s\'oriente comme bon vous semble, comme une barrière horizontale, verticale ou inclinée. Il peut flotter librement ou reposer sur une surface solide. Vous pouvez lui donner une forme de dôme hémisphérique ou de sphère d\'un rayon maximal de 3 mètres ou en faire une surface plane composée de dix panneaux de 3 mètres sur 3. Chaque panneau doit être contigu à un autre. Quelle que soit sa forme, le mur fait 0,5 centimètre d\'épaisseur et persiste pendant toute la durée du sort. Si le mur passe par l\'emplacement d\'une créature lorsqu\'il apparaît, il la repousse d\'un côté ou de l\'autre (à vous de choisir).\n Aucun élément ne peut franchir physiquement le mur, qui est immunisé contre tous les dégâts et résiste à toute dissipation de la magie. En revanche, on peut le détruire instantanément avec une désintégration. Le mur s\'étend également sur le plan éthéré, ce qui empêche de le franchir sous forme éthérée.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur de glace',
+            'school' => 'Évocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (un éclat de quartz)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez un mur de glace sur une surface solide à portée. Vous pouvez lui donner une forme de dôme hémisphérique ou de sphère d\'un rayon maximal de 3 mètres ou en faire une surface plane composée de dix panneaux de 3 mètres carrés. Chaque panneau doit être contigu à un autre. Quelle que soit sa forme, le mur fait 30 centimètres d\'épaisseur et persiste pendant toute la durée du sort. Si le mur passe par l\'emplacement d\'une créature lorsqu\'il apparaît, il la repousse d\'un côté ou de \'autre et elle doit faire un jet de sauvegarde de Dextérité. Si elle échoue, elle subit 10d6 dégâts de froid, la moitié seulement si elle réussit.\n Le mur est un objet que l\'on peut endommager et on peut donc y ouvrir des brèches. Il a une CA de 12 et 30 points de vie par section de 3 mètres de côté et il est vulnérable aux dégâts de feu. Si une section de 3 mètres de côté tombe à 0 point de vie, elle est détruite et laisse juste une zone d\'air glacé à l\'emplacement où se trouvait le pan de mur. Quand une créature se déplace dans cette zone frigorifique pour la première fois de son tour, elle doit faire un jet de sauvegarde de Constitution. Si elle échoue, elle subit 5d6 dégâts de froid, la moitié seulement si elle réussit.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 7 ou plus, les dégâts que le mur inflige en apparaissant augmentent de 2d6 et les dégâts provoqués par un passage dans la zone d\'air glacé augmentent de 1d6 par niveau au-delà du 6e.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur de pierre',
+            'school' => 'Évocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (un petit bloc de granite)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez un mur de pierre non magique qui se matérialise en un point de votre choix à portée. Il fait 15 centimètres d\'épaisseur et se compose de dix panneaux de 3 mètres sur 3. Chaque panneau doit être contigu à un autre. Sinon, vous pouvez opter pour des panneaux de 3 mètres sur 6 de seulement 7,50 centimètres d\'épaisseur.\n Si le mur passe par l\'emplacement d\'une créature lorsqu\'il apparaît, il la repousse d\'un côté ou de l\'autre (à vous de choisir). Si une créature est placée de telle manière qu\'elle devrait se retrouver entourée de toutes parts par le mur (ou par le mur et une autre surface solide), elle doit faire un jet de sauvegarde de Dextérité. Si elle le réussit, elle peut utiliser sa réaction pour se déplacer à sa vitesse au maximum afin de ne plus être encerclée par le mur.\n Le mur peut prendre la forme que vous désirez, mais il ne peut pas occuper le même emplacement qu\'une créature ou un objet. Il n\'est pas forcément vertical et n\'a pas besoin de reposer sur des fondations solides. En revanche, il doit impérativement fusionner avec de la pierre existante lui servant de soutien solide. Vous pouvez donc utiliser ce sort pour jeter un pont au-dessus d\'un fossé ou créer une rampe.\n Si vous créez une longueur de plus de 6 mètres, vous devez réduire de moitié la taille de chaque panneau pour créer des supports. Vous pouvez façonner la silhouette générale du mur pour le doter de créneaux, de remparts et autres.\n Le mur est un objet de pierre que l\'on peut endommager et on peut donc y ouvrir des brèches. Chaque panneau a une CA de 15 et 30 points de vie par section de 2,5 centimètres d\'épaisseur. Si un panneau tombe à 0 point de vie, il est détruit, ce qui peut entraîner l\'effondrement des panneaux adjacents, au choix du MD.\n Si vous restez concentré sur le sort pendant toute sa durée, le mur devient une structure permanente et ne peut plus être dissipé, sinon il disparaît à la fin du sort.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur de vent',
+            'school' => 'Évocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (un petit éventail et une plume exotique)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Un mur de vent fort se lève soudain depuis le sol en un point de votre choix à portée. Vous pouvez lui faire couvrir jusqu\'à 15 mètres de long, 4,50 mètres de haut et 30 centimètres d\'épaisseur. Vous pouvez lui donner la forme que vous voulez tant qu\'il dessine un chemin continu au sol. Ce mur persiste pendant toute la durée du sort.\n Quand le mur apparaît, chaque créature située dans sa zone doit faire un jet de sauvegarde de Force. Les créatures qui échouent subissent 3d8 dégâts contondants, les autres la moitié seulement.\n Le vent fort maintient la brume, la fumée et les autres gaz à l\'écart. Les créatures et objets volants de taille Petite ou inférieure ne peuvent pas traverser le mur. Les matériaux libres et légers s\'envolent si on les apporte dans le mur. Les flèches, les carreaux et autres projectiles ordinaires visant une cible située derrière le mur sont systématiquement détournés vers le haut et ratent automatiquement leur cible. (Ce phénomène n\'affecte pas les rochers que lancent les géants ou les engins de siège, ni les projectiles similaires.) Les créatures sous forme gazeuse ne peuvent pas franchir le mur.'
+         ]);
+         Spell::insert([
+            'name' => 'Mur prismatique',
+            'school' => 'Abjuration',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => '10 minutes',
+            'description' => 'Un plan de lumière scintillante multicolore forme un mur opaque vertical centré sur un point situé à portée et dans votre champ de vision. Ce mur fait au maximum 27 mètres de long, 9 mètres de haut et 2,5 centimètres d\'épaisseur. Sinon, vous pouvez façonner le mur de manière à ce qu\'il forme une sphère d\'au maximum 9 mètres de diamètre centrée sur un point de votre choix situé à portée. Le mur reste en place pendant toute la durée du sort. Si vous positionnez le mur de manière à ce qu\'il passe par un emplacement occupé par une créature, le sort échoue: votre action et l\'emplacement du sort sont gaspillés.\n Le mur émet une vive lumière dans un rayon de 30 mètres et une faible lumière dans un rayon de 30 mètres de plus. Vous et les créatures que vous désignez au moment de l\'incantation pouvez traverser le mur et rester à côté sans conséquence. Si une créature qui voit le mur s\'en approche à 6 mètres ou moins, ou qu\'elle démarre son tour dans ce périmètre, elle doit réussir un jet de sauvegarde de Constitution ou devenir aveugle pendant 1 minute.\n Le mur se compose de sept couches, chacune d\'une couleur différente. Quand une créature tente de franchir le mur ou d\'y enfoncer la main, elle avance d\'une couche à la fois, jusqu\'à les franchir toutes. Chaque fois qu\'elle traverse ou touche une couche, elle doit réussir un jet de sauvegarde de Dextérité, sans quoi elle est affectée par les propriétés de la couche indiquées plus bas.\n On peut détruire le mur, également couche par couche, du rouge au violet, en appliquant une méthode spécifique à chaque couche. Une fois une couche détruite, elle ne se répare pas jusqu\'à la fin du sort. Un sceptre d\'annulation détruit un mur prismatique, mais un champ d\'antimagie en est incapable.\n <B>1. Rouge.</B> La cible subit 10d6 dégâts de feu si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit. Tant que cette couche est en place, les attaques à distance non magiques ne peuvent pas traverser le mur. On peut la détruire en lui infligeant 25 dégâts de froid.\n <B>2. Orange.</B> La cible subit 10d6 dégâts d\'acide si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit. Tant que cette couche est en place, les attaques à distance magiques ne peuvent pas traverser le mur. On peut détruire cette couche avec un vent fort.\n <B>3. Jaune.</B> La cible subit 10d6 dégâts de foudre si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit. On peut détruire cette couche en lui infligeant au moins 60 dégâts de force.\n <B>4. Vert.</B> La cible subit 10d6 dégâts de poison si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit. On peut détruire cette couche grâce à un sort de passe-muraille ou un autre sort d\'un niveau égal ou supérieur, capable d\'ouvrir un portail dans une surface solide.\n <B>5. Bleu.</B> La cible subit 10d6 dégâts de froid si elle rate son jet de sauvegarde, la moitié seulement si elle le réussit. On peut détruire cette couche en lui infligeant 25 dégâts de feu.\n <B>6. Indigo.</B> Si la cible rate son jet de sauvegarde, elle est entravée et doit alors faire un jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle en réussit trois, le sort se termine ; si elle en rate trois, elle se change définitivement en pierre et elle est en proie à l\'état pétrifié. Les succès et les échecs n\'ont pas à être consécutifs : tenez le compte dans chaque catégorie jusqu\'à ce que l\'une d\'elles arrive à trois.\n Tant que cette couche est en place, il est impossible de lancer un sort à travers le mur. On peut détruire la couche grâce à la vive lumière d\'un sort de lumière du jour ou d\'un sort similaire de niveau égal ou supérieur.\n <B>7. Violet.</B> La cible est aveugle si elle rate son jet de sauvegarde. Elle doit alors faire un jet de sauvegarde de Sagesse au début de votre prochain tour. Si elle le réussit, elle recouvre la vue, si elle le rate, elle est emportée sur un autre plan d\'existence choisi par le MD et recouvre aussi la vue. (En général, une créature qui ne se trouve pas sur son propre plan d\'existence est bannie là-bas tandis que les autres créatures sont envoyées sur le plan astral ou éthéré). On peut détruire cette couche avec une dissipation de la magie ou un sort similaire de niveau identique ou supérieur, capable de mettre un terme à un sort ou à un effet magique.'
+         ]);
+         Spell::insert([
+            'name' => 'Murmures dissonants',
+            'school' => 'Enchantement',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous fredonnez une mélodie discordante qu\'entend une seule créature de votre choix, située à portée. La malheureuse est alors victime de terribles douleurs et doit faire un jet de sauvegarde de Sagesse. Si elle échoue, elle subit 3d6 dégâts psychiques et doit immédiatement dépenser sa réaction (si elle le peut) pour s\'éloigner de vous autant que sa vitesse de déplacement le lui permet. Elle ne s\'avance pas dans des zones à l\'évidence dangereuses, comme un brasier ou une fosse. Si la cible réussit son jet de sauvegarde, elle subit seulement la moitié des dégâts et n\'a pas à s\'éloigner. Une créature assourdie réussit automatiquement son jet de sauvegarde.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d6 par emplacement de sort au-delà du 1er.'
+         ]);
+         Spell::insert([
+            'name' => 'Nappe de brouillard',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous créez une sphère de brouillard de 6 mètres de rayon centrée sur un point à portée. La sphère s\'étend en contournant les angles et, dans la zone qu\'elle occupe, la visibilité est fortement obstruée. Le brouillard persiste pendant toute la durée du sort ou jusqu\'à ce qu\'un vent modéré ou plus violent (soufflant au moins à 15 kilomètres/heure) le disperse.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, le rayon de la sphère augmente de 6 mètres par niveau au-delà du ler.'
+         ]);
+         Spell::insert([
+            'name' => 'Non-détection',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une pincée de poussière de diamant d\'une valeur de 25 po, que le sort consume une fois saupoudrée sur la cible)',
+            'duration' => '8 heures',
+            'description' => 'Pendant toute la durée du sort, vous dissimulez la cible que vous touchez aux yeux de la magie de divination. Vous pouvez prendre pour cible une créature consentante, un endroit ou un objet ne mesurant pas plus de 3 mètres dans chaque dimension. La magie de divination ne peut plus viser votre cible et les organes de scrutation magiques ne la perçoivent plus.'
+         ]);
+         Spell::insert([
+            'name' => 'Nuage incendiaire',
+            'school' => 'Invocation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Un nuage de fumée ondoyant constellé de braises rougeoyantes apparaît sous la forme d\'une sphère de 6 mètres de rayon centrée sur un point à portée. Le nuage se répand en contournant les angles si nécessaire et, à l\'intérieur, la visibilité est fortement obstruée. Le nuage persiste pendant toute la durée du sort ou jusqu\'à ce qu\'un vent fort ou modéré (au moins 15 km/h) le disperse.\n Quand le nuage apparaît, chaque créature se trouvant à l\'intérieur doit faire un jet de sauvegarde de Dextérité. Celles qui échouent reçoivent 10d8 dégâts de feu, les autres la moitié seulement. Une créature doit aussi faire ce jet quand elle entre dans la zone affectée pour la première fois du tour ou qu\'elle y finit son tour.\n Le nuage s\'éloigne de vous sur 3 mètres dans la direction d votre choix au début de chacun de vos tours.'
+         ]);
+         Spell::insert([
+            'name' => 'Nuage mortel',
+            'school' => 'Invocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez une sphère de 6 mètres de rayon faite d\'un brouillard vert jaunâtre empoisonné. Il est centré sur un point de votre choix situé à portée. Le brouillard s\'étend en contournant les coins au besoin. Il persiste pendant toute la durée du sort ou jusqu\'à ce qu\'un vent fort (au moins 30 km/h) le disperse et mette un terme au sort. La visibilité est lourdement obstruée dans sa zone d\'effet.\n Quand une créature entre dans la zone du sort pour la première fois de son tour ou qu\'elle y démarre son tour, elle doit faire un jet de sauvegarde de Constitution. Elle subit 5d8 dégâts de poison si elle rate son jet et seulement la moitié si elle le réussit. Le brouillard affecte même les créatures qui retiennent leur souffle ou qui n\'ont pas besoin de respirer.\n Le brouillard s\'éloigne de vous sur une distance de 3 mètres au début de chacun de vos tours, rampant à la surface du sol. Comme ses vapeurs sont plus lourdes que l\'air, il s\'enfonce dans les replis du terrain et s\'infiltre même dans les ouvertures.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 5e.'
+         ]);
+         Spell::insert([
+            'name' => 'Nuage nauséabond',
+            'school' => 'Invocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (un oeuf pourri ou des feuilles de chou pourri)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez une sphère d\'un gaz jaunâtre et nauséabond de 6 mètres de rayon centrée sur un point à portée. Le nuage se répand en contournant les angles et la visibilité est nulle dans toute sa zone. Le nuage persiste dans la zone affectée pendant toute la durée du sort.\n Chaque créature entièrement englobée dans le nuage au début de son tour doit faire un jet de sauvegarde de Constitution contre le poison. Celles qui échouent passent toute leur action du tour à vomir. Les créatures qui ne respirent pas et celles qui sont immunisées contre le poison réussissent automatiquement ce jet.\n Un vent modéré (au moins 15 km/h) disperse le nuage après 4 rounds. Un vent fort (au moins 30 km/h) le disperse au bout de seulement 1 round.'
+         ]);
+         Spell::insert([
+            'name' => 'Nuée de dagues',
+            'school' => 'Invocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un éclat de verre)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous emplissez de dagues tournoyantes un cube de 1,50 mètre d\'arête. Ce cube est centré sur un point de votre choix situé à portée. Une créature subit 4d4 dégâts tranchants quand elle entre dans la zone du sort pour la première fois d\'un tour ou quand elle y débute son tour.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts augmentent de 2d4 par emplacement de sort au-delà du 2e.'
+         ]);
+         Spell::insert([
+            'name' => 'Nuée de météores',
+            'school' => 'Évocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '1,5 kilomètre',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Des orbes de feu flamboyants s\'abattent au sol en quatre points de votre choix situés à portée et dans votre champ de vision. Chaque créature située dans la sphère de 12 mètres de rayon centrée sur chacun de ces points doit faire un jet de sauvegarde de Dextérité. Les sphères s\'étendent en contournant les angles. Une créature qui rate son jet de sauvegarde subit 20d6 dégâts de feu et 20d6 dégâts contondants, les autres la moitié seulement. Une créature qui se trouve prise dans deux sphères à la fois ne subit qu\'une seule fois les dégâts des météores.\n Le sort abîme et embrase les objets inflammables de la zone s\'ils ne sont pas portés ou transportés.'
+         ]);
+         Spell::insert([
+            'name' => 'Oeil du mage',
+            'school' => 'Divination',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (des poils de chauve-souris',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous créez un oeil magique invisible à portée qui flotte dans les airs pendant toute la durée du sort.\n Il vous envoie mentalement des informations visuelles grâce à sa vision normale et dans le noir dans un rayon de 9 mètres. Il peut regarder dans toutes les directions.\n Par une action, vous pouvez déplacer l\'oeil d\'un maximum de 9 mètres dans la direction de votre choix. Il peut s\'éloigner de vous sur une distance illimitée, mais il ne peut pas entrer dans un autre plan d\'existence. Une barrière solide l\'empêche de passer, mais il peut se glisser à travers une ouverture d\'au minimum 2,5 centimètres de diamètre.'
+         ]);
+         Spell::insert([
+            'name' => 'Orbe chromatique',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (un diamant d\'une valeur minimale de 50 po)',
+            'duration' => 'instantanée',
+            'description' => 'Vous lancez une sphère d\'énergie de 10 centimètres de diamètre sur une créature située à portée dans votre champ de vision. Cet orbe est fait d\'acide, de feu, de froid, de foudre, de poison ou de tonnerre (à vous de choisir). Vous effectuez ensuite un jet d\'attaque à distance contre votre cible. Si vous la touchez, elle subit 3d8 dégâts du type de l\'orbe.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d8 par emplacement de sort au-delà du 1er.'
+         ]);
+         Spell::insert([
+            'name' => 'Pas brumeux',
+            'school' => 'Invocation',
+            'level' => 2,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous êtes brièvement entouré d\'une brume argentée et vous vous téléportez sur un maximum de 9 mètres jusqu\'à un emplacement inoccupé situé dans votre champ de vision.'
+         ]);
+         Spell::insert([
+            'name' => 'Passage par les arbres',
+            'school' => 'Invocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous êtes soudain capable d\'entrer dans un arbre et de passer de son sein à celui d\'un autre arbre de la même espèce situé dans un rayon de 150 mètres. Ces deux arbres doivent être vivants et au moins de la même taille que vous. Vous devez dépenser 1,50 mètre de déplacement pour entrer dans un arbre. Vous apprenez alors instantanément où se trouvent tous les autres arbres de la même espèce dans un rayon de 150 mètres et vous pouvez gagner l\'un d\'eux ou ressortir par l\'arbre dans lequel vous êtes entré, ce mouvement faisant partie de votre déplacement de 1,50 mètre. Vous apparaissez à l\'endroit de votre choix dans un rayon de 1,50 mètre autour de l\'arbre dans lequel vous êtes arrivé en dépensant de nouveau 1,50 mètre de déplacement. S\'il ne vous reste pas de distance de déplacement à dépenser, vous apparaissez dans un rayon de 1,50 mètre autour de l\'arbre par lequel vous êtes entré.\n Vous pouvez utiliser cette capacité de transport une fois par round pendant toute la durée du sort. Vous devez terminer chaque tour en dehors d\'un arbre.'
+         ]);
+         Spell::insert([
+            'name' => 'Passage sans trace',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (cendres d\'une feuille de gui et une brindille d\'épicéa)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Une aura d\'ombre et de silence émane de vous et enveloppe vos compagnons, vous dissimulant aux sens d\'autrui. Pendant toute la durée du sort, chaque créature que vous choisissez et qui se trouve dans un rayon de 9 mètres (vous y compris) bénéficie d\'un bonus de + 10 aux tests de Dextérité (Discrétion) et il devient impossible de suivre sa piste à moins de recourir à des méthodes magiques. Une créature qui profite de ce bonus ne laisse aucune trace ni autre indice de son passage derrière elle.'
+         ]);
+         Spell::insert([
+            'name' => 'Passe-muraille',
+            'school' => 'Transmutation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (une pincée de graines de sésame)',
+            'duration' => '1 heure',
+            'description' => 'Un passage apparaît en un point de votre choix situé à portée et dans votre champ de vision sur une surface de bois, de plâtre ou de pierre (comme un mur, un sol ou un plafond). Il persiste pendant toute la durée du sort. À vous de décider des dimensions de l\'ouverture qui peut faire, au maximum, 1,50 mètre de large pour 2,50 mètres de haut et 6 mètres de profondeur. L\'apparition du passage ne crée aucune faiblesse dans la structure qui l\'entoure.\n Quand l\'ouverture disparaît, les créatures et les objets qui s\'y trouvaient encore sont expulsés en toute sécurité dans l\'emplacement inoccupé le plus proche de la surface sur laquelle vous avez lancé le sort.'
+         ]);
+         Spell::insert([
+            'name' => 'Pattes d\'araignée',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une goutte de bitume et une araignée)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Jusqu\'à la fin du sort, une créature consentante que vous touchez devient capable de se déplacer sur les surfaces verticales, et même au plafond la tête en bas, tout en gardant les mains libres. La cible bénéficie aussi d\'une vitesse d\'escalade égale à sa vitesse de marche.'
+         ]);
+         Spell::insert([
+            'name' => 'Peau d\'écorce',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une poignée d\'écorce de chêne)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous touchez une créature consentante. Pendant toute la durée du sort, sa peau prend la consistance et l\'apparence de l\'écorce, et sa CA ne peut pas descendre au-dessous de 16, quelle que soit l\'armure qu\'elle porte.'
+         ]);
+         Spell::insert([
+            'name' => 'Peau de pierre',
+            'school' => 'Abjuration',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (poussière de diamant d\'une valeur de 100 po, que le sort consume)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Ce sort modifie la chair d\'une créature consentante pour la rendre aussi dure que de la pierre. Jusqu\'à la fin du sort, la cible est résistante aux dégâts non magiques contondants, perforants et tranchants.'
+         ]);
+         Spell::insert([
+            'name' => 'Petite hutte de Léomund',
+            'school' => 'Évocation',
+            'level' => 3,
+            'is_rituel'=> true,
+            'cast_time' => '1 minute',
+            'range' => 'personnelle (hémisphère de 3 mètres de rayon)',
+            'component' => 'V, S, M (une petite perle de cristal)',
+            'duration' => '8 heures',
+            'description' => 'Un dôme de force immobile, de 3 mètres de rayon, apparaît soudain autour et au-dessus de vous. Il reste stationnaire pendant toute la durée du sort. Ce dernier se termine si vous quittez sa zone.\n Le dôme peut abriter un maximum de neuf créatures de taille Moyenne ou inférieure, en plus de vous. Le sort échoue si la zone comprend une créature de taille supérieure ou plus de neuf créatures. Les créatures et les objets qui se trouvent à l\'intérieur du dôme lors de l\'incantation peuvent en sortir et y entrer librement ; en revanche, les autres créatures sont incapables de franchir ses limites. Les sorts et autres effets magiques ne peuvent pas s\'étendre au-delà de la limite du dôme ni se lancer à travers. L\'atmosphère au sein du dôme est agréable et sèche, quelles que soient les conditions météorologiques à l\'extérieur.\n Tant que le sort n\'est pas terminé, vous pouvez faire en sorte que l\'intérieur du dôme soit faiblement éclairé ou plongé dans le noir. Vu de l\'extérieur, le dôme est opaque, de la couleur que vous désirez, mais vu de l\'intérieur, il est transparent.'
+         ]);
+         Spell::insert([
+            'name' => 'Pétrification',
+            'school' => 'Transmutation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (une pincée de chaux, de l\'eau et de la terre)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous tentez de changer en pierre une créature située à portée dans votre champ de vision. Si le corps de la cible est fait de chair, elle doit faire un jet de sauvegarde de Constitution. Si elle échoue, elle se retrouve entravée, car sa chair se met à durcir. Si elle réussit, elle n\'est pas affectée.\n Une créature entravée par ce sort doit faire un nouveau jet de sauvegarde de Constitution à la fin de chacun de ses tours. Si elle en réussit trois, le sort se termine. Si elle en rate trois, elle se change en pierre et se retrouve pétrifiée pendant toute la durée du sort. Inutile que les succès et les échecs soient consécutifs, notez juste leur nombre jusqu\'à ce que la cible arrive à en accumuler trois d\'une sorte ou de l\'autre.\n Si quelqu\'un brise le corps physique de la cible alors qu\'elle est pétrifiée, les difformités subies sont conservées par sa forme originelle quand elle la reprend.\n Si vous maintenez votre concentration sur ce sort jusqu\'à la fin de la durée maximale, la cible est définitivement changée en pierre jusqu\'à ce que quelqu\'un dissipe l\'effet.'
+         ]);
+         Spell::insert([
+            'name' => 'Peur',
+            'school' => 'Illusion',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (cône de 9 mètres)',
+            'component' => 'V, S, M (une plume blanche ou un coeur de poule)',
+            'duration' => 'concentration, jusqu\'à 1 minute.',
+            'description' => 'Vous projetez une image fantasmagorique des pires terreurs d\'une créature. Chaque créature située dans un cône de 9 mètres doit réussir un jet de sauvegarde de Sagesse ou lâcher tout ce qu\'elle tient en main et être terrorisée pendant toute la durée du sort.\n Tant qu\'une créature est terrorisée par ce sort, elle est obligée d\'utiliser l\'action se précipiter à chacun de ses tours et de s\'éloigner de vous par l\'itinéraire le plus sûr, à moins qu\'elle n\'ait nulle part où aller. Si elle termine son tour en un endroit où vous ne figurez plus dans son champ de vision, elle peut faire un jet de sauvegarde de Sagesse. Si elle le réussit, le sort se termine pour elle.'
+         ]);
+         Spell::insert([
+            'name' => 'Poigne électrique',
+            'school' => 'Évocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'La foudre jaillit de votre main et bondit sur la créature que vous tentez de toucher. Faites une attaque de sort au corps à corps contre la cible. Vous êtes avantagé lors du jet d\'attaque si votre cible porte une armure métallique. Si vous touchez la cible, elle subit 1d8 dégâts de foudre et ne peut pas effectuer de réaction avant le début de son prochain tour.\n Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
+         ]);
+         Spell::insert([
+            'name' => 'Portail',
+            'school' => 'Invocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un diamant d\'une valeur minimale de 5 000 po)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous invoquez un portail reliant un espace inoccupé, situé à portée et dans votre champ de vision, à un autre plan d\'existence. Ce portail se présente sous la forme d\'une ouverture circulaire de 1,50 à 6 mètres de diamètre, à votre guise. Vous pouvez orienter le portail dans la direction de votre choix et il persiste pendant toute la durée du sort.\n Le portail a une face avant et une face arrière sur chaque plan où il apparaît. Pour voyager grâce au portail, il faut impérativement le franchir en passant par l\'avant. Tout ce qui le traverse ainsi apparaît instantanément sur l\'autre plan, dans l\'espace inoccupé le plus proche du portail.\n Les divinités et autres dirigeants planaires peuvent empêcher un portail né de ce sort de s\'ouvrir en leur présence ou en n\'importe quel point de leur domaine.\n Quand vous lancez ce sort, vous pouvez prononcer le nom d\'une créature spécifique (sachant que les pseudonymes, les titres et les surnoms ne fonctionnent pas). Si cette créature se trouve sur un autre plan que celui sur lequel vous vous trouvez, le portail s\'ouvre dans ses environs immédiats et attire la créature en son sein. Elle réapparaît de votre côté du portail, dans l\'espace inoccupé le plus proche. Cela ne vous donne aucun contrôle sur la créature qui agit librement, comme le MD le désire. Elle peut s\'en aller, vous attaquer ou vous aider.'
+         ]);
+         Spell::insert([
+            'name' => 'Portail arcanique',
+            'school' => 'Invocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '150 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous créez des portails de téléportation reliés qui restent ouverts pendant toute la durée du sort. Choisissez deux points au sol, tous deux situés dans votre champ de vision, l\'un devant se trouver dans un rayon de 3 mètres autour de vous, l\'autre dans un rayon de 150 mètres autour de vous. Un portail circulaire de 3 mètres de diamètre s\'ouvre en chaque point. Si un portail est censé s\'ouvrir dans l\'emplacement qu\'occupe une créature, le sort échoue et l\'incantation est gaspillée.\n Ces portails se présentent sous forme d\'anneaux luisants en deux dimensions emplis de brume, qui flottent à quelques centimètres du sol, perpendiculaires aux points que vous avez choisis. Chaque anneau se voit seulement d\'un côté (celui de votre choix), qui correspond à la face fonctionnant comme un portail.\n Toute créature ou tout objet entrant dans un portail ressort par l\'autre, comme si les deux étaient adjacents. En revanche, il ne se passe rien si quelque chose traverse l\'emplacement du portail en passant par la face qui ne fait pas office de portail. La brume qui emplit chaque portail est opaque et bloque toute visibilité. À votre tour, vous pouvez faire pivoter le portail par une action bonus pour que la face active se tourne dans une nouvelle direction.'
+         ]);
+         Spell::insert([
+            'name' => 'Porte dimensionnelle',
+            'school' => 'Invocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '150 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous vous téléportez depuis votre position actuelle vers n\'importe quel emplacement désiré situé à portée. Vous arrivez exactement à l\'endroit voulu. Ce peut être un endroit que vous voyez, que vous visualisez ou que vous pouvez décrire en donnant sa distance et sa direction, par exemple « 60 mètres plus bas en ligne droite » ou « en montant au nord-ouest à un angle de 45° sur 90 mètres ».\n Vous pouvez amener des objets avec vous, tant que leur poids ne dépasse pas la charge que vous êtes capable de porter. Vous pouvez également emmener avec vous une créature consentante de votre taille ou d\'une taille inférieure, qui peut transporter du matériel dans la limite de ses capacités. Elle doit se trouver dans un rayon de 1,50 mètre autour de vous quand vous lancez le sort.\n Si vous deviez arriver dans un emplacement déjà occupé par un objet ou une créature, vous et la créature qui voyage avec vous subissez chacun 4d6 dégâts de force tandis que le sort s\'avère incapable de vous téléporter.'
+         ]);
+         Spell::insert([
+            'name' => 'Possession',
+            'school' => 'Nécromancie',
+            'level' => 6,
+            'cast_time' => '1 minute',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (une gemme, un cristal, un reliquaire ou un autre réceptacle ornemental d\'une valeur minimale de 500 po)',
+            'duration' => 'jusqu\'à dissipation',
+            'description' => 'Votre corps tombe en catatonie tandis que votre âme le quitte et pénètre dans le réceptacle utilisé comme composante de sort. Tant qu\'elle se trouve là, vous percevez votre environnement comme si votre corps occupait le même espace que le réceptacle. En revanche, vous ne pouvez pas bouger ni utiliser de réaction. Vous ne pouvez accomplir qu\'une action: projeter votre âme dans un rayon de 30 mètres au maximum autour du réceptacle, soit pour retourner dans votre corps (ce qui met fin au sort), soit pour prendre possession d\'un autre corps humanoïde.\n Vous pouvez tenter de prendre possession de n\'importe quel humanoïde situé dans votre champ de vision et dans un rayon de 30 mètres (sachant que les créatures protégées par une protection contre le bien et le mal ou par un cercle magique sont immunisées contre la possession). La cible doit faire un jet de sauvegarde de Charisme. Si elle échoue, votre âme s\'installe dans son corps et la sienne est prisonnière du réceptacle. Si elle réussit son test, elle résiste à votre tentative de possession et vous ne pouvez plus essayer de la posséder pendant 24 heures.\n Une fois que vous avez pris possession du corps d\'une autre créature, vous le contrôlez totalement. Vos statistiques de jeu sont remplacées par celles de cette créature, bien que vous conserviez votre alignement et vos valeurs d\'Intelligence, de Sagesse et de Charisme. Vous conservez les avantages de vos pouvoirs de classe. Si votre cible possède des niveaux de classe, vous n\'avez pas accès à ses pouvoirs de classe.\n Pendant ce temps, l\'âme de la créature possédée perçoit ce qui se passe autour du réceptacle grâce à ses propres sens, mais elle ne peut pas se déplacer ni effectuer la moindre action.\n Tant que vous possédez le corps d\'autrui, vous pouvez utiliser votre action pour le quitter et regagner le réceptacle s\'il se trouve à 30 mètres de vous ou moins. L\'âme de votre hôte retourne alors dans son propre corps. Si le corps de l\'hôte périt alors que vous l\'occupez, l\'hôte meurt et vous devez faire un jet de sauvegarde de Charisme contre votre propre DD d\'incantation. Si vous réussissez, vous regagnez le réceptacle, à condition qu\'il se trouve dans un rayon de 30 mètres. Sinon, vous mourez.\n Si le réceptacle est détruit ou que le sort se termine, votre âme regagne immédiatement votre corps, à moins qu\'il ne se trouve à plus de 30 mètres d\'elle ou qu\'il ait succombé, auquel cas vous périssez. Si l\'âme d\'une autre créature occupe le réceptacle au moment où il est détruit, cette âme retourne immédiatement dans son corps, à condition qu\'il se trouve dans un rayon de 30 mètres et soit encore en vie Sinon, elle meurt. Le réceptacle est détruit quand le sort se termine.'
+         ]);
+         Spell::insert([
+            'name' => 'Prémonition',
+            'school' => 'Divination',
+            'level' => 9,
+            'cast_time' => '1 minute',
+            'range' => 'contact',
+            'component' => 'V, S, M (une plume d\'oiseau chanteur)',
+            'duration' => '8 heures',
+            'description' => 'Vous touchez une créature consentante et lui conférez une aptitude limitée à voir dans le futur immédiat. Pendant toute la durée du sort, elle ne peut pas être prise par surprise et elle a l\'avantage sur les jets d\'attaque, les tests de caractéristique et les jets de sauvegarde. De plus, les autres créatures sont désavantagées lors de leurs jets d\'attaque contre elle pendant toute la durée du sort.\n Le sort se termine immédiatement si vous le lancez de nouveau avant la fin de sa durée.'
+         ]);
+         Spell::insert([
+            'name' => 'Prestidigitation',
+            'school' => 'Transmutation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V, S',
+            'duration' => 'jusqu\'à 1 heure',
+            'description' => 'Ce sort est un tour de magie basique que les incantateurs novices utilisent pour s\'entraîner. Vous l\'utilisez pour créer à portée l\'un des effets magiques suivants:<LI>Vous créez un effet sensoriel immédiat et inoffensif, comme une pluie d\'étincelles, un coup de vent, de faibles notes de musique ou une odeur étrange.</LI> <LI>Vous allumez ou éteignez instantanément une chandelle, une torche ou un petit feu de camp.</LI> <LI>Vous nettoyez ou salissez instantanément un objet ne faisant pas plus de 30 décimètres cubes.</LI> <LI>Vous refroidissez, réchauffez ou aromatisez jusqu\'à 30 décimètres cubes de matière non vivante pendant 1 heure.</LI> <LI>Vous faites apparaître une couleur, une petite marque ou un symbole sur un objet ou une surface pendant 1 heure.</LI> <LI>Vous créez un colifichet non magique ou une image illusoire tenant dans votre main, qui persiste jusqu\'à la fin de votre prochain tour.</LI> \n Si vous lancez le sort à plusieurs reprises, vous ne pouvez pas avoir plus de trois effets non instantanés actifs à la fois. Vous pouvez révoquer un tel effet par une action.'
+         ]);
+         Spell::insert([
+            'name' => 'Prière de guérison',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '10 minutes',
+            'range' => '9 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Un maximum de six créatures de votre choix, situées à portée et dans votre champ de vision, récupèrent chacune un montant de points de vie égal à 2d8 + votre modificateur de caractéristique d\'incantation. Ce sort n\'a aucun effet sur les morts-vivants et les créatures artificielles.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les soins augmentent de 1d8 par niveau au-delà du 2e.'
+         ]);
+         Spell::insert([
+            'name' => 'Produire une flamme',
+            'school' => 'Invocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => '10 minutes',
+            'description' => 'Une flamme vacillante apparaît dans votre main. Elle y reste pendant toute la durée du sort et ne vous blesse pas, pas plus qu\'elle n\'endommage votre équipement. La flamme émet une vive lumière dans un rayon de 3 mètres et une faible lumière dans un rayon de 3 mètres de plus. Le sort se termine si vous le révoquez par une action ou si vous le lancez de nouveau.\n Vous pouvez attaquer avec la flamme, mais cela met fin au sort. Pour cela, quand vous lancez le sort, ou par une action lors d\'un tour ultérieur, vous lancez la flamme sur une créature située dans un rayon de 9 mètres. Faites une attaque de sort à distance. Si vous touchez, la cible subit 1d8 dégâts de feu. Les dégâts de ce sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et Je niveau 17 (4d8).'
+         ]);
+         Spell::insert([
+            'name' => 'Projectile magique',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous créez trois fléchettes faites d\'énergie magique luisante. Chacune touche une créature de votre choix, située à portée dans votre champ de vision. Une fléchette inflige 1d4+1 dégâts de force à la cible. Toutes les fléchettes frappent leur cible en même temps, sachant que vous pouvez toutes les diriger contre une seule et même créature ou les répartir entre plusieurs.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, le sort crée une fléchette de plus par niveau au-delà du 1er.'
+         ]);
+         Spell::insert([
+            'name' => 'Projection astrale',
+            'school' => 'Nécromancie',
+            'level' => 9,
+            'cast_time' => '1 heure',
+            'range' => '3 mètres',
+            'component' => 'V, S, M (un zircon jaune d\'une valeur minimale de 1 000 po et un lingot d\'argent gravé d\'une valeur minimale de 100 po par créature ; le sort consume ces composantes)',
+            'duration' => 'spéciale',
+            'description' => 'Vous et un maximum de huit créatures consentantes à portée projetez vos corps astraux sur le plan astral (si vous vous trouvez déjà sur ce plan, le sort échoue et l\'incantation est gâchée). Les corps physiques que vous laissez derrière vous sont inconscients, en état d\'animation suspendue. Ils n\'ont pas besoin de nourriture ni d\'air et ne vieillissent pas.\n Votre corps astral ressemble fort à votre corps physique, jusqu\'à reproduire ses caractéristiques de jeu et dupliquer ses possessions. La principale différence, c\'est le cordon argenté qui sort entre vos omoplates et se prolonge derrière vous, disparaissant du champ de vision après une trentaine de centimètres. C\'est lui qui vous relie à votre corps physique. Tant que ce lien est intact, vous pourrez rentrer chez vous, mais s\'il est coupé (ce qui se produit seulement si un effet précise qu\'il agit ainsi), votre âme est soudain séparée de votre corps et vous mourez sur-le-champ.\n Votre forme astrale se déplace librement sur le plan astral et peut traverser les portails menant à d\'autres plans. Si vous pénétrez sur un nouveau plan ou si vous retournez sur le plan où vous étiez lorsque vous avez lancé ce sort, votre corps et vos possessions physiques sont transportés le long du cordon argenté, ce qui vous permet de réintégrer votre corps dès que vous arrivez sur le nouveau plan. Votre forme astrale est une incarnation distincte : les dégâts et autres effets s\'appliquant sur elle n\'ont aucun effet sur votre corps physique et ne vous affectent plus dès que vous le regagnez.\n Le sort se termine pour vous et vos compagnons dès que vous utilisez une action pour y mettre fin. À ce moment, les créatures affectées regagnent leurs corps physiques qui se réveillent.\n Le sort peut se terminer plus tôt pour vous ou pour l\'un de vos camarades. Si quelqu\'un réussit une dissipation de la magie contre le corps astral ou physique d\'une créature affectée, le sort se termine pour elle seule. Il en va de même si la forme astrale ou le corps physique d\'une créature affectée tombe à 0 point de vie. Si le sort se termine alors que le cordon argenté est intact, celui-ci ramène la forme astrale dans le corps physique, mettant un terme à l\'état d\'animation suspendue. Si vous êtes prématurément renvoyé dans votre corps physique, vos compagnons restent sous forme astrale et doivent se débrouiller seuls pour regagner leur corps physique, en général en se laissant tomber à 0 point de vie.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre l\'énergie',
+            'school' => 'Abjuration',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Pendant toute la durée du sort, la créature consentante que vous touchez devient résistante à un type de dégâts de votre choix : acide, feu, froid, foudre ou tonnerre.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre la mort',
+            'school' => 'Abjuration',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => '8 heures',
+            'description' => 'Vous touchez une créature et lui donnez une protection relative contre la mort.\n Quand elle devrait tomber à 0 point de vie pour la première fois suite à des dégâts, elle tombe à la place à 1 point de vie et le sort se termine.\n Si le sort est encore actif quand la cible est soumise à un effet qui devrait la tuer sur-le-champ sans lui infliger de dégâts, l\'effet est annulé contre cette cible et le sort se termine.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre le bien et le mal',
+            'school' => 'Abjuration',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (eau bénite ou poudre de fer et d\'argent, que le sort consume)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Jusqu\'à la fin du sort, une créature consentante que vous touchez est protégée contre certains types de créatures : les aberrations, les célestes, les élémentaires, les fées, les fiélons et les morts-vivants.\n Cette protection se traduit par plusieurs avantages. Les créatures des types précédemment nommés sont désavantagées lors des jets d\'attaque contre la cible et ne peuvent pas la charmer, la terroriser, ni la posséder. Si elle est déjà sous l\'effet d\'un tel état émanant d\'une telle créature, elle est avantagée lors d\'un éventuel nouveau jet de sauvegarde contre l\'effet en question.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre le poison',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez une créature. Si elle est empoisonnée, vous neutralisez ce poison. Si elle est victime de plusieurs poisons, vous en neutralisez un dont vous avez détecté la présence ou un au hasard.\n Pendant toute la durée du sort, la cible est avantagée lors des jets de sauvegarde contre le poison et se montre résistante aux dégâts de poison.'
+         ]);
+         Spell::insert([
+            'name' => 'Protection contre les armes',
+            'school' => 'Abjuration',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => '1 round',
+            'description' => 'Vous tendez la main et tracez un symbole de protection dans les airs. Jusqu\'à la fin de votre prochain tour, vous êtes résistant aux dégâts perforants, contondants et tranchants découlant d\'une attaque armée.'
+         ]);
+         Spell::insert([
+            'name' => 'Protections et sceaux',
+            'school' => 'Abjuration',
+            'level' => 6,
+            'cast_time' => '10 minutes',
+            'range' => 'contact',
+            'component' => 'V, S, M (encens incandescent, petite dose de soufre et d\'huile, cordelette avec des noeuds, petite dose de sang de mastodonte des ombres et petit sceptre en argent d\'une valeur minimale de 10 po)',
+            'duration' => '24 heures',
+            'description' => 'Vous créez un sceau protégeant une zone au sol de 225m² (soit une zone de 15 mètres de côté, soit une centaine de zones de 1,50 mètre de côté, soit vingt-zones de 3 mètres de côté). La zone protégée fait au maximum 6 mètres de haut et prend la forme de votre choix. Vous pouvez protéger ainsi plusieurs étages d\'une place forte en répartissant la zone affectée entre eux tant que vous pouvez relier toutes les zones contiguës en marchant lorsque vous lancez le sort.\n Lors de l\'incantation, vous pouvez définir quels individus ne seront pas affectés par un ou tous les effets du sort. Vous pouvez aussi choisir un mot de passe qui immunise celui qui le prononce à haute voix contre ces effets.\n Protections et sceaux produit les effets suivants dans la zone protégée.\n <B>Couloirs.</B> Le brouillard envahit tous les couloirs où la visibilité est alors fortement obstruée. De plus, à chaque intersection ou embranchement laissant un choix de direction, il y a 50% de chances que les créatures autres que vous soient persuadées d\'aller dans la direction opposée à celle qu\'elles ont choisie.\n <B>Portes.</B> Toutes les portes de la zone protégée sont fermées par magie, comme scellées avec un verrou magique. De plus, vous pouvez recouvrir jusqu\'à dix portes d\'une illusion (comme la fonction d\'objet illusoire du sort illusion mineure), afin de les faire passer pour une section de mur ordinaire.\n <B>Escaliers.</B> Des toiles d\'araignées, comme le sort du même nom, emplissent tous les escaliers de la zone protégée, du sol au plafond. Tant que protections et sceaux persiste, ces fils repoussent en 10 minutes si quelqu\'un les brûle ou les arrache.\n <B>Autres effets de sort.</B> Vous pouvez placer l\'un des effets suivants, au choix, dans la zone protégée par le sort.<LI>Placer lumières dansantes dans quatre couloirs. Vous pouvez choisir un programme très simple que les lumières suivront pendant toute la durée de protections et sceaux.</LI> <LI>Placer une bouche magique en deux endroits.</LI> <LI>Placer un nuage puant en deux endroits. Les vapeurs apparaissent à l\'endroit de votre choix. Tant que protections et sceaux persiste, elles réapparaissent au bout de 10 minutes si le vent les disperse.</LI> <LI>Placer une bourrasque constante dans un couloir ou une pièce.</LI> <LI>Placer une suggestion en un endroit. Choisissez une zone d\'au maximum 1,50 mètre de côté : toute créature qui y pénètre ou la traverse reçoit une suggestion mentale.</LI> \n Toute la zone protégée émet une aura magique. Si quelqu\'un lance avec succès une dissipation de la magie sur un effet spécifique, il élimine seulement cet effet.\n Vous pouvez protéger une structure en permanence si vous lancez ce sort tous les jours pendant un an.'
+         ]);
+         Spell::insert([
+            'name' => 'Purification de la nourriture et de l\'eau',
+            'school' => 'Transmutation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Toute la nourriture et les boissons non magiques présentes dans une sphère d\'un rayon de 1,50 mètre centrée autour d\'un point de votre choix situé à portée sont purifiées et débarrassées de tout poison et maladie.'
          ]);
          Spell::insert([
             'name' => '',
