@@ -32,7 +32,7 @@ return new class extends Migration
             'description' => 'Grâce à votre noble naissance, les gens ont tendance à penser le meilleur de vous. Vous êtes le bienvenu dans la haute société et les gens se disent que vous êtes tout à fait en droit de vous trouver où bon vous semble. Les gens du commun font de leur mieux pour vous satisfaire et éviter votre déplaisir et les gens de haute naissance vous traitent comme un membre de leur sphère sociale. Si besoin, vous pouvez obtenir une audience auprès d\'un noble local.'
          ]);
          Feature::insert([
-            'name' => 'Caractéristique d\'incantation',
+            'name' => 'Caractéristique d\'incantation (sagesse)',
             'description' => 'Vous utilisez la Sagesse comme caractéristique d\'incantation pour lancer vos sorts. Le DD du jet de sauvegarde pour résister aux sorts que vous lancez est de 13. Quand vous attaquez à l\'aide d\'un sort, votre bonus d\'attaque est de +5. Reportez-vous au livret de règles pour plus d\'explications sur l\'utilisation de la magie.'
          ]);
          Feature::insert([
@@ -80,7 +80,7 @@ return new class extends Migration
             'description' => 'Vous possédez un contact fiable et digne de confiance qui vous sert d\'agent de liaison avec un réseau de criminels. Vous savez comment lui transmettre des messages, même sur grande distance, et comment en recevoir de sa part, c\'est-àdire que vous connaissez les messagers locaux, les chefs de caravane corrompus et les marins douteux susceptibles de transmettre ces messages pour votre compte. Vous pouvez transmettre des informations secrètes ou des marchandises volées à votre contact en échange d\'argent ou d\'informations.'
          ]);
          Feature::insert([
-            'name' => 'Caractéristique d\'incantation',
+            'name' => 'Caractéristique d\'incantation (intelligence)',
             'description' => 'La caractéristique d\'incantation qui vous permet de lancer des sorts de magicien est l\'Intelligence. Le DD d\'un jet de sauvegarde pour résister à un sort que vous lancez est 13. Votre bonus d\'attaque quand vous lancez un sort d\'attaque est de +5. Reportez-vous au livret de règles pour plus d\'explications sur l\'utilisation de la magie.'
          ]);
          Feature::insert([

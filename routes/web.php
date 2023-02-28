@@ -49,23 +49,25 @@ Route::get('/D&D/aventures/lmop', function () {
     return view('D&D infos et aventures.aventure_lmop');
 })->name('lmop');
 
-Route::get('/create/options', function () {
-    return view('create_options');
-})->name('create.options');
-
 Route::resource('categories', CategoriesController::class)->only('index');
 
 Route::get('categories/{category}/characters', [CharactersController::class, 'index'])->name('characters.index');
 Route::resource('heroes', CharactersController::class)->except('index');
 
-Route::resource('adventures', AdventuresController::class)->only('index', 'create', 'store', 'show');
-Route::resource('attacks', AttacksController::class)->only('index', 'create', 'store', 'show');
-Route::resource('backgrounds', BackgroundsController::class)->only('index', 'create', 'store', 'show');
-Route::resource('features', FeaturesController::class)->only('index', 'create', 'store', 'show');
-Route::resource('goals', GoalsController::class)->only('index', 'create', 'store', 'show');
-Route::resource('races', RacesController::class)->only('index', 'create', 'store', 'show');
-Route::resource('subraces', SubRacesController::class)->only('index', 'create', 'store', 'show');
-Route::resource('utilities', UtilitiesController::class)->only('index', 'create', 'store', 'show');
-Route::resource('weapons', WeaponsController::class)->only('index', 'create', 'store', 'show');
+Route::middleware('auth')->group(function () {
+    Route::get('/create/options', function () {
+        return view('create_options');
+    })->name('create.options');
+
+    Route::resource('adventures', AdventuresController::class)->only('create', 'store');
+    Route::resource('attacks', AttacksController::class)->only('create', 'store');
+    Route::resource('backgrounds', BackgroundsController::class)->only('create', 'store');
+    Route::resource('features', FeaturesController::class)->only('create', 'store');
+    Route::resource('goals', GoalsController::class)->only('create', 'store');
+    Route::resource('races', RacesController::class)->only('create', 'store');
+    Route::resource('subraces', SubRacesController::class)->only('create', 'store');
+    Route::resource('utilities', UtilitiesController::class)->only('create', 'store');
+    Route::resource('weapons', WeaponsController::class)->only('create', 'store');
+});
 
 require __DIR__.'/auth.php';

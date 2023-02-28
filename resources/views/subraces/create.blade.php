@@ -7,16 +7,8 @@
             </label>
         </div>
         <div>
-            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
-                Description
-            </label>
-            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
+            <x-markdown-editor :id="'description-markdown-editor'" :title="'Description'" :name="'description'"></x-markdown-editor>
         </div>
-        <label class="relative inline-flex items-center cursor-pointer">
-            <input type="radio" id="is_after" name="is_after" value="" class="sr-only peer">
-            <div class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
-            <span class="ml-3 text-sm font-medium text-gray-900">Nom avant la race ?</span>
-        </label>
         <div class="relative">
             <label for="race_id" class="font-titleMiddleAge text-sm text-red-800">
                 Races
@@ -28,5 +20,10 @@
                 @endforeach
             </select>
         </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="is_after" name="is_after" value="" class="sr-only peer">
+            <div class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
+            <span class="ml-3 text-sm font-medium text-gray-900">Nom avant la race ?</span>
+        </label>
     </x-form-create>
 </x-app-layout>

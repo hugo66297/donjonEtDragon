@@ -5,6 +5,7 @@ use App\Models\Background;
 use App\Models\Category;
 use App\Models\Goal;
 use App\Models\Race;
+use App\Models\Subrace;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,7 +22,7 @@ return new class extends Migration
         Schema::create('characters', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Category::class)->constrained();
-            $table->foreignIdFor(Race::class)->constrained();
+            $table->foreignIdFor(Subrace::class)->constrained();
             $table->foreignIdFor(Background::class)->constrained();
             $table->foreignIdFor(Alignment::class)->constrained();
             $table->foreignIdFor(Goal::class)->constrained();
@@ -34,6 +35,10 @@ return new class extends Migration
             $table->integer('maximum_hp')->default(0);
             $table->string('hit_dice',191);
             $table->text('equipment');
+            $table->text('traits');
+            $table->text('ideaux');
+            $table->text('liens');
+            $table->text('defauts');
         });
     }
 

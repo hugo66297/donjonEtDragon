@@ -23,7 +23,6 @@ return new class extends Migration
             $table->foreignIdFor(Race::class)->constrained();
         });
         Subrace::insert([
-            'name' => '',
             'description' => 'Vous éprouvez une insatiable soif de voyages. Grâce à votre espérance de vie très longue, vous pouvez passer des siècles à explorer et découvrir le monde. Vous aimez aussi développer vos talents d\'épéiste et votre puissance magique, ce que vous pouvez faire aisément en menant une vie d\'aventurier. Certains elfes peuvent se joindre à une rébellion contre un oppresseur, tandis que d\'autres préfèrent se faire les champions de causes morales.',
             'is_after' => true,
             'race_id' => 1
@@ -47,7 +46,6 @@ return new class extends Migration
             'race_id' => 1
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'Vous aimez découvrir des nouveautés, même des choses simples comme un plat exotique ou un style de vêtement inconnu. Vous êtes prompts à éprouver de la pitié et détestez voir souffrir un être vivant. Vous êtes généreux et partagez volontiers ce que vous avez, même quand les temps sont durs.',
             'is_after' => true,
             'race_id' => 2
@@ -65,13 +63,11 @@ return new class extends Migration
             'race_id' => 2
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'En tant qu\'humains partant en quête d\'aventure, vous faites partie des membres les plus téméraires et ambitieux d\'une race déjà ambitieuse et téméraire. Vous cherchez à vous couvrir de gloire devant vos concitoyens en amassant puissance, richesses et célébrité. Plus que tout autre peuple, les humains ont tendance à se faire les champions de grandes causes plutôt que de territoires ou de groupes.',
             'is_after' => true,
             'race_id' => 3
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'Comme tout vos confrères nains, vous êtes loyal et determiné, fidèle à votre parole et résolu dans vos actes, parfois au point de vous comporter avec obstination. Vous avez le sens de la justice et avez bien du mal à oublier les torts qu\'on vous a causés. Et qui fait du tort à un nain fait du tort à son clan entier : si un nain part en quête de vengeance, c\'est tout le clan qui risque de prendre les armes à sa suite.',
             'is_after' => true,
             'race_id' => 4
@@ -95,25 +91,21 @@ return new class extends Migration
             'race_id' => 4
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'Issus de deux mondes sans vraiment appartenir à aucun, vous avez héritez des meilleures qualités de vos parents humains et elfes : la curiosité, l\'inventivité et l\'ambition des humains, tempérées par le sens du raffinement, l\'amour de la nature et les goût artistiques des elfes. En tant que demi-elfe vous avez appris dès votre plus jeune âge à vous entendre avec tout le monde, à détourner l\'hostilité d\'autrui et à trouver un terrain d\'entente. Vous possédez la grâce des elfes sans leur attitude hautaine et l\'énergie des humains sans leur côté rustre et grossier. Voilà pourquoi vous faites un excellent ambassadeur et intermédiaire.',
             'is_after' => true,
             'race_id' => 5
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'C\'est Gruumsh, le dieu borgne de la guerre et de la fureur, qui a créé les orcs. Ainsi, même ceux qui se détournent de son culte ne peuvent se soustraire complètement à son influence. Il en va de même pour vous, bien que votre sang humain limite l\'impact de votre héritage orc, vous pouvez entendre les murmures de Gruumsh dans vos rêves, des murmures qui vous incite à libérer la rage qui bouillonne en vous. Vous pouvez aussi ressentir l\'exaltation de Gruumsh quand vous rejoignez la mêlée lors d\'une bataille. À vous de choisir si vous exultez avec lui ou frissonnez de peur et de dégoût. Vous n\'êtes pas maléfiques de nature, mais le mal rôde en votre cœur, que vous décidiez de l\'embrasser ou de vous rebeller contre lui.',
             'is_after' => true,
             'race_id' => 6
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'En tant que drakéide, vous êtes animée d\'une volonté continue de vous améliorer qui se traduit au niveau de l\'autonomie dont vous faite preuve. Vous appréciez par-dessus tout les talents et l\'excellence. Vous détestez échouer et fournissez des efforts acharnés avant de vous avouer vaincu. L\'objectif de toute votre vie consiste à atteindre la maîtrise parfaite d\'un talent particulier. Si un membre d\'une autre race partage cette recherche de perfection, il n\'aura aucun mal à gagner votre respect. Comme tout drakéide vous vous efforcez d\'être autonome, cependant vous reconnaissez qu\'un peu d\'aide peut être la bienvenue dans des situations difficiles.',
             'is_after' => true,
             'race_id' => 7
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'En tant que gnomes, vous êtes curieux et impulsifs et vous avez décidé de mener une carrière d\'aventurier pour découvrir le monde ou par amour de l\'exploration. Amateur de gemmes et autres objets de qualité, vous considérez l\'aventure comme le chemin le plus rapide (malgré ses dangers) vers la richesse. Quelles que soient vos motivations, vous prenez autant de plaisir dans votre vie d\'aventurier que dans toute autre activité, parfois au grand dam de vos camarades d\'aventure.',
             'is_after' => true,
             'race_id' => 8
@@ -131,7 +123,6 @@ return new class extends Migration
             'race_id' => 8
          ]);
          Subrace::insert([
-            'name' => '',
             'description' => 'Comme tous les tieffelins, vous n\'avez pas de foyer. Vous êtes concient que vous devez vous forger votre propre place dans le monde et qu\'il vous faudra être forts pour survivre. Vous ne faites pas facilement confiance à ceux qui prétendent être vos amis, mais quand vos camarades prouvent qu\'ils vous font confiance, vous savez leur rendre la pareille. Et quand finalement vous accordez votre loyauté à quelqu\'un, c\'est un ami fidèle et un allié à vie.',
             'is_after' => true,
             'race_id' => 9

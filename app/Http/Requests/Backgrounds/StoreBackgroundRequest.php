@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Backgrounds;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 
 class StoreBackgroundRequest extends FormRequest
 {
@@ -23,6 +24,7 @@ class StoreBackgroundRequest extends FormRequest
      */
     public function rules()
     {
+        dd(Request::all());
         return [
             'name' => ['required', 'string'],
             'description' => ['required', 'string']

@@ -42,8 +42,8 @@
         </li>
         <li id="step-5" class="flex items-center">
             <span class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full lg:h-12 lg:w-12 shrink-0">
-                <svg id="step-4-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
-                    <path d="M0 96C0 43 43 0 96 0h96V190.7c0 13.4 15.5 20.9 26 12.5L272 160l54 43.2c10.5 8.4 26 .9 26-12.5V0h32 32c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32v64c17.7 0 32 14.3 32 32s-14.3 32-32 32H384 96c-53 0-96-43-96-96V96zM64 416c0 17.7 14.3 32 32 32H352V384H96c-17.7 0-32 14.3-32 32z"/>
+                <svg id="step-4-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
+                    <path d="M512 80c0 18-14.3 34.6-38.4 48c-29.1 16.1-72.5 27.5-122.3 30.9c-3.7-1.8-7.4-3.5-11.3-5C300.6 137.4 248.2 128 192 128c-8.3 0-16.4 .2-24.5 .6l-1.1-.6C142.3 114.6 128 98 128 80c0-44.2 86-80 192-80S512 35.8 512 80zM160.7 161.1c10.2-.7 20.7-1.1 31.3-1.1c62.2 0 117.4 12.3 152.5 31.4C369.3 204.9 384 221.7 384 240c0 4-.7 7.9-2.1 11.7c-4.6 13.2-17 25.3-35 35.5c0 0 0 0 0 0c-.1 .1-.3 .1-.4 .2l0 0 0 0c-.3 .2-.6 .3-.9 .5c-35 19.4-90.8 32-153.6 32c-59.6 0-112.9-11.3-148.2-29.1c-1.9-.9-3.7-1.9-5.5-2.9C14.3 274.6 0 258 0 240c0-34.8 53.4-64.5 128-75.4c10.5-1.5 21.4-2.7 32.7-3.5zM416 240c0-21.9-10.6-39.9-24.1-53.4c28.3-4.4 54.2-11.4 76.2-20.5c16.3-6.8 31.5-15.2 43.9-25.5V176c0 19.3-16.5 37.1-43.8 50.9c-14.6 7.4-32.4 13.7-52.4 18.5c.1-1.8 .2-3.5 .2-5.3zm-32 96c0 18-14.3 34.6-38.4 48c-1.8 1-3.6 1.9-5.5 2.9C304.9 404.7 251.6 416 192 416c-62.8 0-118.6-12.6-153.6-32C14.3 370.6 0 354 0 336V300.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 342.6 135.8 352 192 352s108.6-9.4 148.1-25.9c7.8-3.2 15.3-6.9 22.4-10.9c6.1-3.4 11.8-7.2 17.2-11.2c1.5-1.1 2.9-2.3 4.3-3.4V304v5.7V336zm32 0V304 278.1c19-4.2 36.5-9.5 52.1-16c16.3-6.8 31.5-15.2 43.9-25.5V272c0 10.5-5 21-14.9 30.9c-16.3 16.3-45 29.7-81.3 38.4c.1-1.7 .2-3.5 .2-5.3zM192 448c56.2 0 108.6-9.4 148.1-25.9c16.3-6.8 31.5-15.2 43.9-25.5V432c0 44.2-86 80-192 80S0 476.2 0 432V396.6c12.5 10.3 27.6 18.7 43.9 25.5C83.4 438.6 135.8 448 192 448z"/>
                 </svg>
                 <svg id="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="hidden w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
                     <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
@@ -52,14 +52,15 @@
         </li>
     </ol>
 
-    <form action="#" id="form-perso">
+    <form action="{{route('heroes.store')}}" method="post" id="form-perso">
+        @csrf
         <div id="step-div-0" class="p-4 space-y-8">
             <div class="grid grid-cols-2 gap-8">
                 <div class="relative">
                     <label for="classe" class="font-titleMiddleAge text-sm text-red-800">
                         Classe
                     </label>
-                    <select id="classe" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                    <select id="classe" name="category" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis une classe</option>
                         @foreach($categories as $category)
                             <option value="{{$category->getKey()}}">{{$category->name}}</option>
@@ -70,7 +71,7 @@
                     <label for="historique" class="font-titleMiddleAge text-sm text-red-800">
                         Historique
                     </label>
-                    <select id="historique" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                    <select id="historique" name="background" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis un historique</option>
                         @foreach($backgrounds as $background)
                             <option value="{{$background->getKey()}}">{{$background->name}}</option>
@@ -78,13 +79,13 @@
                     </select>
                 </div>
                 <div class="relative">
-                    <label for="race" class="font-titleMiddleAge text-sm text-red-800">
+                    <label for="subrace" class="font-titleMiddleAge text-sm text-red-800">
                         Race
                     </label>
-                    <select id="race" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                        <option value="">Choisis une race</option>
-                        @foreach($races as $race)
-                            <option value="{{$race->getKey()}}">{{$race->name}}</option>
+                    <select id="subrace" name="subrace" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                        <option value="">Choisis une sous-race</option>
+                        @foreach($subRaces as $subRace)
+                            <option value="{{$subRace->getKey()}}">{{$subRace->fullName()}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -92,48 +93,65 @@
                     <label for="alignement" class="font-titleMiddleAge text-sm text-red-800">
                         Alignement
                     </label>
-                    <select id="alignement" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                    <select id="alignement" name="alignment" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis un alignement</option>
                         @foreach($alignments as $alignment)
                             <option value="{{$alignment->getKey()}}">{{$alignment->name}}</option>
                         @endforeach
                     </select>
                 </div>
+                <div class="relative">
+                    <label for="goal" class="font-titleMiddleAge text-sm text-red-800">
+                        Objectif
+                    </label>
+                    <select id="goal" name="goal" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                        <option value="">Choisis un objectif</option>
+                        @foreach($goals as $goal)
+                            <option value="{{$goal->getKey()}}">{{ucfirst($goal->name)}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="relative col-span-2">
+                    <label for="past" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                        Passé du personnage
+                    </label>
+                    <textarea id="past" name="character_past" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
+                </div>
             </div>
             <hr class="border border-gray-300">
             <div class="grid grid-cols-3 gap-8">
                 <div class="relative">
-                    <input type="number" id="armure" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none text-white focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
+                    <input type="number" id="armure" name="armor_class" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
                     <label for="armure" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Classe d'armure
                     </label>
                 </div>
                 <div class="relative">
-                    <input type="number" id="initiative" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none text-white focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
+                    <input type="number" id="initiative" name="initiative" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
                     <label for="initiative" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Initiative
                     </label>
                 </div>
                 <div class="relative">
-                    <input type="number" id="vitesse" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none text-white focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
+                    <input type="number" id="vitesse" name="speed" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
                     <label for="vitesse" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Vitesse
                     </label>
                 </div>
                 <div class="relative">
-                    <input type="number" id="pdv" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none text-white focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
+                    <input type="number" id="pdv" name="maximum_hp" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
                     <label for="pdv" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Point de vie
                     </label>
                 </div>
                 <div class="relative">
-                    <input type="number" id="des" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none text-white focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
+                    <input type="text" id="des" name="hit_dice" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
                     <label for="des" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Dés de vie
                     </label>
                 </div>
                 <div class="relative">
-                    <input type="number" id="sagesse_passive" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none text-white focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
+                    <input type="number" id="sagesse_passive" name="passive_wisdom" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
                     <label for="sagesse_passive" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Sagesse passive
                     </label>
@@ -145,108 +163,398 @@
                     <label for="traits" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
                         Traits de personnalité
                     </label>
-                    <textarea id="traits" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 text-white focus:ring-red-800 focus:border-red-800" placeholder="Quand je prends une..."></textarea>
+                    <textarea id="traits" name="traits" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Quand je prends une..."></textarea>
                 </div>
                 <div>
                     <label for="ideaux" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
                         Idéaux
                     </label>
-                    <textarea id="ideaux" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 text-white focus:ring-red-800 focus:border-red-800" placeholder="Sincérité. Il est..."></textarea>
+                    <textarea id="ideaux" name="ideaux" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Sincérité. Il est..."></textarea>
                 </div>
                 <div>
                     <label for="liens" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
                         Liens
                     </label>
-                    <textarea id="liens" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 text-white focus:ring-red-800 focus:border-red-800" placeholder="Un jour, Arbrefoudre..."></textarea>
+                    <textarea id="liens" name="liens" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Un jour, Arbrefoudre..."></textarea>
                 </div>
                 <div>
                     <label for="defauts" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
                         Défauts
                     </label>
-                    <textarea id="defauts" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 text-white focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
+                    <textarea id="defauts" name="defauts" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
                 </div>
             </div>
         </div>
         <div id="step-div-1" class="hidden p-4 space-y-8">
-            <div>
-                <div class="grid grid-cols-6 gap-8">
-                    @foreach($abilities as $ability)
+            <div class="grid grid-cols-6 gap-8">
+                @foreach($abilities as $ability)
+                    <div class="space-y-2">
+                        <h2 class="font-titleMiddleAge text-red-800 font-sm">{{$ability->name}}</h2>
                         <div class="space-y-2">
-                            <h2 class="font-titleMiddleAge text-red-800 font-sm">{{$ability->name}}</h2>
-                            <div class="space-y-2">
-                                <div class="relative">
-                                    <input type="number" id="valeur-{{$ability->name}}" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
-                                    <label for="valeur-{{$ability->name}}" class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
-                                        Valeur
-                                    </label>
-                                </div>
-                                <div class="relative">
-                                    <input type="number" id="modificateur-{{$ability->name}}" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
-                                    <label for="modificateur-{{$ability->name}}" class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
-                                        Modificateur
-                                    </label>
-                                </div>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" id="maitrise-{{$ability->name}}" value="" class="sr-only peer">
-                                    <div class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
-                                    <span class="ml-3 text-sm font-medium text-gray-900">Maîtrisé ?</span>
+                            <div class="relative">
+                                <input
+                                    type="number"
+                                    id="valeur-{{$ability->name}}"
+                                    name="abilities[{{$ability->getKey()}}][value]"
+                                    class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                                    placeholder=" "
+                                />
+                                <label
+                                    for="valeur-{{$ability->name}}"
+                                    class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                                >
+                                    Valeur
                                 </label>
                             </div>
-                            <hr class="border border-gray-300">
-                            <div class="space-y-4">
-                                @foreach($ability->ownSkills as $skill)
-                                    <div class="">
-                                        <h2 class="font-titleMiddleAge text-red-800 text-sm">{{$skill->name}}</h2>
-                                        <div class="space-y-2">
-                                            <div class="relative">
-                                                <input type="number" id="modificateur-{{$skill->name}}" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
-                                                <label for="modificateur-{{$skill->name}}" class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
-                                                    {{$skill->name}}
-                                                </label>
-                                            </div>
-                                            <label class="relative inline-flex items-center cursor-pointer">
-                                                <input type="checkbox" id="maitrise-{{$skill->name}}" value="" class="sr-only peer">
-                                                <div class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
-                                                <span class="ml-3 text-sm font-medium text-gray-900">Maîtrisé ?</span>
+                            <div class="relative">
+                                <input
+                                    type="number"
+                                    id="modificateur-{{$ability->name}}"
+                                    name="abilities[{{$ability->getKey()}}][modifier]"
+                                    class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                                    placeholder=" "
+                                />
+                                <label for="modificateur-{{$ability->name}}" class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
+                                    Modificateur
+                                </label>
+                            </div>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    id="maitrise-{{$ability->name}}"
+                                    name="abilities[{{$ability->getKey()}}][is_proficient]"
+                                    value="1"
+                                    class="sr-only peer"
+                                >
+                                <div class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
+                                <span class="ml-3 text-sm font-medium text-gray-900">Maîtrisé ?</span>
+                            </label>
+                        </div>
+                        <hr class="border border-gray-300">
+                        <div class="space-y-4">
+                            @foreach($ability->ownSkills as $skill)
+                                <input type="hidden" name="abilities[{{$ability->getKey()}}][skills][{{$skill->getKey()}}][name]" value="{{$skill->name}}">
+                                <div class="">
+                                    <h2 class="font-titleMiddleAge text-red-800 text-sm">{{$skill->name}}</h2>
+                                    <div class="space-y-2">
+                                        <div class="relative">
+                                            <input
+                                                type="number" id="modificateur-{{$skill->name}}"
+                                                name="abilities[{{$ability->getKey()}}][skills][{{$skill->getKey()}}][modifier]"
+                                                class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                                                placeholder=" "
+                                            />
+                                            <label for="modificateur-{{$skill->name}}" class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
+                                                {{$skill->name}}
                                             </label>
                                         </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input
+                                                type="checkbox" id="maitrise-{{$skill->name}}"
+                                                name="abilities[{{$ability->getKey()}}][skills][{{$skill->getKey()}}][is_proficient]"
+                                                value="1"
+                                                class="sr-only peer"
+                                            >
+                                            <div class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
+                                            <span class="ml-3 text-sm font-medium text-gray-900">Maîtrisé ?</span>
+                                        </label>
                                     </div>
-                                @endforeach
-                            </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+        <div id="step-div-2" class="hidden p-4 space-y-8" >
+            <div id="div-weapons">
+                <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-lg">
+                    <table id="table-weapons"
+                           class="w-full text-sm text-left text-gray-400"
+                           x-data="{ component: [] }"
+                           x-init="component = $refs.tbody.querySelector('tr')"
+                    >
+                        <thead class="text-xs uppercase bg-gray-900">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Informations complètes de l'arme
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody x-ref="tbody">
+                            <tr class="border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <datalist id="weapons">
+                                        @foreach($weapons as $weapon)
+                                            <option value="{{"{$weapon->name} | {$weapon->atk_bonus} | {$weapon->damage_type}"}}"></option>
+                                        @endforeach
+                                    </datalist>
+                                    <input type="text" autocomplete="off" placeholder="Choisis ton arme" list="weapons" id="weapon_id" name="weapons[]" class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button
+                                        type="button"
+                                        class="font-bold text-red-800 hover:underline cursor-pointer"
+                                        @click.prevent="$el.parentNode.parentNode.remove()"
+                                    >
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="font-semibold text-gray-900">
+                                <th id="add-line" scope="row" colspan="5" class="px-6 py-3">
+                                    <div class="font-bold text-red-800 flex justify-end">
+                                        <p
+                                            class="w-fit cursor-pointer hover:underline"
+                                            @click="elt = document.createElement('tr');
+                                                    elt.innerHTML = component.innerHTML;
+                                                    elt.classList = component.classList
+                                                    $refs.tbody.appendChild(elt)"
+                                        >
+                                            Ajouter une ligne
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div id="div-attacks">
+                <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-lg">
+                    <table
+                        id="table-attacks"
+                        class="w-full text-sm text-left text-gray-400"
+                        x-data="{ component: [] }"
+                        x-init="component = $refs.tbody.querySelector('tr')"
+                    >
+                        <thead class="text-xs uppercase bg-gray-900">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Nom de l'attaque
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Description
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody x-ref="tbody">
+                            <tr x-data="" x-ref="line" class="border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <select onchange="disabledDescription(this)" id="attack_id" name="attackIds[]" class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                                        <option value="">Choisis une option</option>
+                                        @foreach($attacks as $attack)
+                                            <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <textarea id="attack_description" name="attackDescriptions[]" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button
+                                        type="button"
+                                        class="font-bold text-red-800 hover:underline cursor-pointer"
+                                        @click.prevent="$el.parentNode.parentNode.remove()"
+                                    >
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="font-semibold text-gray-900">
+                                <th id="add-line" scope="row" colspan="5" class="px-6 py-3">
+                                    <div class="font-bold text-red-800 flex justify-end">
+                                        <p
+                                            class="w-fit cursor-pointer hover:underline"
+                                            @click="elt = document.createElement('tr');
+                                                    elt.innerHTML = component.innerHTML;
+                                                    elt.classList = component.classList
+                                                    $refs.tbody.appendChild(elt)"
+                                        >
+                                            Ajouter une ligne
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="step-div-3" class="hidden p-4 space-y-8">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input
+                        type="number"
+                        id="bonus_maitrise"
+                        name="proficiency_bonus"
+                        class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                        placeholder=" "
+                        value="2"
+                    />
+                    <label
+                        for="bonus_maitrise"
+                        class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                    >
+                        Bonus de maitrise
+                    </label>
+                </div>
+            </div>
+            <div id="div-maitrise" class="">
+                <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-lg">
+                    <table
+                        id="table-maitrises"
+                        class="w-full text-sm text-left text-gray-400"
+                        x-data="{ component: [] }"
+                        x-init="component = $refs.tbody.querySelector('tr')"
+                    >
+                        <thead class="text-xs uppercase bg-gray-900">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Nom de la maîtrise
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Description
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody x-ref="tbody">
+                            <tr x-data="" x-ref="line" class="border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <select id="maitrise_id" name="maitriseIds[]" class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                                        <option value="">Choisis une option</option>
+                                        @foreach($utilities as $utility)
+                                            <option value="{{$utility->getKey()}}">{{$utility->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <textarea id="maitrise_description" name="maitriseDescriptions[]" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button
+                                        type="button"
+                                        class="font-bold text-red-800 hover:underline cursor-pointer"
+                                        @click.prevent="$el.parentNode.parentNode.remove()"
+                                    >
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="font-semibold text-gray-900">
+                                <th id="add-line" scope="row" colspan="3" class="px-6 py-3 text-right">
+                                    <div class="font-bold text-red-800 flex justify-end">
+                                        <p
+                                            class="w-fit cursor-pointer hover:underline"
+                                            @click="elt = document.createElement('tr');
+                                                    elt.innerHTML = component.innerHTML;
+                                                    elt.classList = component.classList
+                                                    $refs.tbody.appendChild(elt)"
+                                        >
+                                            Ajouter une ligne
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+            <div id="div-feature" class="">
+                <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-lg">
+                    <table
+                        id="table-features"
+                        class="w-full text-sm text-left text-gray-400"
+                        x-data="{ component: [] }"
+                        x-init="component = $refs.tbody.querySelector('tr')"
+                    >
+                        <thead class="text-xs uppercase bg-gray-900">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Nom de l'aptitude
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody x-ref="tbody">
+                            <tr x-data="" x-ref="line" class="border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    <select id="feature_id" name="features[]" class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                                        <option value="">Choisis une option</option>
+                                        @foreach($features as $feature)
+                                            <option value="{{$feature->getKey()}}">{{$feature->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button
+                                        type="button"
+                                        class="font-bold text-red-800 hover:underline cursor-pointer"
+                                        @click.prevent="$el.parentNode.parentNode.remove()"
+                                    >
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="font-semibold text-gray-900">
+                                <th id="add-line" scope="row" colspan="3" class="px-6 py-3 text-right">
+                                    <div class="font-bold text-red-800 flex justify-end">
+                                        <p
+                                            class="w-fit cursor-pointer hover:underline"
+                                            @click="elt = document.createElement('tr');
+                                                    elt.innerHTML = component.innerHTML;
+                                                    elt.classList = component.classList
+                                                    $refs.tbody.appendChild(elt)"
+                                        >
+                                            Ajouter une ligne
+                                        </p>
+                                    </div>
+                                </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="step-div-4" class="hidden p-4 space-y-8">
+            <div id="div-coins" class="">
+                <div class="grid grid-cols-5 gap-4">
+                    @foreach(\App\Models\Coin::all() as $coin)
+                        <div>
+                            <label for="{{ $coin->name }}" class="font-titleMiddleAge text-red-800">{{ $coin->name }}</label>
+                            <input
+                                type="number"
+                                id="{{ $coin->name }}"
+                                name="coins[{{$coin->getKey()}}]"
+                                class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                                placeholder="Quantité"
+                            />
                         </div>
                     @endforeach
                 </div>
             </div>
-            <div>
-
+            <div id="div-equipment" class="">
+                <x-markdown-editor :id="'description-markdown-editor'" :title="'Équipement'" :name="'equipment'"></x-markdown-editor>
             </div>
-        </div>
-        <div id="step-div-2" class="hidden">
-        </div>
-        <div id="step-div-3" class="hidden">
-            <div class="grid grid-cols-2 gap-8">
-                <div>
-                    <div>
-                        <h2>
-                            Bonus de maitrise
-                        </h2>
-                    </div>
-                    <div>
-                        <h2>
-                            Maitrises
-                        </h2>
-                    </div>
-                    <div>
-                        <h2>
-                        </h2>
-                    </div>
-                </div>
-                <div>
-
-                </div>
-            </div>
-        </div>
-        <div id="step-div-4" class="hidden">
         </div>
         <div class="flex items-center justify-center space-x-8 p-4">
             <div id="prev" class="hidden inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 disabled:opacity-25 transition ease-in-out duration-150 cursor-pointer">
@@ -261,64 +569,29 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                 </svg>
             </div>
-            <div id="finish" class="hidden inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 disabled:opacity-25 transition ease-in-out duration-150 cursor-pointer">
-                <p class="hidden sm:block">Terminer</p>
+            <button id="finish" type="submit" class="hidden inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 disabled:opacity-25 transition ease-in-out duration-150 cursor-pointer">
+                <span class="hidden sm:block">Terminer</span>
                 <svg id="check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-6 h-6 sm:hidden" fill="currentColor">
                     <path d="M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
                 </svg>
-            </div>
+            </button>
         </div>
     </form>
 </x-app-layout>
 
 <script>
-    let index = 0
-    let steps = [
-        document.querySelector('#step-1'),
-        document.querySelector('#step-2'),
-        document.querySelector('#step-3'),
-        document.querySelector('#step-4'),
-        document.querySelector('#step-5')
-    ]
-    let currentStep = steps[index]
-    let previous = document.querySelector('#prev')
-    let next = document.querySelector('#next')
-    let finish = document.querySelector('#finish')
+    let attacks = {!! $attacks !!};
 
-    let form = document.querySelector('#form-perso')
-
-    previous.addEventListener('click', () => {
-        if (index > 0) {
-            steps[index].querySelector('span').classList.replace('bg-red-800', 'bg-gray-700')
-            form.querySelector(`#step-div-${index}`).classList.toggle('hidden')
-            index--
-            steps[index].querySelector('span').querySelector(`#step-${index}-icon`).classList.toggle('hidden')
-            steps[index].querySelector('span').querySelector('#check').classList.toggle('hidden')
-            steps[index].classList.replace('after:border-red-800', 'after:border-gray-700')
-            form.querySelector(`#step-div-${index}`).classList.toggle('hidden')
+    function disabledDescription(select) {
+        let attack = attacks.find(elt => elt.id === parseInt(select.value))
+        let textArea = select.parentNode.parentNode.querySelector('textarea')
+        if (attack.description) {
+            textArea.setAttribute('readonly', '')
+            textArea.classList.add('cursor-not-allowed')
         }
-        index === 0 && previous.classList.toggle('hidden')
-        if (next.classList.contains('hidden')) {
-            next.classList.toggle('hidden')
-            finish.classList.toggle('hidden')
+        else {
+            textArea.removeAttribute('readonly')
+            textArea.classList.remove('cursor-not-allowed')
         }
-    })
-
-    next.addEventListener('click', () => {
-        if (index < 5) {
-            steps[index].classList.replace('after:border-gray-700', 'after:border-red-800')
-            steps[index].querySelector('span').querySelector(`#step-${index}-icon`).classList.toggle('hidden')
-            steps[index].querySelector('span').querySelector('#check').classList.toggle('hidden')
-            form.querySelector(`#step-div-${index}`).classList.toggle('hidden')
-            index++
-            steps[index].querySelector('span').classList.replace('bg-gray-700', 'bg-red-800')
-            form.querySelector(`#step-div-${index}`).classList.toggle('hidden')
-        }
-        if (index === 4) {
-            next.classList.toggle('hidden')
-            finish.classList.toggle('hidden')
-        }
-        previous.classList.contains('hidden') && previous.classList.toggle('hidden')
-    })
-
+    }
 </script>

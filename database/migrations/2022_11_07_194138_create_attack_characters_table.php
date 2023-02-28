@@ -19,6 +19,7 @@ return new class extends Migration
             $table->primary(['character_id','attack_id']);
             $table->foreignIdFor(Character::class)->constrained();
             $table->foreignIdFor(Attack::class)->constrained();
+            $table->text('other_description')->nullable();
         });
     }
 

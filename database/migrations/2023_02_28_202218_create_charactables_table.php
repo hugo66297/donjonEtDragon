@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Character;
-use App\Models\Personality;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,11 +14,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('character_personality', function (Blueprint $table) {
-            $table->primary(['character_id','personality_id']);
+        Schema::create('charactables', function (Blueprint $table) {
+            $table->id();
             $table->foreignIdFor(Character::class)->constrained();
-            $table->foreignIdFor(Personality::class)->constrained();
-            $table->text('description');
+            $table->integer('charactable_id');
+            $table->string('charactable_type');
+            $table->integer('ability_value')->nullable();
+            $table->integer('modifier')->default(0);
+            $table->boolean('is_proficient')->default(false);
+            $table->integer('other_modifier')->nullable();
         });
     }
 
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('character_personality');
+        Schema::dropIfExists('charactables');
     }
 };

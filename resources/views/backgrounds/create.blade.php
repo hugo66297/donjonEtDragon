@@ -7,10 +7,7 @@
             </label>
         </div>
         <div>
-            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
-                Description
-            </label>
-            <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800" placeholder="Je suis convaincu..."></textarea>
+            <x-markdown-editor :id="'description-markdown-editor'" :title="'Description'" :name="'description'"></x-markdown-editor>
         </div>
     </x-form-create>
 </x-app-layout>

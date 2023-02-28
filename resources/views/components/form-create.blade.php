@@ -4,7 +4,7 @@
     {{$title}}
 </h2>
 
-<form action="{{route($route)}}" method="post" class="w-4/5 ml-[10%] space-y-8">
+<form action="{{route($route)}}" method="post" class="w-4/5 ml-[10%] space-y-8 mb-8">
     @csrf
     {{ $slot }}
     <div class="text-center">

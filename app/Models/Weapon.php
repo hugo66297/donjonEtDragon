@@ -17,4 +17,14 @@ class Weapon extends Model
     public function characters() {
         return $this->belongsToMany(Character::class);
     }
+
+    public static function getWeaponIdByInfos(string $infos) {
+        $explodeData = explode(' | ', $infos);
+        return Weapon::query()
+            ->where('name', $explodeData[0])
+            ->where('atk_bonus', $explodeData[1])
+            ->where('damage_type', $explodeData[2])
+            ->first()
+            ->getKey();
+    }
 }
