@@ -20,9 +20,10 @@ return new class extends Migration
             $table->integer('charactable_id');
             $table->string('charactable_type');
             $table->integer('ability_value')->nullable();
-            $table->integer('modifier')->default(0);
-            $table->boolean('is_proficient')->default(false);
-            $table->integer('other_modifier')->nullable();
+            $table->boolean('is_proficient')->nullable();
+            $table->integer('other_modifier_ability')->nullable();
+            $table->integer('other_modifier_skill')->nullable();
+            $table->integer('other_modifier_throw')->nullable();
         });
     }
 

@@ -70,10 +70,14 @@ class Character extends Model
     // Many-to-many polymorphic relationships
     public function abilities() {
         return $this->morphedByMany(Ability::class, 'charactable')
-            ->withPivot('modifier', 'ability_value', 'is_proficient', 'other_modifier');
+            ->withPivot('ability_value', 'other_modifier');
     }
     public function skills() {
         return $this->morphedByMany(Skill::class, 'charactable')
-            ->withPivot('modifier', 'is_proficient');
+            ->withPivot('is_proficient');
+    }
+    public function savingThrows() {
+        return $this->morphedByMany(SavingThrow::class, 'charactable')
+            ->withPivot('is_proficient');
     }
 }
