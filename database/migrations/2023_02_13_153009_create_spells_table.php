@@ -120,7 +120,7 @@ return new class extends Migration
             'range' => '36 mètres',
             'component' => 'V, S',
             'duration' => 'concentration, jusqu\'à 1 minute',
-            'description' => 'Les objets prennent vie sur votre ordre. Choisissez jusqu\'à dix objets non magiques à portée que personne ne porte ni ne transporte. Les cibles de taille Moyenne comptent comme deux objets, celles de taille Grande comme quatre et celles de taille Très Grande comme huit. Vous ne pouvez pas animer d\'objet de taille supérieure. Chaque cible s\'anime et devient une créature placée sous votre contrôle jusqu\'à la fin du sort ou jusqu\'à tomber à O point de vie.\n Par une action bonus, vous pouvez donner un ordre mental à toute créature créée via ce sort qui se trouve au maximum à 150 mètres de vous (si vous en contrôlez plusieurs, vous pouvez donner un ordre à l\'une d\'elles, certaines d\'entre elles ou toutes à la fois, à condition de donner le même ordre à toutes). À vous de décider quelle action la créature va entreprendre et à quel endroit elle se déplacera au cours du tour suivant, mais vous pouvez aussi lui donner un ordre plus générique, comme de garder une salle ou un couloir. En l\'absence d\'ordre, la créature se contente de se défendre contre les créatures hostiles. Une fois qu\'elle a reçu un ordre, elle continue à le suivre jusqu\'à ce qu\'elle ait accompli sa tâche.<Table/>\n Un objet animé est une créature artificielle avec une CA, des points de vie, des attaques, une Force et une Dextérité déterminés par sa taille. Sa Constitution est de 10 tandis que son Intelligence et sa Sagesse sont de 3 et son Charisme de 1. Il a une vitesse de 9 mètres. S\'il est dépourvu de pattes ou d\'appendices susceptibles de le mouvoir, il gagne à la place la capacité de voler à une vitesse de 9 mètres et peut utiliser le vol stationnaire. Si l\'objet est solidement attaché à une surface ou à un objet de plus grande taille, comme une chaîne vissée à un mur, sa vitesse est de O. L\'objet possède la vision aveugle dans un rayon de 9 mètres ; au-delà, il est aveugle. Quand l\'objet animé tombe à O point de vie, il reprend sa forme originelle d\'objet et tout dégât en surplus est infligé à sa forme originelle.\n Si vous ordonnez à un objet animé d\'attaquer, il a droit à une attaque au corps à corps unique contre une créature située dans un rayon de 1,50 mètre. Il porte une attaque de coup avec un bonus d\'attaque et des dégâts contondants déterminés en fonction de sa taille. Le MD peut tout à fait décider qu\'un objet animé inflige des dégâts perforants ou tranchants si sa forme le lui permet.',
+            'description' => 'Les objets prennent vie sur votre ordre. Choisissez jusqu\'à dix objets non magiques à portée que personne ne porte ni ne transporte. Les cibles de taille Moyenne comptent comme deux objets, celles de taille Grande comme quatre et celles de taille Très Grande comme huit. Vous ne pouvez pas animer d\'objet de taille supérieure. Chaque cible s\'anime et devient une créature placée sous votre contrôle jusqu\'à la fin du sort ou jusqu\'à tomber à O point de vie.\n Par une action bonus, vous pouvez donner un ordre mental à toute créature créée via ce sort qui se trouve au maximum à 150 mètres de vous (si vous en contrôlez plusieurs, vous pouvez donner un ordre à l\'une d\'elles, certaines d\'entre elles ou toutes à la fois, à condition de donner le même ordre à toutes). À vous de décider quelle action la créature va entreprendre et à quel endroit elle se déplacera au cours du tour suivant, mais vous pouvez aussi lui donner un ordre plus générique, comme de garder une salle ou un couloir. En l\'absence d\'ordre, la créature se contente de se défendre contre les créatures hostiles. Une fois qu\'elle a reçu un ordre, elle continue à le suivre jusqu\'à ce qu\'elle ait accompli sa tâche.<TABLE/> \n Un objet animé est une créature artificielle avec une CA, des points de vie, des attaques, une Force et une Dextérité déterminés par sa taille. Sa Constitution est de 10 tandis que son Intelligence et sa Sagesse sont de 3 et son Charisme de 1. Il a une vitesse de 9 mètres. S\'il est dépourvu de pattes ou d\'appendices susceptibles de le mouvoir, il gagne à la place la capacité de voler à une vitesse de 9 mètres et peut utiliser le vol stationnaire. Si l\'objet est solidement attaché à une surface ou à un objet de plus grande taille, comme une chaîne vissée à un mur, sa vitesse est de O. L\'objet possède la vision aveugle dans un rayon de 9 mètres ; au-delà, il est aveugle. Quand l\'objet animé tombe à O point de vie, il reprend sa forme originelle d\'objet et tout dégât en surplus est infligé à sa forme originelle.\n Si vous ordonnez à un objet animé d\'attaquer, il a droit à une attaque au corps à corps unique contre une créature située dans un rayon de 1,50 mètre. Il porte une attaque de coup avec un bonus d\'attaque et des dégâts contondants déterminés en fonction de sa taille. Le MD peut tout à fait décider qu\'un objet animé inflige des dégâts perforants ou tranchants si sa forme le lui permet.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, vous pouvez animer deux objets supplémentaires par emplacement au-delà du 5e.'
          ]);
          Spell::insert([
@@ -843,7 +843,7 @@ return new class extends Migration
             'range' => '27 mètres',
             'component' => 'V, S, M (trois coquilles de noix)',
             'duration' => 'concentration, jusqu\'à 1 minute',
-            'description' => 'Ce sort assaille et pervertit l\'esprit des créatures, générant des hallucinations et provoquant des réactions incontrôlées. Toutes les créatures situées dans une sphère de 3 mètres de rayon autour d\'un point de votre choix situé à portée doivent faire un jet de sauvegarde de Sagesse quand vous lancez le sort. Si elles échouent, le sort les affecte.\n Une cible affectée ne peut pas accomplir de réaction et doit lancer 1d1O au début de chacun de ses tours pour déterminer comment elle se comporte pendant le tour.<TABLE/>\n Une créature affectée peut faire un jet de sauvegarde de Sagesse à la fin de chacun de ses tours. En cas de succès, l\'effet se termine pour elle.',
+            'description' => 'Ce sort assaille et pervertit l\'esprit des créatures, générant des hallucinations et provoquant des réactions incontrôlées. Toutes les créatures situées dans une sphère de 3 mètres de rayon autour d\'un point de votre choix situé à portée doivent faire un jet de sauvegarde de Sagesse quand vous lancez le sort. Si elles échouent, le sort les affecte.\n Une cible affectée ne peut pas accomplir de réaction et doit lancer 1d1O au début de chacun de ses tours pour déterminer comment elle se comporte pendant le tour.<TABLE/> \n Une créature affectée peut faire un jet de sauvegarde de Sagesse à la fin de chacun de ses tours. En cas de succès, l\'effet se termine pour elle.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, le rayon de la sphère augmente de 1,50 mètre par niveau au-delà du 4e.'
          ]);
          Spell::insert([
@@ -999,7 +999,7 @@ return new class extends Migration
             'range' => '9 mètres',
             'component' => 'V, S, M (un petit bout de matière de même type que l\'objet que vous voulez créer)',
             'duration' => 'spéciale',
-            'description' => 'Vous tirez des bribes de matière ombreuse de l\'Obscur pour créer à portée des objets inertes en matière végétale: du tissu, de la corde, du bois ou des objets similaires. Ce sort permet aussi de créer des objets minéraux comme de la pierre, du cristal ou du métal. L\'objet créé ne doit pas être plus grand qu\'un cube de 1,50 mètre d\'arête et doit impérativement être d\'une forme et d\'un matériau que vous avez déjà vus.\n La durée du sort dépend du matériau choisi pour façonner l\'objet. S\'il est fait de plusieurs matières, c\'est la durée la plus courte qui s\'applique.<TABLE/>\n Si vous utilisez les matériaux créés via ce sort comme composantes matérielles pour un autre sort, ce dernier échoue.',
+            'description' => 'Vous tirez des bribes de matière ombreuse de l\'Obscur pour créer à portée des objets inertes en matière végétale: du tissu, de la corde, du bois ou des objets similaires. Ce sort permet aussi de créer des objets minéraux comme de la pierre, du cristal ou du métal. L\'objet créé ne doit pas être plus grand qu\'un cube de 1,50 mètre d\'arête et doit impérativement être d\'une forme et d\'un matériau que vous avez déjà vus.\n La durée du sort dépend du matériau choisi pour façonner l\'objet. S\'il est fait de plusieurs matières, c\'est la durée la plus courte qui s\'applique.<TABLE/> \n Si vous utilisez les matériaux créés via ce sort comme composantes matérielles pour un autre sort, ce dernier échoue.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, l\'arête du cube augmente de 1,50 mètre par niveau au-delà du 5e.'
          ]);
          Spell::insert([
@@ -3024,196 +3024,219 @@ return new class extends Migration
             'description' => 'Toute la nourriture et les boissons non magiques présentes dans une sphère d\'un rayon de 1,50 mètre centrée autour d\'un point de votre choix situé à portée sont purifiées et débarrassées de tout poison et maladie.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Rayon affaiblissant',
+            'school' => 'Nécromancie',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Un rayon noir fait d\'énergie débilitante jaillit de votre doigt en direction d\'une créature à portée. Faites une attaque de sort à distance contre la cible. Si vous la touchez, la créature inflige seulement la moitié des dégâts habituels lorsqu\'elle attaque avec une arme basée sur la Force.\n La cible a droit à un jet de sauvegarde de Constitution contre le sort à la fin de chacun de ses tours. Le sort se termine si elle réussit.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Rayon ardent',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous créez trois rayons de feu et les projetez sur des cibles à portée. Vous pouvez les diriger contre une même cible ou contre des cibles différentes.\n Faites une attaque de sort à distance pour chaque rayon. Si vous touchez, la cible reçoit 2d6 dégâts.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, vous créez un rayon de plus par niveau au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Rayon de givre',
+            'school' => 'Évocation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Un rayon de lumière d\'un blanc bleuté file vers une créature à portée. Faites une attaque de sort à distance contre la cible. Si vous la touchez, elle subit 1d8 dégâts de froid et sa vitesse est réduite de 3 mètres jusqu\'au début de votre prochain tour. Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Rayon de lune',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S, M (quelques graines de ménisperme, peu importe l\'espèce, et un éclat de feldspath opalescent)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Un pâle rayon de lune brille dans un cylindre de 1,50 mètre de rayon pour 12 mètres de haut centré sur un point à portée. Une faible lumière emplit le cylindre jusqu\'à la fin du sort.\n Quand une créature entre dans la zone du sort pour la première fois de son tour ou qu\'elle y commence son tour, elle est enveloppée de flammes fantomatiques qui provoquent de violentes douleurs, et doit faire un jet de sauvegarde de Constitution. Si elle échoue, elle subit 2d10 dégâts radiants, la moitié seulement si elle réussit.\n Les métamorphes sont désavantagés lors de ce jet. Si l\'un d\'eux le rate, il reprend aussitôt son apparence originelle et ne peut plus changer de forme tant qu\'il n\'a pas quitté la zone de lumière du sort.\n Une fois que vous avez lancé ce sort, à chacun de vos tours, vous pouvez utiliser une action pour déplacer le rayon de lumière de 18 mètres au maximum dans la direction de votre choix.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 3 ou plus, les dégâts augmentent de 1d1O par niveau au-delà du 2e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Rayon de soleil',
+            'school' => 'Évocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (ligne de 18 mètres)',
+            'component' => 'V, S, M (une loupe)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Un rayon de vive lumière jaillit de votre main sur une ligne de 18 mètres de long pour 1,50 mètre de large. Chaque créature située sur cette ligne doit faire un jet de sauvegarde de Constitution. Celles qui échouent subissent 6d8 dégâts radiants et sont aveuglées jusqu\'à la fin de votre prochain tour. Les autres subissent seulement la moitié des dégâts et ne sont pas aveuglées. Les vases et les morts-vivants sont désavantagés lors de ce jet de sauvegarde.\n Vous pouvez créer une nouvelle ligne de lumière en dépensant votre action à n\'importe quel tour jusqu\'à la fin du sort.\n Pendant toute la durée du sort, une boule de lumière brille dans votre main. Elle émet une vive lumière dans un rayon de 9 mètres et une faible lumière dans un rayon de 9 mètres supplémentaires. Cette lumière est de la même nature que la lumière du soleil.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Rayon empoisonné',
+            'school' => 'Nécromancie',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Un rayon d\'énergie d\'un vert maladif frappe une créature à portée. Faites un jet d\'attaque de sort à distance contre elle. Si vous la touchez, elle subit 2d8 dégâts de poison et doit faire un jet de sauvegarde de Constitution. Si elle échoue, elle est empoisonnée jusqu\'à la fin de votre prochain tour.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d8 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Régénération',
+            'school' => 'Transmutation',
+            'level' => 7,
+            'cast_time' => '1 minute',
+            'range' => 'contact',
+            'component' => 'V, S, M (un moulin à prières et de l\'eau bénite)',
+            'duration' => '1 heure',
+            'description' => 'Vous touchez une créature et stimulez ses capacités de guérison naturelle. La cible récupère 4d8 + 15 points de vie. Pendant toute la durée du sort, elle récupère aussi 1 point de vie au début de chacun de ses tours (10 points de vie par minute).\n Si la cible a des membres sectionnés (des doigts, des jambes, une queue, etc.), ils repoussent au bout de 2 minutes. Si vous disposez de la partie amputée et la maintenez contre le moignon, le sort ressoude instantanément le membre au moignon.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Réincarnation',
+            'school' => 'Transmutation',
+            'level' => 5,
+            'cast_time' => '1 heure',
+            'range' => 'contact',
+            'component' => 'V, S, M (huiles et onguents rares d\'une valeur minimale de 1 000 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez un humanoïde mort ou un morceau du cadavre d\'une telle créature. Si la créature est morte depuis 10 jours au maximum, le sort lui fabrique un nouveau corps adulte et y appelle son âme. Le sort échoue si l\'âme n\'est pas libre de gagner ce corps ou si elle ne le désire pas.\n La magie façonne un nouveau corps pour accueillir l\'âme, ce qui risque de modifier la race de la créature. Le MD lance 1d100 et consulte la table suivante pour déterminer quel sera le corps de la créature ramenée à la vie ou il en choisit un.<TABLE/> \n La créature réincarnée se souvient de son ancienne vie et de ses expériences passées. Elle garde les capacités dont elle disposait sous sa forme originelle, mais échange sa race précédente contre la nouvelle et modifie ses traits raciaux en fonction.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Relever les morts',
+            'school' => 'Nécromancie',
+            'level' => 5,
+            'cast_time' => '1 heure',
+            'range' => 'contact',
+            'component' => 'V, S, M (un diamant d\'une valeur minimale de 500 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez une créature décédée et la ramenez à la vie, à condition que son trépas ne remonte pas à plus de 10 jours. Si l\'âme de la créature est désireuse de rejoindre son corps et libre de le faire, le défunt revient à la vie avec 1 point de vie.\n Ce sort neutralise également les poisons et soigne les maladies non magiques qui affectaient la créature à sa mort. En revanche, il ne la débarrasse pas des maladies magiques, des malédictions et des effets similaires. Si on ne supprime pas ces effets sur le cadavre avant de lancer le sort, ils affectent de nouveau la créature ressuscitée. Ce sort est incapable de ramener un mort-vivant à la vie.\n Ce sort referme les plaies mortelles, mais ne restaure pas les parties manquantes du corps. Si la créature est privée d\'un organe ou d\'un morceau indispensable à sa survie, comme sa tête, le sort échoue automatiquement.\n Le retour d\'entre les morts est une rude épreuve qui se traduit par un malus de -4 aux jets d\'attaque et de sauvegarde ainsi qu\'aux tests de caractéristique. Chaque fois que la cible termine un long repos, ce malus se réduit de 1 jusqu\'à disparaître.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Réparation',
+            'school' => 'Transmutation',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 minute',
+            'range' => 'contact',
+            'component' => 'V, S, M (deux magnétites)',
+            'duration' => 'instantanée',
+            'description' => 'Ce sort répare un objet cassé ou déchiré en un seul point, comme un maillon de chaîne cassé, deux moitiés d\'une clef brisée, une cape déchirée ou une outre de vin qui fuit. Pour cela, vous devez toucher l\'objet et la cassure ou la déchirure ne doit pas mesurer plus de 30 centimètres dans chaque dimension. Le problème se répare et il n\'en reste plus trace.\n Le sort permet de réparer un objet magique ou une créature artificielle, mais pas de restaurer sa magie.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Repli expéditif',
+            'school' => 'Transmutation',
+            'level' => 1,
+            'cast_time' => '1 action bonus',
+            'range' => 'personnelle',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Ce sort vous permet de vous déplacer à une vitesse incroyable. Vous pouvez utiliser l\'action se précipiter quand vous le lancez, puis par une action bonus à chacun de vos tours jusqu\'à ce qu\'il se termine.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Représailles infernales',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 réaction en réponse aux dégâts que vous inflige une créature située dans votre champ de vision et dans un rayon de 18 mètres autour de vous',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Il vous suffit de pointer le doigt vers la créature qui vient de vous blesser pour qu\'elle soit momentanément enveloppée d\'un linceul de flammes infernales. Elle doit faire un jet de sauvegarde de Dextérité. Si elle échoue, elle subit 2d10 dégâts de feu, sinon la moitié seulement.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d10 par emplacement de sort au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Répulsion/attirance',
+            'school' => 'Enchantement',
+            'level' => 8,
+            'cast_time' => '1 heure',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un cristal d\'alun trempé dans le vinaigre pour répulsion ou une goutte de miel pour attirance)',
+            'duration' => '10 jours',
+            'description' => 'Ce sort attire ou repousse les créatures de votre choix. Vous choisissez un objet ou une créature de taille Très Grande ou inférieure situés à portée ou une zone pas plus grande qu\'un cube de 60 mètres de côté. Ensuite, vous décrivez une catégorie de créatures intelligentes, comme les dragons rouges, les gobelins ou les vampires. La cible est alors baignée d\'une aura qui attire ou repousse ces créatures pendant toute la durée du sort. Vous devez choisir la répulsion ou l\'attirance comme effet de l\'aura.\n <B>Répulsion.</B> L\'enchantement génère chez les créatures de la catégorie choisie un intense besoin de quitter les lieux et d\'éviter la cible. Quand une telle créature voit la cible ou se trouve dans un rayon de 18 mètres autour d\'elle, elle doit réussir un jet de sauvegarde de Sagesse ou se retrouver terrorisée. Elle reste dans cet état tant qu\'elle voit la cible ou se trouve à 18 mètres ou moins d\'elle. Tant que la cible l\'effraie, la créature doit impérativement utiliser son déplacement pour gagner l\'endroit sûr le plus proche, c\'est-à-dire un endroit d\'où elle ne verra plus la cible. Si la créature s\'éloigne à plus de 18 mètres de la cible et ne la voit plus, elle n\'est plus terrorisée, mais elle le redevient si la cible apparaît de nouveau en vue ou si elle s\'approche à 18 mètres ou moins d\'elle.\n <B>Attirance.</B>L\'enchantement génère chez la créature une envie irrépressible de s\'approcher de la cible dès qu\'elle se trouve à 18 mètres ou moins d\'elle ou dès qu\'elle la voit. Quand la créature voit la cible ou se trouve dans un rayon de 18 mètres autour d\'elle, elle doit réussir un jet de sauvegarde de Sagesse, sans quoi, à chacun de ses tours, elle se déplace de manière à entrer dans la zone désirée ou à arriver à portée de la cible. Une fois là, la créature ne peut plus s\'éloigner de sa propre initiative.\n Si la cible blesse ou fait du mal à la créature affectée, cette dernière a droit à un nouveau jet de sauvegarde de Sagesse pour mettre un terme à l\'effet, comme décrit plus bas.\n <B>Mettre un terme à l\'effet.</B> Si une créature affectée termine son tour alors qu\'elle ne se trouve pas à 18 mètres ou moins de la cible ou qu\'elle ne peut pas la voir, elle a droit à un jet de sauvegarde de Sagesse. Si elle le réussit, la cible n\'exerce plus d\'effet sur elle et elle comprend que le sentiment d\'attirance ou de répulsion qu\'elle ressentait était d\'origine magique. De plus, une créature affectée par le sort a droit à un jet de sauvegarde de Sagesse toutes les 24 heures tant que le sort persiste. Une créature qui réussit son jet de sauvegarde contre l\'effet est immunisée contre lui pendant 1 minute, après quoi, il peut de nouveau l\'affecter.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Résistance',
+            'school' => 'Abjuration',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une cape miniature)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous touchez une créature consentante. Une fois avant la fin du sort, elle peut lancer 1d4 et ajouter le nombre obtenu à un unique jet de sauvegarde de son choix. Elle peut lancer le dé avant ou après avoir fait son jet de sauvegarde. Le sort se termine alors.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
+            'name' => 'Respiration aquatique',
+            'school' => 'Transmutation',
+            'level' => 3,
             'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V, S, M (un petit roseau ou un brin de paille)',
+            'duration' => '24 heures',
+            'description' => 'Grâce à ce sort, un maximum de dix créatures situées à portée et dans votre champ de vision deviennent capables de respirer sous l\'eau jusqu\'à la fin du sort. Les créatures affectées conservent en plus leur mode de respiration normal.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Restauration partielle',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez une créature et mettez fin à une maladie ou à un état qui l\'affectait, cet état étant aveugle, sourd, paralysé ou empoisonné.'
+         ]);
+         Spell::insert([
+            'name' => 'Restauration suprême',
+            'school' => 'Abjuration',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (poussière de diamant d\'une valeur minimale de 100 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous imprégnez la créature que vous touchez d\'énergie positive, afin de la débarrasser d\'un effet débilitant. Vous pouvez ainsi réduire le niveau d\'épuisement de la cible d\'un cran ou mettre un terme à l\'un des effets suivants l\'affectant.<LI>Un effet qui charme ou pétrifie la cible.</LI> <LI>Une malédiction, y compris l\'harmonisation entre la cible et un objet magique maudit.</LI> <LI>Une réduction sur l\'une des valeurs de caractéristique de la cible.</LI> <LI>Un effet réduisant le maximum de points de vie de la cible.</LI>'
+         ]);
+         Spell::insert([
+            'name' => 'Résurrection',
+            'school' => 'Nécromancie',
+            'level' => 7,
+            'cast_time' => '1 heure',
+            'range' => 'contact',
+            'component' => 'V, S, M (un diamant d\'une valeur minimale de 1 000 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez le cadavre d\'une créature décédée depuis un siècle au maximum, qui n\'est pas morte de vieillesse et qui n\'est pas un mort-vivant. Si son âme est libre et consentante, la cible ressuscite avec tous ses points de vie.\n Ce sort neutralise les poisons et maladies ordinaires qui affectaient éventuellement la cible à sa mort, mais il ne guérit pas les maladies magiques, les malédictions et autres effets de même type. Il faut en débarrasser la cible avant de la ressusciter, sans quoi ils l\'affligent de nouveau dès qu\'elle revient à la vie.\n Ce sort referme les blessures mortelles et restaure les parties de corps éventuellement manquantes.\n Le retour d\'entre les morts est une rude épreuve qui se traduit par un malus de -4 aux jets d\'attaque et de sauvegarde ainsi qu\'aux tests de caractéristique. Chaque fois que la cible termine un long repos, ce malus se réduit de 1 jusqu\'à disparaître.\n Si ce sort est destiné à une créature décédée depuis un an ou plus, son incantation est extrêmement éprouvante. Après cela, vous ne pouvez plus lancer de sort et vous êtes désavantagé lors des jets d\'attaque et de sauvegarde et des tests de caractéristique jusqu\'à ce que vous ayez terminé un long repos.'
+         ]);
+         Spell::insert([
+            'name' => 'Résurrection suprême',
+            'school' => 'Nécromancie',
+            'level' => 9,
+            'cast_time' => '1 heure',
+            'range' => 'contact',
+            'component' => 'V, S, M (un peu d\'eau bénite à asperger et des diamants d\'une valeur totale minimale de 25 000 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez une créature décédée depuis deux cents ans au maximum, de n\'importe quelle cause sauf de vieillesse. Si son âme est libre et consentante, elle revient à la vie avec tous ses points de vie.\n Le sort referme toutes les plaies, neutralise tous les poisons, guérit toutes les maladies et lève toutes les malédictions qui affectaient éventuellement la cible à sa mort. Il remplace les organes et les membres abîmés ou manquants. Il peut même fournir un nouveau corps à la cible si l\'original n\'existe plus, mais dans ce cas, vous devez prononcer le nom de la créature à ressusciter. Elle apparaît alors dans un emplacement inoccupé de votre choix dans un rayon de 3 mètres autour de vous.'
+         ]);
+         Spell::insert([
+            'name' => 'Retour à la vie',
+            'school' => 'Nécromancie',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (diamant d\'une valeur de 300 po, que le sort consume)',
+            'duration' => 'instantanée',
+            'description' => 'Vous touchez une créature morte au cours de la minute précédente. Elle revient à la vie avec 1 point de vie. Ce sort ne ramène pas à la vie les créatures mortes de vieillesse et ne restaure pas les parties manquantes du corps.'
+         ]);
+         Spell::insert([
+            'name' => 'Rêve',
+            'school' => 'Illusion',
+            'level' => 5,
+            'cast_time' => '1 minute',
+            'range' => 'spéciale',
+            'component' => 'V, S, M (une poignée de sable, une goutte d\'encre et une plume d\'écrivain prélevée sur un oiseau endormi)',
+            'duration' => '8 heures',
+            'description' => 'Ce sort façonne les rêves d\'une créature. Choisissez comme cible une créature de votre connaissance. Elle doit se trouver sur le même plan d\'existence que vous. Il est impossible de contacter une créature qui ne dort pas, comme un elfe, via ce sort. Vous entrez dans un état de transe et servez de messager, à moins que vous ne confiiez ce rôle à une autre créature consentante. Pendant la transe, le messager est conscient de son environnement, mais il ne peut pas entreprendre d\'action ni se déplacer.\n Si la cible est endormie, le messager apparaît dans son rêve et peut discuter avec elle tant qu\'elle est endormie, pendant toute la durée du sort. Le messager peut aussi modeler l\'environnement onirique, en créant des objets, un paysage et d\'autres images. Il peut sortir de sa transe quand bon lui semble, mettant alors un terme prématuré au sort. La cible se souvient parfaitement de son rêve quand elle se réveille. Si la cible est éveillée quand vous lancez le sort, le messager le sait et peut sortir de sa transe (et mettre un terme au sort) ou attendre qu\'elle s\'endorme, car il apparaîtra dans ses rêves à ce moment. Vous pouvez affubler le messager d\'une apparence que la cible trouvera monstrueuse et terrifiante. Dans ce cas, le message qu\'il transmet ne peut excéder dix mots et la cible est obligée de faire un jet de sauvegarde de Sagesse. Si elle échoue, les échos de cette monstruosité fantasmagorique génèrent un cauchemar qui dure pendant tout le sommeil de la cible et l\'empêche de bénéficier des avantages de sa période de repos. De plus, quand elle se réveille, elle subit 3d6 dégâts psychiques. Si vous êtes en possession d\'un élément corporel de la cible, comme une mèche de cheveux, des rognures d\'ongles ou autre, elle est désavantagée lors de son jet de sauvegarde.'
          ]);
          Spell::insert([
             'name' => '',

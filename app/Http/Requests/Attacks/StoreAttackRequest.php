@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Attacks;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 
 class StoreAttackRequest extends FormRequest
 {
