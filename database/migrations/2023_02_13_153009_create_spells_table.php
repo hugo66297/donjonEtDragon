@@ -748,7 +748,7 @@ return new class extends Migration
             'component' => 'V, S, M (une pincée de soufre)',
             'duration' => 'instantanée',
             'description' => 'Une colonne verticale de feu divin rugissant surgit des cieux et s\'abat à l\'endroit de votre choix. Toute créature située dans un cylindre de 3 mètres de rayon et 12 mètres de haut centré sur le point à portée de votre choix doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 4d6 dégâts de feu et 4d6 dégâts radiants, les autres la moitié seulement.',
-            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, les dégâts de feu ou les dégâts radiants (à vous de choisir) augmentent de ld6 par niveau au-delà du 5e.'
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 6 ou plus, les dégâts de feu ou les dégâts radiants (à vous de choisir) augmentent de 1d6 par niveau au-delà du 5e.'
          ]);
          Spell::insert([
             'name' => 'Communication avec les animaux',
@@ -865,7 +865,7 @@ return new class extends Migration
             'range' => '36 mètres',
             'component' => 'V, S',
             'duration' => '1 round',
-            'description' => 'Vous faites apparaître une main fantomatique et squelettique à l\'emplacement d\'une créature située à portée. Faites un jet d\'attaque de sort à distance contre la créature pour la transir de froid. Si l\'attaque touche, la victime reçoit 1d8 dégâts nécrotiques et ne peut pas récupérer de point de vie avant le début de votre prochain tour.Jusque-là, la main s\'accroche à elle.\n Si votre cible est un mort-vivant, il est en plus désavantagé lors des jets d\'attaque effectués contre vous jusqu\'à la fin de votre prochain tour.\n Les dégâts du sort augmentent de ld8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
+            'description' => 'Vous faites apparaître une main fantomatique et squelettique à l\'emplacement d\'une créature située à portée. Faites un jet d\'attaque de sort à distance contre la créature pour la transir de froid. Si l\'attaque touche, la victime reçoit 1d8 dégâts nécrotiques et ne peut pas récupérer de point de vie avant le début de votre prochain tour.Jusque-là, la main s\'accroche à elle.\n Si votre cible est un mort-vivant, il est en plus désavantagé lors des jets d\'attaque effectués contre vous jusqu\'à la fin de votre prochain tour.\n Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
          ]);
          Spell::insert([
             'name' => 'Contagion',
@@ -1283,7 +1283,7 @@ return new class extends Migration
             'component' => 'V, S, M (un peu de fourrure et une baguette en ambre, en cristal ou en verre)',
             'duration' => 'instantanée',
             'description' => 'Un éclair formant une ligne de 30 mètres de long pour 1,50 mètre de large jaillit de votre personne et file dans la direction de votre choix. Chaque créature située sur la ligne doit faire un jet de sauvegarde de Dextérité. Celles qui échouentsubissent 8d6 dégâts de foudre, les autres la moitié seulement.\n La foudre embrase les objets inflammables de la zone qui ne sont ni portés ni transportés par une créature.',
-            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts augmentent de ld6 par niveau au-delà du 3e.'
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts augmentent de 1d6 par niveau au-delà du 3e.'
          ]);
          Spell::insert([
             'name' => 'Éclat du soleil',
@@ -1539,7 +1539,7 @@ return new class extends Migration
             'component' => 'V, S, M (poudre de feuille de rhubarbe et estomac de vipère)',
             'duration' => 'instantanée',
             'description' => 'Une flèche d\'un vert chatoyant file vers une cible située à portée et explose en une gerbe d\'acide. Faites une attaque de sort à distance contre la cible. Si vous touchez, la cible reçoit 4d4 dégâts d\'acide immédiatement et 2d4 dégâts d\'acide à la fin de son prochain tour. Si vous ne touchez pas, l\'acide éclabousse la cible et lui inflige la moitié des dégâts initiaux, mais aucun à la fin de son prochain tour.',
-            'upper_lvl' => 'Quand vous utilisez ce sort via un emplacement de niveau 3 ou plus, les dégâts initiaux et secondaires augmentent de ld4 par niveau au-delà du 2e.'
+            'upper_lvl' => 'Quand vous utilisez ce sort via un emplacement de niveau 3 ou plus, les dégâts initiaux et secondaires augmentent de 1d4 par niveau au-delà du 2e.'
          ]);
          Spell::insert([
             'name' => 'Flèche de foudre',
@@ -1550,7 +1550,7 @@ return new class extends Migration
             'component' => 'V, S',
             'duration' => 'concentration, jusqu\'à 1 minute',
             'description' => 'Lors de la prochaine attaque que vous effectuez avec une arme à distance pendant que ce sort est actif, la munition (ou l\'arme s\'il s\'agit d\'une arme de jet) se change en éclair. Faites un jet d\'attaque ordinaire. Si vous touchez, la cible subit 4d8 dégâts de foudre au lieu des dégâts normaux, la moitié si vous la ratez.\n Que vous touchiez ou ratiez votre cible, toutes les créatures situées dans un rayon de 3 mètres autour d\'elle doivent faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 2d8 dégâts de foudre, les autres la moitié seulement.\n La munition ou l\'arme de jet reprend ensuite sa forme normale.',
-            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts dus à chacun des deux effets du sort augmentent de ld8 par emplacement de sort au-delà du 3e.'
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les dégâts dus à chacun des deux effets du sort augmentent de 1d8 par emplacement de sort au-delà du 3e.'
          ]);
          Spell::insert([
             'name' => 'Flétrissement',
@@ -1581,7 +1581,7 @@ return new class extends Migration
             'range' => '18 mètres',
             'component' => 'V, S, M (un peu de laine)',
             'duration' => 'concentration, jusqu\'à 1 minute',
-            'description' => 'Vous façonnez une illusion et l\'implantez dans l\'esprit d\'une créature située à portée dans votre champ de vision. Elle doit faire un jet de sauvegarde d\'intelligence. Si elle échoue, vous créez un objet, une créature ou un phénomène visible fantasmagorique de votre choix. L\'illusion doit tenir dans un cube de 3 mètres d\'arête. La cible est seule à la percevoir, et ce pendant toute la durée du sort. Ce dernier ne fonctionne pas contre les morts-vivants ni les créatures artificielles.\n L\'illusion comprend des bruits, une température et d\'autres stimuli, mais, de même, la cible du sort est la seule à les percevoir.\n La cible peut utiliser une action pour examiner l\'illusion avec un test d\'intelligence (Investigation) contre le DD du jet de sauvegarde de votre sort. Si elle réussit son test, elle comprend qu\'elle a affaire à une simple illusion et le sort se termine.\n Tant que la cible est sous l\'effet du sort, elle traite l\'illusion comme un élément réel et invente une explication rationnelle aux résultats illogiques issus de ses interactions avec elle. Par exemple, si elle tente de traverser un pont fantasmagorique enjambant un ravin et tombe dès qu\'elle pose le pied sur ce pont, si elle survit à la chute, elle croit toujours que le pont est réel et trouve une explication logique à sa chute : on l\'a poussée, elle a glissé, une forte bourrasque l\'a fait basculer...\n Une cible affectée croit si fort à la réalité de l\'illusion que cette dernière peut même la blesser. Une illusion créée à l\'image d\'une créature peut attaquer la cible. De même, une illusion représentant du feu, un bassin d\'acide ou une nappe de lave peut brûler la cible. À chaque round, à votre tour, votre illusion inflige ld6 dégâts psychiques à la cible si elle se trouve au sein de l\'illusion ou dans un rayon de 1,50 mètre autour d\'elle et que cette illusion représente une créature ou un danger qui devrait logiquement la blesser, en l\'attaquant par exemple. La cible perçoit les dégâts comme étant d\'un type approprié à l\'illusion qu\'elle voit.'
+            'description' => 'Vous façonnez une illusion et l\'implantez dans l\'esprit d\'une créature située à portée dans votre champ de vision. Elle doit faire un jet de sauvegarde d\'intelligence. Si elle échoue, vous créez un objet, une créature ou un phénomène visible fantasmagorique de votre choix. L\'illusion doit tenir dans un cube de 3 mètres d\'arête. La cible est seule à la percevoir, et ce pendant toute la durée du sort. Ce dernier ne fonctionne pas contre les morts-vivants ni les créatures artificielles.\n L\'illusion comprend des bruits, une température et d\'autres stimuli, mais, de même, la cible du sort est la seule à les percevoir.\n La cible peut utiliser une action pour examiner l\'illusion avec un test d\'intelligence (Investigation) contre le DD du jet de sauvegarde de votre sort. Si elle réussit son test, elle comprend qu\'elle a affaire à une simple illusion et le sort se termine.\n Tant que la cible est sous l\'effet du sort, elle traite l\'illusion comme un élément réel et invente une explication rationnelle aux résultats illogiques issus de ses interactions avec elle. Par exemple, si elle tente de traverser un pont fantasmagorique enjambant un ravin et tombe dès qu\'elle pose le pied sur ce pont, si elle survit à la chute, elle croit toujours que le pont est réel et trouve une explication logique à sa chute : on l\'a poussée, elle a glissé, une forte bourrasque l\'a fait basculer...\n Une cible affectée croit si fort à la réalité de l\'illusion que cette dernière peut même la blesser. Une illusion créée à l\'image d\'une créature peut attaquer la cible. De même, une illusion représentant du feu, un bassin d\'acide ou une nappe de lave peut brûler la cible. À chaque round, à votre tour, votre illusion inflige 1d6 dégâts psychiques à la cible si elle se trouve au sein de l\'illusion ou dans un rayon de 1,50 mètre autour d\'elle et que cette illusion représente une créature ou un danger qui devrait logiquement la blesser, en l\'attaquant par exemple. La cible perçoit les dégâts comme étant d\'un type approprié à l\'illusion qu\'elle voit.'
          ]);
          Spell::insert([
             'name' => 'Forme éthérée',
@@ -1632,7 +1632,7 @@ return new class extends Migration
             'range' => '9 mètres',
             'component' => 'V, S, M (une tige de plante épineuse)',
             'duration' => 'instantanée',
-            'description' => 'Vous créez un long fouet semblable à une liane couverte d\'épines. Sur votre ordre, il frappe une créature à portée. Faites une attaque de sort au corps à corps contre la cible. Si vous touchez, la créature subit ld6 dégâts perforants et, si la créature est de taille Grande ou inférieure, vous l\'attirez sur 3 mètres dans votre direction.\n Les dégâts du sort augmentent de ld6 quand vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).'
+            'description' => 'Vous créez un long fouet semblable à une liane couverte d\'épines. Sur votre ordre, il frappe une créature à portée. Faites une attaque de sort au corps à corps contre la cible. Si vous touchez, la créature subit 1d6 dégâts perforants et, si la créature est de taille Grande ou inférieure, vous l\'attirez sur 3 mètres dans votre direction.\n Les dégâts du sort augmentent de 1d6 quand vous atteignez le niveau 5 (2d6), le niveau 11 (3d6) et le niveau 17 (4d6).'
          ]);
          Spell::insert([
             'name' => 'Frappe ardente',
@@ -2509,7 +2509,7 @@ return new class extends Migration
             'range' => '18 mètres',
             'component' => 'V',
             'duration' => 'instantanée',
-            'description' => 'Vous prononcez des paroles curatives qui rendent un montant de points de vie égal à ld4 + votre modificateur de caractéristique d\'incantation à un maximum de six créatures de votre choix situées à portée et dans votre champ de vision. Ce sort reste sans effet sur les morts-vivants et les créatures artificielles.',
+            'description' => 'Vous prononcez des paroles curatives qui rendent un montant de points de vie égal à 1d4 + votre modificateur de caractéristique d\'incantation à un maximum de six créatures de votre choix situées à portée et dans votre champ de vision. Ce sort reste sans effet sur les morts-vivants et les créatures artificielles.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, les soins augmentent de 1d4 par niveau au-delà du 3e.'
          ]);
          Spell::insert([
@@ -3777,28 +3777,14 @@ return new class extends Migration
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, vous pouvez viser une créature de plus par niveau au-delà du 3e.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
-         ]);
-         Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Zone de vérité',
+            'school' => 'Enchantement',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => '10 minutes',
+            'description' => 'Vous créez une zone magique, capable de protéger contre la duplicité, sous forme d\'une sphère de 4,50 mètres de rayon centrée sur un point de votre choix situé à portée. Jusqu\'à la fin du sort, une créature qui pénètre dans la sphère pour la première fois de son tour ou y commence son tour doit réussir un jet de sauvegarde de Charisme. Si elle échoue, elle ne peut pas mentir délibérément tant qu\'elle reste dans la zone du sort. Vous savez si chaque créature présente a réussi ou raté son jet de sauvegarde.\n Une créature affectée est consciente du sort qui la limite et peut donc soigneusement éviter de répondre aux questions qui susciteraient normalement un mensonge de sa part. Une telle créature peut rester évasive dans ses réponses, tant qu\'elle reste dans les limites de la vérité.'
          ]);
     }
 
