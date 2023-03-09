@@ -3695,100 +3695,86 @@ return new class extends Migration
             'description' => 'Un mur d\'eau apparaît soudain en un point de votre choix situé à portée. Il peut faire jusqu\'à 90 mètres de long, autant de haut et 15 mètres d\'épaisseur. Il persiste pendant toute la durée du sort.\n Quand le mur apparaît, toutes les créatures situées dans la zone qu\'il occupe doivent faire un jet de sauvegarde de Force. Celles qui échouent reçoivent 6d10 dégâts contondants, les autres la moitié seulement.\n Une fois le mur apparu, il s\'éloigne de vous sur une distance de 15 mètres (emportant toutes les créatures qui se trouvent en son sein) au début de chacun de vos tours. Chaque créature de taille Grande ou inférieure qui se trouve dans le mur ou dans un espace où le mur pénètre lors de son déplacement doit réussir un jet de sauvegarde de Force ou subir 5d10 dégâts contondants. Une créature subit ces dégâts une fois seulement par round. À la fin du tour, la hauteur du mur se réduit de 15 mètres et les dégâts qu\'il inflige aux tours suivants se réduisent de 1d10. Le sort se termine quand le mur ne fait plus que 0 mètre de haut.\n Une créature prisonnière du mur peut se déplacer en nageant, mais la vague est si puissante qu\'elle doit pour cela réussir un test de Force (Athlétisme) contre le DD de votre sort. Si elle rate ce test, elle est incapable de se déplacer. Une créature qui se déplace hors du mur tombe à terre.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Vague destructrice',
+            'school' => 'Évocation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (9 mètres)',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Vous frappez le sol et créez une onde d\'énergie divine qui se répand alentour. Toutes les créatures de votre choix situées dans un rayon de 9 mètres autour de vous doivent faire un jet de sauvegarde de Constitution. Celles qui échouent subissent 5d6 dégâts de tonnerre et 5d6 dégâts radiants ou nécrotiques (à vous de choisir). De plus, elles sont projetées à terre. Celles qui réussissent subissent seulement la moitié des dégâts et ne tombent pas à terre.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Vague tonnante',
+            'school' => 'Évocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (cube de 4,50 mètres)',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Une vague de force tonnante émane de vous. Chaque créature située dans un cube de 4,50 mètres d\'arête partant de vous doit faire un jet de sauvegarde de Constitution. Les créatures qui échouent subissent 2d8 dégâts de tonnerre et sont repoussées de 3 mètres en face de vous. Les autres subissent seulement la moitié des dégâts et ne sont pas repoussées.\n De plus, les objets qui ne sont pas arrimés et se trouvent entièrement englobés dans la zone affectée sont automatiquement repoussés de 3 mètres à l\'opposé de vous. Le sort émet un grondement de tonnerre qui s\'entend dans un rayon de 90 mètres.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d8 par niveau au-delà du 1er.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Verrou magique',
+            'school' => 'Abjuration',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (poussière d\'or d\'une valeur minimum de 25 po, que le sort consume)',
+            'duration' => 'jusqu\'à dissipation',
+            'description' => 'Vous touchez une ouverture fermée, comme une porte, une fenêtre, un portail, un coffre ou autre. Elle se verrouille alors pour toute la durée du sort. Vous et toutes les créatures désignées lors de l\'incantation du sort pouvez ouvrir l\'ouverture normalement. Vous pouvez aussi définir un mot de passe qui, une fois prononcé dans un rayon de 1,50 mètre autour de l\'objet fermé, dissipe le sort pendant 1 minute. Sinon, impossible d\'ouvrir l\'objet à moins de le briser ou de dissiper ou supprimer le sort. Un sort de déblocage supprime le verrou magique pendant 10 minutes.\n Tant que l\'objet est affecté par ce sort, il est bien plus difficile à briser ou à ouvrir de force: le DD pour le briser ou crocheter ses éventuelles serrures augmente de 10.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
+            'name' => 'Viser juste',
+            'school' => 'Divination',
             'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'S',
+            'duration' => 'concentration, jusqu\'à 1 round',
+            'description' => 'Vous tendez la main et pointez du doigt une cible à portée. Votre magie vous donne un bref aperçu de ses défenses. À votre prochain tour, vous êtes avantagé lors de votre premier jet d\'attaque contre elle, à condition que le sort ne se soit pas terminé avant.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Vision dans le noir',
+            'school' => 'Transmutation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une pincée de carotte séchée ou une agate)',
+            'duration' => '8 heures',
+            'description' => 'Vous touchez une créature consentante pour lui permettre de voir dans le noir. Pendant toute la durée du sort, elle bénéficie de la vision dans le noir à une portée de 18 mètres.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Vision suprême',
+            'school' => 'Divination',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (un collyre coûtant 25 po, fait de poudre de champignon, de safran et de graisse, que le sort consume)',
+            'duration' => '1 heure',
+            'description' => 'Grâce à ce sort, la créature consentante que vous touchez est capable de voir les choses telles qu\'elles sont réellement. Pendant toute la durée du sort, la cible bénéficie de vision parfaite, repère les portes dérobées cachées par magie et voit le plan éthéré, tout cela dans un rayon de 36 mètres.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Voir l\'invisible',
+            'school' => 'Divination',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (une pincée de talc et un saupoudrage de poudre d\'argent)',
+            'duration' => '1 heure',
+            'description' => 'Pendant toute la durée du sort, vous voyez les créatures et les objets invisibles comme s\'ils étaient bien visibles et vous pouvez aussi observer le plan éthéré. Les créatures et les objets éthérés vous apparaissent comme des silhouettes translucides et fantomatiques.'
          ]);
          Spell::insert([
-            'name' => '',
-            'school' => '',
-            'level' => 0,
-            'is_rituel'=> true,
-            'cast_time' => '',
-            'range' => '',
-            'component' => '',
-            'duration' => '',
-            'description' => '',
-            'upper_lvl' => ''
+            'name' => 'Vol',
+            'school' => 'Transmutation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => 'contact',
+            'component' => 'V, S, M (une rémige)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous touchez une créature consentante et lui conférez la capacité de voler à une vitesse de 18 mètres pendant toute la durée du sort. Si la cible se trouve dans les airs quand le sort se termine, elle tombe, à moins de pouvoir arrêter sa chute.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, vous pouvez viser une créature de plus par niveau au-delà du 3e.'
          ]);
          Spell::insert([
             'name' => '',
