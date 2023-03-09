@@ -3472,6 +3472,313 @@ return new class extends Migration
             'description' => 'Quand vous lancez ce sort, vous inscrivez un glyphe néfaste sur une surface (comme une partie du sol, un pan de mur ou une table) ou dans un objet que l\'on peut refermer pour le dissimuler, comme un livre, un parchemin ou un coffre au trésor. Si vous optez pour une surface, le glyphe peut couvrir une zone de 3 mètres de diamètre au maximum. Si vous choisissez un objet, il ne faut plus le déplacer par la suite : si quelqu\'un le déplace à plus de 3 mètres de l\'endroit où vous avez jeté ce sort, Je glyphe se brise et le sort se termine sans avoir été déclenché.\n Le glyphe est presque invisible. Pour le discerner, il faut réussir un test d\'Intelligence (Investigation) contre le DD du jet de sauvegarde de votre sort.\n C\'est lors de l\'incantation que vous décidez de ce qui déclenchera le sort. Pour les glyphes tracés sur une surface quelconque, les déclencheurs les plus courants consistent à toucher le glyphe ou à se tenir dessus, à déplacer un objet recouvrant le glyphe, à s\'approcher à une certaine distance du glyphe ou encore à manipuler l\'objet sur lequel le glyphe est tracé. Pour les glyphes inscrits dans un objet, on trouve parmi les déclencheurs les plus répandus le fait d\'ouvrir l\'objet, de s\'en approcher à une certaine distance, ou de voir ou de lire le glyphe.\n Vous pouvez affiner le déclencheur, de façon à ce que le sort s\'active sous certaines conditions ou en fonction de certaines caractéristiques physiques (comme le poids ou la taille), ou selon un type de créature (pour un glyphe destiné aux guenaudes ou aux métamorphes par exemple). Vous pouvez aussi définir des conditions pour que certaines créatures ne déclenchent pas le glyphe, en prononçant un mot de passe, par exemple.\n Lorsque vous dessinez le glyphe, vous devez choisir l\'une des options suivantes. Une fois le glyphe déclenché, il se met à luire et emplit une sphère de 18 mètres de rayon avec une faible lumière pendant 10 minutes, après quoi, le sort se termine. Chaque créature présente dans la sphère quand le glyphe s\'active est visée par ses effets, tout comme une créature qui entre dans la sphère pour la première fois de son tour ou qui y termine son tour.\n <B>Démence.</B> Chaque cible doit faire un jet de sauvegarde d\'Intelligence. Celles qui échouent deviennent folles pendant 1 minute. Une créature démente ne peut pas entreprendre la moindre action, ne comprend pas ce que disent les autres créatures, ne peut pas lire et ne parle que dans un charabia incompréhensible. C\'est le MD qui contrôle ses déplacements qui deviennent complètement erratiques.\n <B>Désespoir.</B> Chaque cible doit faire un jet de sauvegarde de Charisme. Celles qui échouent sont submergées par le désespoir pendant 1 minute. Pendant tout ce temps, elles ne peuvent pas attaquer ni viser une créature avec une capacité, un sort ou un autre effet magique hostiles.\n <B>Discorde.</B> Chaque cible doit faire un jet de sauvegarde de Constitution. Celles qui le ratent se mettent à se quereller avec les autres créatures pendant 1 minute. Pendant tout ce temps, elles sont incapables de tenir une conversation sensée et sont désavantagées lors des jets d\'attaque et des tests de caractéristique.\n <B>Douleur.</B> Chaque cible doit faire un jet de sauvegarde de Constitution. Celles qui échouent sont neutralisées par une douleur insoutenable pendant 1 minute.\n <B>Étourdissement.</B> Chaque cible doit faire un jet de sauvegarde de Sagesse. Celles qui échouent sont étourdies pendant 1 minute.\n <B>Frayeur.</B Chaque cible doit faire un jet de sauvegarde de Sagesse. Celles qui échouent sont terrorisées pendant 1 minute. Une cible terrorisée lâche tout ce qu\'elle tient et doit s\'éloigner du glyphe de 9 mètres au minimum à chacun de ses tours, dans la mesure du possible.\n <B>Mort.</B> Chaque cible doit faire un jet de sauvegarde de Constitution. Celles qui échouent subissent 10d10 dégâts nécrotiques, les autres la moitié seulement.\n <B>Sommeil.</B> Chaque cible doit faire un jet de sauvegarde de Sagesse. Celles qui échouent tombent inconscientes pendant 10 minutes. Une telle créature se réveille si elle subit des dégâts ou si quelqu\'un utilise son action pour la réveiller en la secouant ou la giflant.'
          ]);
          Spell::insert([
+            'name' => 'Télékinésie',
+            'school' => 'Transmutation',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Vous devenez capable de déplacer ou de manipuler des créatures ou des objets par la pensée. Lorsque vous lancez ce sort, puis en tant qu\'action à chaque round pendant toute la durée du sort, vous pouvez exercer votre force de volonté sur une créature ou un objet situés à portée et dans votre champ de vision, ce qui provoque l\'effet approprié indiqué plus bas. Vous pouvez affecter la même cible, round après round, ou en choisir une nouvelle quand vous le désirez. Si vous changez de cible, la précédente n\'est plus affectée.\n <B>Créatures.</B> Vous pouvez essayer de déplacer une créature de taille Très Grande ou inférieure. Faites un test de caractéristique avec votre caractéristique d\'incantation, opposé au test de Force de la cible. Si vous l\'emportez, vous déplacez la créature d\'un maximum de 9 mètres dans la direction de votre choix, y compris en hauteur, mais pas hors de portée du sort. Jusqu\'à la fin de votre prochain tour, la créature est entravée dans votre étreinte télékinétique. Une créature soulevée dans les airs reste suspendue dans le vide.\n Lors des rounds suivants, vous pouvez utiliser votre action pour maintenir votre prise télékinétique sur la cible en répétant les tests opposés.\n <B>Objets.</B> Vous pouvez essayer de déplacer un objet pesant au maximum 500 kilos. Si cet objet n\'est ni porté ni transporté, vous le déplacez automatiquement d\'un maximum de 9 mètres dans la direction de votre choix, mais pas hors de portée du sort.\n Si l\'objet est porté ou transporté par une créature, faites un test de caractéristique avec votre caractéristique d\'incantation, opposé au test de Force de cette créature. Si vous l\'emportez, vous éloignez l\'objet de cette créature sur un maximum de 9 mètres dans la direction de votre choix, mais pas hors de portée du sort.\n Vous exercez un contrôle précis sur les objets pris dans votre étreinte télékinétique, vous pouvez donc manipuler un outil basique, ouvrir une porte ou un récipient, déposer un objet dans un récipient ou en retirer un, ou encore verser le contenu d\'une fiole.'
+         ]);
+         Spell::insert([
+            'name' => 'Télépathie',
+            'school' => 'Évocation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => 'illimitée',
+            'component' => 'V, S, M (une paire d\'anneaux en argent liés)',
+            'duration' => '24 heures',
+            'description' => 'Vous créez un lien télépathique entre vous et une créature consentante qui vous est familière. Elle peut se trouver n\'importe où tant qu\'elle est sur le même plan d\'existence que vous. Le sort se termine si vous ne vous trouvez plus tous deux sur le même plan.\n Tant que le sort persiste, vous et la cible pouvez échanger instantanément des mots, des images, des sons et d\'autres messages sensoriels grâce au lien qui vous unit. La cible sait que c\'est avec vous qu\'elle communique. Le sort permet à toute créature dotée d\'une Intelligence minimale de 1 de comprendre la signification des mots que vous employez et de saisir le sens des messages sensoriels transmis.'
+         ]);
+         Spell::insert([
+            'name' => 'Téléportation',
+            'school' => 'Invocation',
+            'level' => 7,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V',
+            'duration' => 'instantanée',
+            'description' => 'Ce sort vous transporte instantanément à la destination de votre choix, ainsi qu\'un maximum de huit créatures consentantes de votre choix situées à portée et dans votre champ de vision ou bien ainsi qu\'un unique objet situé à portée et dans votre champ de vision. Si vous prenez un objet pour cible, il doit tenir dans un cube de 3 mètres de côté et il ne doit pas être porté ni transporté par une créature non consentante. Vous devez choisir une destination connue, située sur le même plan d\'existence que vous. C\'est votre degré de familiarité avec la destination qui détermine vos chances d\'arriver sur place. Le MD lance 1d100 et consulte la table suivante.<TABLE/> \n <B>Familiarité.</B> « Cercle permanent » désigne un cercle de téléportation dont vous connaissez la séquence de symboles.\n « Objet associé » indique que vous possédez un objet prélevé à la destination choisie au cours des six derniers mois, comme un livre sorti de l\'étagère de la bibliothèque d\'un magicien, les draps d\'une suite royale ou un éclat de marbre arraché au tombeau secret d\'une liche.\n « Très familier » désigne un endroit où vous vous êtes souvent rendu, un lieu que vous avez soigneusement étudié ou un endroit que vous voyez au moment de l\'incantation.\n « Vu à quelques reprises » correspond aux endroits que vous avez vus plus d\'une fois, mais avec lesquels vous n\'êtes pourtant pas très familier.\n « Vu une fois » représente un lieu vu une seule fois, éventuellement par magie.\n « Description » correspond à un endroit que vous connaissez seulement via la description d\'autrui, aussi bien au niveau de son emplacement que de son apparence, éventuellement grâce à une carte.\n « Destination factice » désigne les endroits qui n\'existent pas, si par exemple vous avez tenté de scruter le sanctuaire d\'un ennemi mais n\'avez vu qu\'une illusion ou si vous essayez de vous téléporter en un endroit familier qui n\'existe plus.\n <B>Sur place.</B> Vous et vos compagnons (ou l\'objet téléporté) apparaissez exactement où vous le souhaitiez.\n <B>À proximité.</B> Vous et vos compagnons (ou l\'objet téléporté) apparaissez à une distance aléatoire de votre destination, éloignés dans une direction tout aussi aléatoire. La distance qui vous sépare de votre destination est de 1d10 x 1d10 pour cent de la distance que le sort vous a fait parcourir. Par exemple, si vous essayez de vous téléporter à une destination située à 180 kilomètres de votre position, que vous arrivez à proximité, et que vous obtenez 5 et 3 aux d10, vous allez arriver à 15 pour cent de distance de votre destination, c\'est-à-dire à 27 kilomètres. Le MD détermine la direction dans laquelle vous vous êtes éloignés de la cible en lançant un d8, le 1 représentant le nord, le 2 le nord-est, le 3 l\'est, etc... jusqu\'à faire le tour de la rose des vents. Si vous comptiez vous téléporter dans une cité portuaire et arrivez à 27 kilomètres au large de ses côtes, en pleine mer, vous pourriez bien avoir quelques ennuis.\n <B>Zone similaire.</B> Vous et vos compagnons (ou l\'objet téléporté) arrivez dans une zone différente de celle prévue, mais dotée de caractéristiques visuelles ou thématiques similaires. Par exemple, si vous comptiez regagner votre laboratoire, vous pourriez arriver dans celui d\'un autre magicien ou dans une boutique d\'alchimie qui possède nombre d\'outils et d\'appareils présents dans votre laboratoire. En général, vous apparaissez dans l\'endroit ressemblant à votre destination le plus proche de celle-ci, mais comme le sort n\'a pas de limite de portée, vous pouvez tout à fait arriver n\'importe où sur votre plan d\'existence.\n <B>Incident.</B> La magie imprévisible du sort complique le voyage. Chaque créature téléportée (ou l\'objet téléporté) subit 3d10 dégâts de force tandis que le MD relance le dé pour savoir où vous arrivez (sachant qu\'il peut se produire plusieurs incidents, chacun infligeant ses propres dégâts).'
+         ]);
+         Spell::insert([
+            'name' => 'Tempête de feu',
+            'school' => 'Évocation',
+            'level' => 7,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Une tempête faite de nuages de feu ronflant se forme à l\'endroit que vous avez choisi, à portée. La tempête occupe une zone composée d\'un maximum de dix cubes de 3 mètres d\'arête, que vous pouvez disposer comme bon vous semble. Chaque cube doit avoir au moins une face adjacente à celle d\'un autre cube. Chaque créature de la zone doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 7d10 dégâts de feu, les autres la moitié seulement.\n Le feu endommage les objets présents dans la zone et embrase les objets inflammables de la zone que personne ne porte ou ne transporte. Si vous le désirez, les flammes peuvent épargner la végétation présente dans la zone.'
+         ]);
+         Spell::insert([
+            'name' => 'Tempête de grêle',
+            'school' => 'Évocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '90 mètres',
+            'component' => 'V, S, M (une pincée de poussière et quelques gouttes d\'eau)',
+            'duration' => 'instantanée',
+            'description' => 'Des grêlons durs comme de la pierre s\'abattent dans un cylindre de 6 mètres de rayon pour 12 mètres de haut, centré sur un point à portée. Chaque créature présente dans le cylindre doit faire un jet de sauvegarde de Dextérité. Celles qui échouent subissent 2d8 dégâts contondants et 4d6 dégâts de froid tandis que les autres en subissent la moitié seulement.\n Les grêlons transforment la zone en terrain difficile jusqu\'à la fin de votre prochain tour.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, les dégâts contondants augmentent de 1d8 par niveau au-delà du 4e.'
+         ]);
+         Spell::insert([
+            'name' => 'Tempête de neige',
+            'school' => 'Invocation',
+            'level' => 3,
+            'cast_time' => '1 action',
+            'range' => '45 mètres',
+            'component' => 'V, S, M (une pincée de poussière et quelques gouttes d\'eau)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Jusqu\'à la fin du sort, une averse de flocons et de neige fondue s\'abat dans un cylindre de 6 mètres de haut pour un rayon de 12 mètres centré sur un point de votre choix situé à portée. Dans la zone, la visibilité est fortement obstruée et les flammes à nu s\'éteignent.\n Le sol de la zone est couvert d\'une couche de glace si glissante que le terrain devient difficile. Quand une créature entre dans la zone d\'effet pour la première fois de son tour ou y commence son tour, elle doit faire un jet de sauvegarde de Dextérité. Si elle échoue, elle tombe à terre.\n Si une créature se concentre dans la zone d\'effet du sort, elle doit faire un jet de sauvegarde de Constitution contre le DD du jet de sauvegarde de votre sort. Si elle échoue, elle perd sa concentration.'
+         ]);
+         Spell::insert([
+            'name' => 'Tempête vengeresse',
+            'school' => 'Invocation',
+            'level' => 9,
+            'cast_time' => '1 action',
+            'range' => 'champ de vision',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Des nuées d\'orage menaçantes se forment en un point situé dans votre champ de vision et s\'étendent dans un rayon de 108 mètres. Des éclairs strient la zone, le tonnerre gronde et un vent fort se lève. Chaque créature située sous le nuage lors de son apparition (mais pas à plus de 1500 mètres au-dessous) doit faire un jet de sauvegarde de Constitution. Celles qui échouent subissent 2d6 dégâts de tonnerre et sont sourdes pendant 5 minutes.\n À chaque round où vous continuez à vous concentrer sur ce sort, il génère des effets supplémentaires à votre tour.\n <B>Round 2.</B> Une pluie acide se met à tomber. Les créatures et les objets situés sous le nuage subissent 1d6 dégâts d\'acide.\n <B>Round 3.</B> Vous appelez six éclairs qui s\'abattent du nuage sur six créatures ou objets de votre choix situés sous la nuée. Une même créature ou un même objet ne peut pas être la cible de plusieurs éclairs. Une créature frappée par la foudre doit faire un jet de sauvegarde de Dextérité. Si elle échoue, elle subit 10d6 dégâts de foudre, la moitié seulement si elle réussit.\n <B>Round 4.</B> La grêle se met à tomber. Chaque créature située sous le nuage subit 2d6 dégâts contondants.\n <B>Rounds 5 à 10.</B> Des bourrasques et une pluie glacée balaient la zone sous le nuage et la transforment en terrain difficile où la visibilité est fortement obstruée. Chaque créature qui s\'y trouve subit 1d6 dégâts de froid. Il est impossible d\'effectuer une attaque avec une arme à distance dans la zone. Le vent et la pluie fonctionnent comme une distraction sévère quand il s\'agit de se concentrer sur un sort. Enfin, des bourrasques de vent fort (de 30 à 75 km/h) dispersent automatiquement le brouillard, la brume et les phénomènes similaires stagnant dans la zone, qu\'ils soient d\'origine ordinaire ou magique.'
+         ]);
+         Spell::insert([
+            'name' => 'Ténèbres',
+            'school' => 'Évocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, M (des poils de chauve-souris et une goutte de poix ou un bout de charbon)',
+            'duration' => 'concentration, jusqu\'à 10 minutes',
+            'description' => 'Des ténèbres magiques se répandent depuis un point de votre choix situé à portée, jusqu\'à englober une sphère de 4,50 mètres de rayon. Les ténèbres s\'étendent en franchissant tout angle éventuel. La vision dans le noir d\'une créature ne suffit pas à percer ces ténèbres et les lumières non magiques se révèlent incapables de les éclairer.\n Si le point que vous avez choisi est un objet en votre possession ou un objet qui n\'est ni porté ni transporté par autrui, les ténèbres émanent de l\'objet et se déplacent avec lui. Il suffit de recouvrir complètement l\'objet affecté avec un objet opaque, comme un bol ou un heaume, pour bloquer les ténèbres.\n Si une partie de la zone affectée par ce sort chevauche une zone de lumière issue d\'un sort de niveau 2 ou moins, elle dissipe le sort de lumière.'
+         ]);
+         Spell::insert([
+            'name' => 'Tentacules d\'Hadar',
+            'school' => 'Invocation',
+            'level' => 1,
+            'cast_time' => '1 action',
+            'range' => 'personnelle (3 m de rayon)',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous invoquez la puissance d\'Hadar, le Sombre Appétit. Des filaments d\'énergie noire jaillissent de vous et fouettent toutes les créatures situées dans un rayon de 3 mètres. Chacune doit faire un jet de sauvegarde de Force. En cas d\'échec, une créature subit 2d6 dégâts nécrotiques et ne peut pas utiliser de réaction jusqu\'à son prochain tour. Une créature qui réussit son jet de sauvegarde subit seulement la moitié des dégâts et ne souffre pas d\'autres effets.',
+            'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 2 ou plus, les dégâts augmentent de 1d6 par emplacement de sort au-delà du 1er.'
+         ]);
+         Spell::insert([
+            'name' => 'Tentacules noirs d\'Evard',
+            'school' => 'Invocation',
+            'level' => 4,
+            'cast_time' => '1 action',
+            'range' => '27 mètres',
+            'component' => 'V, S, M (un bout de tentacule appartenant à une pieuvre ou un calmar géant)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Des tentacules noirs grouillants envahissent le sol d\'un emplacement de 6 mètres de côté situé à portée et dans votre champ de vision. Pendant toute la durée du sort, ils transforment la zone en terrain difficile.\n Quand une créature pénètre dans la zone affectée pour la première fois au cours d\'un tour, ou quand elle débute son tour dans cette zone, elle doit réussir un jet de sauvegarde de Dextérité, sans quoi elle reçoit 3d6 dégâts contondants et se retrouve entravée par les tentacules jusqu\'à la fin du sort. Une créature qui commence son tour déjà entravée dans la zone subit 3d6 dégâts contondants.\n Une créature entravée par les tentacules peut utiliser son action pour faire un test de Force ou de Dextérité (à elle de choisir) contre le DD de sauvegarde de votre sort. Si elle le réussit, elle parvient à se libérer.'
+         ]);
+         Spell::insert([
+            'name' => 'Terrain hallucinatoire',
+            'school' => 'Illusion',
+            'level' => 4,
+            'cast_time' => '10 minutes',
+            'range' => '90 mètres',
+            'component' => 'V, S, M (une pierre, une brindille et un bout de plante verte)',
+            'duration' => '24 heures',
+            'description' => 'Vous maquillez le terrain naturel dans un cube de 45 mètres d\'arête situé à portée et lui attribuez l\'apparence, les bruits et les odeurs d\'un autre type de terrain naturel. Ainsi, vous pouvez faire passer un champ ou une route pour un marais, une colline, une crevasse ou un autre terrain difficile voire impossible à traverser. Vous pouvez aussi déguiser une mare en prairie, un précipice en pente douce ou un goulet semé de rocaille en route large et aplanie. Les structures manufacturées, l\'équipement et les créatures de la zone ne changent pas d\'apparence.\n Les caractéristiques tactiles de la zone ne changent pas, les créatures qui y pénètrent risquent donc fort de percer l\'illusion à jour. Si la différence entre le terrain réel et l\'illusion n\'est pas évidente au toucher, une créature qui examine soigneusement la zone a droit à un test d\'Intelligence (Investigation) opposé au DD du jet de sauvegarde de votre sort pour percer l\'illusion à jour. Une fois qu\'une créature a compris l\'illusion, elle la voit comme une image floue superposée au terrain réel.'
+         ]);
+         Spell::insert([
+            'name' => 'Texte illusoire',
+            'school' => 'Illusion',
+            'level' => 1,
+            'is_rituel'=> true,
+            'cast_time' => '1 minute',
+            'range' => 'contact',
+            'component' => 'S, M (de l\'encre à base de plomb valant au minimum 10 po, que le sort consume)',
+            'duration' => '10 jours',
+            'description' => 'Vous écrivez sur un papier, un parchemin ou un autre matériau adapté à l\'écriture et l\'imprégnez d\'une puissante illusion qui persiste pendant toute la durée du sort.\n À vos yeux et à ceux de toutes les créatures que vous désignez lors de l\'incantation, l\'écriture semble normale, de votre main, et transmet le message que vous aviez en tête en rédigeant le texte. Pour les autres personnes, vos écrits semblent appartenir à une langue inconnue ou magique complètement inintelligible, ou alors ils transmettent un message complètement différent de la réalité, rédigé d\'une main qui n\'est pas la vôtre et dans une autre langue de votre connaissance.\n Si quelqu\'un dissipe le sort, l\'illusion disparaît, mais le message original aussi.\n Une créature dotée de vision parfaite est capable de lire le message original.'
+         ]);
+         Spell::insert([
+            'name' => 'Thaumaturgie',
+            'school' => 'Transmutation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '9 mètres',
+            'component' => 'V',
+            'duration' => 'jusqu\'à 1 minute',
+            'description' => 'Vous créez une manifestation merveilleuse mineure ou un signe de puissance surnaturelle à portée, ce qui génère l\'un des effets magiques suivants à portée.<LI>Votre voix retentit jusqu\'à trois fois plus fort que la normale pendant 1 minute.</LI> <LI>Les flammes vacillent, se ravivent, se réduisent ou changent de couleur pendant 1 minute.</LI> <LI>Vous provoquez des secousses inoffensives qui agitent le sol pendant 1 minute.</LI> <LI>Vous émettez un son instantané qui émane d\'un point de votre choix situé à portée, comme un roulement de tonnerre, le croassement d\'un corbeau ou des murmures inquiétants.</LI> <LI>Vous provoquez la fermeture ou l\'ouverture violente et immédiate d\'une porte ou d\'une fenêtre non verrouillée.</LI> <LI>Vous modifiez l\'apparence de vos yeux pendant 1 minute.</LI> \n Si vous lancez ce sort à plusieurs reprises, vous ne pouvez avoir que trois effets d\'une minute actifs à la fois. Vous pouvez révoquer un tel effet par une action.'
+         ]);
+         Spell::insert([
+            'name' => 'Toile d\'araignée',
+            'school' => 'Invocation',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '18 mètres',
+            'component' => 'V, S, M (un bout de toile d\'araignée)',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous invoquez une masse de toiles d\'araignées épaisses et collantes en un point de votre choix situé à portée. Pendant toute la durée du sort, les toiles occupent un cube de 6 mètres d\'arête centré sur le point choisi. Elles forment un terrain difficile à la visibilité légèrement obstruée.\n Si les toiles ne sont pas ancrées entre deux éléments solides, comme des murs ou des arbres, ou disposées en couches sur le sol, le plafond ou un mur, elles s\'effondrent sur elles-mêmes et le sort se termine au début de votre prochain tour. Des toiles disposées en couches superposées sur une surface plane s\'accumulent sur une épaisseur de 1,50 mètre.\n Chaque créature qui commence son tour dans les toiles ou qui y pénètre lors de son tour doit faire un jet de sauvegarde de Dextérité. En cas d\'échec, la créature est entravée tant qu\'elle reste dans les toiles ou jusqu\'à ce qu\'elle se libère.\n Une créature entravée par les toiles peut utiliser son action pour faire un test de Force contre le DD du jet de sauvegarde de votre sort. Si elle le réussit, elle n\'est plus entravée.\n Les toiles sont inflammables. Un cube de toiles de 1,50 mètre d\'arête exposé au feu brûle en 1 round, infligeant 2d4 dégâts de feu à toute créature qui commence son tour dans les flammes.'
+         ]);
+         Spell::insert([
+            'name' => 'Trait de feu',
+            'school' => 'Évocation',
+            'level' => 0,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous lancez un trait enflammé sur une créature ou un objet à portée. Faites un jet d\'attaque de sort contre la cible. Si vous touchez, elle subit 1d10 dégâts de feu. Si le sort touche un objet inflammable qui n\'est ni porté ni transporté, il s\'embrase.\n Les dégâts du sort augmentent de 1d10 quand vous atteignez le niveau 5 (2d10), le niveau 11 (3d10) et le niveau 17 (4d10).'
+         ]);
+         Spell::insert([
+            'name' => 'Transport végétal',
+            'school' => 'Invocation',
+            'level' => 6,
+            'cast_time' => '1 action',
+            'range' => '3 mètres',
+            'component' => 'V, S',
+            'duration' => '1 round',
+            'description' => 'Ce sort crée un lien magique entre une plante inanimée de taille Grande ou supérieure située à portée et une autre plante, située à n\'importe quelle distance mais sur le même plan d\'existence. Vous devez impérativement avoir vu ou touché la plante de destination au moins une fois auparavant. Pendant toute la durée du sort, n\'importe quelle créature peut entrer par la plante de départ et ressortir par celle d\'arrivée en dépensant 1,50 mètre de déplacement.'
+         ]);
+         Spell::insert([
+            'name' => 'Tremblement de terre',
+            'school' => 'Évocation',
+            'level' => 8,
+            'cast_time' => '1 action',
+            'range' => '150 mètres',
+            'component' => 'V, S, M (une pincée de poussière, un caillou et un peu d\'argile)',
+            'duration' => 'concentration, jusqu\'à 1 minute',
+            'description' => 'Vous créez une perturbation sismique en un point situé au niveau du sol, à portée dans votre champ de vision. Pendant toute la durée du sort, d\'intenses secousses agitent le sol dans un cercle de 30 mètres de rayon centré sur le point choisi. Elles ébranlent toutes les créatures et structures en contact avec le sol de cette zone.\n Le sol affecté devient un terrain difficile. Toute créature qui se trouve en contact avec le sol et en pleine concentration doit réussir un jet de sauvegarde de Constitution sous peine de voir sa concentration se briser.\n Quand vous lancez ce sort et à la fin de chacun de vos tours passés à vous concentrer dessus, toutes les créatures en contact avec le sol de la zone affectée doivent faire un jet de sauvegarde de Dextérité. Celles qui échouent tombent à terre.\n Le sort a des effets supplémentaires selon le terrain affecté. C\'est au MD de déterminer cela.\n <B>Fissures.</B> Une fois que vous avez lancé le sort, des fissures s\'ouvrent dans toute la zone affectée au début de votre tour suivant. 1d6 fissures s\'ouvrent en des points choisis par le MD. Chacune fait 1d10 x 3 mètres de profondeur pour 3 mètres de large et s\'étend d\'un bout de la zone sismique à l\'autre. Une créature qui se tient sur l\'emplacement d\'une fissure en train de s\'ouvrir doit faire un jet de sauvegarde de Dextérité. Si elle le rate, elle tombe dedans, sinon elle réussit à s\'écarter à temps.\n Une structure s\'effondre automatiquement si une fissure s\'ouvre sous elle (voir plus loin).\n <B>Structures.</B> Les secousses infligent 50 dégâts contondants à toute structure en contact avec le sol au moment où vous lancez le sort et au début de chacun de vos tours jusqu\'à la fin du sort. Si l\'une d\'elles tombe à 0 point de vie, elle s\'effondre et blesse peut-être les créatures voisines. Une créature qui se trouve près d\'un bâtiment en train de s\'effondrer, à une distance égale ou inférieure à la moitié de la hauteur de ce bâtiment, doit faire un jet de sauvegarde de Dextérité. Si elle échoue, elle subit 5d6 dêgâts contondants, elle tombe à terre et elle est ensevelie sous les décombres. Il faut réussir un test de Force (Athlétisme) DD 20 via une action pour y échapper. Le MD peut modifier le DD en fonction de la nature des décombres. Si la créature réussit son jet de sauvegarde, elle subit seulement la moitié des dégâts, ne tombe pas à terre et n\'est pas ensevelie.'
+         ]);
+         Spell::insert([
+            'name' => 'Tromperie',
+            'school' => 'Illusion',
+            'level' => 5,
+            'cast_time' => '1 action',
+            'range' => 'personnelle',
+            'component' => 'S',
+            'duration' => 'concentration, jusqu\'à 1 heure',
+            'description' => 'Vous devenez invisible à l\'instant même où un double illusoire de votre personne apparaît là où vous vous trouvez. Ce double persiste pendant toute la durée du sort, mais votre invisibilité se termine dès que vous lancez un sort ou attaquez.\n Vous pouvez utiliser votre action pour déplacer votre double d\'un maximum de deux fois votre vitesse et le faire bouger, parler et se comporter comme bon vous semble.\n Vous pouvez voir par les yeux et entendre par les oreilles de votre double comme si vous vous trouviez à son emplacement. À chacun de vos tours, vous pouvez utiliser une action bonus pour passer d\'une perception via ses sens à une perception via les vôtres ou inversement. Tant que vous utilisez les sens de votre double, vous êtes sourd et aveugle à ce qui se passe directement autour de vous.'
+         ]);
+         Spell::insert([
+            'name' => 'Trouver les pièges',
+            'school' => 'Divination',
+            'level' => 2,
+            'cast_time' => '1 action',
+            'range' => '36 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous percevez la présence de tout piège se trouvant à portée et dans votre champ de vision. Concernant ce sort, le terme de piège désigne toute chose qui inflige soudainement ou de façon inattendue un effet considéré comme néfaste ou indésirable et que son créateur a conçue dans ce but. Ainsi, le sort prévient si une zone est affectée par une alarme, un glyphe de garde ou une fosse piégée mécanique, mais il ne révèle pas une faiblesse naturelle dans un plancher, un plafond instable ou une doline cachée.\n Le sort indique simplement qu\'il y a un piège ; il ne précise pas où, mais vous donne une idée générale de la nature du danger qu\'il représente.'
+         ]);
+         Spell::insert([
+            'name' => 'Trouver un chemin',
+            'school' => 'Divination',
+            'level' => 6,
+            'cast_time' => '1 minute',
+            'range' => 'personnelle',
+            'component' => 'V, S, M (un ensemble d\'instruments de divination [comme des os, des bâtonnets en ivoire, des cartes, des dents ou des runes gravées] d\'une valeur de 100 po et un objet venant de l\'endroit que vous cherchez)',
+            'duration' => 'concentration, jusqu\'à 1 jour',
+            'description' => 'Ce sort vous permet de trouver le chemin physique le plus direct et le plus court vers un endroit fixe spécifique avec lequel vous êtes familier et qui se trouve sur le même plan d\'existence que vous. Le sort échoue si vous choisissez une destination située sur un autre plan d\'existence, une destination mouvante (comme une forteresse mobile) ou une destination n\'ayant rien de spécifique (comme l\'antre d\'un dragon vert).\n Tant que le sort persiste et que vous êtes sur le même plan d\'existence que votre destination, vous savez dans quelle direction et à quelle distance elle se trouve. Tant que vous faites route vers votre destination, chaque fois que vous avez le choix entre plusieurs itinéraires, vous déterminez automatiquement celui qui sera le plus court et le plus direct (mais pas forcément le plus sûr).'
+         ]);
+         Spell::insert([
+            'name' => 'Trouver une monture',
+            'school' => 'Invocation',
+            'level' => 2,
+            'cast_time' => '10 minutes',
+            'range' => '9 mètres',
+            'component' => 'V, S',
+            'duration' => 'instantanée',
+            'description' => 'Vous invoquez un esprit qui prend la forme d\'une monture dotée d\'une intelligence, d\'une puissance et d\'une loyauté hors du commun, et créez un lien durable avec lui. La monture apparaît dans un emplacement inoccupé à portée et prend l\'apparence de votre choix : un cheval de guerre, un poney, un chameau, un élan, ou un mastiff. (Votre MD peut autoriser d\'autres formes animales.) La monture possède les statistiques de la forme choisie, mais au lieu d\'être de type normal, elle est céleste, féerique ou fiélone (à vous de choisir). De plus, si elle a d\'ordinaire une Intelligence de 5 ou moins, cette caractéristique passe à 6 et elle comprend un langage de votre choix que vous maîtrisez.\n Vous pouvez chevaucher votre monture au combat ou en dehors des affrontements, et le lien instinctif que vous partagez avec elle vous permet de vous battre ensemble comme si vous étiez une seule et même entité. Tant que vous la chevauchez, les sorts qui vous visent exclusivement l\'affectent aussi si vous le désirez.\n Quand la monture tombe à 0 point de vie, elle disparaît sans laisser de cadavre physique. Vous pouvez la renvoyer quand vous le désirez par une action qui la fait disparaître. Si vous lancez de nouveau ce sort, c\'est la même monture qui apparaît, disposant à nouveau de tous ses points de vie.\n Vous pouvez communiquer par télépathie avec votre monture tant qu\'elle se trouve dans un rayon de 1,5 kilomètre.\n Vous ne pouvez vous lier qu\'à une seule monture issue de ce sort à la fois. Vous pouvez libérer la monture du lien quand vous le désirez, par une action qui la fait disparaître.'
+         ]);
+         Spell::insert([
+            'name' => 'Tsunami',
+            'school' => 'Invocation',
+            'level' => 8,
+            'cast_time' => '1 minute',
+            'range' => 'champ de vision',
+            'component' => 'V, S',
+            'duration' => 'concentration, jusqu\'à 6 rounds',
+            'description' => 'Un mur d\'eau apparaît soudain en un point de votre choix situé à portée. Il peut faire jusqu\'à 90 mètres de long, autant de haut et 15 mètres d\'épaisseur. Il persiste pendant toute la durée du sort.\n Quand le mur apparaît, toutes les créatures situées dans la zone qu\'il occupe doivent faire un jet de sauvegarde de Force. Celles qui échouent reçoivent 6d10 dégâts contondants, les autres la moitié seulement.\n Une fois le mur apparu, il s\'éloigne de vous sur une distance de 15 mètres (emportant toutes les créatures qui se trouvent en son sein) au début de chacun de vos tours. Chaque créature de taille Grande ou inférieure qui se trouve dans le mur ou dans un espace où le mur pénètre lors de son déplacement doit réussir un jet de sauvegarde de Force ou subir 5d10 dégâts contondants. Une créature subit ces dégâts une fois seulement par round. À la fin du tour, la hauteur du mur se réduit de 15 mètres et les dégâts qu\'il inflige aux tours suivants se réduisent de 1d10. Le sort se termine quand le mur ne fait plus que 0 mètre de haut.\n Une créature prisonnière du mur peut se déplacer en nageant, mais la vague est si puissante qu\'elle doit pour cela réussir un test de Force (Athlétisme) contre le DD de votre sort. Si elle rate ce test, elle est incapable de se déplacer. Une créature qui se déplace hors du mur tombe à terre.'
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
+            'name' => '',
+            'school' => '',
+            'level' => 0,
+            'is_rituel'=> true,
+            'cast_time' => '',
+            'range' => '',
+            'component' => '',
+            'duration' => '',
+            'description' => '',
+            'upper_lvl' => ''
+         ]);
+         Spell::insert([
             'name' => '',
             'school' => '',
             'level' => 0,
