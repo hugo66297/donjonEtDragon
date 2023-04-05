@@ -14,10 +14,6 @@ class Race extends Model
       'name', 'description', 'exemple_surname'
     ];
 
-    public function character() {
-        return $this->belongsTo(Character::class);
-    }
-
     public function subRace() {
         return $this->hasOne(Subrace::class);
     }

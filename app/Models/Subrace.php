@@ -14,13 +14,13 @@ class Subrace extends Model
       'name', 'description', 'is_after', 'race_id'
     ];
 
-    public function race(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function race()
     {
         return $this->belongsTo(Race::class);
     }
-    public function character(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function characters()
     {
-        return $this->belongsTo(Character::class);
+        return $this->hasMany(Character::class);
     }
 
     public function fullName(): string {

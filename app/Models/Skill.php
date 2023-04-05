@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Skill extends Model
 {
-    use HasFactory, CalculatesModifier;
+    use HasFactory;
 
     public $timestamps = false;
 
@@ -20,5 +20,18 @@ class Skill extends Model
     public function characters()
     {
         return $this->morphToMany(Character::class, 'charactable');
+    }
+
+    public function modifierSkill(Ability $ability, $hero)
+    {
+        $modifier = $ability->modifierAbility();
+        if ($this->pivot->other_modifier_skill && $this->pivot->is_proficient) {
+            return $modifier + $this->pivot->other_modifier_skill + $hero->proficiency_bonus;
+        } elseif ($this->pivot->other_modifier_skill) {
+            return $modifier + $this->pivot->other_modifier_skill;
+        } elseif ($this->pivot->is_proficient) {
+            return $modifier + $hero->proficiency_bonus;
+        }
+        return $modifier;
     }
 }

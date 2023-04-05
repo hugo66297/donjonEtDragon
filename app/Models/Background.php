@@ -14,7 +14,7 @@ class Background extends Model
       'name', 'description'
     ];
 
-    public function character() {
-        return $this->belongsTo(Character::class);
+    public function characters() {
+        return $this->hasMany(Character::class);
     }
 }

@@ -14,38 +14,32 @@ class CharacterObserver
     /**
      * Handle the Character "created" event.
      *
-     * @param  \App\Models\Character  $character
+     * @param \App\Models\Character $character
      * @return void
      */
     public function creating(Character $character)
     {
 
     }
+
     /**
      * Handle the Character "created" event.
      *
-     * @param  \App\Models\Character  $character
+     * @param \App\Models\Character $character
      * @return void
      */
     public function created(Character $character)
     {
         // Abilities and skills
         foreach (Request::input('abilities') as $abilityId => $ability) {
-            $isProficientAbility = array_key_exists('is_proficient', $ability) ? $ability['is_proficient'] : false;
+            $character->abilities()->attach($abilityId, $ability['attributes']);
 
-            $character->abilities()
-                ->attach($abilityId, [
-                    'ability_value' => $ability['value'],
-                    'modifier' => Ability::calculates($ability['modifier'], $character, $isProficientAbility),
-                    'is_proficient' => $isProficientAbility]);
+            $savingThrow = array_key_exists('savingThrow', $ability) ? $ability['savingThrow'] : [];
+            $character->savingThrows()->attach($savingThrow['charactable_id'], $savingThrow);
 
             $skills = array_key_exists('skills', $ability) ? $ability['skills'] : [];
             foreach ($skills as $skillId => $skill) {
-                $isProficientSkill = array_key_exists('is_proficient', $skill) ? $skill['is_proficient'] : false;
-                $character->skills()
-                    ->attach($skillId, [
-                        'is_proficient' => $isProficientSkill,
-                        'modifier' => Skill::calculates($skill['modifier'], $character, $isProficientSkill)]);
+                $character->skills()->attach($skillId, $skill);
             }
         }
 
@@ -76,7 +70,7 @@ class CharacterObserver
     /**
      * Handle the Character "updated" event.
      *
-     * @param  \App\Models\Character  $character
+     * @param \App\Models\Character $character
      * @return void
      */
     public function updated(Character $character)
@@ -87,7 +81,7 @@ class CharacterObserver
     /**
      * Handle the Character "deleted" event.
      *
-     * @param  \App\Models\Character  $character
+     * @param \App\Models\Character $character
      * @return void
      */
     public function deleted(Character $character)
@@ -98,7 +92,7 @@ class CharacterObserver
     /**
      * Handle the Character "restored" event.
      *
-     * @param  \App\Models\Character  $character
+     * @param \App\Models\Character $character
      * @return void
      */
     public function restored(Character $character)
@@ -109,7 +103,7 @@ class CharacterObserver
     /**
      * Handle the Character "force deleted" event.
      *
-     * @param  \App\Models\Character  $character
+     * @param \App\Models\Character $character
      * @return void
      */
     public function forceDeleted(Character $character)

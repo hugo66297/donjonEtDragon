@@ -29,19 +29,21 @@ class Character extends Model
 
     // One-to-one relationships
     public function goal() {
-        return $this->hasOne(Goal::class);
+        return $this->belongsTo(Goal::class);
     }
+
+    // Belongs to relationships
     public function subrace() {
-        return $this->hasOne(Subrace::class);
+        return $this->belongsTo(Subrace::class);
     }
     public function alignment() {
-        return $this->hasOne(Alignment::class);
+        return $this->belongsTo(Alignment::class);
     }
     public function background() {
-        return $this->hasOne(Background::class);
+        return $this->belongsTo(Background::class);
     }
     public function category() {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     // Many-to-many relationships
@@ -70,7 +72,7 @@ class Character extends Model
     // Many-to-many polymorphic relationships
     public function abilities() {
         return $this->morphedByMany(Ability::class, 'charactable')
-            ->withPivot('ability_value', 'other_modifier');
+            ->withPivot('ability_value', 'other_modifier_ability');
     }
     public function skills() {
         return $this->morphedByMany(Skill::class, 'charactable')

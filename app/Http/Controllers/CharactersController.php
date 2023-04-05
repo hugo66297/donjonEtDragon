@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCharacterRequest;
 use App\Models\Ability;
+use App\Models\Adventure;
 use App\Models\Alignment;
 use App\Models\Attack;
 use App\Models\Background;
@@ -15,14 +16,15 @@ use App\Models\Race;
 use App\Models\Subrace;
 use App\Models\Utility;
 use App\Models\Weapon;
+use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Http\Request;
 
 class CharactersController extends Controller
 {
     public function index(Category $category)
     {
-        $characters = Character::where('category_id', $category->getKey());
-        return view('characters.index', compact('characters', 'category'));
+        $heroes = Character::where('category_id', $category->getKey())->get();
+        return view('characters.index', compact('heroes', 'category'));
     }
 
     public function create()
@@ -38,6 +40,7 @@ class CharactersController extends Controller
         $features = Feature::all();
         $subRaces = Subrace::all();
         $goals = Goal::all();
+        $adventures = Adventure::all();
         return view('characters.create')
             ->with(
                 compact('categories',
@@ -50,7 +53,8 @@ class CharactersController extends Controller
                     'attacks',
                     'features',
                     'subRaces',
-                    'goals'
+                    'goals',
+                    'adventures'
                 )
             );
     }
@@ -70,22 +74,22 @@ class CharactersController extends Controller
         return redirect()->route('heroes.show', compact('hero'));
     }
 
-    public function show(Character $character)
+    public function show(Character $hero)
     {
-        return view('characters.show')->with(compact('character'));
+        return view('characters.show')->with(compact('hero'));
     }
 
-    public function edit(Character $character)
-    {
-        //
-    }
-
-    public function update(Request $request, Character $character)
+    public function edit(Character $hero)
     {
         //
     }
 
-    public function destroy(Character $character)
+    public function update(Request $request, Character $hero)
+    {
+        //
+    }
+
+    public function destroy(Character $hero)
     {
         //
     }
