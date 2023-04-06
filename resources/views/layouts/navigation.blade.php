@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('')">
+                    <x-nav-link :href="route('spells.index')" :active="request()->routeIs('spells.index')">
                         {{ __('Sorts') }}
                     </x-nav-link>
                 </div>
@@ -95,7 +95,7 @@
             <x-responsive-nav-link :href="route('categories.index')" :active="request()->routeIs('categories.index')">
                 {{ __('Classes') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('')">
+            <x-responsive-nav-link :href="route('spells.index')" :active="request()->routeIs('spells.index')">
                 {{ __('Sorts') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('')">

@@ -354,7 +354,7 @@
                             @markdown("{$hero->subrace->race->description}")
                         </div>
                         <div class="bg-slate-100 shadow-md rounded p-4">
-                            @markdown("{$hero->subrace->race->exemple_surname}")
+                             @markdown("{$hero->subrace->race->exemple_surname}")
                         </div>
                     </div>
                 </div>
