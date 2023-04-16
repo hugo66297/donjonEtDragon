@@ -18,6 +18,8 @@ use App\Models\Utility;
 use App\Models\Weapon;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CharactersController extends Controller
 {
@@ -59,17 +61,48 @@ class CharactersController extends Controller
             );
     }
 
-    public function store(Request $request)
+    public function store(StoreCharacterRequest $request)
     {
+        dd($request->all());
         $hero = new Character();
-        $hero->category_id = $request->get('category');
-        $hero->background_id = $request->get('background');
-        $hero->subrace_id = $request->get('subrace');
-        $hero->alignment_id = $request->get('alignment');
-        $hero->goal_id = $request->get('goal');
-
         $hero->fill($request->all($hero->getFillable()));
         $hero->save();
+
+        // Abilities and skills
+        foreach (\Illuminate\Support\Facades\Request::input('abilities') as $abilityId => $ability) {
+            $hero->abilities()->attach($abilityId, $ability['attributes']);
+
+            $savingThrow = array_key_exists('savingThrow', $ability) ? $ability['savingThrow'] : [];
+            $hero->savingThrows()->attach($savingThrow['charactable_id'], $savingThrow);
+
+            $skills = array_key_exists('skills', $ability) ? $ability['skills'] : [];
+            foreach ($skills as $skillId => $skill) {
+                $hero->skills()->attach($skillId, $skill);
+            }
+        }
+
+        // Attacks
+        foreach (Request::input('attackIds') as $index => $attackId) {
+            $hero->attacks()
+                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
+        }
+        // Utilities
+        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
+            $hero->utilities()
+                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
+        }
+        // Features
+        foreach (Request::input('features') as $featureId) {
+            $hero->features()->attach($featureId);
+        }
+        // Weapons
+        foreach (Request::input('weapons') as $weaponData) {
+            $hero->weapons()->attach(Weapon::getWeaponIdByInfos($weaponData));
+        }
+        // Coins
+        foreach (Request::input('coins') as $coinId => $quantity) {
+            $hero->coins()->attach($coinId, ['quantity' => $quantity]);
+        }
 
         return redirect()->route('heroes.show', compact('hero'));
     }

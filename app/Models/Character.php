@@ -12,6 +12,11 @@ class Character extends Model
 
     protected $fillable = [
         'id',
+        'category_id',
+        'background_id',
+        'subrace_id',
+        'alignment_id',
+        'goal_id',
         'passive_wisdom',
         'proficiency_bonus',
         'armor_class',

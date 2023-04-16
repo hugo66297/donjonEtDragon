@@ -81,64 +81,69 @@
         <div id="step-div-0" class="p-4 space-y-8">
             <div class="grid grid-cols-2 gap-8">
                 <div class="relative">
-                    <label for="classe" class="font-titleMiddleAge text-sm text-red-800">
+                    <label for="category_id" class="font-titleMiddleAge text-sm text-red-800">
                         Classe
                     </label>
-                    <select id="classe" name="category"
+                    <select id="classe" name="category_id"
                             class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis une classe</option>
                         @foreach($categories as $category)
-                            <option value="{{$category->getKey()}}">{{$category->name}}</option>
+                            <option value="{{$category->getKey()}}" {{ old('category_id') ? "selected" : "" }}>{{$category->name}}</option>
                         @endforeach
                     </select>
+                    <x-form-alert :error="'category_id'" />
                 </div>
                 <div class="relative">
-                    <label for="historique" class="font-titleMiddleAge text-sm text-red-800">
+                    <label for="background_id" class="font-titleMiddleAge text-sm text-red-800">
                         Historique
                     </label>
-                    <select id="historique" name="background"
+                    <select id="historique" name="background_id"
                             class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis un historique</option>
                         @foreach($backgrounds as $background)
-                            <option value="{{$background->getKey()}}">{{$background->name}}</option>
+                            <option value="{{$background->getKey()}}" {{ old('background_id') ? "selected" : "" }}>{{$background->name}}</option>
                         @endforeach
                     </select>
+                    <x-form-alert :error="'background_id'" />
                 </div>
                 <div class="relative">
-                    <label for="subrace" class="font-titleMiddleAge text-sm text-red-800">
+                    <label for="subrace_id" class="font-titleMiddleAge text-sm text-red-800">
                         Race
                     </label>
-                    <select id="subrace" name="subrace"
+                    <select id="subrace" name="subrace_id"
                             class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis une sous-race</option>
                         @foreach($subRaces as $subRace)
-                            <option value="{{$subRace->getKey()}}">{{$subRace->fullName()}}</option>
+                            <option value="{{$subRace->getKey()}}" {{ old('subrace_id') ? "selected" : "" }}>{{$subRace->fullName()}}</option>
                         @endforeach
                     </select>
+                    <x-form-alert :error="'subrace_id'" />
                 </div>
                 <div class="relative">
-                    <label for="alignement" class="font-titleMiddleAge text-sm text-red-800">
+                    <label for="alignment_id" class="font-titleMiddleAge text-sm text-red-800">
                         Alignement
                     </label>
-                    <select id="alignement" name="alignment"
+                    <select id="alignement" name="alignment_id"
                             class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis un alignement</option>
                         @foreach($alignments as $alignment)
-                            <option value="{{$alignment->getKey()}}">{{$alignment->name}}</option>
+                            <option value="{{$alignment->getKey()}}" {{ old('alignment_id') ? "selected" : "" }}>{{$alignment->name}}</option>
                         @endforeach
                     </select>
+                    <x-form-alert :error="'alignment_id'" />
                 </div>
                 <div class="relative">
-                    <label for="goal" class="font-titleMiddleAge text-sm text-red-800">
+                    <label for="goal_id" class="font-titleMiddleAge text-sm text-red-800">
                         Objectif
                     </label>
-                    <select id="goal" name="goal"
+                    <select id="goal" name="goal_id"
                             class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                         <option value="">Choisis un objectif</option>
                         @foreach($goals as $goal)
-                            <option value="{{$goal->getKey()}}">{{ucfirst($goal->name)}}</option>
+                            <option value="{{$goal->getKey()}}" {{ old('goal_id') ? "selected" : "" }}>{{ucfirst($goal->name)}}</option>
                         @endforeach
                     </select>
+                    <x-form-alert :error="'goal_id'" />
                 </div>
                 <div class="relative">
                     <label for="adventures" class="font-titleMiddleAge text-sm text-red-800">
@@ -158,7 +163,8 @@
                     </label>
                     <textarea id="past" name="character_past" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
-                              placeholder="Je suis convaincu..."></textarea>
+                              placeholder="Je suis convaincu...">{{ old('character_past') ?? "" }}</textarea>
+                    <x-form-alert :error="'character_past'" />
                 </div>
             </div>
             <hr class="border border-gray-300">
@@ -166,56 +172,62 @@
                 <div class="relative">
                     <input type="number" id="armure" name="armor_class"
                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                           placeholder=" "/>
+                           placeholder=" " value="{{ old('armor_class') ?? "" }}"/>
                     <label for="armure"
                            class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Classe d'armure
                     </label>
+                    <x-form-alert :error="'armor_class'" />
                 </div>
                 <div class="relative">
                     <input type="number" id="initiative" name="initiative"
                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                           placeholder=" "/>
+                           placeholder=" " value="{{ old('initiative') ?? "" }}"/>
                     <label for="initiative"
                            class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Initiative
                     </label>
+                    <x-form-alert :error="'initiative'" />
                 </div>
                 <div class="relative">
                     <input type="number" id="vitesse" name="speed" step="0.1"
                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                           placeholder=" "/>
+                           placeholder=" " value="{{ old('speed') ?? "" }}"/>
                     <label for="vitesse"
                            class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Vitesse
                     </label>
+                    <x-form-alert :error="'speed'" />
                 </div>
                 <div class="relative">
                     <input type="number" id="pdv" name="maximum_hp"
                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                           placeholder=" "/>
+                           placeholder=" " value="{{ old('maximum_hp') ?? "" }}"/>
                     <label for="pdv"
                            class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Point de vie
                     </label>
+                    <x-form-alert :error="'maximum_hp'" />
                 </div>
                 <div class="relative">
                     <input type="text" id="des" name="hit_dice"
                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                           placeholder=" "/>
+                           placeholder=" " value="{{ old('hit_dice') ?? "" }}"/>
                     <label for="des"
                            class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Dés de vie
                     </label>
+                    <x-form-alert :error="'hit_dice'" />
                 </div>
                 <div class="relative">
                     <input type="number" id="sagesse_passive" name="passive_wisdom"
                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                           placeholder=" "/>
+                           placeholder=" " value="{{ old('passive_wisdom') ?? "" }}"/>
                     <label for="sagesse_passive"
                            class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
                         Sagesse passive
                     </label>
+                    <x-form-alert :error="'passive_wisdom'" />
                 </div>
             </div>
             <hr class="border border-gray-300">
@@ -226,7 +238,8 @@
                     </label>
                     <textarea id="traits" name="traits" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
-                              placeholder="Quand je prends une..."></textarea>
+                              placeholder="Quand je prends une...">{{ old('traits') ?? "" }}</textarea>
+                    <x-form-alert :error="'traits'" />
                 </div>
                 <div>
                     <label for="ideaux" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
@@ -234,7 +247,8 @@
                     </label>
                     <textarea id="ideaux" name="ideaux" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
-                              placeholder="Sincérité. Il est..."></textarea>
+                              placeholder="Sincérité. Il est...">{{ old('ideaux') ?? "" }}</textarea>
+                    <x-form-alert :error="'ideaux'" />
                 </div>
                 <div>
                     <label for="liens" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
@@ -242,7 +256,8 @@
                     </label>
                     <textarea id="liens" name="liens" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
-                              placeholder="Un jour, Arbrefoudre..."></textarea>
+                              placeholder="Un jour, Arbrefoudre...">{{ old('liens') ?? "" }}</textarea>
+                    <x-form-alert :error="'liens'" />
                 </div>
                 <div>
                     <label for="defauts" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
@@ -250,7 +265,8 @@
                     </label>
                     <textarea id="defauts" name="defauts" rows="4"
                               class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
-                              placeholder="Je suis convaincu..."></textarea>
+                              placeholder="Je suis convaincu...">{{ old('defauts') ?? "" }}</textarea>
+                    <x-form-alert :error="'defauts'" />
                 </div>
             </div>
         </div>
@@ -367,28 +383,32 @@
                         </tr>
                         </thead>
                         <tbody x-ref="tbody">
-                        <tr class="border-b">
-                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                <datalist id="weapons">
-                                    @foreach($weapons as $weapon)
-                                        <option
-                                            value="{{"{$weapon->name} | {$weapon->atk_bonus} | {$weapon->damage_type}"}}"></option>
-                                    @endforeach
-                                </datalist>
-                                <input type="text" autocomplete="off" placeholder="Choisis ton arme" list="weapons"
-                                       id="weapon_id" name="weapons[]"
-                                       class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                            </td>
-                            <td class="px-6 py-4">
-                                <button
-                                    type="button"
-                                    class="font-bold text-red-800 hover:underline cursor-pointer"
-                                    @click.prevent="$el.parentNode.parentNode.remove()"
-                                >
-                                    Supprimer
-                                </button>
-                            </td>
-                        </tr>
+{{--                            @if(old('weapons'))--}}
+{{--                                @foreach(old('weapons') as $oldWeapon)--}}
+                                    <tr class="border-b">
+                                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            <datalist id="weapons">
+                                                @foreach($weapons as $weapon)
+                                                    <option
+                                                        value="{{"{$weapon->name} | {$weapon->atk_bonus} | {$weapon->damage_type}"}}"></option>
+                                                @endforeach
+                                            </datalist>
+                                            <input type="text" autocomplete="off" placeholder="Choisis ton arme" list="weapons"
+                                                   id="weapon_id" name="weapons[]"
+                                                   class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <button
+                                                type="button"
+                                                class="font-bold text-red-800 hover:underline cursor-pointer"
+                                                @click.prevent="$el.parentNode.parentNode.remove()"
+                                            >
+                                                Supprimer
+                                            </button>
+                                        </td>
+                                    </tr>
+{{--                                @endforeach--}}
+{{--                            @endif--}}
                         </tbody>
                         <tfoot>
                         <tr class="font-semibold text-gray-900">
@@ -488,7 +508,7 @@
                         name="proficiency_bonus"
                         class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
                         placeholder=" "
-                        value="2"
+                        value="{{ old('proficiency_bonus') ?? 2 }}"
                     />
                     <label
                         for="bonus_maitrise"
@@ -640,6 +660,7 @@
                                 name="coins[{{$coin->getKey()}}]"
                                 class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                                 placeholder="Quantité"
+                                value="{{ old("coins.{$coin->getKey()}") ?? "" }}"
                             />
                         </div>
                     @endforeach
@@ -691,6 +712,9 @@
         if (attack.description) {
             textArea.setAttribute('readonly', '')
             textArea.classList.add('cursor-not-allowed')
+            if (textArea.value) {
+                textArea.value = ''
+            }
         } else {
             textArea.removeAttribute('readonly')
             textArea.classList.remove('cursor-not-allowed')
