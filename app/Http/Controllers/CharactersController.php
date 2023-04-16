@@ -17,7 +17,7 @@ use App\Models\Subrace;
 use App\Models\Utility;
 use App\Models\Weapon;
 use GrahamCampbell\Markdown\Facades\Markdown;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -63,13 +63,14 @@ class CharactersController extends Controller
 
     public function store(StoreCharacterRequest $request)
     {
-        dd($request->all());
         $hero = new Character();
-        $hero->fill($request->all($hero->getFillable()));
+        foreach ($hero->getFillable() as $field) {
+            $hero->$field = $request->validated($field);
+        }
         $hero->save();
 
         // Abilities and skills
-        foreach (\Illuminate\Support\Facades\Request::input('abilities') as $abilityId => $ability) {
+        foreach (Request::input('abilities') as $abilityId => $ability) {
             $hero->abilities()->attach($abilityId, $ability['attributes']);
 
             $savingThrow = array_key_exists('savingThrow', $ability) ? $ability['savingThrow'] : [];
@@ -101,7 +102,7 @@ class CharactersController extends Controller
         }
         // Coins
         foreach (Request::input('coins') as $coinId => $quantity) {
-            $hero->coins()->attach($coinId, ['quantity' => $quantity]);
+            $hero->coins()->attach($coinId, ['quantity' => $quantity ?? 0]);
         }
 
         return redirect()->route('heroes.show', compact('hero'));

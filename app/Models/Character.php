@@ -11,7 +11,6 @@ class Character extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'id',
         'category_id',
         'background_id',
         'subrace_id',

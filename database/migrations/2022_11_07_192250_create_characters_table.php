@@ -26,7 +26,7 @@ return new class extends Migration
             $table->foreignIdFor(Background::class)->constrained();
             $table->foreignIdFor(Alignment::class)->constrained();
             $table->foreignIdFor(Goal::class)->constrained();
-            $table->text('character_past');
+            $table->text('character_past')->nullable();
             $table->integer('passive_wisdom')->default(0);
             $table->integer('proficiency_bonus')->default(0);
             $table->integer('armor_class')->default(0);

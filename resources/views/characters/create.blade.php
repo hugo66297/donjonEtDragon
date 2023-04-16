@@ -1,7 +1,7 @@
 <x-app-layout>
     <ol class="flex items-center sm:w-4/5 sm:ml-[10%] p-4">
         <li id="step-1"
-            class="active flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-700 after:border-4 after:inline-block">
+            class="active flex w-full items-center after:content-[''] after:w-full after:border-b border-gray after:border-4">
             <span class="flex items-center justify-center w-10 h-10 bg-red-800 rounded-full lg:h-12 lg:w-12 shrink-0">
                 <svg id="step-0-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                      class="w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
@@ -16,7 +16,7 @@
             </span>
         </li>
         <li id="step-2"
-            class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-700 after:border-4 after:inline-block">
+            class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b border-gray after:border-4 after:inline-block">
             <span class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full lg:h-12 lg:w-12 shrink-0">
                 <svg id="step-1-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                      class="w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
@@ -31,7 +31,7 @@
             </span>
         </li>
         <li id="step-3"
-            class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-700 after:border-4 after:inline-block">
+            class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b border-gray after:border-4 after:inline-block">
             <span class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full lg:h-12 lg:w-12 shrink-0">
                 <svg id="step-2-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                      class="w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
@@ -46,7 +46,7 @@
             </span>
         </li>
         <li id="step-4"
-            class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-700 after:border-4 after:inline-block">
+            class="flex w-full items-center after:content-[''] after:w-full after:h-1 after:border-b border-gray after:border-4 after:inline-block">
             <span class="flex items-center justify-center w-10 h-10 bg-gray-700 rounded-full lg:h-12 lg:w-12 shrink-0">
                 <svg id="step-3-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
                      class="w-5 h-5 text-gray-100 lg:w-6 lg:h-6" fill="currentColor">
@@ -663,6 +663,7 @@
                                 value="{{ old("coins.{$coin->getKey()}") ?? "" }}"
                             />
                         </div>
+                        <x-form-alert :error="'coins[{{$coin->getKey()}}]'" />
                     @endforeach
                 </div>
             </div>
@@ -704,6 +705,8 @@
 </x-app-layout>
 
 <script>
+    document.querySelector('.editor-statusbar').classList.add('hidden')
+
     let attacks = {!! $attacks !!};
 
     function disabledDescription(select) {

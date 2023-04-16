@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Validation\Rule;
 
 class StoreCharacterRequest extends FormRequest
@@ -31,7 +32,6 @@ class StoreCharacterRequest extends FormRequest
             'background_id' => ['required'],
             'alignment_id' => ['required'],
             'goal_id' => ['required'],
-            'character_past' => ['required'],
             'passive_wisdom' => ['required'],
             'proficiency_bonus' => ['required'],
             'armor_class' => ['required'],
@@ -55,7 +55,7 @@ class StoreCharacterRequest extends FormRequest
 
             // Fifth page
             'coins' => ['array', 'required'],
-            'coins.*' => ['required', 'integer']
+            'coins.*' => ['nullable', 'integer']
         ];
     }
 }
