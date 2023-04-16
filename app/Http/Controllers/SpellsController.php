@@ -7,14 +7,10 @@ use Illuminate\Http\Request;
 
 class SpellsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('spells.index');
+        $spells = Spell::paginate(20);
+        return view('spells.index')->with(compact('spells'));
     }
 
     /**
