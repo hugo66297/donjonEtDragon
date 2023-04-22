@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Level;
 use App\Models\Spell;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',191);
             $table->string('school',191);
-            $table->integer('level')->default(0);
+            $table->foreignIdFor(Level::class)->constrained();
             $table->boolean('is_rituel')->default(false);
             $table->string('cast_time',191);
             $table->string('range',191);
@@ -30,7 +31,7 @@ return new class extends Migration
         Spell::insert([
             'name' => 'Agrandissement/Rapetissement',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une pincée de limaille de fer)',
@@ -40,7 +41,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aide',
             'school' => 'Abjuration',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une minuscule bandelette de tissu blanc)',
@@ -51,7 +52,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Alarme',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => '9 mètres',
@@ -62,7 +63,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Allié planaire',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '10 minutes',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -72,7 +73,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Amélioration de caractéristique',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (des poils ou des plumes venant d\'un animal)',
@@ -83,7 +84,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Amitié avec les animaux',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un peu de nourriture)',
@@ -94,7 +95,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Animation des morts',
             'school' => 'Nécromancie',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 minute',
             'range' => '3 mètres',
             'component' => 'V, S, M (une goutte de sang, un lambeau de chair et une pincée de poudre d\'os)',
@@ -105,7 +106,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Animation des objets',
             'school' => 'Transmutation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -116,7 +117,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Anticipation / Contingence',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '10 minutes',
             'range' => 'personnelle',
             'component' => 'V, S, M (une statuette de vous taillée dans l\'ivoire et ornée de gemmes d\'une valeur minimum de 1 500 po)',
@@ -126,7 +127,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Antidétection / Non-détection',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une pincée de poussière de diamant d\'une valeur de 25 po, que le sort consume une fois saupoudrée sur la cible)',
@@ -136,7 +137,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Apaisement des émotions',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -146,7 +147,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Apparence trompeuse',
             'school' => 'Illusion',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -156,7 +157,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Appel de destrier / Trouver une monture',
             'school' => 'Invocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '10 minutes',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -166,7 +167,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Appel de familier',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 heure',
             'range' => '3 mètres',
@@ -177,7 +178,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Appel de la foudre',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -188,7 +189,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Arme élémentaire',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -199,7 +200,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Arme magique',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action bonus',
             'range' => 'contact',
             'component' => 'V, S',
@@ -210,7 +211,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Arme spirituelle',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -221,7 +222,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Armure d\'Agathys',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (un verre d{\'eau)',
@@ -232,7 +233,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Armure du mage',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un bout de cuir tanné)',
@@ -242,7 +243,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Arrêt du temps',
             'school' => 'Transmutation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V',
@@ -252,7 +253,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aspersion acide',
             'school' => 'Invocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -262,7 +263,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Assassin imaginaire',
             'school' => 'Illusion',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S ',
@@ -273,7 +274,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Assistance',
             'school' => 'Divination',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -283,7 +284,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Augure',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
             'component' => 'V, S, M (bâtonnets, os ou petits objets similaires d\'une valeur minimale de 25 po, portant des marques spéciales)',
@@ -293,7 +294,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aura de pureté',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'personnelle (9 m de rayon)',
             'component' => 'V',
@@ -303,7 +304,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aura de vie',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'personnelle (9 m de rayon)',
             'component' => 'V',
@@ -313,7 +314,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aura de vitalité',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle (9 m de rayon)',
             'component' => 'V',
@@ -323,7 +324,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aura du croisé',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V',
@@ -333,7 +334,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aura magique de Nystul',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un petit carré de soie)',
@@ -343,7 +344,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Aura sacrée',
             'school' => 'Abjuration',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (un petit reliquaire d\'une valeur minimum de 1 000 po contenant une relique sacrée, comme un bout de la robe d\'un saint ou un morceau de parchemin prélevé sur un texte sacré)',
@@ -353,7 +354,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bagou',
             'school' => 'Transmutation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V',
@@ -363,7 +364,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Baies nourricières',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un brin de gui)',
@@ -373,7 +374,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Balisage / Rayon traçant',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -384,7 +385,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bannissement',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un objet qui répugne à la cible)',
@@ -395,7 +396,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Barrière de lames',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S',
@@ -405,7 +406,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bénédiction',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un peu d\'eau bénite à asperger)',
@@ -416,7 +417,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Blessure',
             'school' => 'Nécromancie',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -427,7 +428,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bouche magique',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => '9 mètres',
@@ -438,7 +439,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bouclier',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 réaction à effectuer lorsque vous êtes touché par une attaque ou un sort de projectile magique',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -448,7 +449,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bouclier de feu',
             'school' => 'Évocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (un morceau de phosphore ou une luciole)',
@@ -458,7 +459,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bouclier de la foi',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
             'component' => 'V, S, M (un petit parchemin avec un extrait de texte sacré)',
@@ -468,7 +469,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bouffée de poison',
             'school' => 'Invocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '3 mètres',
             'component' => 'V, S',
@@ -478,7 +479,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Boule de feu',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (une petite boule de guano de chauve-souris et du soufre)',
@@ -489,7 +490,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Boule de feu à retardement',
             'school' => 'Évocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (une petite boule de guano de chauvesouris et du soufre)',
@@ -500,7 +501,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Bourrasque',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle (ligne de 18 mètres)',
             'component' => 'V, S, M (une graine de légume)',
@@ -510,7 +511,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Brume mortelle / Nuage mortel',
             'school' => 'Invocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -521,7 +522,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cage de force',
             'school' => 'Évocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '30 mètres',
             'component' => 'V, S, M (poussière de rubis d\'une valeur de 1 500 po)',
@@ -531,7 +532,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Caresse du vampire',
             'school' => 'Nécromancie',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -542,7 +543,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Carquois magique / Vif carquois',
             'school' => 'Transmutation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action bonus',
             'range' => 'contact',
             'component' => 'V, S, M (un carquois contenant au moins une munition)',
@@ -552,7 +553,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cécité/Surdité',
             'school' => 'Nécromancie',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V',
@@ -563,7 +564,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cercle de mort',
             'school' => 'Nécromancie',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (la poudre d\'une perle noire broyée d\'une valeur minimale de 500 po)',
@@ -574,7 +575,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cercle de pouvoir',
             'school' => 'Abjuration',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle (9 mètres de rayon)',
             'component' => 'V',
@@ -584,7 +585,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cercle de téléportation',
             'school' => 'Invocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 minute',
             'range' => '3 mètres',
             'component' => 'V, M (des craies et des encres rares contenant des extraits de pierres précieuses pour une valeur de 50 po, que le sort consume)',
@@ -594,7 +595,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cercle magique',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 minute',
             'range' => '3 mètres',
             'component' => 'V, S, M (eau bénite ou poudre d\'argent et de fer d\'une valeur minimale de 100 po, que le sort consume)',
@@ -605,7 +606,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Chaîne d\'éclairs',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '450 mètres',
             'component' => 'V, S, M (un éclat d\'ambre, de verre ou de cristal, trois épingles en argent et un morceau de fourrure)',
@@ -616,7 +617,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Champ antimagie',
             'school' => 'Abjuration',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => 'personnelle (sphère de 3 mètres de rayon)',
             'component' => 'V, S, M (une pincée de poudre de fer ou de limaille)',
@@ -626,7 +627,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Changement de forme',
             'school' => 'Transmutation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (un diadème de jade d\'une valeur minimale de 1 500 po, que vous devez coiffer avant de lancer le sort)',
@@ -636,7 +637,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Changement de plan',
             'school' => 'Invocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un diapason de métal valant au moins 250 po, harmonisé avec un plan d\'existence donné)',
@@ -646,7 +647,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Charme-personne',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -657,7 +658,7 @@ return new class extends Migration
         Spell::insert([
             'name' => 'Châtiment aveuglant / Frappe aveuglante',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -667,7 +668,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Châtiment calcinant / Frappe ardente',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -678,7 +679,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Châtiment Courroucé / Frappe colérique',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -688,7 +689,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Châtiment débilitant / Frappe assommante',
             'school' => 'Évocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -698,7 +699,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Châtiment du ban / Frappe du bannissement',
             'school' => 'Abjuration',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -708,7 +709,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Châtiment révélateur / Frappe lumineuse',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -719,7 +720,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Châtiment tonitruant / Frappe tonitruante',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -729,7 +730,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Chien de garde de Mordenkainen',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un petit sifflet en argent, un éclat d\'os et une ficelle)',
@@ -739,7 +740,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Clairvoyance',
             'school' => 'Divination',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '10 minutes',
             'range' => '1,5 kilomètre',
             'component' => 'V, S, M (soit un focaliseur d\'une valeur minimale de 100 po, soit une corne incrustée de pierreries pour l\'ouïe, soit un oeil de verre pour la vue)',
@@ -749,7 +750,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Clignotement',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -759,7 +760,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Clone',
             'school' => 'Nécromancie',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 heure',
             'range' => 'contact',
             'component' => 'V, S, M (un diamant valant au moins 1 000 po et un cube d\'au moins 2,5 centimètres d\'arête de chair de la créature à cloner, le sort consommant ces deux composantes, ainsi qu\'un réceptacle d\'une valeur minimale de 2 000 po disposant d\'un couvercle susceptible d\'être scellé, et assez grand pour contenir une créature de taille Moyenne, comme une grande urne, un cercueil, une cavité remplie de boue creusée dans la terre ou un récipient de cristal rempli d\'eau salée)',
@@ -769,7 +770,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Coffre secret de Léomund',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un superbe coffre de 90x60x60 centimètres, fait de matériaux rares d\'une valeur minimale de 5 000 po et une réplique du coffre de taille Très Petite, faite des mêmes matériaux et valant au moins 50 po)',
@@ -779,7 +780,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Colonne de flamme',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (une pincée de soufre)',
@@ -790,7 +791,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Communication à distance / Envoi de message',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'illimitée',
             'component' => 'V, S, M (un petit bout de fil de cuivre)',
@@ -800,7 +801,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Communication avec les animaux',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -811,7 +812,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Communication avec les morts',
             'school' => 'Nécromancie',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '3 mètres',
             'component' => 'V, S, M (encens incandescent)',
@@ -821,7 +822,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Communication avec les plantes',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle (9 mètres de rayon)',
             'component' => 'V, S',
@@ -831,7 +832,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Communion',
             'school' => 'Divination',
-            'level' => 5,
+            'level_id' => 6,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
@@ -842,7 +843,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Communion avec la nature',
             'school' => 'Divination',
-            'level' => 5,
+            'level_id' => 6,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
@@ -853,7 +854,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Compréhension des langues',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -864,7 +865,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Compulsion',
             'school' => 'Enchantement',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -874,7 +875,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cône de froid',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 18 mètres)',
             'component' => 'V, S, M (un petit cône de cristal ou de verre)',
@@ -885,7 +886,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Confusion',
             'school' => 'Enchantement',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (trois coquilles de noix)',
@@ -896,7 +897,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contact avec les plans',
             'school' => 'Divination',
-            'level' => 5,
+            'level_id' => 6,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
@@ -907,7 +908,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contact glacial',
             'school' => 'Nécromancie',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -917,7 +918,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contagion',
             'school' => 'Nécromancie',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -927,7 +928,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contamination',
             'school' => 'Nécromancie',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -937,7 +938,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contresort',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 réaction à utiliser quand vous voyez une créature située dans un rayon de 18 mètres autour de vous lancer un sort',
             'range' => '18 mètres',
             'component' => 'S',
@@ -948,7 +949,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contrôle de l\'eau',
             'school' => 'Transmutation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '90 mètres',
             'component' => 'V, S, M (une goutte d\'eau et une pincée de poussière)',
@@ -958,7 +959,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Contrôle du climat',
             'school' => 'Transmutation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '10 minutes',
             'range' => 'personnelle (rayon de 7,5 kilomètres)',
             'component' => 'V, S, M (encens incandescent et un peu de bois et de terre mélangés dans de l\'eau)',
@@ -968,7 +969,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Convocations instantanées de Drawmij',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -979,7 +980,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Coquille antivie',
             'school' => 'Abjuration',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle (3 mètres de rayon)',
             'component' => 'V, S',
@@ -989,7 +990,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Corde enchantée',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (extrait de maïs en poudre et boucle de parchemin torsadé)',
@@ -999,7 +1000,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Cordon de flèches',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '1,50 mètre',
             'component' => 'V, S, M (quatre flèches ou carreaux ou plus)',
@@ -1010,7 +1011,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Couleurs dansantes',
             'school' => 'Illusion',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 4,50 mètres)',
             'component' => 'V, S, M (une poignée de poudre ou de sable, colorée en rouge, jaune et bleu)',
@@ -1021,7 +1022,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Coup au but / Viser juste',
             'school' => 'Divination',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'S',
@@ -1031,7 +1032,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Couronne du dément',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -1041,7 +1042,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Création',
             'school' => 'Illusion',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 minute',
             'range' => '9 mètres',
             'component' => 'V, S, M (un petit bout de matière de même type que l\'objet que vous voulez créer)',
@@ -1052,7 +1053,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Création de mort-vivant',
             'school' => 'Nécromancie',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 minute',
             'range' => '3 mètres',
             'component' => 'V, S, M (un pot d\'argile rempli de poussière tombale, un pot d\'argile rempli d\'eau saumâtre et un onyx noir d\'une valeur de 150 po par cadavre)',
@@ -1063,7 +1064,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Création de nourriture et d\'eau',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -1073,7 +1074,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Création ou destruction d\'eau',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une goutte d\'eau pour créer de l\'eau ou quelques grains de sable pour en détruire)',
@@ -1084,7 +1085,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Croissance d\'épines',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (sept épines acérées ou sept brindilles taillées en pointe)',
@@ -1094,7 +1095,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Croissance végétale',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action ou 8 heures',
             'range' => '45 mètres',
             'component' => 'V, S',
@@ -1104,7 +1105,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Danse irrésistible d\'Otto',
             'school' => 'Enchantement',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V',
@@ -1114,7 +1115,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Déblocage',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -1124,7 +1125,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Décharge occulte / Explosion occulte',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -1134,7 +1135,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Dédale / Labyrinthe',
             'school' => 'Invocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1144,7 +1145,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Déguisement',
             'school' => 'Illusion',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1154,7 +1155,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Demi-plan',
             'school' => 'Invocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'S',
@@ -1164,7 +1165,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Désintégration',
             'school' => 'Transmutation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (de la magnétite et une pincée de poussière)',
@@ -1175,7 +1176,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Détection de la magie',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1action',
             'range' => 'personnelle',
@@ -1186,7 +1187,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Détection de l\'invisibilité / Voir l\'invisible',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (une pincée de talc et un saupoudrage de poudre d\'argent)',
@@ -1196,7 +1197,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Détection des pensées',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (une pièce de cuivre)',
@@ -1206,7 +1207,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Détection des pièges / Trouver les pièges',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -1216,7 +1217,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Détection du bien et du mal',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1226,7 +1227,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Détection du poison et des maladies',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1237,7 +1238,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Disque flottant de Tenser',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1248,7 +1249,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Dissimulation suprême / Séquestration',
             'school' => 'Transmutation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une poudre de diamant, d\'émeraude, de rubis et de saphir d\'une valeur minimum de 5 000 po, que le sort consume)',
@@ -1258,7 +1259,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Dissipation de la magie',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -1269,7 +1270,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Dissipation du bien et du mal',
             'school' => 'Abjuration',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (eau bénite ou poudre d\'argent et de fer)',
@@ -1279,7 +1280,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Divination',
             'school' => 'Divination',
-            'level' => 4,
+            'level_id' => 5,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1290,7 +1291,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Doigt de mort',
             'school' => 'Nécromancie',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1300,7 +1301,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Domination d\'animal',
             'school' => 'Enchantement',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1311,7 +1312,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Domination de monstre',
             'school' => 'Enchantement',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1322,7 +1323,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Domination de personne',
             'school' => 'Enchantement',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1333,7 +1334,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Don des langues / Langues',
             'school' => 'Divination',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, M (un modèle réduit de ziggourat en argile)',
@@ -1343,7 +1344,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Double illusoire / Tromperie',
             'school' => 'Illusion',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'S',
@@ -1353,7 +1354,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Doux repos',
             'school' => 'Nécromancie',
-            'level' => 2,
+            'level_id' => 3,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1364,7 +1365,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Druidisme',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -1374,7 +1375,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Duel forcé',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
             'component' => 'V',
@@ -1384,7 +1385,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Éclair',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle (ligne de 30 mètres)',
             'component' => 'V, S, M (un peu de fourrure et une baguette en ambre, en cristal ou en verre)',
@@ -1395,7 +1396,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Éclat du soleil',
             'school' => 'Évocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (du feu et un éclat d\'héliotrope)',
@@ -1405,7 +1406,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Embruns prismatiques',
             'school' => 'Évocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 18 mètres)',
             'component' => 'V, S',
@@ -1415,7 +1416,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Emprisonnement',
             'school' => 'Abjuration',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 minute',
             'range' => '9 mètres',
             'component' => 'V, S, M (un portrait sur un vélin ou une statuette sculptée à l\'effigie de la cible et une composante spéciale qui varie en fonction de la version du sort choisie et vaut au moins 500 po par dé de vie de la cible)',
@@ -1425,7 +1426,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Enchevêtrement',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S',
@@ -1435,7 +1436,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Entrave planaire',
             'school' => 'Abjuration',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 heure',
             'range' => '18 mètres',
             'component' => 'V, S, M (un bijou d\'une valeur minimale de 1 000 po, que le sort consume)',
@@ -1446,7 +1447,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Envoûtement / Discours captivant',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1456,7 +1457,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Épée de Mordenkainen',
             'school' => 'Évocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (une épée en platine miniature avec le pommeau et la poignée en cuivre et zinc, d\'une valeur de 250 po)',
@@ -1466,7 +1467,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Esprit faible',
             'school' => 'Enchantement',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (une poignée de sphères en argile, en cristal, en verre ou minérales)',
@@ -1476,7 +1477,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Esprit impénétrable',
             'school' => 'Abjuration',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -1486,7 +1487,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Esprits gardiens',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle (4,50 mètres de rayon)',
             'component' => 'V, S, M (un symbole sacré)',
@@ -1497,7 +1498,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Étrangeté / Ennemi subconscient',
             'school' => 'Illusion',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -1507,7 +1508,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Éveil',
             'school' => 'Transmutation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '8 heures',
             'range' => 'contact',
             'component' => 'V, S, M (une agate d\'une valeur minimale de 1 000 po, que le sort consomme)',
@@ -1517,7 +1518,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Fabrication',
             'school' => 'Transmutation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '10 minutes',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -1527,7 +1528,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Façonnage de la pierre',
             'school' => 'Transmutation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (argile molle, à façonner pour lui donner approximativement la forme de l\'objet de pierre désiré)',
@@ -1537,7 +1538,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Faux amis / Amis',
             'school' => 'Enchantement',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, M (un peu de maquillage à s\'appliquer sur le visage lors de l\'incantation)',
@@ -1547,7 +1548,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Faveur divine',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1557,7 +1558,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Feindre la mort / État cadavérique',
             'school' => 'Nécromancie',
-            'level' => 3,
+            'level_id' => 4,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1568,7 +1569,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Festin des héros',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '10 minutes',
             'range' => '9 mètres',
             'component' => 'V, S, M (un bol incrusté de gemmes d\'une valeur minimale de 1 000 po, que le sort consume)',
@@ -1578,7 +1579,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flamme éternelle',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (poussière de rubis d\'une valeur de 50 po, que le sort consume)',
@@ -1588,7 +1589,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flamme sacrée',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1598,7 +1599,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flammes / Produire une flamme',
             'school' => 'Invocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1608,7 +1609,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Fléau d\'insectes',
             'school' => 'Invocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '90 mètres',
             'component' => 'V, S, M (un peu de sucre en poudre, quelques graines de céréales et une tache de graisse)',
@@ -1619,7 +1620,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flèche acide de Melf',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (poudre de feuille de rhubarbe et estomac de vipère)',
@@ -1630,7 +1631,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flèche de foudre',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1641,7 +1642,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flétrissement',
             'school' => 'Nécromancie',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -1652,7 +1653,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Flou',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V',
@@ -1662,7 +1663,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Force fantasmagorique',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un peu de laine)',
@@ -1672,7 +1673,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Forme éthérée',
             'school' => 'Transmutation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1683,7 +1684,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Forme gazeuse',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un morceau de gaze et une volute de fumée)',
@@ -1693,7 +1694,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Fou rire de Tasha',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (de minuscules tartes et une plume à agiter dans les airs)',
@@ -1703,7 +1704,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Fouet épineux',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une tige de plante épineuse)',
@@ -1713,7 +1714,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Foulée brumeuse / Pas brumeux',
             'school' => 'Invocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -1723,7 +1724,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Fracassement / Briser',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un éclat de mica)',
@@ -1734,7 +1735,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Frappe piégeuse',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -1745,7 +1746,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Fusion dans la pierre',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1756,7 +1757,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Gardien de la foi',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V',
@@ -1766,7 +1767,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Glissement de terrain / Déplacer la terre',
             'school' => 'Transmutation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (une lame de fer et un petit sac contenant un mélange de terres : de l\'argile, du terreau et du sable)',
@@ -1776,7 +1777,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Globe d\'invulnérabilité',
             'school' => 'Abjuration',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => 'personnelle (3 mètres de rayon)',
             'component' => 'V, S, M (une perle de verre ou de cristal qui explose à la fin du sort)',
@@ -1787,7 +1788,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Glyphe de garde',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 heure',
             'range' => 'contact',
             'component' => 'V, S, M (encens et poudre de diamant d\'une valeur minimale de 200 po, que le sort consume)',
@@ -1798,7 +1799,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Gourdin magique / Crosse des druides',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action bonus',
             'range' => 'contact',
             'component' => 'V, S, M (du gui, une feuille de trèfle et un bâton ou un gourdin)',
@@ -1808,7 +1809,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Graisse',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (de la couenne de porc ou du beurre)',
@@ -1818,7 +1819,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Grande foulée',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une pincée de poussière)',
@@ -1829,7 +1830,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Grêle d\'épines',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V',
@@ -1840,7 +1841,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Guérison',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1851,7 +1852,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Guérison de groupe',
             'school' => 'Évocation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -1861,7 +1862,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Hâte',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un copeau de racine de réglisse)',
@@ -1871,7 +1872,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Hérissement de projectiles / Invocation d\'un tir de barrage',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 18 mètres)',
             'component' => 'V, S, M (une munition ou une arme de jet)',
@@ -1881,7 +1882,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Héroïsme',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -1892,7 +1893,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Identification',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -1903,7 +1904,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Illusion mineure',
             'school' => 'Illusion',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'S, M (un morceau de toison)',
@@ -1913,7 +1914,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Illusion programmée',
             'school' => 'Illusion',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un morceau de toison et de la poussière de jade d\'une valeur de 25 po)',
@@ -1923,7 +1924,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Image majeure',
             'school' => 'Illusion',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un morceau de toison)',
@@ -1934,7 +1935,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Image miroir',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1944,7 +1945,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Image projetée',
             'school' => 'Illusion',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '750 kilomètres',
             'component' => 'V, S, M (une petite réplique de votre personne construite avec des matériaux valant au moins 5 po)',
@@ -1954,7 +1955,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Image silencieuse',
             'school' => 'Illusion',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un morceau de toison)',
@@ -1964,7 +1965,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Immobilisation de monstre',
             'school' => 'Enchantement',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (un petit morceau de fer bien droit)',
@@ -1975,7 +1976,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Immobilisation de personne',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un petit morceau de fer bien droit)',
@@ -1986,7 +1987,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Imprécation / Fléau',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une goutte de sang)',
@@ -1997,7 +1998,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Injonction',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2008,7 +2009,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Insecte géant',
             'school' => 'Transmutation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -2018,7 +2019,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Interdiction',
             'school' => 'Abjuration',
-            'level' => 6,
+            'level_id' => 7,
             'is_rituel'=> true,
             'cast_time' => '10 minutes',
             'range' => 'contact',
@@ -2029,7 +2030,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Inversion de la gravité',
             'school' => 'Transmutation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '30 mètres',
             'component' => 'V, S, M (de la magnétite et de la limaille de fer)',
@@ -2039,7 +2040,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invisibilité',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un cil enrobé de gomme arabique)',
@@ -2050,7 +2051,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invisibilité suprême',
             'school' => 'Illusion',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2060,7 +2061,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation d\'animaux',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -2071,7 +2072,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation de céleste',
             'school' => 'Invocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 minute',
             'range' => '27 mètres',
             'component' => 'V, S',
@@ -2082,7 +2083,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation d\'élémentaire',
             'school' => 'Invocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 minute',
             'range' => '27 mètres',
             'component' => 'V, S, M (encens à brûler pour l\'air, argile molle pour la terre, soufre et phosphore pour le feu, ou sable et eau pour l\'eau)',
@@ -2093,7 +2094,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation d\'élémentaire mineurs',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 minute',
             'range' => '27 mètres',
             'component' => 'V, S',
@@ -2104,7 +2105,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation d\'êtres sylvestres',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (une baie de houx par créature invoquée)',
@@ -2115,7 +2116,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation de fée',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 minute',
             'range' => '27 mètres',
             'component' => 'V, S',
@@ -2126,7 +2127,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Invocation d\'une volée de projectiles',
             'school' => 'Invocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '15 mètres',
             'component' => 'V, S, M (une munition ou une arme de jet)',
@@ -2136,7 +2137,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Jeter une malédiction / Malédiction',
             'school' => 'Nécromancie',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2147,7 +2148,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lame de feu',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V, S, M (feuille de sumac)',
@@ -2158,7 +2159,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Léger comme une plume / Feuille morte',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 réaction, que vous effectuez quand vous-même ou une créature située dans un rayon de 18 mètres tombe soudain',
             'range' => '18 mètres',
             'component' => 'V, M (une petite plume ou un peu de duvet)',
@@ -2168,7 +2169,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lenteur',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (une goutte de mélasse)',
@@ -2178,7 +2179,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lever une malédiction / Délivrance des malédictions',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2188,7 +2189,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lévitation',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (soit une petite boucle de cuir, soit un bout de fil de métal doré formant la silhouette d\'une cuillère au long manche)',
@@ -2198,7 +2199,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Liane avide',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -2208,7 +2209,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Liberté de mouvement',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un lien de cuir enroulé autour d\'un bras ou d\'un appendice similaire)',
@@ -2218,7 +2219,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lien de protection',
             'school' => 'Abjuration',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une paire d\'anneaux de platine valant chacun au moins 50 po, que la cible et vous devez porter pendant toute la durée)',
@@ -2228,7 +2229,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lien télépathique de Rary',
             'school' => 'Divination',
-            'level' => 5,
+            'level_id' => 6,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2239,7 +2240,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Localisation d\'animaux ou de plantes',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2250,7 +2251,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Localisation de créature',
             'school' => 'Divination',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (des poils de chien de chasse)',
@@ -2260,7 +2261,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Localisation d\'objet',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (une branche fourchue)',
@@ -2270,7 +2271,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lueur d\'espoir',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -2280,7 +2281,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lueurs féeriques',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2290,7 +2291,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lumière',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, M (une luciole ou de la mousse phosphorescente)',
@@ -2300,7 +2301,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lumière du jour',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -2310,7 +2311,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Lumières dansantes',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un bout de phosphore ou d\'orme, ou un ver luisant)',
@@ -2320,7 +2321,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Main de Bigby',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (une coquille d\'oeuf et un gant en peau de serpent)',
@@ -2331,7 +2332,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Main du mage',
             'school' => 'Invocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -2341,7 +2342,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mains brûlantes',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact (cône de 4,50 mètres)',
             'component' => 'V, S',
@@ -2352,7 +2353,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Maléfice',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => '27 mètres',
             'component' => 'V, S, M (oeil de triton pétrifié)',
@@ -2363,7 +2364,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Manoir somptueux de Mordenkainen',
             'school' => 'Invocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 minute',
             'range' => '90 mètres',
             'component' => 'V, S, M (un portrait miniature gravé dans de l\'ivoire, un bout de marbre poli et une minuscule cuillère en argent, chaque objet devant valoir au minimum5 po)',
@@ -2373,7 +2374,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Marche sur l\'onde',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2384,7 +2385,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Marque du chasseur',
             'school' => 'Divination',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => '27 mètres',
             'component' => 'V',
@@ -2395,7 +2396,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mauvais oeil',
             'school' => 'Nécromancie',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -2405,7 +2406,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Message',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un petit bout de fil de cuivre)',
@@ -2415,7 +2416,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Messager Animal',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2427,7 +2428,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Métal brûlant / Chauffer le métal',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un bout de fer et une flamme)',
@@ -2438,7 +2439,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Métamorphose',
             'school' => 'Transmutation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un cocon de chenille)',
@@ -2448,7 +2449,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Métamorphose animale / Formes animales',
             'school' => 'Transmutation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -2458,7 +2459,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Métamorphose suprême',
             'school' => 'Transmutation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une goutte de mercure, une cuillérée de gomme arabique et une volute de fumée)',
@@ -2468,7 +2469,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mirage',
             'school' => 'Illusion',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '10 minutes',
             'range' => 'vision',
             'component' => 'V, S',
@@ -2478,7 +2479,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Modification d\'apparence',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -2488,7 +2489,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Modification de mémoire',
             'school' => 'Enchantement',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -2499,7 +2500,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Monture fantôme',
             'school' => 'Illusion',
-            'level' => 3,
+            'level_id' => 4,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2510,7 +2511,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Moquerie cruelle',
             'school' => 'Enchantement',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2520,7 +2521,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mot de guérison',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2531,7 +2532,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mot de guérison de groupe',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2542,7 +2543,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mot de pouvoir étourdissant',
             'school' => 'Enchantement',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2552,7 +2553,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mot de pouvoir guérisseur',
             'school' => 'Évocation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2562,7 +2563,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mot de pouvoir mortel',
             'school' => 'Enchantement',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2572,7 +2573,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mot de retour',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '1,50 mètre',
             'component' => 'V',
@@ -2582,7 +2583,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Motif hypnotique',
             'school' => 'Illusion',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'S, M (un bâtonnet d\'encens incandescent ou une fiole de cristal remplie d\'une matière phosphorescente)',
@@ -2592,7 +2593,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur d\'épines',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (une poignée d\'épines)',
@@ -2603,7 +2604,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur de feu',
             'school' => 'Évocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un éclat de phosphore)',
@@ -2614,7 +2615,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur de force',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (une pincée de poudre de gemme translucide)',
@@ -2624,7 +2625,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur de glace',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un éclat de quartz)',
@@ -2635,7 +2636,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur de pierre',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un petit bloc de granite)',
@@ -2645,7 +2646,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur de vent',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (un petit éventail et une plume exotique)',
@@ -2655,7 +2656,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mur prismatique',
             'school' => 'Abjuration',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -2665,7 +2666,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Murmures dissonants',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V',
@@ -2676,7 +2677,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Mythes et légendes / Légende',
             'school' => 'Divination',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '10 minutes',
             'range' => 'personnelle',
             'component' => 'V, S, M (de l\'encens d\'une valeur minimale de 250 po que le sort consume et quatre bandelettes d\'ivoire valant au moins 50 po chaque)',
@@ -2686,7 +2687,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Nappe de brouillard',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -2697,7 +2698,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Nuage incendiaire',
             'school' => 'Invocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S',
@@ -2707,7 +2708,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Nuage nauséabond',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (un oeuf pourri ou des feuilles de chou pourri)',
@@ -2717,7 +2718,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Nuée de dagues',
             'school' => 'Invocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un éclat de verre)',
@@ -2728,7 +2729,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Nuée de météores',
             'school' => 'Évocation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '1,5 kilomètre',
             'component' => 'V, S',
@@ -2738,7 +2739,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Oeil du mage',
             'school' => 'Divination',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (des poils de chauve-souris',
@@ -2748,7 +2749,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Orbe chromatique',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (un diamant d\'une valeur minimale de 50 po)',
@@ -2759,7 +2760,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Orientation / Trouver un chemin',
             'school' => 'Divination',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
             'component' => 'V, S, M (un ensemble d\'instruments de divination [comme des os, des bâtonnets en ivoire, des cartes, des dents ou des runes gravées] d\'une valeur de 100 po et un objet venant de l\'endroit que vous cherchez)',
@@ -2769,7 +2770,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Parole divine',
             'school' => 'Évocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
             'component' => 'V',
@@ -2779,7 +2780,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Passage par les arbres',
             'school' => 'Invocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -2789,7 +2790,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Passage sans trace',
             'school' => 'Abjuration',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (cendres d\'une feuille de gui et une brindille d\'épicéa)',
@@ -2799,7 +2800,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Passe-muraille',
             'school' => 'Transmutation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une pincée de graines de sésame)',
@@ -2809,7 +2810,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Pattes d\'araignée',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une goutte de bitume et une araignée)',
@@ -2819,7 +2820,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Peau d\'écorce',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une poignée d\'écorce de chêne)',
@@ -2829,7 +2830,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Peau de pierre',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (poussière de diamant d\'une valeur de 100 po, que le sort consume)',
@@ -2839,7 +2840,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Petite hutte de Léomund',
             'school' => 'Évocation',
-            'level' => 3,
+            'level_id' => 4,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'personnelle (hémisphère de 3 mètres de rayon)',
@@ -2850,7 +2851,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Pétrification',
             'school' => 'Transmutation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (une pincée de chaux, de l\'eau et de la terre)',
@@ -2860,7 +2861,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Poigne électrique',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2870,7 +2871,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Portail',
             'school' => 'Invocation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un diamant d\'une valeur minimale de 5 000 po)',
@@ -2880,7 +2881,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Portail arcanique',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '150 mètres',
             'component' => 'V, S',
@@ -2890,7 +2891,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Porte dimensionnelle',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '150 mètres',
             'component' => 'V',
@@ -2900,7 +2901,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Possession',
             'school' => 'Nécromancie',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
             'component' => 'V, S, M (une gemme, un cristal, un reliquaire ou un autre réceptacle ornemental d\'une valeur minimale de 500 po)',
@@ -2910,7 +2911,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Prémonition',
             'school' => 'Divination',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'V, S, M (une plume d\'oiseau chanteur)',
@@ -2920,7 +2921,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Prestidigitation',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '3 mètres',
             'component' => 'V, S',
@@ -2930,7 +2931,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Prière de guérison',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '10 minutes',
             'range' => '9 mètres',
             'component' => 'V',
@@ -2941,7 +2942,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Projectile magique',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -2952,7 +2953,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Projection astrale',
             'school' => 'Nécromancie',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 heure',
             'range' => '3 mètres',
             'component' => 'V, S, M (un zircon jaune d\'une valeur minimale de 1 000 po et un lingot d\'argent gravé d\'une valeur minimale de 100 po par créature ; le sort consume ces composantes)',
@@ -2962,7 +2963,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Protection contre l\'énergie',
             'school' => 'Abjuration',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2972,7 +2973,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Protection contre la mort',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2982,7 +2983,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Protection contre le bien et le mal',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (eau bénite ou poudre de fer et d\'argent, que le sort consume)',
@@ -2992,7 +2993,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Protection contre le poison',
             'school' => 'Abjuration',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -3002,7 +3003,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Protection contre les armes',
             'school' => 'Abjuration',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -3012,7 +3013,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Protections et sceaux',
             'school' => 'Abjuration',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '10 minutes',
             'range' => 'contact',
             'component' => 'V, S, M (encens incandescent, petite dose de soufre et d\'huile, cordelette avec des noeuds, petite dose de sang de mastodonte des ombres et petit sceptre en argent d\'une valeur minimale de 10 po)',
@@ -3022,7 +3023,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Purification de la nourriture et de l\'eau',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '3 mètres',
             'component' => 'V, S',
@@ -3032,7 +3033,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Quête / Coercition mystique',
             'school' => 'Enchantement',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 minute',
             'range' => '18 mètres',
             'component' => 'V',
@@ -3043,7 +3044,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rappel à la vie / Relever les morts',
             'school' => 'Nécromancie',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 heure',
             'range' => 'contact',
             'component' => 'V, S, M (un diamant d\'une valeur minimale de 500 po, que le sort consume)',
@@ -3053,7 +3054,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rayon affaiblissant',
             'school' => 'Nécromancie',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -3063,7 +3064,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rayon ardent',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -3074,7 +3075,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rayon de givre',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -3084,7 +3085,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rayon de lune',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S, M (quelques graines de ménisperme, peu importe l\'espèce, et un éclat de feldspath opalescent)',
@@ -3095,7 +3096,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rayon de soleil',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => 'personnelle (ligne de 18 mètres)',
             'component' => 'V, S, M (une loupe)',
@@ -3105,7 +3106,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Rayon empoisonné',
             'school' => 'Nécromancie',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -3116,7 +3117,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Régénération',
             'school' => 'Transmutation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'V, S, M (un moulin à prières et de l\'eau bénite)',
@@ -3126,7 +3127,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Réincarnation',
             'school' => 'Transmutation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 heure',
             'range' => 'contact',
             'component' => 'V, S, M (huiles et onguents rares d\'une valeur minimale de 1 000 po, que le sort consume)',
@@ -3136,7 +3137,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Réparation',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'V, S, M (deux magnétites)',
@@ -3146,7 +3147,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Repli expéditif',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -3156,7 +3157,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Représailles infernales',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 réaction en réponse aux dégâts que vous inflige une créature située dans votre champ de vision et dans un rayon de 18 mètres autour de vous',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -3167,7 +3168,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Répulsion/attirance / Aversion/attirance',
             'school' => 'Enchantement',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 heure',
             'range' => '18 mètres',
             'component' => 'V, S, M (un cristal d\'alun trempé dans le vinaigre pour répulsion ou une goutte de miel pour attirance)',
@@ -3177,7 +3178,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Résistance',
             'school' => 'Abjuration',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une cape miniature)',
@@ -3187,7 +3188,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Respiration aquatique',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -3198,7 +3199,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Restauration partielle',
             'school' => 'Abjuration',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -3208,7 +3209,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Restauration suprême',
             'school' => 'Abjuration',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (poussière de diamant d\'une valeur minimale de 100 po, que le sort consume)',
@@ -3218,7 +3219,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Résurrection',
             'school' => 'Nécromancie',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 heure',
             'range' => 'contact',
             'component' => 'V, S, M (un diamant d\'une valeur minimale de 1 000 po, que le sort consume)',
@@ -3228,7 +3229,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Résurrection suprême',
             'school' => 'Nécromancie',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 heure',
             'range' => 'contact',
             'component' => 'V, S, M (un peu d\'eau bénite à asperger et des diamants d\'une valeur totale minimale de 25 000 po, que le sort consume)',
@@ -3238,7 +3239,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Revigorer / Retour à la vie',
             'school' => 'Nécromancie',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (diamant d\'une valeur de 300 po, que le sort consume)',
@@ -3248,7 +3249,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sanctification',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '24 heures',
             'range' => 'contact',
             'component' => 'V, S, M (herbes, huiles et encens d\'une valeur minimale de 1 000 po, que le sort consume)',
@@ -3258,7 +3259,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sanctuaire',
             'school' => 'Abjuration',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
             'component' => 'V, S, M (un petit miroir en argent)',
@@ -3268,7 +3269,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sanctuaire privé de Mordenkainen',
             'school' => 'Abjuration',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '10 minutes',
             'range' => '36 mètres',
             'component' => 'V, S, M (une mince couche de plomb, un morceau de verre opaque, un bout de coton ou de tissu et de la chrysolite en poudre)',
@@ -3279,7 +3280,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Saut',
             'school' => 'Transmutation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une patte arrière de sauterelle)',
@@ -3289,7 +3290,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Scrutation',
             'school' => 'Divination',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '10 minutes',
             'range' => 'personnelle',
             'component' => 'V, S, M (un focaliseur d\'une valeur minimale de 1 000 po comme une boule de cristal, un miroir en argent ou un bénitier rempli d\'eau bénite)',
@@ -3299,7 +3300,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sens animal',
             'school' => 'Divination',
-            'level' => 2,
+            'level_id' => 3,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3310,7 +3311,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Serviteur invisible',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3321,7 +3322,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Silence',
             'school' => 'Illusion',
-            'level' => 2,
+            'level_id' => 3,
             'is_rituel'=> true,
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -3332,7 +3333,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Simulacre',
             'school' => 'Illusion',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '12 heures',
             'range' => 'contact',
             'component' => 'V, S, M (de la neige ou de la glace en quantité suffisante pour faire une reproduction grandeur nature de la créature à dupliquer; des cheveux, des rognures d\'ongles ou un autre échantillon de la créature à dupliquer, à placer dans la neige ou la glace, et de la poudre de rubis d\'une valeur minimale de 1 500 po que le sort consume, à saupoudrer sur le double)',
@@ -3342,7 +3343,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Simulacre de vie',
             'school' => 'Nécromancie',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (une petite quantité d\'alcool ou de spiritueux)',
@@ -3353,7 +3354,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Soin des blessures',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -3364,7 +3365,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Soin des blessures de groupe',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -3375,7 +3376,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sommeil',
             'school' => 'Enchantement',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (une pincée de sable fin, des pétales de rose ou un criquet)',
@@ -3386,7 +3387,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Songe /Rêve',
             'school' => 'Illusion',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 minute',
             'range' => 'spéciale',
             'component' => 'V, S, M (une poignée de sable, une goutte d\'encre et une plume d\'écrivain prélevée sur un oiseau endormi)',
@@ -3396,7 +3397,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Souhait',
             'school' => 'Invocation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V',
@@ -3406,7 +3407,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sphère de feu',
             'school' => 'Invocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un bout de suif, une pincée de soufre et un peu de poudre de fer)',
@@ -3417,7 +3418,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sphère glacée d\'Otiluke',
             'school' => 'Évocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '90 mètres',
             'component' => 'V, S, M (une petite sphère de cristal)',
@@ -3428,7 +3429,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Sphère résiliente d\'Otiluke',
             'school' => 'Évocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un bout de cristal transparent hémisphérique et son équivalent en gomme arabique)',
@@ -3438,7 +3439,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Stabilisation / Épargner les mourants',
             'school' => 'Nécromancie',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -3448,7 +3449,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Suggestion',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, M (une langue de serpent et un rayon de miel ou une goutte d\'huile d\'olive)',
@@ -3458,7 +3459,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Suggestion de groupe',
             'school' => 'Enchantement',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, M (une langue de serpent et soit un rayon de miel, soit une goutte d\'huile d\'olive)',
@@ -3469,7 +3470,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Symbole',
             'school' => 'Abjuration',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'V, S, M (mercure, phosphore et poudre de diamant et d\'opale d\'une valeur totale d\'au moins 1 000 po, que le sort consume)',
@@ -3479,7 +3480,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Télékinésie',
             'school' => 'Transmutation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',
@@ -3489,7 +3490,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Télépathie',
             'school' => 'Évocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => 'illimitée',
             'component' => 'V, S, M (une paire d\'anneaux en argent liés)',
@@ -3499,7 +3500,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Téléportation',
             'school' => 'Invocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '3 mètres',
             'component' => 'V',
@@ -3509,7 +3510,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tempête de feu',
             'school' => 'Évocation',
-            'level' => 7,
+            'level_id' => 8,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S',
@@ -3519,7 +3520,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tempête de grêle',
             'school' => 'Évocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '90 mètres',
             'component' => 'V, S, M (une pincée de poussière et quelques gouttes d\'eau)',
@@ -3530,7 +3531,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tempête de neige',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (une pincée de poussière et quelques gouttes d\'eau)',
@@ -3540,7 +3541,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tempête vengeresse',
             'school' => 'Invocation',
-            'level' => 9,
+            'level_id' => 10,
             'cast_time' => '1 action',
             'range' => 'champ de vision',
             'component' => 'V, S',
@@ -3550,7 +3551,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Ténèbres',
             'school' => 'Évocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, M (des poils de chauve-souris et une goutte de poix ou un bout de charbon)',
@@ -3560,7 +3561,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tentacules d\'Hadar',
             'school' => 'Invocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle (3 m de rayon)',
             'component' => 'V, S',
@@ -3571,7 +3572,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tentacules noirs d\'Evard',
             'school' => 'Invocation',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '1 action',
             'range' => '27 mètres',
             'component' => 'V, S, M (un bout de tentacule appartenant à une pieuvre ou un calmar géant)',
@@ -3581,7 +3582,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Terrain hallucinatoire',
             'school' => 'Illusion',
-            'level' => 4,
+            'level_id' => 5,
             'cast_time' => '10 minutes',
             'range' => '90 mètres',
             'component' => 'V, S, M (une pierre, une brindille et un bout de plante verte)',
@@ -3591,7 +3592,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Terreur / Peur',
             'school' => 'Illusion',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 9 mètres)',
             'component' => 'V, S, M (une plume blanche ou un coeur de poule)',
@@ -3601,7 +3602,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Texte illusoire',
             'school' => 'Illusion',
-            'level' => 1,
+            'level_id' => 2,
             'is_rituel'=> true,
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -3612,7 +3613,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Thaumaturgie',
             'school' => 'Transmutation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V',
@@ -3622,7 +3623,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Toile d\'araignée',
             'school' => 'Invocation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un bout de toile d\'araignée)',
@@ -3632,7 +3633,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Trait de feu',
             'school' => 'Évocation',
-            'level' => 0,
+            'level_id' => 1,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -3642,7 +3643,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Trait ensorcelé / Carreau ensorcelé',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une brindille issue d\'un arbre frappé par la foudre)',
@@ -3653,7 +3654,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Transport végétal / Voie végétale',
             'school' => 'Invocation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => '3 mètres',
             'component' => 'V, S',
@@ -3663,7 +3664,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tremblement de terre',
             'school' => 'Évocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 action',
             'range' => '150 mètres',
             'component' => 'V, S, M (une pincée de poussière, un caillou et un peu d\'argile)',
@@ -3673,7 +3674,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Tsunami',
             'school' => 'Invocation',
-            'level' => 8,
+            'level_id' => 9,
             'cast_time' => '1 minute',
             'range' => 'champ de vision',
             'component' => 'V, S',
@@ -3683,7 +3684,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Vague destructrice',
             'school' => 'Évocation',
-            'level' => 5,
+            'level_id' => 6,
             'cast_time' => '1 action',
             'range' => 'personnelle (9 mètres)',
             'component' => 'V',
@@ -3693,7 +3694,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Vague tonnante',
             'school' => 'Évocation',
-            'level' => 1,
+            'level_id' => 2,
             'cast_time' => '1 action',
             'range' => 'personnelle (cube de 4,50 mètres)',
             'component' => 'V, S',
@@ -3704,7 +3705,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Vent divin / Marche sur le vent',
             'school' => 'Transmutation',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 minute',
             'range' => '9 mètres',
             'component' => 'V, S, M (du feu et de l\'eau bénite)',
@@ -3714,7 +3715,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Verrou magique',
             'school' => 'Abjuration',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (poussière d\'or d\'une valeur minimum de 25 po, que le sort consume)',
@@ -3724,7 +3725,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Vision dans le noir',
             'school' => 'Transmutation',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une pincée de carotte séchée ou une agate)',
@@ -3734,7 +3735,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Vision suprême',
             'school' => 'Divination',
-            'level' => 6,
+            'level_id' => 7,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (un collyre coûtant 25 po, fait de poudre de champignon, de safran et de graisse, que le sort consume)',
@@ -3744,7 +3745,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Vol',
             'school' => 'Transmutation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une rémige)',
@@ -3755,7 +3756,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Voracité d\'Hadar / Appétit d\'Hadar',
             'school' => 'Invocation',
-            'level' => 3,
+            'level_id' => 4,
             'cast_time' => '1 action',
             'range' => '45 mètres',
             'component' => 'V, S, M (tentacule de pieuvre en saumure)',
@@ -3765,7 +3766,7 @@ return new class extends Migration
          Spell::insert([
             'name' => 'Zone de vérité',
             'school' => 'Enchantement',
-            'level' => 2,
+            'level_id' => 3,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S',

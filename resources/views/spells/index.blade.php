@@ -6,9 +6,9 @@
                     <div class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
                         <div class="flex justify-between p-2">
                             <div class="">
-                            <span class="bg-green-900 text-green-300 text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
-                                    Level {{ $spell->level }}
-                                </span>
+                            <span class="bg-{{$spell->level->background_color}} text-{{$spell->level->text_color}} text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
+                                {{ $spell->level->level_name === 0 ? 'Tour de magie' : "Level {$spell->level->level_name}" }}
+                            </span>
                             </div>
                         </div>
                         <div class="flex items-center text-lg font-titleMiddleAge text-slate-100 p-2">
@@ -47,8 +47,8 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
                                     </svg>
                                 </button>
-                                <div class="rounded-full h-4 w-4 bg-green-900 text-xs text-green-300">
-                                    {{ $spell->level }}
+                                <div class="rounded-full h-4 w-4 bg-{{$spell->level->background_color}} text-xs text-{{$spell->level->text_color}}">
+                                    {{ $spell->level->level_name }}
                                 </div>
                             </div>
                             <div class="items-center font-titleMiddleAge text-slate-100 p-2">
@@ -85,7 +85,7 @@
                         </dl>
                         <div class="flex justify-end p-2">
                             <button type="button" class="text-white font-normalMedieval bg-gray-700 focus:outline-none font-medium text-center">
-                                <a class="hover:underline" href="">Plus de détails</a>
+                                <a class="hover:underline" href="{{route('spells.show', $spell)}}">Plus de détails</a>
                             </button>
                         </div>
                     </div>
