@@ -1,8 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    darkMode: 'white',
+    darkMode: 'media',
     presets: [
         require('./vendor/wireui/wireui/tailwind.config.js')
     ],
@@ -22,8 +23,8 @@ module.exports = {
             normalMedieval: ['normal-medieval'],
             boldMedieval: ['bold-medieval'],
             outlineMedieval: ['outline-medieval'],
-            titleMiddleAge : ['title-middle-age'],
-            titleMiddleAgeOutlined : ['title-middle-age-outlined'],
+            titleMiddleAge: ['title-middle-age'],
+            titleMiddleAgeOutlined: ['title-middle-age-outlined'],
         },
     },
 

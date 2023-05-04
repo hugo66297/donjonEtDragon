@@ -9,12 +9,9 @@
                     <div class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
                         <div class="flex justify-between p-2">
                             <div class="">
-                                <span class="bg-green-900 text-green-300 text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
-                                        LMOP
-                                    </span>
                                 @foreach($hero->adventures as $adventure)
                                     <span class="bg-green-900 text-green-300 text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
-                                        {{ $adventure->abbreviation }}LMOP
+                                        {{ $adventure->abbreviation }}
                                     </span>
                                 @endforeach
                             </div>

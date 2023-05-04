@@ -12,5 +12,21 @@
                 Abbréviation
             </label>
         </div>
+        <div class="relative flex">
+            <div>
+                <x-color-picker
+                    label="Couleur de fond"
+                    placeholder="Choisis une couleur"
+                    name="bg_color"
+                />
+            </div>
+            <div>
+                <x-color-picker
+                    label="Couleur du texte"
+                    placeholder="Choisis une couleur"
+                    name="text_color"
+                />
+            </div>
+        </div>
     </x-form-create>
 </x-app-layout>

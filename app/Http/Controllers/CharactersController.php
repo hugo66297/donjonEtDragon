@@ -31,79 +31,43 @@ class CharactersController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $backgrounds = Background::all();
-        $races = Race::all();
-        $alignments = Alignment::all();
-        $abilities = Ability::all();
-        $weapons = Weapon::all();
-        $utilities = Utility::all();
-        $attacks = Attack::all();
-        $features = Feature::all();
-        $subRaces = Subrace::all();
-        $goals = Goal::all();
-        $adventures = Adventure::all();
-        return view('characters.create')
-            ->with(
-                compact('categories',
-                    'backgrounds',
-                    'races',
-                    'alignments',
-                    'abilities',
-                    'weapons',
-                    'utilities',
-                    'attacks',
-                    'features',
-                    'subRaces',
-                    'goals',
-                    'adventures'
-                )
-            );
+        return view('characters.create');
     }
 
     public function store(StoreCharacterRequest $request)
     {
+        $abilities = \Arr::divide($request->validated('abilities'))[1];
+        $skills = \Arr::divide($request->validated('skills'))[1];
+        $savingThrows = \Arr::divide($request->validated('savingThrows'))[1];
+
         $hero = new Character();
-        foreach ($hero->getFillable() as $field) {
-            $hero->$field = $request->validated($field);
-        }
+        $hero->fill($request->validated('hero'));
         $hero->save();
 
-        // Abilities and skills
-        foreach (Request::input('abilities') as $abilityId => $ability) {
-            $hero->abilities()->attach($abilityId, $ability['attributes']);
-
-            $savingThrow = array_key_exists('savingThrow', $ability) ? $ability['savingThrow'] : [];
-            $hero->savingThrows()->attach($savingThrow['charactable_id'], $savingThrow);
-
-            $skills = array_key_exists('skills', $ability) ? $ability['skills'] : [];
-            foreach ($skills as $skillId => $skill) {
-                $hero->skills()->attach($skillId, $skill);
-            }
-        }
+        $hero->abilities()->sync($abilities);
+        $hero->skills()->sync($skills);
+        $hero->savingThrows()->sync($savingThrows);
+        $hero->features()->sync($request->validated('features'));
+        $hero->features()->sync($request->validated('weapons'));
 
         // Attacks
-        foreach (Request::input('attackIds') as $index => $attackId) {
-            $hero->attacks()
-                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
-        }
+//        foreach (Request::input('attackIds') as $index => $attackId) {
+//            $hero->attacks()
+//                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
+//        }
         // Utilities
-        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
-            $hero->utilities()
-                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
-        }
-        // Features
-        foreach (Request::input('features') as $featureId) {
-            $hero->features()->attach($featureId);
-        }
+//        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
+//            $hero->utilities()
+//                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
+//        }
         // Weapons
-        foreach (Request::input('weapons') as $weaponData) {
-            $hero->weapons()->attach(Weapon::getWeaponIdByInfos($weaponData));
-        }
+//        foreach (Request::input('weapons') as $weaponData) {
+//            $hero->weapons()->attach(Weapon::getWeaponIdByInfos($weaponData));
+//        }
         // Coins
-        foreach (Request::input('coins') as $coinId => $quantity) {
-            $hero->coins()->attach($coinId, ['quantity' => $quantity ?? 0]);
-        }
+//        foreach (Request::input('coins') as $coinId => $quantity) {
+//            $hero->coins()->attach($coinId, ['quantity' => $quantity ?? 0]);
+//        }
 
         return redirect()->route('heroes.show', compact('hero'));
     }
