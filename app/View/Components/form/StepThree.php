@@ -19,7 +19,15 @@ class StepThree extends Component
         public Collection $attacks
     )
     {
-        $this->weapons = Weapon::all();
+        $this->weapons = Weapon::all()->map(function (Weapon $weapon) {
+            return Weapon::hydrate([
+                [
+                    'id' => $weapon->getKey(),
+                    'name' => $weapon->name,
+                    'full_description' => $weapon->fullDescription()
+                ]
+            ])->first();
+        });
         $this->attacks = Attack::all();
     }
 

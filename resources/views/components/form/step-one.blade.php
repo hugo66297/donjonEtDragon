@@ -66,39 +66,7 @@
             <x-form-alert :error="'hero.goal_id'" />
         </div>
         <div class="relative">
-            <label for="adventures" class="font-titleMiddleAge text-sm text-red-800">
-                Aventure
-            </label>
-            <div>
-                <input
-                    type="text"
-                    id="dropdownSearchButton"
-                    data-dropdown-toggle="dropdownSearch"
-                    data-dropdown-placement="bottom"
-                    placeholder="Choisis ses aventures"
-                    class="p-2.5 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800"
-                />
-                <div id="dropdownSearch" class="z-10 hidden bg-[#f8f8f8] w-full rounded-lg shadow">
-                    <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700" aria-labelledby="dropdownSearchButton">
-                        @foreach($adventures as $adventure)
-                            <li>
-                                <div class="flex items-center pl-2 py-2 rounded">
-                                    <input
-                                        type="checkbox"
-                                        name="adventures[]"
-                                        id="{{$adventure->getKey()}}"
-                                        value="{{$adventure->getKey()}}"
-                                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 focus:ring-2"
-                                    >
-                                    <label for="{{$adventure->getKey()}}" class="ml-2 text-sm font-medium text-gray-900 hover:cursor-pointer">
-                                        {{ucfirst($adventure->name)}}
-                                    </label>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            <x-multiple-select :data="$adventures" label="Aventures" name="adventures" dropdown="dropdownAdventures" />
         </div>
         <div class="relative col-span-2">
             <label for="past" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">

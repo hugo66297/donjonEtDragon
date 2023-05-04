@@ -1,42 +1,7 @@
 <div id="step-div-2" class="hidden p-4 space-y-8">
     <div id="div-weapons">
         <div class="relative">
-            <label for="armes" class="font-titleMiddleAge text-sm text-red-800">
-                Armes
-            </label>
-            <div>
-                <input
-                    type="text"
-                    id="dropdownSearchButton"
-                    data-dropdown-toggle="dropdownWeaponsSearch"
-                    data-dropdown-placement="bottom"
-                    placeholder="Choisis ses armes"
-                    class="p-2.5 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800"
-                />
-                <div id="dropdownWeaponsSearch" class="z-10 hidden bg-[#f8f8f8] w-full rounded-lg shadow">
-                    <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700" aria-labelledby="dropdownSearchButton">
-                        @foreach($weapons as $weapon)
-                            <li>
-                                <div class="flex items-center pl-2 py-2 rounded">
-                                    <input
-                                        type="checkbox"
-                                        name="weapons[]"
-                                        id="{{$weapon->getKey()}}"
-                                        value="{{$weapon->getKey()}}"
-                                        class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 rounded focus:ring-red-500 focus:ring-2"
-                                    >
-                                    <label for="{{$weapon->getKey()}}" class="ml-2 text-sm font-medium text-gray-900 hover:cursor-pointer">
-                                        {{ucfirst($weapon->name)}}
-                                    </label>
-                                </div>
-                                <p class="text-gray-500 ml-8">
-                                    {{ $weapon->fullDescription() }}
-                                </p>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
+            <x-multiple-select :data="$weapons" label="Armes" name="weapons" dropdown="dropdownWeapons" />
         </div>
     </div>
     <div id="div-attacks">
