@@ -17,9 +17,7 @@
         @if(request()->routeIs('heroes.create'))
             @vite(['public/js/navigation_form.js'])
         @endif
-        <wireui:scripts />
         <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen flex flex-col">

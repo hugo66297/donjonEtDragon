@@ -1,6 +1,10 @@
 import './bootstrap';
+import 'flowbite'
+import Alpine from "alpinejs";
 
-import { Tabs } from "flowbite";
+window.Alpine = Alpine;
+
+Alpine.start();
 
 const tabElements = [
     { id: 'infos-tab', triggerEl: document.querySelector('#infos-tab'), targetEl: document.querySelector('#infos') },
