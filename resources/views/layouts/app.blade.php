@@ -11,17 +11,13 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
-        <livewire:styles />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @if(request()->routeIs('heroes.create'))
             @vite(['public/js/navigation_form.js'])
         @endif
-        <wireui:scripts />
         <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.4.2/dist/cdn.min.js"></script>
-        <livewire:scripts />
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen flex flex-col">
@@ -32,7 +28,11 @@
                 {{ $slot }}
             </main>
 
-            @include('layouts.footer')
+            @if(request()->routeIs('heroes.show'))
+                @include('layouts.footer', ['display' => 'hidden md:flex'])
+            @else
+                @include('layouts.footer')
+            @endif
         </div>
     </body>
 </html>

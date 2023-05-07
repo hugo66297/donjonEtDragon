@@ -20,13 +20,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('characters', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary()->default(Str::uuid());
             $table->foreignIdFor(Category::class)->constrained();
             $table->foreignIdFor(Subrace::class)->constrained();
             $table->foreignIdFor(Background::class)->constrained();
             $table->foreignIdFor(Alignment::class)->constrained();
             $table->foreignIdFor(Goal::class)->constrained();
-            $table->text('character_past');
+            $table->text('character_past')->nullable();
             $table->integer('passive_wisdom')->default(0);
             $table->integer('proficiency_bonus')->default(0);
             $table->integer('armor_class')->default(0);
@@ -36,9 +36,9 @@ return new class extends Migration
             $table->string('hit_dice',191);
             $table->text('equipment');
             $table->text('traits');
-            $table->text('ideaux');
+            $table->text('ideals');
             $table->text('liens');
-            $table->text('defauts');
+            $table->text('defects');
         });
     }
 
