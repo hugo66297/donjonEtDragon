@@ -1,72 +1,64 @@
 <div id="step-div-0" class="p-4 space-y-8">
     <div class="grid grid-cols-2 gap-8">
         <div class="relative">
-            <label for="category_id" class="font-titleMiddleAge text-sm text-red-800">
-                Classe
-            </label>
-            <select id="classe" name="hero[category_id]"
-                    class="block px-2.5 py-3 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                <option value="">Choisis une classe</option>
-                @foreach($categories as $category)
-                    <option value="{{$category->getKey()}}" {{ old('hero.category_id') ? "selected" : "" }}>{{$category->name}}</option>
-                @endforeach
-            </select>
+            <x-select
+                :data="$categories"
+                label="Classe"
+                :name="['hero[category_id]', 'hero.category_id']"
+                placeholder="Choisis une catégorie"
+                dropdown="dropdownCategories"
+            />
             <x-form-alert :error="'hero.category_id'" />
         </div>
         <div class="relative">
-            <label for="background_id" class="font-titleMiddleAge text-sm text-red-800">
-                Historique
-            </label>
-            <select id="historique" name="hero[background_id]"
-                    class="block p-2.5 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                <option value="">Choisis un historique</option>
-                @foreach($backgrounds as $background)
-                    <option value="{{$background->getKey()}}" {{ old('hero.background_id') ? "selected" : "" }}>{{$background->name}}</option>
-                @endforeach
-            </select>
+            <x-select
+                :data="$backgrounds"
+                label="Historique"
+                :name="['hero[background_id]', 'hero.background_id']"
+                placeholder="Choisis un historique"
+                dropdown="dropdownBackgrounds"
+            />
             <x-form-alert :error="'hero.background_id'" />
         </div>
         <div class="relative">
-            <label for="subrace_id" class="font-titleMiddleAge text-sm text-red-800">
-                Race
-            </label>
-            <select id="subrace" name="hero[subrace_id]"
-                    class="block p-2.5 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                <option value="">Choisis une sous-race</option>
-                @foreach($subRaces as $subRace)
-                    <option value="{{$subRace->getKey()}}" {{ old('hero.subrace_id') ? "selected" : "" }}>{{$subRace->fullName()}}</option>
-                @endforeach
-            </select>
+            <x-select
+                :data="$subRaces"
+                label="Race"
+                :name="['hero[subrace_id]', 'hero.subrace_id']"
+                placeholder="Choisis une race"
+                dropdown="dropdownRaces"
+            />
             <x-form-alert :error="'hero.subrace_id'" />
         </div>
         <div class="relative">
-            <label for="alignment_id" class="font-titleMiddleAge text-sm text-red-800">
-                Alignement
-            </label>
-            <select id="alignement" name="hero[alignment_id]"
-                    class="block p-2.5 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                <option value="">Choisis un alignement</option>
-                @foreach($alignments as $alignment)
-                    <option value="{{$alignment->getKey()}}" {{ old('hero.alignment_id') ? "selected" : "" }}>{{$alignment->name}}</option>
-                @endforeach
-            </select>
+            <x-select
+                :data="$alignments"
+                label="Alignement"
+                :name="['hero[alignment_id]', 'hero.alignment_id']"
+                placeholder="Choisis un alignement"
+                dropdown="dropdownAlignments"
+            />
             <x-form-alert :error="'hero.alignment_id'" />
         </div>
         <div class="relative">
-            <label for="goal_id" class="font-titleMiddleAge text-sm text-red-800">
-                Objectif
-            </label>
-            <select id="goal" name="hero[goal_id]"
-                    class="block p-2.5 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
-                <option value="">Choisis un objectif</option>
-                @foreach($goals as $goal)
-                    <option value="{{$goal->getKey()}}" {{ old('hero.goal_id') ? "selected" : "" }}>{{ucfirst($goal->name)}}</option>
-                @endforeach
-            </select>
+            <x-select
+                :data="$goals"
+                label="Objectif"
+                :name="['hero[goal_id]', 'hero.goal_id']"
+                placeholder="Choisis un objectif"
+                dropdown="dropdownGoals"
+            />
             <x-form-alert :error="'hero.goal_id'" />
         </div>
         <div class="relative">
-            <x-multiple-select :data="$adventures" label="Aventures" name="adventures" dropdown="dropdownAdventures" />
+            <x-multiple-select
+                :data="$adventures"
+                label="Aventures"
+                name="adventures"
+                placeholder="Choisis des aventures"
+                dropdown="dropdownAdventures"
+            />
+            <x-form-alert :error="'adventures'" />
         </div>
         <div class="relative col-span-2">
             <label for="past" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">

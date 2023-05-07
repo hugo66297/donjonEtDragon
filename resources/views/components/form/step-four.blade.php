@@ -18,7 +18,13 @@
         </div>
     </div>
     <div id="div-feature" class="">
-        <x-multiple-select :data="$features" label="Aptitudes" name="features" dropdown="dropdownFeatures" />
+        <x-multiple-select
+            :data="$features"
+            label="Aptitudes"
+            name="features"
+            placeholder="Choisis des aptitudes"
+            dropdown="dropdownFeatures"
+        />
     </div>
     <div id="div-maitrise" class="">
         <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-lg">

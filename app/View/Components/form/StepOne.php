@@ -29,9 +29,23 @@ class StepOne extends Component
     {
         $this->categories = Category::all();
         $this->backgrounds = Background::all();
-        $this->subRaces = Subrace::all();
+        $this->subRaces = Subrace::all()->map(function (Subrace $subRace) {
+            return Subrace::hydrate([
+                [
+                    'id' => $subRace->getKey(),
+                    'name' => $subRace->fullName(),
+                ]
+            ])->first();
+        });
         $this->alignments = Alignment::all();
-        $this->goals = Goal::all();
+        $this->goals = Goal::all()->map(function (Goal $goal) {
+            return Goal::hydrate([
+                [
+                    'id' => $goal->getKey(),
+                    'name' => ucfirst($goal->name),
+                ]
+            ])->first();
+        });
         $this->adventures = Adventure::all();
     }
 

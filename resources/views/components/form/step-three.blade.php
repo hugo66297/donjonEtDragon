@@ -1,7 +1,13 @@
 <div id="step-div-2" class="hidden p-4 space-y-8">
     <div id="div-weapons">
         <div class="relative">
-            <x-multiple-select :data="$weapons" label="Armes" name="weapons" dropdown="dropdownWeapons" />
+            <x-multiple-select
+                :data="$weapons"
+                label="Armes"
+                name="weapons"
+                placeholder="Choisis des armes"
+                dropdown="dropdownWeapons"
+            />
         </div>
     </div>
     <div id="div-attacks">
