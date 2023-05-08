@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Validation\Rule;
 
 class StoreCharacterRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class StoreCharacterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,21 +25,60 @@ class StoreCharacterRequest extends FormRequest
      */
     public function rules()
     {
+//        dd(Request::all());
         return [
-            'category_id' => ['required'],
-            'race_id' => ['required'],
-            'background_id' => ['required'],
-            'alignment_id' => ['required'],
-            'goal_id' => ['required'],
-            'character_past' => ['required'],
-            'passive_wisdom' => ['required'],
-            'proficiency_bonus' => ['required'],
-            'armor_class' => ['required'],
-            'initiative' => ['required'],
-            'speed' => ['required'],
-            'maximum_hp' => ['required'],
-            'hit_dic' => ['required'],
-            'equipment' => ['required'],
+            // Hero
+            'hero' => ['required', 'array'],
+            'hero.category_id' => ['required', 'uuid', 'exists:categories,id'],
+            'hero.subrace_id' => ['required', 'uuid', 'exists:subraces,id'],
+            'hero.background_id' => ['required', 'uuid', 'exists:backgrounds,id'],
+            'hero.alignment_id' => ['required', 'uuid', 'exists:alignments,id'],
+            'hero.goal_id' => ['required', 'uuid', 'exists:goals,id'],
+            'hero.passive_wisdom' => ['required', 'integer'],
+            'hero.proficiency_bonus' => ['required', 'integer'],
+            'hero.armor_class' => ['required', 'integer'],
+            'hero.initiative' => ['required', 'integer'],
+            'hero.speed' => ['required', 'numeric'],
+            'hero.maximum_hp' => ['required', 'integer'],
+            'hero.hit_dice' => ['required', 'regex:/^[1-9]d\d+/mi'],
+            'hero.equipment' => ['required', 'string', 'max:500'],
+            'hero.traits' => ['required', 'string', 'max:500'],
+            'hero.ideals' => ['required', 'string', 'max:500'],
+            'hero.liens' => ['required', 'string', 'max:500'],
+            'hero.defects' => ['required', 'string', 'max:500'],
+            // Abilities
+            'abilities' => ['required', 'array', 'size:6'],
+            'abilities.*' => ['array'],
+            'abilities.*.charactable_id' => ['required', 'uuid', 'exists:abilities,id', 'distinct'],
+            'abilities.*.ability_value' => ['required', 'integer'],
+            'abilities.*.other_modifier_ability' => ['nullable', 'integer'],
+            // Skills
+            'skills' => ['required', 'array', 'size:18'],
+            'skills.*' => ['array'],
+            'skills.*.charactable_id' => ['required', 'uuid', 'exists:skills,id', 'distinct'],
+            'skills.*.is_proficient' => ['nullable', 'boolean'],
+            'skills.*.other_modifier_skill' => ['nullable', 'integer'],
+            // SavingThrows
+            'savingThrows' => ['required', 'array', 'size:6'],
+            'savingThrows.*' => ['array'],
+            'savingThrows.*.charactable_id' => ['required', 'uuid', 'exists:saving_throws,id', 'distinct'],
+            'savingThrows.*.is_proficient' => ['nullable', 'boolean'],
+            'savingThrows.*.other_modifier_throw' => ['nullable', 'integer'],
+            // Weapons
+            'weapons' => ['required', 'array'],
+            'weapons.*' => ['uuid', 'exists:weapons,id', 'distinct'],
+            // Features
+            'features' => ['required', 'array'],
+            'features.*' => ['uuid', 'exists:features,id', 'distinct'],
+            // Fourth page
+
+             // Coins
+            'coins' => ['required', 'array', 'size:5'],
+            'coins.*.coin_id' => ['required', 'uuid', 'exists:coins,id', 'distinct'],
+            'coins.*.quantity' => ['integer'],
+             // Adventures
+            'adventures' => ['required', 'array'],
+            'adventures.*' => ['uuid', 'exists:adventures,id']
         ];
     }
 }

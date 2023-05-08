@@ -1,7 +1,6 @@
 import './bootstrap';
-
-import Alpine from 'alpinejs';
-import { Tabs } from "flowbite";
+import 'flowbite'
+import Alpine from "alpinejs";
 
 window.Alpine = Alpine;
 
@@ -14,12 +13,6 @@ const tabElements = [
     { id: 'competences-tab', triggerEl: document.querySelector('#competences-tab'), targetEl: document.querySelector('#competences') },
     { id: 'origine-tab', triggerEl: document.querySelector('#origine-tab'), targetEl: document.querySelector('#origine') }
 ];
-
-const options = {
-    defaultTabId: 'settings',
-    activeClasses: 'text-red-700 hover:text-red-700 dark:text-red-700 dark:hover:text-red-700 border-red-700 dark:border-red-700',
-    inactiveClasses: 'text-gray-500',
-};
 
 // const tabs = new Tabs(tabElements, options);
 // tabs.show('infos-tab')

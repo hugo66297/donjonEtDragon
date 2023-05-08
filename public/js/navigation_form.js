@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             index--
             steps[index].querySelector('span').querySelector(`#step-${index}-icon`).classList.toggle('hidden')
             steps[index].querySelector('span').querySelector('#check').classList.toggle('hidden')
-            steps[index].classList.replace('after:border-red-800', 'after:border-gray-700')
+            steps[index].classList.replace('border-red', 'border-gray')
             form.querySelector(`#step-div-${index}`).classList.toggle('hidden')
         }
         index === 0 && previous.classList.toggle('hidden')
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     next.addEventListener('click', () => {
         if (index < steps.length) {
-            steps[index].classList.replace('after:border-gray-700', 'after:border-red-800')
+            steps[index].classList.replace('border-gray', 'border-red')
             steps[index].querySelector('span').querySelector(`#step-${index}-icon`).classList.toggle('hidden')
             steps[index].querySelector('span').querySelector('#check').classList.toggle('hidden')
             form.querySelector(`#step-div-${index}`).classList.toggle('hidden')

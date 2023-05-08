@@ -28,7 +28,11 @@
                 {{ $slot }}
             </main>
 
-            @include('layouts.footer')
+            @if(request()->routeIs('heroes.show'))
+                @include('layouts.footer', ['display' => 'hidden md:flex'])
+            @else
+                @include('layouts.footer')
+            @endif
         </div>
     </body>
 </html>

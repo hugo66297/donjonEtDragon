@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('character_coin', function (Blueprint $table) {
-            $table->primary(['character_id','coin_id']);
+            $table->primary(['character_id', 'coin_id']);
             $table->foreignIdFor(Character::class)->constrained();
             $table->foreignIdFor(Coin::class)->constrained();
             $table->integer('quantity')->default(0);

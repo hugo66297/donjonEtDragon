@@ -17,7 +17,9 @@ use App\Models\Subrace;
 use App\Models\Utility;
 use App\Models\Weapon;
 use GrahamCampbell\Markdown\Facades\Markdown;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class CharactersController extends Controller
 {
@@ -29,47 +31,43 @@ class CharactersController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        $backgrounds = Background::all();
-        $races = Race::all();
-        $alignments = Alignment::all();
-        $abilities = Ability::all();
-        $weapons = Weapon::all();
-        $utilities = Utility::all();
-        $attacks = Attack::all();
-        $features = Feature::all();
-        $subRaces = Subrace::all();
-        $goals = Goal::all();
-        $adventures = Adventure::all();
-        return view('characters.create')
-            ->with(
-                compact('categories',
-                    'backgrounds',
-                    'races',
-                    'alignments',
-                    'abilities',
-                    'weapons',
-                    'utilities',
-                    'attacks',
-                    'features',
-                    'subRaces',
-                    'goals',
-                    'adventures'
-                )
-            );
+        return view('characters.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreCharacterRequest $request)
     {
-        $hero = new Character();
-        $hero->category_id = $request->get('category');
-        $hero->background_id = $request->get('background');
-        $hero->subrace_id = $request->get('subrace');
-        $hero->alignment_id = $request->get('alignment');
-        $hero->goal_id = $request->get('goal');
+        $abilities = \Arr::divide($request->validated('abilities'))[1];
+        $skills = \Arr::divide($request->validated('skills'))[1];
+        $savingThrows = \Arr::divide($request->validated('savingThrows'))[1];
 
-        $hero->fill($request->all($hero->getFillable()));
+        $hero = new Character();
+        $hero->fill($request->validated('hero'));
         $hero->save();
+
+        $hero->abilities()->sync($abilities);
+        $hero->skills()->sync($skills);
+        $hero->savingThrows()->sync($savingThrows);
+        $hero->features()->sync($request->validated('features'));
+        $hero->features()->sync($request->validated('weapons'));
+
+        // Attacks
+//        foreach (Request::input('attackIds') as $index => $attackId) {
+//            $hero->attacks()
+//                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
+//        }
+        // Utilities
+//        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
+//            $hero->utilities()
+//                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
+//        }
+        // Weapons
+//        foreach (Request::input('weapons') as $weaponData) {
+//            $hero->weapons()->attach(Weapon::getWeaponIdByInfos($weaponData));
+//        }
+        // Coins
+//        foreach (Request::input('coins') as $coinId => $quantity) {
+//            $hero->coins()->attach($coinId, ['quantity' => $quantity ?? 0]);
+//        }
 
         return redirect()->route('heroes.show', compact('hero'));
     }

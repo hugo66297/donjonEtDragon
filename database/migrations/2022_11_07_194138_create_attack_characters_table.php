@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('attack_character', function (Blueprint $table) {
-            $table->primary(['character_id','attack_id']);
+            $table->primary(['character_id', 'attack_id']);
             $table->foreignIdFor(Character::class)->constrained();
             $table->foreignIdFor(Attack::class)->constrained();
             $table->text('other_description')->nullable();

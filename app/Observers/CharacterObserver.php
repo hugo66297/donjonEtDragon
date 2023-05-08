@@ -30,41 +30,7 @@ class CharacterObserver
      */
     public function created(Character $character)
     {
-        // Abilities and skills
-        foreach (Request::input('abilities') as $abilityId => $ability) {
-            $character->abilities()->attach($abilityId, $ability['attributes']);
 
-            $savingThrow = array_key_exists('savingThrow', $ability) ? $ability['savingThrow'] : [];
-            $character->savingThrows()->attach($savingThrow['charactable_id'], $savingThrow);
-
-            $skills = array_key_exists('skills', $ability) ? $ability['skills'] : [];
-            foreach ($skills as $skillId => $skill) {
-                $character->skills()->attach($skillId, $skill);
-            }
-        }
-
-        // Attacks
-        foreach (Request::input('attackIds') as $index => $attackId) {
-            $character->attacks()
-                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
-        }
-        // Utilities
-        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
-            $character->utilities()
-                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
-        }
-        // Features
-        foreach (Request::input('features') as $featureId) {
-            $character->features()->attach($featureId);
-        }
-        // Weapons
-        foreach (Request::input('weapons') as $weaponData) {
-            $character->weapons()->attach(Weapon::getWeaponIdByInfos($weaponData));
-        }
-        // Coins
-        foreach (Request::input('coins') as $coinId => $quantity) {
-            $character->coins()->attach($coinId, ['quantity' => $quantity]);
-        }
     }
 
     /**
