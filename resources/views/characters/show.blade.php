@@ -153,7 +153,7 @@
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Idéaux</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->ideaux }}</p>
+                        <p class="text-gray-500 indent-4">{{ $hero->ideals }}</p>
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Liens</p>
@@ -161,7 +161,7 @@
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Défauts</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->defauts }}</p>
+                        <p class="text-gray-500 indent-4">{{ $hero->defects }}</p>
                     </div>
                 </div>
             </x-tab-item>
@@ -299,8 +299,8 @@
                         <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4 text-center">
                             Équipements
                         </h2>
-                        <div class="text-justify">
-                            @markdown("{$hero->equipment}")
+                        <div id="equipment" class="text-justify">
+                            {!! $hero->equipment !!}
                         </div>
                     </div>
                 </div>

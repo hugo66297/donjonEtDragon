@@ -114,7 +114,3 @@
         </div>
     </form>
 </x-app-layout>
-
-<script>
-    document.querySelector('.editor-statusbar').classList.add('hidden')
-</script>

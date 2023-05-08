@@ -29,7 +29,7 @@
         <div
             data-dropdown-toggle="{{$dropdown}}"
             data-dropdown-placement="bottom"
-            class="p-2.5 w-full flex justify-between text-sm bg-transparent border-b border-gray-600 focus:ring-0 focus:border-red-800"
+            class="p-2 w-full flex justify-between text-sm bg-transparent border rounded-md border-gray-600 focus:ring-0 focus:border-red-800"
         >
             <p x-text="selectedItem.id === '' ? @js($placeholder) : originalData.find(e => e.id === selectedItem.id).name"></p>
             <x-icon.double-arrow />

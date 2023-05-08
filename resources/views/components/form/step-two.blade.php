@@ -9,7 +9,7 @@
                             type="number"
                             id="valeur-{{$ability->name}}"
                             name="abilities[{{$ability->getKey()}}][ability_value]"
-                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                            class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                             placeholder="Valeur"
                         />
                         <label
@@ -24,7 +24,7 @@
                             type="number"
                             id="bonus-{{$ability->name}}"
                             name="abilities[{{$ability->getKey()}}][other_modifier_ability]"
-                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                            class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                             placeholder="Bonus"
                         />
                     </div>
@@ -39,7 +39,7 @@
                             type="number"
                             id="modificateur-{{$ability->name}}"
                             name="savingThrows[{{$ability->savingThrow->getKey()}}][other_modifier_throw]"
-                            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                            class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                             placeholder="Bonus"
                         />
                     </div>
@@ -67,7 +67,7 @@
                                 <input
                                     type="number" id="modificateur-{{$skill->name}}"
                                     name="skills[{{$skill->getKey()}}][other_modifier_skill]"
-                                    class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
+                                    class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                                     placeholder="Bonus"
                                 />
                                 <label
@@ -85,7 +85,8 @@
                                     class="sr-only peer"
                                 >
                                 <div
-                                    class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"></div>
+                                    class="w-11 h-6 peer-focus:outline-none rounded-full peer bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-red-800"
+                                ></div>
                                 <span class="ml-3 text-sm font-medium text-gray-900">Maîtrisé ?</span>
                             </label>
                         </div>

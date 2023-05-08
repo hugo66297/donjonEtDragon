@@ -29,7 +29,6 @@ class Character extends Model
         'liens',
         'defects',
         'character_past',
-        'equipment'
     ];
 
     // One-to-one relationships

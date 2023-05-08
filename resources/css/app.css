@@ -24,3 +24,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#equipment li::before {
+    content: '';
+    display: inline-block;
+    height: 0.7rem;
+    width: 0.7rem;
+    background-image: url("../../public/storage/img/list-icon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

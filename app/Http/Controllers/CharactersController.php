@@ -36,38 +36,29 @@ class CharactersController extends Controller
 
     public function store(StoreCharacterRequest $request)
     {
-        $abilities = \Arr::divide($request->validated('abilities'))[1];
-        $skills = \Arr::divide($request->validated('skills'))[1];
-        $savingThrows = \Arr::divide($request->validated('savingThrows'))[1];
-
         $hero = new Character();
+        $hero->equipment = Markdown::convert($request->validated('hero.equipment'))->getContent();
         $hero->fill($request->validated('hero'));
         $hero->save();
 
-        $hero->abilities()->sync($abilities);
-        $hero->skills()->sync($skills);
-        $hero->savingThrows()->sync($savingThrows);
+        $hero->abilities()->sync(\Arr::divide($request->validated('abilities'))[1]);
+        $hero->skills()->sync(\Arr::divide($request->validated('skills'))[1]);
+        $hero->savingThrows()->sync(\Arr::divide($request->validated('savingThrows'))[1]);
+        $hero->coins()->sync(\Arr::divide($request->validated('coins'))[1]);
+        $hero->adventures()->sync($request->validated('adventures'));
         $hero->features()->sync($request->validated('features'));
-        $hero->features()->sync($request->validated('weapons'));
+        $hero->weapons()->sync($request->validated('weapons'));
 
-        // Attacks
-//        foreach (Request::input('attackIds') as $index => $attackId) {
-//            $hero->attacks()
-//                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
-//        }
+         // Attacks
+        foreach (Request::input('attackIds') as $index => $attackId) {
+            $hero->attacks()
+                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
+        }
         // Utilities
-//        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
-//            $hero->utilities()
-//                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
-//        }
-        // Weapons
-//        foreach (Request::input('weapons') as $weaponData) {
-//            $hero->weapons()->attach(Weapon::getWeaponIdByInfos($weaponData));
-//        }
-        // Coins
-//        foreach (Request::input('coins') as $coinId => $quantity) {
-//            $hero->coins()->attach($coinId, ['quantity' => $quantity ?? 0]);
-//        }
+        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
+            $hero->utilities()
+                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
+        }
 
         return redirect()->route('heroes.show', compact('hero'));
     }

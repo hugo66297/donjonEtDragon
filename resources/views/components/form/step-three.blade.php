@@ -11,7 +11,7 @@
         </div>
     </div>
     <div id="div-attacks">
-        <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-lg">
+        <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-md">
             <table
                 id="table-attacks"
                 class="w-full text-sm text-left text-gray-400"
@@ -35,7 +35,7 @@
                 <tr x-data="" x-ref="line" class="border-b">
                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                         <select onchange="disabledDescription(this)" id="attack_id" name="attackIds[]"
-                                class="block w-full px-2.5 pb-2.5 pt-4 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                                class="block w-full p-2 text-sm bg-transparent rounded-md border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
                             <option value="">Choisis une option</option>
                             @foreach($attacks as $attack)
                                 <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
@@ -44,7 +44,7 @@
                     </td>
                     <td class="px-6 py-4">
                                 <textarea id="attack_description" name="attackDescriptions[]" rows="4"
-                                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
+                                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
                                           placeholder="Je suis convaincu..."></textarea>
                     </td>
                     <td class="px-6 py-4">

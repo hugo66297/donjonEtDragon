@@ -74,8 +74,9 @@ class StoreCharacterRequest extends FormRequest
 
              // Coins
             'coins' => ['required', 'array', 'size:5'],
+            'coins.*' => ['array'],
             'coins.*.coin_id' => ['required', 'uuid', 'exists:coins,id', 'distinct'],
-            'coins.*.quantity' => ['integer'],
+            'coins.*.quantity' => ['nullable', 'integer'],
              // Adventures
             'adventures' => ['required', 'array'],
             'adventures.*' => ['uuid', 'exists:adventures,id']
