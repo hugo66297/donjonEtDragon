@@ -7,7 +7,10 @@
             </label>
         </div>
         <div>
-            <x-markdown-editor :id="'description-markdown-editor'" :title="'Description'" :name="'description'"></x-markdown-editor>
+            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                Informations sur la sous-race
+            </label>
+            <x-easy-mde name="description" placeholder="Vous possédez une réserve limitée..."></x-easy-mde>
         </div>
         <div class="relative">
             <label for="race_id" class="font-titleMiddleAge text-sm text-red-800">

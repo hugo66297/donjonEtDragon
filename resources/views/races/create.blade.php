@@ -7,10 +7,16 @@
             </label>
         </div>
         <div>
-            <x-markdown-editor :id="'description-markdown-editor'" :title="'Description'" :name="'description'"></x-markdown-editor>
+            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                Informations sur la race
+            </label>
+            <x-easy-mde name="description" placeholder="Vous possédez une réserve limitée..."></x-easy-mde>
         </div>
         <div>
-            <x-markdown-editor :id="'example-markdown-editor'" :title="'Exemples de prénoms'" :name="'example_surname'"></x-markdown-editor>
+            <label for="example_surname" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                Noms populaires dans cette race
+            </label>
+            <x-easy-mde name="example_surname" placeholder="Vous possédez une réserve limitée..."></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>

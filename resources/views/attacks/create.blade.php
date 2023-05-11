@@ -7,7 +7,10 @@
             </label>
         </div>
         <div>
-            <x-markdown-editor :id="'description-markdown-editor'" :title="'Description'" :name="'description'"></x-markdown-editor>
+            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                Informations sur l'attaque
+            </label>
+            <x-easy-mde name="description" placeholder="Tour de magie"></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>

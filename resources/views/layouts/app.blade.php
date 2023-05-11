@@ -12,12 +12,18 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
 
+        <!-- One of the following themes -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"/> <!-- 'monolith' theme -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/> <!-- 'nano' theme -->
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @if(request()->routeIs('heroes.create'))
             @vite(['public/js/navigation_form.js'])
         @endif
         <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen flex flex-col">

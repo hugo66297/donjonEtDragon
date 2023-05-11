@@ -1,6 +1,8 @@
 <?php
 
+use App\View\Components\ColorPicker;
 use App\View\Components\EasyMDE;
+use App\View\Components\Input;
 use BladeUIKit\Components;
 
 return [
@@ -21,11 +23,10 @@ return [
         'avatar' => Components\Support\Avatar::class,
         'carbon' => Components\DateTime\Carbon::class,
         'checkbox' => Components\Forms\Inputs\Checkbox::class,
-        'color-picker' => Components\Forms\Inputs\ColorPicker::class,
+        'color-picker' => ColorPicker::class,
         'countdown' => Components\DateTime\Countdown::class,
         'cron' => Components\Support\Cron::class,
         'dropdown' => Components\Navigation\Dropdown::class,
-//        'easy-mde' => Components\Editors\EasyMDE::class,
         'easy-mde' => EasyMDE::class,
         'email' => Components\Forms\Inputs\Email::class,
         'error' => Components\Forms\Error::class,
@@ -33,7 +34,7 @@ return [
         'form' => Components\Forms\Form::class,
         'form-button' => Components\Buttons\FormButton::class,
         'html' => Components\Layouts\Html::class,
-        'input' => Components\Forms\Inputs\Input::class,
+        'input' => Input::class,
         'label' => Components\Forms\Label::class,
         'logout' => Components\Buttons\Logout::class,
         'mapbox' => Components\Maps\Mapbox::class,
