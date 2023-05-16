@@ -85,7 +85,9 @@
                         </dl>
                         <div class="flex justify-end p-2">
                             <button type="button" class="text-white font-normalMedieval bg-gray-700 focus:outline-none font-medium text-center">
-                                <a class="hover:underline" href="{{route('spells.show', $spell)}}">Plus de détails</a>
+                                <a class="hover:underline" href="{{route('spells.show', [$spell, $spells->currentPage()])}}">
+                                    Plus de détails
+                                </a>
                             </button>
                         </div>
                     </div>
@@ -93,7 +95,7 @@
             </div>
         @endforeach
     </div>
-    {{ $spells->links() }}
+    {{ $spells->appends(['page' => $spells->currentPage()])->links() }}
 </x-app-layout>
 
 <script>

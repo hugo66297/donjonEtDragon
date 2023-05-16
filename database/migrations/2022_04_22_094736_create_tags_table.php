@@ -89,23 +89,53 @@ return new class extends Migration
         /*--------------------------------------------------------------*/
         Tag::insert([
             'id' => Str::uuid(),
-            'name' => 'Sort d\'attaque',
+            'name' => 'Attaque',
             'tag_path' => 'storage/img/tags/type/attack.png'
         ]);
         Tag::insert([
             'id' => Str::uuid(),
-            'name' => 'Sort de buff',
+            'name' => 'Buff',
             'tag_path' => 'storage/img/tags/type/buff.png'
         ]);
         Tag::insert([
             'id' => Str::uuid(),
-            'name' => 'Sort de debuff',
+            'name' => 'Debuff',
             'tag_path' => 'storage/img/tags/type/debuff.png'
         ]);
         Tag::insert([
             'id' => Str::uuid(),
-            'name' => 'Sort de soin',
+            'name' => 'Soin',
             'tag_path' => 'storage/img/tags/type/heal.png'
+        ]);
+        Tag::insert([
+            'id' => Str::uuid(),
+            'name' => 'Transformation',
+            'tag_path' => 'storage/img/tags/type/transformation.png'
+        ]);
+        Tag::insert([
+            'id' => Str::uuid(),
+            'name' => 'Environement',
+            'tag_path' => 'storage/img/tags/type/environment.png'
+        ]);
+        Tag::insert([
+            'id' => Str::uuid(),
+            'name' => 'Invocation',
+            'tag_path' => 'storage/img/tags/type/invocation.png'
+        ]);
+        Tag::insert([
+            'id' => Str::uuid(),
+            'name' => 'Interaction',
+            'tag_path' => 'storage/img/tags/type/interaction.png'
+        ]);
+        Tag::insert([
+            'id' => Str::uuid(),
+            'name' => 'Contrôle',
+            'tag_path' => 'storage/img/tags/type/control.png'
+        ]);
+        Tag::insert([
+            'id' => Str::uuid(),
+            'name' => 'Spécial',
+            'tag_path' => 'storage/img/tags/type/special.png'
         ]);
     }
 

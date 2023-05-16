@@ -9,7 +9,7 @@ class SpellsController extends Controller
 {
     public function index()
     {
-        $spells = Spell::paginate(20);
+        $spells = Spell::orderBy('name')->paginate(20);
         return view('spells.index')->with(compact('spells'));
     }
 
@@ -40,8 +40,9 @@ class SpellsController extends Controller
      * @param  \App\Models\Spell  $spell
      * @return \Illuminate\Http\Response
      */
-    public function show(Spell $spell)
+    public function show(Spell $spell, int $page)
     {
+        session(['previous_page' => $page]);
         return view('spells.show')->with(compact('spell'));
     }
 

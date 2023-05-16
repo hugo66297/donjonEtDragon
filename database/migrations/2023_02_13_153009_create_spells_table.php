@@ -7,7 +7,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -56,7 +57,7 @@ return new class extends Migration {
             'name' => 'Alarme',
             'school' => 'Abjuration',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => '9 mètres',
             'component' => 'V, S, M (une minuscule clochette et un filament en argent)',
@@ -182,7 +183,7 @@ return new class extends Migration {
             'name' => 'Appel de familier',
             'school' => 'Invocation',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 heure',
             'range' => '3 mètres',
             'component' => 'V, S, M (10 po de charbon, d\'encens et d\'herbes à faire brûler dans un brasero en laiton)',
@@ -210,7 +211,7 @@ return new class extends Migration {
             'range' => 'contact',
             'component' => 'V, S',
             'duration' => 'concentration,jusqu\'à 1 heure',
-            'description' => 'Vous touchez une arme non magique pour la rendre magique. Choisissez l\'un des types de dégâts suivants : acide, feu, foudre, froid ou tonnerre. Pendant toute la durée du sort, l\'arme bénéficie d\'un bonus de +l aux jets d\'attaque et inflige 1d4 dégâts supplémentaires du type choisi.',
+            'description' => 'Vous touchez une arme non magique pour la rendre magique. Choisissez l\'un des types de dégâts suivants : acide, feu, foudre, froid ou tonnerre. Pendant toute la durée du sort, l\'arme bénéficie d\'un bonus de +1 aux jets d\'attaque et inflige 1d4 dégâts supplémentaires du type choisi.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou 6, le bonus aux jets d\'attaque passe à +2 et les dégâts supplémentaires à 2d4. Quand vous utilisez un emplacement de sort de niveau 7 ou plus, le bonus passe à +3 et les dégâts supplémentaires à 3d4.'
         ]);
         Spell::insert([
@@ -222,7 +223,7 @@ return new class extends Migration {
             'range' => 'contact',
             'component' => 'V, S',
             'duration' => 'concentration, jusqu\'à 1 heure',
-            'description' => 'Vous touchez une arme non magique.Jusqu\'à la fin du sort, elle devient magique et bénéficie d\'un bonus de +1 aux jets d\'attaque et de dégâts.',
+            'description' => 'Vous touchez une arme non magique. Jusqu\'à la fin du sort, elle devient magique et bénéficie d\'un bonus de +1 aux jets d\'attaque et de dégâts.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 4 ou plus, le bonus passe à +2, et à +3 si vous utilisez un emplacement de niveau 6 ou plus.'
         ]);
         Spell::insert([
@@ -293,9 +294,9 @@ return new class extends Migration {
             'duration' => 'concentration, jusqu\'à 1 minute',
             'description' => 'Vous puisez dans les cauchemars d\'une créature située à portée dans votre champ de vision pour créer une manifestation illusoire de ses pires terreurs, qu\'elle sera la seule à voir. La cible doit faire un jet de sauvegarde de Sagesse. Si elle le rate, elle est terrorisée pendant toute la durée du sort. Tant que le sort n\'est pas terminé, la cible doit faire un jet de sauvegarde de Sagesse à la fin de chacun de ses tours. Elle subit 4d10 dégâts psychiques à chaque échec. Le sort se termine dès qu\'elle réussit un jet de sauvegarde.',
             'upper_lvl' => 'Si vous lancez ce sort en utilisant un emplacement de niveau 5 ou plus, les dégâts augmentent de 1d10 par niveau au-delà du 4e.'
-         ]);
-         Spell::insert([
-             'id' => Str::uuid(),
+        ]);
+        Spell::insert([
+            'id' => Str::uuid(),
             'name' => 'Assistance',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
@@ -336,7 +337,7 @@ return new class extends Migration {
             'range' => 'personnelle (9 m de rayon)',
             'component' => 'V',
             'duration' => 'concentration,jusqu\'à 10 minutes',
-            'description' => 'Une énergie protectrice de vie émane de vous et forme une aura dans un rayon de 9 mètres. Cette aura se déplace avec vous jusqu\'à la fin du sort et reste centrée sur vous. Chaque créature non hostile qui se trouve dans l\'aura (vous y compris) devient résistante aux dégâts nécrotiques et il est impossible de réduire son maximum de points de vie. De plus, une créature vivante non hostile récupère 1 point de vie quand elle débute son tour au sein de l\'aura alors qu\'elle a O point de vie.'
+            'description' => 'Une énergie protectrice de vie émane de vous et forme une aura dans un rayon de 9 mètres. Cette aura se déplace avec vous jusqu\'à la fin du sort et reste centrée sur vous. Chaque créature non hostile qui se trouve dans l\'aura (vous y compris) devient résistante aux dégâts nécrotiques et il est impossible de réduire son maximum de points de vie. De plus, une créature vivante non hostile récupère 1 point de vie quand elle débute son tour au sein de l\'aura alors qu\'elle a 0 point de vie.'
         ]);
         Spell::insert([
             'id' => Str::uuid(),
@@ -473,7 +474,7 @@ return new class extends Migration {
             'range' => '9 mètres',
             'component' => 'V, S, M (un rayon de miel et de la poussière de jade d\'une valeur de 10 po, que le sort consume)',
             'duration' => 'jusqu\'à dissipation',
-            'description' => 'Vous implantez un message dans un objet situé à portée. On entend le message dès que les conditions le déclenchant sont remplies. Choisissez un objet situé dans votre champ de vision qui n\'est ni porté ni transporté par une autre créature.Prononcez ensuite le message, qui doit se composer de 25 mots au maximum, mais peut se répéter pendant un maximum de 10 minutes. Enfin, déterminez les circonstances dans lesquelles Je message s\'activera.\n Quand les conditions de déclenchement sont remplies, une bouche magique apparaît sur l\'objet et récite le message avec la même voix que vous et au volume où vous l\'avez prononcé. Si l\'objet choisi possède une bouche ou quelque chose qui y ressemble (comme la bouche d\'une statue), la bouche magique apparaît de manière à donner l\'impression que les paroles sortent des lèvres de l\'objet. Lors de l\'incantation, vous pouvez décider que le sort se termine une fois le message transmis ou qu\'il reste actif et répète le message chaque fois que les conditions de déclenchement sont remplies.\n Ces dernières peuvent être aussi génériques ou spécifiques que vous le désirez, mais elles doivent se baser sur des données visuelles ou audibles, perceptibles dans un rayon de 9 mètres autour de l\'objet. Par exemple, vous pouvez ordonner à la bouche de parler dès qu\'une créature approche à 9 mètres ou moins de l\'objet ou quand une cloche d\'argent retentit dans un rayon de 9 mètres.'
+            'description' => 'Vous implantez un message dans un objet situé à portée. On entend le message dès que les conditions le déclenchant sont remplies. Choisissez un objet situé dans votre champ de vision qui n\'est ni porté ni transporté par une autre créature. Prononcez ensuite le message, qui doit se composer de 25 mots au maximum, mais peut se répéter pendant un maximum de 10 minutes. Enfin, déterminez les circonstances dans lesquelles Je message s\'activera.\n Quand les conditions de déclenchement sont remplies, une bouche magique apparaît sur l\'objet et récite le message avec la même voix que vous et au volume où vous l\'avez prononcé. Si l\'objet choisi possède une bouche ou quelque chose qui y ressemble (comme la bouche d\'une statue), la bouche magique apparaît de manière à donner l\'impression que les paroles sortent des lèvres de l\'objet. Lors de l\'incantation, vous pouvez décider que le sort se termine une fois le message transmis ou qu\'il reste actif et répète le message chaque fois que les conditions de déclenchement sont remplies.\n Ces dernières peuvent être aussi génériques ou spécifiques que vous le désirez, mais elles doivent se baser sur des données visuelles ou audibles, perceptibles dans un rayon de 9 mètres autour de l\'objet. Par exemple, vous pouvez ordonner à la bouche de parler dès qu\'une créature approche à 9 mètres ou moins de l\'objet ou quand une cloche d\'argent retentit dans un rayon de 9 mètres.'
         ]);
         Spell::insert([
             'id' => Str::uuid(),
@@ -877,7 +878,7 @@ return new class extends Migration {
             'name' => 'Communication avec les animaux',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -893,7 +894,7 @@ return new class extends Migration {
             'range' => '3 mètres',
             'component' => 'V, S, M (encens incandescent)',
             'duration' => '10 minutes',
-            'description' => 'Vous donnez un semblant de vie et d\'intelligence à un cadavre de votre choix situé à portée. Il est alors en mesure de répondre à vos questions. Le cadavre doit encore disposer d\'une bouche et ne doit pas être devenu mort-vivant. Le sort échoue si le cadavre choisi a déjà été la cible de ce sort au cours des dix jours précédents.\n Vous pouvez poser jusqu\'à cinq questions avant la fin de la durée du sort. Les connaissances du cadavre se limitent à ce qu\'il savait de son vivant, y compris au niveau des langues qu\'il parle. Les réponses sont souvent brèves, cryptiques ou répétitives et le cadavre n\'est absolument pas obligé de vous donner une réponse sincère si vous lui êtes hostile ou s\'il vous reconnaît comme étant un ennemi. Ce sort ne ramène pas l\'âme de la cible dans son corps,juste l\'esprit qui l\'animait; le cadavre ne peut donc pas apprendre de nouvelles informations, ne comprend rien de ce qui s\'est passé après sa mort et est incapable de faire des spéculations sur l\'avenir.'
+            'description' => 'Vous donnez un semblant de vie et d\'intelligence à un cadavre de votre choix situé à portée. Il est alors en mesure de répondre à vos questions. Le cadavre doit encore disposer d\'une bouche et ne doit pas être devenu mort-vivant. Le sort échoue si le cadavre choisi a déjà été la cible de ce sort au cours des dix jours précédents.\n Vous pouvez poser jusqu\'à cinq questions avant la fin de la durée du sort. Les connaissances du cadavre se limitent à ce qu\'il savait de son vivant, y compris au niveau des langues qu\'il parle. Les réponses sont souvent brèves, cryptiques ou répétitives et le cadavre n\'est absolument pas obligé de vous donner une réponse sincère si vous lui êtes hostile ou s\'il vous reconnaît comme étant un ennemi. Ce sort ne ramène pas l\'âme de la cible dans son corps, juste l\'esprit qui l\'animait; le cadavre ne peut donc pas apprendre de nouvelles informations, ne comprend rien de ce qui s\'est passé après sa mort et est incapable de faire des spéculations sur l\'avenir.'
         ]);
         Spell::insert([
             'id' => Str::uuid(),
@@ -911,7 +912,7 @@ return new class extends Migration {
             'name' => 'Communion',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
             'component' => 'V, S, M (de l\'encens et une fiole d\'eau bénite ou maudite)',
@@ -923,7 +924,7 @@ return new class extends Migration {
             'name' => 'Communion avec la nature',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -935,7 +936,7 @@ return new class extends Migration {
             'name' => 'Compréhension des langues',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (une pincée de suie et de sel)',
@@ -982,7 +983,7 @@ return new class extends Migration {
             'name' => 'Contact avec les plans',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'personnelle',
             'component' => 'V',
@@ -998,7 +999,7 @@ return new class extends Migration {
             'range' => '36 mètres',
             'component' => 'V, S',
             'duration' => '1 round',
-            'description' => 'Vous faites apparaître une main fantomatique et squelettique à l\'emplacement d\'une créature située à portée. Faites un jet d\'attaque de sort à distance contre la créature pour la transir de froid. Si l\'attaque touche, la victime reçoit 1d8 dégâts nécrotiques et ne peut pas récupérer de point de vie avant le début de votre prochain tour.Jusque-là, la main s\'accroche à elle.\n Si votre cible est un mort-vivant, il est en plus désavantagé lors des jets d\'attaque effectués contre vous jusqu\'à la fin de votre prochain tour.\n Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
+            'description' => 'Vous faites apparaître une main fantomatique et squelettique à l\'emplacement d\'une créature située à portée. Faites un jet d\'attaque de sort à distance contre la créature pour la transir de froid. Si l\'attaque touche, la victime reçoit 1d8 dégâts nécrotiques et ne peut pas récupérer de point de vie avant le début de votre prochain tour. Jusque-là, la main s\'accroche à elle.\n Si votre cible est un mort-vivant, il est en plus désavantagé lors des jets d\'attaque effectués contre vous jusqu\'à la fin de votre prochain tour.\n Les dégâts du sort augmentent de 1d8 quand vous atteignez le niveau 5 (2d8), le niveau 11 (3d8) et le niveau 17 (4d8).'
         ]);
         Spell::insert([
             'id' => Str::uuid(),
@@ -1061,7 +1062,7 @@ return new class extends Migration {
             'name' => 'Convocations instantanées de Drawmij',
             'school' => 'Invocation',
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'V, S, M (un saphir d\'une valeur de 1 000 po)',
@@ -1088,7 +1089,7 @@ return new class extends Migration {
             'range' => 'contact',
             'component' => 'V, S, M (extrait de maïs en poudre et boucle de parchemin torsadé)',
             'duration' => '1 heure',
-            'description' => 'Vous touchez une longueur de corde d\'au maximum 18 mètres. L\'une de ses extrémités s\'élève alors dans les airs, jusqu\'à ce que toute la corde se dresse perpendiculairement au sol. Une entrée invisible s\'ouvre à l\'extrémité supérieure de la corde et débouche sur un espace extradimensionnel qui persiste jusqu\'à la fin du sort.\n On peut atteindre cet espace extradimensionnel en grimpant jusqu\'au sommet de la corde. Il peut accueillir un maximum de huit créatures de taille Moyenne ou inférieure. On peut ensuite tirer la corde dans l\'espace extradimensionnel, afin que personne ne la voie en dehors de l\'abri.\n Les attaques et les sorts ne peuvent pas traverser l\'entrée de l\'espace extradimensionnel, ni depuis l\'intérieur ni depuis l\'extérieur. En revanche, les créatures qui se trouvent à l\'intérieur peuvent regarder dehors grâce à une fenêtre de 90 centimètres sur 1,50 mètre centrée sur la corde.\n Tout ce qui se trouve dans l\'espace extradimensionnel tombe à l\'extérieur quand Je sort se termine.'
+            'description' => 'Vous touchez une longueur de corde d\'au maximum 18 mètres. L\'une de ses extrémités s\'élève alors dans les airs, jusqu\'à ce que toute la corde se dresse perpendiculairement au sol. Une entrée invisible s\'ouvre à l\'extrémité supérieure de la corde et débouche sur un espace extradimensionnel qui persiste jusqu\'à la fin du sort.\n On peut atteindre cet espace extradimensionnel en grimpant jusqu\'au sommet de la corde. Il peut accueillir un maximum de huit créatures de taille Moyenne ou inférieure. On peut ensuite tirer la corde dans l\'espace extradimensionnel, afin que personne ne la voie en dehors de l\'abri.\n Les attaques et les sorts ne peuvent pas traverser l\'entrée de l\'espace extradimensionnel, ni depuis l\'intérieur ni depuis l\'extérieur. En revanche, les créatures qui se trouvent à l\'intérieur peuvent regarder dehors grâce à une fenêtre de 90 centimètres sur 1,50 mètre centrée sur la corde.\n Tout ce qui se trouve dans l\'espace extradimensionnel tombe à l\'extérieur quand le sort se termine.'
         ]);
         Spell::insert([
             'id' => Str::uuid(),
@@ -1288,7 +1289,7 @@ return new class extends Migration {
             'name' => 'Détection de la magie',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1action',
             'range' => 'personnelle',
             'component' => 'V, S',
@@ -1344,7 +1345,7 @@ return new class extends Migration {
             'name' => 'Détection du poison et des maladies',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (un brin d\'if )',
@@ -1356,7 +1357,7 @@ return new class extends Migration {
             'name' => 'Disque flottant de Tenser',
             'school' => 'Invocation',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (une goutte de mercure)',
@@ -1402,7 +1403,7 @@ return new class extends Migration {
             'name' => 'Divination',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'personnelle',
             'component' => 'V, S, M (de l\'encens et une offrande sacrificielle adaptée à votre religion, l\'ensemble valant au moins 25 po, et que le sort consume)',
@@ -1483,7 +1484,7 @@ return new class extends Migration {
             'name' => 'Doux repos',
             'school' => 'Nécromancie',
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une pincée de sel et une pièce de cuivre à poser sur chaque oeil du cadavre et qui doivent rester en place pendant toute la durée du sort)',
@@ -1707,7 +1708,7 @@ return new class extends Migration {
             'name' => 'Feindre la mort / État cadavérique',
             'school' => 'Nécromancie',
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (une pincée de poussière tombale)',
@@ -1913,7 +1914,7 @@ return new class extends Migration {
             'name' => 'Fusion dans la pierre',
             'school' => 'Transmutation',
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S',
@@ -2074,7 +2075,7 @@ return new class extends Migration {
             'name' => 'Identification',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'V, S, M (une perle d\'une valeur minimale de 100 po et une plume de hibou)',
@@ -2212,7 +2213,7 @@ return new class extends Migration {
             'name' => 'Interdiction',
             'school' => 'Abjuration',
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '10 minutes',
             'range' => 'contact',
             'component' => 'V, S, M (un peu d\'eau bénite, un encens rare et un rubis en poudre d\'une valeur minimale de 1 000 po)',
@@ -2442,7 +2443,7 @@ return new class extends Migration {
             'name' => 'Lien télépathique de Rary',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (bouts de coquille d\'oeuf issus de deux espèces de créatures différentes)',
@@ -2454,7 +2455,7 @@ return new class extends Migration {
             'name' => 'Localisation d\'animaux ou de plantes',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'V, S, M (des poils de chien de chasse)',
@@ -2601,7 +2602,7 @@ return new class extends Migration {
             'name' => 'Marche sur l\'onde',
             'school' => 'Transmutation',
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un bout de liège)',
@@ -2647,7 +2648,7 @@ return new class extends Migration {
             'name' => 'Messager Animal',
             'school' => 'Enchantement',
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un peu de nourriture)',
@@ -2739,7 +2740,7 @@ return new class extends Migration {
             'name' => 'Monture fantôme',
             'school' => 'Illusion',
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S',
@@ -3112,7 +3113,7 @@ return new class extends Migration {
             'name' => 'Petite hutte de Léomund',
             'school' => 'Évocation',
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'personnelle (hémisphère de 3 mètres de rayon)',
             'component' => 'V, S, M (une petite perle de cristal)',
@@ -3494,7 +3495,7 @@ return new class extends Migration {
             'name' => 'Respiration aquatique',
             'school' => 'Transmutation',
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '9 mètres',
             'component' => 'V, S, M (un petit roseau ou un brin de paille)',
@@ -3617,7 +3618,7 @@ return new class extends Migration {
             'name' => 'Sens animal',
             'school' => 'Divination',
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => 'contact',
             'component' => 'S',
@@ -3629,7 +3630,7 @@ return new class extends Migration {
             'name' => 'Serviteur invisible',
             'school' => 'Invocation',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '18 mètres',
             'component' => 'V, S, M (un bout de ficelle et un morceau de bois)',
@@ -3641,7 +3642,7 @@ return new class extends Migration {
             'name' => 'Silence',
             'school' => 'Illusion',
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 action',
             'range' => '36 mètres',
             'component' => 'V, S',
@@ -3948,7 +3949,7 @@ return new class extends Migration {
             'name' => 'Texte illusoire',
             'school' => 'Illusion',
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
-            'is_rituel'=> true,
+            'is_rituel' => true,
             'cast_time' => '1 minute',
             'range' => 'contact',
             'component' => 'S, M (de l\'encre à base de plomb valant au minimum 10 po, que le sort consume)',
@@ -4133,7 +4134,7 @@ return new class extends Migration {
             'component' => 'V, S',
             'duration' => '10 minutes',
             'description' => 'Vous créez une zone magique, capable de protéger contre la duplicité, sous forme d\'une sphère de 4,50 mètres de rayon centrée sur un point de votre choix situé à portée. Jusqu\'à la fin du sort, une créature qui pénètre dans la sphère pour la première fois de son tour ou y commence son tour doit réussir un jet de sauvegarde de Charisme. Si elle échoue, elle ne peut pas mentir délibérément tant qu\'elle reste dans la zone du sort. Vous savez si chaque créature présente a réussi ou raté son jet de sauvegarde.\n Une créature affectée est consciente du sort qui la limite et peut donc soigneusement éviter de répondre aux questions qui susciteraient normalement un mensonge de sa part. Une telle créature peut rester évasive dans ses réponses, tant qu\'elle reste dans les limites de la vérité.'
-         ]);
+        ]);
     }
 
     /**
