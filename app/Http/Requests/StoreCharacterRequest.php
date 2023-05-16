@@ -42,10 +42,10 @@ class StoreCharacterRequest extends FormRequest
             'hero.maximum_hp' => ['required', 'integer'],
             'hero.hit_dice' => ['required', 'regex:/^[1-9]d\d+/mi'],
             'hero.equipment' => ['required', 'string', 'max:500'],
-            'hero.traits' => ['required', 'string', 'max:500'],
+            'hero.personality_traits' => ['required', 'string', 'max:500'],
             'hero.ideals' => ['required', 'string', 'max:500'],
-            'hero.liens' => ['required', 'string', 'max:500'],
-            'hero.defects' => ['required', 'string', 'max:500'],
+            'hero.bonds' => ['required', 'string', 'max:500'],
+            'hero.flaws' => ['required', 'string', 'max:500'],
             // Abilities
             'abilities' => ['required', 'array', 'size:6'],
             'abilities.*' => ['array'],

@@ -6,10 +6,21 @@ use Illuminate\Contracts\View\View;
 
 class Input extends \BladeUIKit\Components\Forms\Inputs\Input
 {
-    public function __construct(string $name, string $id = null, string $type = 'text', ?string $value = '')
+    public string $label;
+    public string $placeholder;
+    public function __construct(
+        string $name,
+        string $type = 'text',
+        string $id = null,
+        string $label = null,
+        string $placeholder = null,
+        ?string $value = ''
+    )
     {
         parent::__construct($name, $id, $type);
         $this->value = old($this->transformName(), $value ?? '');
+        $this->label = $label ?? '';
+        $this->placeholder = $placeholder ?? ' ';
     }
     public function transformName(): array|string {
         if (str_contains($this->name, '[') !== false) {

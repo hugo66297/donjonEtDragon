@@ -15,7 +15,7 @@
         <div class="relative flex justify-center space-x-8">
             <div class="flex flex-col items-center">
                 <label for="abbrev" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
-                    Abbréviation
+                    Couleur du fond
                 </label>
                 <x-color-picker
                     value="#fff"
@@ -24,7 +24,7 @@
             </div>
             <div class="flex flex-col items-center">
                 <label for="abbrev" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
-                    Abbréviation
+                    Couleur du texte
                 </label>
                 <x-color-picker
                     value="#fff"

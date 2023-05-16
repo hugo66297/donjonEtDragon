@@ -35,15 +35,15 @@
         <div
             data-dropdown-toggle="{{$dropdown}}"
             data-dropdown-placement="bottom"
-            class="p-2 w-full flex justify-between text-sm bg-transparent border rounded-md border-gray-600 focus:ring-0 focus:border-red-800"
+            class="py-2 px-3 w-full bg-white flex justify-between text-sm rounded-md shadow-sm cursor-pointer border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
         >
             <p x-text="selectedItem.length === 0 ? @js($placeholder) : `${selectedItem.length} option(s) sélectionnée(s)`"></p>
             <x-icon.double-arrow />
         </div>
-        <div class="hidden z-10 bg-[#f8f8f8] w-full rounded-lg shadow-md" id="{{$dropdown}}">
-            <div class="flex items-center justify-end p-2 cursor-pointer">
+        <div class="hidden z-10 bg-white w-full rounded-lg shadow-md" id="{{$dropdown}}">
+            <div class="flex items-center justify-end p-2">
                 <div
-                    class="flex items-center text-sm text-red-700 hover:text-red-900 font-bold"
+                    class="flex items-center text-sm text-red-700 hover:text-red-900 font-bold cursor-pointer"
                     x-on:click="removeItemsSelected()"
                 >
                     <p>Supprimer la sélection</p>
@@ -71,7 +71,7 @@
             <ul class="h-48 p-2 overflow-y-auto text-sm text-gray-700">
                 <template x-for="dt in data" :key="dt.id">
                     <li>
-                        <div class="flex items-center pl-2 py-2 rounded">
+                        <div class="flex items-center pl-2 py-2 rounded hover:bg-gray-200">
                             <input
                                 type="checkbox"
                                 name="{{$name}}[]"
@@ -82,15 +82,15 @@
                                 x-bind:value="dt.id"
                             >
                             <label
-                                x-text="dt.name"
                                 x-bind:for="dt.id"
-                                class="ml-2 text-sm font-medium text-gray-900 hover:cursor-pointer"
-                            ></label>
+                                class="ml-2 text-sm font-medium text-gray-900 hover:cursor-pointer grow"
+                            >
+                                <p x-text="dt.name"></p>
+                                <template x-if="dt.full_description">
+                                    <p class="text-gray-500" x-text="dt.full_description"></p>
+                                </template>
+                            </label>
                         </div>
-                        <template x-if="dt.full_description">
-                            <p class="text-gray-500 ml-8" x-text="dt.full_description">
-                            </p>
-                        </template>
                     </li>
                 </template>
             </ul>

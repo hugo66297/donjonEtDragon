@@ -29,15 +29,15 @@
         <div
             data-dropdown-toggle="{{$dropdown}}"
             data-dropdown-placement="bottom"
-            class="p-2 w-full flex justify-between text-sm bg-transparent border rounded-md border-gray-600 focus:ring-0 focus:border-red-800"
+            class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
         >
             <p x-text="selectedItem.id === '' ? @js($placeholder) : originalData.find(e => e.id === selectedItem.id).name"></p>
             <x-icon.double-arrow />
         </div>
-        <div class="hidden z-10 bg-[#f8f8f8] w-full rounded-lg shadow-md" id="{{$dropdown}}">
-            <div class="flex items-center justify-end p-2 cursor-pointer">
+        <div class="hidden z-10 bg-white w-full rounded-lg shadow-md" id="{{$dropdown}}">
+            <div class="flex items-center justify-end p-2">
                 <div
-                    class="flex items-center text-sm text-red-700 hover:text-red-900 font-bold"
+                    class="flex items-center text-sm text-red-700 hover:text-red-900 font-bold cursor-pointer"
                     x-on:click="removeItemSelected()"
                 >
                     <p>Supprimer la sélection</p>
@@ -65,7 +65,7 @@
             <ul class="h-48 p-2 overflow-y-auto text-sm text-gray-700">
                 <template x-for="dt in data" :key="dt.id">
                     <li>
-                        <div class="flex items-center pl-2 py-2 rounded">
+                        <div class="flex items-center pl-2 py-2 rounded hover:bg-gray-200">
                             <input
                                 type="radio"
                                 class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2"
@@ -76,7 +76,7 @@
                                 :checked="selectedItem.id === dt.id"
                             >
                             <label
-                                class="ml-2 text-sm font-medium text-gray-900 hover:cursor-pointer"
+                                class="ml-2 text-sm font-medium text-gray-900 hover:cursor-pointer grow"
                                 x-text="dt.name"
                                 x-bind:for="dt.id"
                             ></label>

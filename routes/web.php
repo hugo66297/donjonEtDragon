@@ -51,7 +51,8 @@ Route::get('/D&D/aventures/lmop', function () {
 })->name('lmop');
 
 Route::resource('categories', CategoriesController::class)->only('index');
-Route::resource('spells', SpellsController::class)->only('index', 'show');
+Route::resource('spells', SpellsController::class)->only('index');
+Route::get('spells/{spell}/{page?}', [SpellsController::class, 'show'])->name('spells.show');
 
 Route::get('categories/{category}/characters', [CharactersController::class, 'index'])->name('characters.index');
 Route::resource('heroes', CharactersController::class)->except('index');

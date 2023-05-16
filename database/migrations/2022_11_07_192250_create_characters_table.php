@@ -35,10 +35,10 @@ return new class extends Migration
             $table->integer('maximum_hp')->default(0);
             $table->string('hit_dice',191);
             $table->text('equipment');
-            $table->text('traits');
+            $table->text('personality_traits');
             $table->text('ideals');
-            $table->text('liens');
-            $table->text('defects');
+            $table->text('bonds');
+            $table->text('flaws');
         });
     }
 

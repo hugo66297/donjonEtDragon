@@ -5,41 +5,33 @@
                 <div class="space-y-2">
                     <input type="hidden" name="abilities[{{$ability->getKey()}}][charactable_id]" value="{{$ability->getKey()}}">
                     <div class="relative">
-                        <input
+                        <x-input
                             type="number"
                             id="valeur-{{$ability->name}}"
                             name="abilities[{{$ability->getKey()}}][ability_value]"
-                            class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                            placeholder="Valeur"
+                            label="{{ $ability->name }}"
+                            peer
                         />
-                        <label
-                            for="valeur-{{$ability->name}}"
-                            class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                        >
-                            {{ $ability->name }}
-                        </label>
                     </div>
                     <div class="relative">
-                        <input
+                        <x-input
                             type="number"
                             id="bonus-{{$ability->name}}"
                             name="abilities[{{$ability->getKey()}}][other_modifier_ability]"
-                            class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                             placeholder="Bonus"
+                            peer
                         />
                     </div>
                 </div>
                 <hr class="border border-gray-300">
                 <div class="space-y-2">
-                    <input type="hidden" name="savingThrows[{{$ability->savingThrow->getKey()}}][charactable_id]"
-                           value="{{$ability->savingThrow->getKey()}}">
+                    <input type="hidden" name="savingThrows[{{$ability->savingThrow->getKey()}}][charactable_id]" value="{{$ability->savingThrow->getKey()}}">
                     <h2 class="font-titleMiddleAge text-red-800 font-sm">Jet de suavegarde</h2>
                     <div class="relative">
-                        <input
+                        <x-input
                             type="number"
                             id="modificateur-{{$ability->name}}"
                             name="savingThrows[{{$ability->savingThrow->getKey()}}][other_modifier_throw]"
-                            class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
                             placeholder="Bonus"
                         />
                     </div>
@@ -61,21 +53,14 @@
                     <h2 class="font-titleMiddleAge text-red-800 font-sm">Compétences</h2>
                     @foreach($ability->skills as $skill)
                         <div class="space-y-2">
-                            <input type="hidden" name="skills[{{$skill->getKey()}}][charactable_id]"
-                                   value="{{$skill->getKey()}}">
+                            <input type="hidden" name="skills[{{$skill->getKey()}}][charactable_id]" value="{{$skill->getKey()}}">
                             <div class="relative">
-                                <input
+                                <x-input
                                     type="number" id="modificateur-{{$skill->name}}"
                                     name="skills[{{$skill->getKey()}}][other_modifier_skill]"
-                                    class="block p-2 w-full text-sm text-gray-900 bg-transparent rounded-md border appearance-none border-gray-600 focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                                    placeholder="Bonus"
+                                    label="{{ $skill->name }}"
+                                    peer
                                 />
-                                <label
-                                    for="modificateur-{{$skill->name}}"
-                                    class="absolute font-titleMiddleAge text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-                                >
-                                    {{ $skill->name }}
-                                </label>
                             </div>
                             <label class="relative inline-flex items-center cursor-pointer">
                                 <input
