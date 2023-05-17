@@ -20,7 +20,7 @@ class Input extends \BladeUIKit\Components\Forms\Inputs\Input
         parent::__construct($name, $id, $type);
         $this->value = old($this->transformName(), $value ?? '');
         $this->label = $label ?? '';
-        $this->placeholder = $placeholder ?? ' ';
+        $this->placeholder = $placeholder ?? $label ?? '';
     }
     public function transformName(): array|string {
         if (str_contains($this->name, '[') !== false) {
