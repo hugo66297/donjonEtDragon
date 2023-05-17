@@ -38,12 +38,14 @@
                                         />
                                         <td class="px-4">
                                             <x-input
+                                                type="number"
                                                 name="{{$names[$key]}}[{{$item->getKey()}}][{{$fields[$key][1]}}]"
                                             />
                                         </td>
                                         @if($item instanceof \App\Models\Ability)
                                             <td class="px-4">
                                                 <x-input
+                                                    type="number"
                                                     name="{{$names[$key]}}[{{$item->getKey()}}][{{$fields[$key][2]}}]"
                                                 />
                                             </td>
