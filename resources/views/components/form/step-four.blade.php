@@ -1,20 +1,12 @@
 <div id="step-div-3" class="hidden p-4 space-y-8">
     <div class="flex items-center space-x-4">
         <div class="relative">
-            <input
+            <x-input
                 type="number"
-                id="bonus_maitrise"
                 name="hero[proficiency_bonus]"
-                class="block w-full p-2 text-sm bg-transparent rounded-md border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer"
-                placeholder=" "
-                value="{{ old('hero.proficiency_bonus') ?? 2 }}"
+                value="2"
+                label="Bonus de maitrise"
             />
-            <label
-                for="bonus_maitrise"
-                class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
-            >
-                Bonus de maitrise
-            </label>
         </div>
     </div>
     <div id="div-feature" class="">

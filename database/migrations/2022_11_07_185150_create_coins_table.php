@@ -28,19 +28,19 @@ return new class extends Migration {
         ]);
         Coin::insert([
             'id' => Str::uuid(),
-            'name' => 'Pièce d\'Argent',
+            'name' => "Pièce d'Argent",
             'abbreviation' => 'PA',
             'coin_path' => 'storage/img/coins/silver_coin.png'
         ]);
         Coin::insert([
             'id' => Str::uuid(),
-            'name' => 'Pièce d\'Electrum',
+            'name' => "Pièce d'Electrum",
             'abbreviation' => 'PE',
             'coin_path' => 'storage/img/coins/electrum_coin.png'
         ]);
         Coin::insert([
             'id' => Str::uuid(),
-            'name' => 'Pièce d\'Or',
+            'name' => "Pièce d'Or",
             'abbreviation' => 'PO',
             'coin_path' => 'storage/img/coins/gold_coin.png'
         ]);

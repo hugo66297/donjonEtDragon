@@ -4,7 +4,7 @@
             <x-select
                 :data="$categories"
                 label="Classe"
-                :name="['hero[category_id]', 'hero.category_id']"
+                name="hero[category_id]"
                 placeholder="Choisis une catégorie"
                 dropdown="dropdownCategories"
             />
@@ -14,7 +14,7 @@
             <x-select
                 :data="$backgrounds"
                 label="Historique"
-                :name="['hero[background_id]', 'hero.background_id']"
+                name="hero[background_id]"
                 placeholder="Choisis un historique"
                 dropdown="dropdownBackgrounds"
             />
@@ -24,7 +24,7 @@
             <x-select
                 :data="$subRaces"
                 label="Race"
-                :name="['hero[subrace_id]', 'hero.subrace_id']"
+                name="hero[subrace_id]"
                 placeholder="Choisis une race"
                 dropdown="dropdownRaces"
             />
@@ -34,7 +34,7 @@
             <x-select
                 :data="$alignments"
                 label="Alignement"
-                :name="['hero[alignment_id]', 'hero.alignment_id']"
+                name="hero[alignment_id]"
                 placeholder="Choisis un alignement"
                 dropdown="dropdownAlignments"
             />
@@ -44,7 +44,7 @@
             <x-select
                 :data="$goals"
                 label="Objectif"
-                :name="['hero[goal_id]', 'hero.goal_id']"
+                name="hero[goal_id]"
                 placeholder="Choisis un objectif"
                 dropdown="dropdownGoals"
             />

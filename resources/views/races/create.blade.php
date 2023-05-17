@@ -1,22 +1,24 @@
 <x-app-layout>
     <x-form-create title="Créer une race" route="races.store">
         <div class="relative">
-            <input type="text" id="name" name="name" class="block px-2.5 pb-2.5 pt-4 w-full text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800 peer" placeholder=" " />
-            <label for="name" class="absolute font-titleMiddleAge text-sm text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[#fafaf8] px-2 peer-focus:px-2 peer-focus:text-red-800 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">
-                Nom de la race
-            </label>
+            <x-input
+                name="name"
+                label="Nom de la race"
+            />
         </div>
         <div>
-            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
-                Informations sur la race
-            </label>
-            <x-easy-mde name="description" placeholder="Vous possédez une réserve limitée..."></x-easy-mde>
+            <x-easy-mde
+                label="Informations sur la race"
+                name="description"
+                placeholder="Vous possédez une réserve limitée..."
+            ></x-easy-mde>
         </div>
         <div>
-            <label for="example_surname" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
-                Noms populaires dans cette race
-            </label>
-            <x-easy-mde name="example_surname" placeholder="Vous possédez une réserve limitée..."></x-easy-mde>
+            <x-easy-mde
+                label="Noms populaires dans cette race"
+                name="example_surname"
+                placeholder="Vous possédez une réserve limitée..."
+            ></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>

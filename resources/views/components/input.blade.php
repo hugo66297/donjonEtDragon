@@ -1,5 +1,7 @@
 @if($label)
-    <x-input-label :for="$id" :value="$label" class="font-medium text-red-800 font-titleMiddleAge" />
+    <x-input-label :for="$id" class="font-medium text-red-800 font-titleMiddleAge">
+        {!! $label !!}
+    </x-input-label>
 @endif
 
 @if($type === 'textarea')

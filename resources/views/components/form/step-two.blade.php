@@ -1,5 +1,5 @@
 <div id="step-div-1" class="hidden p-4 space-y-8">
-    <x-simple-datatable
+    <x-datatable.simple-datatable
         :collections="[$abilities, $savingThrows->load('ability'), $skills->load('ability')]"
         :headings="[['Capacité', 'Valeur', 'Bonus'], ['Jets de sauvegarde', 'Bonus', 'Maitrisé ?'], ['Compétences', 'Bonus', 'Maitrisé ?']]"
         :names="['abilities', 'savingThrows', 'skills']"

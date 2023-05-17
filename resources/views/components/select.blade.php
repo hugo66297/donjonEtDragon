@@ -1,5 +1,15 @@
 @props(['data', 'name', 'label', 'dropdown', 'placeholder'])
 
+@php
+    $transformName = function ($value) {
+        if (str_contains($value, '[') !== false) {
+            return str_replace(['[', ']'], ['.', ''], $value);
+        } else {
+            return $value;
+        }
+    }
+@endphp
+
 <div
     class="relative"
     x-data="{
@@ -19,7 +29,7 @@
         }
     }"
     x-init="
-        $data.selectedItem.id = @js(old($name[1])) ? @js(old($name[1])) : ''
+        $data.selectedItem.id = @js(old($transformName($name))) ? @js(old($transformName($name))) : ''
     "
 >
     <p class="font-titleMiddleAge text-red-800">
@@ -69,7 +79,7 @@
                             <input
                                 type="radio"
                                 class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 focus:ring-2"
-                                name="{{$name[0]}}"
+                                name="{{$name}}"
                                 x-model="selectedItem.id"
                                 :id="dt.id"
                                 :value="dt.id"
