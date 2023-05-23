@@ -21,7 +21,7 @@
                         <div class="flex justify-between p-2">
                             <div class="">
                                 @foreach($hero->adventures as $adventure)
-                                    <span class="bg-green-900 text-green-300 text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
+                                    <span class="{{"bg-[$adventure->bg_color] text-[$adventure->text_color]"}} text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
                                         {{ $adventure->abbreviation }}
                                     </span>
                                 @endforeach

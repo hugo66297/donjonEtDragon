@@ -14,11 +14,11 @@
         <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-md">
             <table
                 id="table-attacks"
-                class="w-full text-sm text-left text-gray-400"
+                class="w-full text-sm text-left text-white"
                 x-data="{ component: [] }"
                 x-init="component = $refs.tbody.querySelector('tr')"
             >
-                <thead class="text-xs uppercase bg-gray-900">
+                <thead class="text-xs uppercase bg-gray-700">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Nom de l'attaque
@@ -34,8 +34,13 @@
                 <tbody x-ref="tbody">
                 <tr x-data="" x-ref="line" class="border-b">
                     <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        <select onchange="disabledDescription(this)" id="attack_id" name="attackIds[]"
-                                class="block w-full p-2 text-sm bg-transparent rounded-md border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800">
+                        @php $key = \Illuminate\Support\Str::uuid(); @endphp
+                        <select
+                            onchange="disabledDescription(this)"
+                            id="attack_id"
+                            name="attacks[{{ $key }}][attack_id]"
+                            class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
+                        >
                             <option value="">Choisis une option</option>
                             @foreach($attacks as $attack)
                                 <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
@@ -43,9 +48,13 @@
                         </select>
                     </td>
                     <td class="px-6 py-4">
-                                <textarea id="attack_description" name="attackDescriptions[]" rows="4"
-                                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-600 border-gray-600 placeholder-gray-400 focus:ring-red-800 focus:border-red-800"
-                                          placeholder="Je suis convaincu..."></textarea>
+                                <textarea
+                                    id="attack_description"
+                                    name="attacks[{{ $key }}][description]"
+                                    rows="4"
+                                    class="block w-full text-sm rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
+                                    placeholder="Je suis convaincu..."
+                                ></textarea>
                     </td>
                     <td class="px-6 py-4">
                         <button
@@ -65,9 +74,12 @@
                             <p
                                 class="w-fit cursor-pointer hover:underline"
                                 @click="elt = document.createElement('tr');
-                                                    elt.innerHTML = component.innerHTML;
-                                                    elt.classList = component.classList
-                                                    $refs.tbody.appendChild(elt)"
+                                        uuid = self.crypto.randomUUID()
+                                        elt.innerHTML = component.innerHTML;
+                                        elt.querySelector('select').name = `attacks[${uuid}][attack_id]`
+                                        elt.querySelector('textarea').name = `attacks[${uuid}][description]`
+                                        elt.classList = component.classList
+                                        $refs.tbody.appendChild(elt)"
                             >
                                 Ajouter une ligne
                             </p>

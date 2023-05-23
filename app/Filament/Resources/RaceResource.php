@@ -1,0 +1,74 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\RaceResource\Pages;
+use App\Filament\Resources\RaceResource\RelationManagers;
+use App\Models\Race;
+use Filament\Forms;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
+
+class RaceResource extends Resource
+{
+    protected static ?string $model = Race::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                //
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                TextColumn::make('name')
+                    ->sortable(),
+                TextColumn::make('description')
+                    ->sortable()
+                    ->wrap()
+                    ->getStateUsing(fn(Model $record) => Str::words($record->description, 15)),
+                TextColumn::make('example_surname')
+                    ->sortable()
+                    ->wrap()
+                    ->getStateUsing(fn(Model $record) => Str::words($record->example_surname, 15)),
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListRaces::route('/'),
+            'create' => Pages\CreateRace::route('/create'),
+            'edit' => Pages\EditRace::route('/{record}/edit'),
+        ];
+    }
+}

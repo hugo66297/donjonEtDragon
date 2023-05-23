@@ -11,11 +11,11 @@
                             aria-expanded="true"
                             aria-controls="accordion-collapse-body-{{$key}}"
                         >
-                            <tr class="text-xs text-gray-700 uppercase bg-gray-100">
+                            <tr class="text-xs text-gray-700 uppercase bg-gray-700 border-b {{ $key !== count($collections) - 1 }}">
                                 @foreach($headings[$key] as $heading)
-                                    <th class="px-4 py-3 text-red-800">{{ $heading }}</th>
+                                    <th class="px-4 py-3 text-white">{{ $heading }}</th>
                                 @endforeach
-                                <th scope="col" class="px-4 py-3">
+                                <th scope="col" class="px-4 py-3 text-white">
                                     <span class="sr-only">Collapse</span>
                                     <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>

@@ -24,11 +24,12 @@ class Character extends Model
         'speed',
         'maximum_hp',
         'hit_dice',
-        'traits',
+        'personality_traits',
         'ideals',
-        'liens',
-        'defects',
+        'bonds',
+        'flaws',
         'character_past',
+        'equipment',
     ];
 
     // One-to-one relationships

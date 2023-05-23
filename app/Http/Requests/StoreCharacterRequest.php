@@ -25,7 +25,7 @@ class StoreCharacterRequest extends FormRequest
      */
     public function rules()
     {
-//        dd(Request::all());
+        dd(Request::all());
         return [
             // Hero
             'hero' => ['required', 'array'],

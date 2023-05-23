@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Utilities;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Request;
 
 class StoreUtilityRequest extends FormRequest
 {
@@ -23,6 +24,7 @@ class StoreUtilityRequest extends FormRequest
      */
     public function rules()
     {
+        dd(Request::all());
         return [
             'name' => ['required', 'string'],
         ];

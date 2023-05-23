@@ -1,4 +1,4 @@
-@props(['data', 'name', 'label', 'dropdown', 'placeholder'])
+@props(['data', 'name', 'label' => null, 'dropdown', 'placeholder'])
 
 @php
     $transformName = function ($value) {
@@ -11,7 +11,7 @@
 @endphp
 
 <div
-    class="relative"
+    class=""
     x-data="{
         selectedItem: {id: ''},
         oldSelectedItem: null,
@@ -32,19 +32,22 @@
         $data.selectedItem.id = @js(old($transformName($name))) ? @js(old($transformName($name))) : ''
     "
 >
-    <p class="font-titleMiddleAge text-red-800">
-        {{ $label }}
-    </p>
-    <div>
+    @if($label)
+        <p class="font-titleMiddleAge text-red-800">
+            {{ $label }}
+        </p>
+    @endif
+    <div class="">
         <div
             data-dropdown-toggle="{{$dropdown}}"
             data-dropdown-placement="bottom"
+            tabindex="1"
             class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
         >
             <p x-text="selectedItem.id === '' ? @js($placeholder) : originalData.find(e => e.id === selectedItem.id).name"></p>
             <x-icon.double-arrow />
         </div>
-        <div class="hidden z-10 bg-white w-full rounded-lg shadow-md" id="{{$dropdown}}">
+        <div class="relative hidden z-10 bg-white w-full rounded-lg shadow-md" id="{{$dropdown}}">
             <div class="flex items-center justify-end p-2">
                 <div
                     class="flex items-center text-sm text-red-700 hover:text-red-900 font-bold cursor-pointer"

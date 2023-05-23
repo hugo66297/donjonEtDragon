@@ -12,9 +12,9 @@
                 <div class="mt-2">
                     <x-input
                         id="pseudo"
-                        name="pseudo"
+                        name="name"
                     />
-                    <x-input-error :messages="$errors->get('pseudo')" class="mt-2"></x-input-error>
+                    <x-input-error :messages="$errors->get('name')" class="mt-2"></x-input-error>
                 </div>
             </div>
             <div>
