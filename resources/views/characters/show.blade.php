@@ -149,7 +149,7 @@
                 <div class="text-justify space-y-4 p-4">
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Traits de personnalité</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->traits }}</p>
+                        <p class="text-gray-500 indent-4">{{ $hero->personality_traits }}</p>
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Idéaux</p>
@@ -157,11 +157,11 @@
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Liens</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->liens }}</p>
+                        <p class="text-gray-500 indent-4">{{ $hero->bonds }}</p>
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Défauts</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->defects }}</p>
+                        <p class="text-gray-500 indent-4">{{ $hero->flaws }}</p>
                     </div>
                 </div>
             </x-tab-item>
@@ -351,10 +351,10 @@
                     </h2>
                     <div class="p-4 space-y-4">
                         <div class="">
-                            @markdown("{$hero->subrace->race->description}")
+                            {!! $hero->subrace->race->description !!}
                         </div>
                         <div class="bg-slate-100 shadow-md rounded p-4">
-                             @markdown("{$hero->subrace->race->exemple_surname}")
+                             {!! $hero->subrace->race->example_surname !!}
                         </div>
                     </div>
                 </div>

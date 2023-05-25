@@ -29,7 +29,6 @@ class Character extends Model
         'bonds',
         'flaws',
         'character_past',
-        'equipment',
     ];
 
     // One-to-one relationships

@@ -32,40 +32,82 @@
                 </tr>
                 </thead>
                 <tbody x-ref="tbody">
-                <tr x-data="" x-ref="line" class="border-b">
-                    <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        @php $key = \Illuminate\Support\Str::uuid(); @endphp
-                        <select
-                            onchange="disabledDescription(this)"
-                            id="attack_id"
-                            name="attacks[{{ $key }}][attack_id]"
-                            class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
-                        >
-                            <option value="">Choisis une option</option>
-                            @foreach($attacks as $attack)
-                                <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td class="px-6 py-4">
-                                <textarea
-                                    id="attack_description"
-                                    name="attacks[{{ $key }}][description]"
-                                    rows="4"
-                                    class="block w-full text-sm rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
-                                    placeholder="Je suis convaincu..."
-                                ></textarea>
-                    </td>
-                    <td class="px-6 py-4">
-                        <button
-                            type="button"
-                            class="font-bold text-red-800 hover:underline cursor-pointer"
-                            @click.prevent="$el.parentNode.parentNode.remove()"
-                        >
-                            Supprimer
-                        </button>
-                    </td>
-                </tr>
+                    @if(!old('attacks'))
+                        <tr x-data="" x-ref="line" class="border-b">
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                @php $key = \Illuminate\Support\Str::uuid(); @endphp
+                                <select
+                                    onchange="disabledDescription(this)"
+                                    id="attack_id"
+                                    name="attacks[{{ $key }}][attack_id]"
+                                    class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
+                                >
+                                    <option value="">Choisis une option</option>
+                                    @foreach($attacks as $attack)
+                                        <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
+                                    @endforeach
+                                </select>
+                            </td>
+                            <td class="px-6 py-4">
+                        <textarea
+                            id="attack_description"
+                            name="attacks[{{ $key }}][other_description]"
+                            rows="4"
+                            class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
+                            placeholder="Je suis convaincu..."
+                        ></textarea>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button
+                                    type="button"
+                                    class="font-bold text-red-800 hover:underline cursor-pointer"
+                                    @click.prevent="$el.parentNode.parentNode.remove()"
+                                >
+                                    Supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    @else
+                        @foreach(old('attacks') as $oldAttack)
+                            <tr x-data="" x-ref="line" class="border-b">
+                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                    @php $key = \Illuminate\Support\Str::uuid(); @endphp
+                                    <select
+                                        onchange="disabledDescription(this)"
+                                        id="attack_id"
+                                        name="attacks[{{ $key }}][attack_id]"
+                                        class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
+                                    >
+                                        <option value="">Choisis une option</option>
+                                        @foreach($attacks as $attack)
+                                            <option
+                                                @selected($oldAttack['attack_id'] === $attack->getKey())
+                                                value="{{$attack->getKey()}}"
+                                            >{{$attack->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <textarea
+                                        id="attack_description"
+                                        name="attacks[{{ $key }}][other_description]"
+                                        rows="4"
+                                        class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
+                                        placeholder="Je suis convaincu..."
+                                    >{{ $oldAttack['description'] ?? '' }}</textarea>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <button
+                                        type="button"
+                                        class="font-bold text-red-800 hover:underline cursor-pointer"
+                                        @click.prevent="$el.parentNode.parentNode.remove()"
+                                    >
+                                        Supprimer
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
                 <tfoot>
                 <tr class="font-semibold text-gray-900">
@@ -77,7 +119,9 @@
                                         uuid = self.crypto.randomUUID()
                                         elt.innerHTML = component.innerHTML;
                                         elt.querySelector('select').name = `attacks[${uuid}][attack_id]`
-                                        elt.querySelector('textarea').name = `attacks[${uuid}][description]`
+                                        elt.querySelector('select').selectedIndex = 0
+                                        elt.querySelector('textarea').name = `attacks[${uuid}][other_description]`
+                                        elt.querySelector('textarea').value = ''
                                         elt.classList = component.classList
                                         $refs.tbody.appendChild(elt)"
                             >

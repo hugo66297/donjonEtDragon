@@ -36,7 +36,7 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center space-x-8">
                 @auth
-                    <a href="{{route('filament.pages.dashboard')}}" class="w-10">
+                    <a href="{{route('create.options')}}" class="w-10">
                         <img src="{{asset('/storage/img/add_perso.png')}}" alt="button add perso">
                     </a>
                     <x-dropdown align="right" width="48">

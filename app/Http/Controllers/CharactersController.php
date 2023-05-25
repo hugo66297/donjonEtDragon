@@ -19,6 +19,7 @@ use App\Models\Weapon;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class CharactersController extends Controller
@@ -37,7 +38,7 @@ class CharactersController extends Controller
     public function store(StoreCharacterRequest $request)
     {
         $hero = new Character();
-        $hero->equipment = Markdown::convert($request->validated('hero.equipment'))->getContent();
+        $hero->equipment = Str::markdown($request->validated('hero.equipment'));
         $hero->fill($request->validated('hero'));
         $hero->save();
 
@@ -46,19 +47,11 @@ class CharactersController extends Controller
         $hero->savingThrows()->sync(\Arr::divide($request->validated('savingThrows'))[1]);
         $hero->coins()->sync(\Arr::divide($request->validated('coins'))[1]);
         $hero->adventures()->sync($request->validated('adventures'));
+        $hero->attacks()->sync(\Arr::divide($request->validated('attacks'))[1]);
+        $hero->utilities()->sync(\Arr::divide($request->validated('utilities'))[1]);
         $hero->features()->sync($request->validated('features'));
         $hero->weapons()->sync($request->validated('weapons'));
 
-         // Attacks
-        foreach (Request::input('attackIds') as $index => $attackId) {
-            $hero->attacks()
-                ->attach($attackId, ['other_description' => Request::input('attackDescriptions')[$index]]);
-        }
-        // Utilities
-        foreach (Request::input('maitriseIds') as $index => $maitriseId) {
-            $hero->utilities()
-                ->attach($maitriseId, ['description' => Request::input('maitriseDescriptions')[$index]]);
-        }
 
         return redirect()->route('heroes.show', compact('hero'));
     }
