@@ -9,7 +9,7 @@
             </svg>
             Retour
         </a>
-        <h1 class="p-2 font-normalMedieval text-center underline underline-offset-2 tracking-wide text-red-900 text-4xl">
+        <h1 class="p-2 font-titleMiddleAge text-center underline underline-offset-2 tracking-wide text-red-900 text-4xl">
             {{$spell->name}} :
         </h1>
     </div>

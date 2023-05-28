@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Level;
 use App\Models\Spell;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,7 @@ class SpellsController extends Controller
 {
     public function index()
     {
-        $spells = Spell::orderBy('name')->paginate(20);
+        $spells = Spell::with('level')->orderBy('name')->paginate(20);
         return view('spells.index')->with(compact('spells'));
     }
 
@@ -44,6 +45,14 @@ class SpellsController extends Controller
     {
         session(['previous_page' => $page]);
         return view('spells.show')->with(compact('spell'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        $spells = Spell::where('name', 'LIKE', "%$query%")->orderBy('name')->paginate(20);
+        return view('spells.index')->with(compact('spells'));
     }
 
     /**
