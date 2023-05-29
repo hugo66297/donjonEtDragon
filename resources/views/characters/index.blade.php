@@ -21,7 +21,10 @@
                         <div class="flex justify-between p-2">
                             <div class="">
                                 @foreach($hero->adventures as $adventure)
-                                    <span class="{{"bg-[$adventure->bg_color] text-[$adventure->text_color]"}} text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
+                                    <span
+                                        class="text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded"
+                                        style="background-color: {{ $adventure->bg_color }}; color: {{ $adventure->text_color }}"
+                                    >
                                         {{ $adventure->abbreviation }}
                                     </span>
                                 @endforeach
@@ -70,7 +73,10 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4 p-2">
                             @foreach($hero->abilities as $ability)
-                                <div class="flex items-center justify-center gap-x-2 text-{{ $ability->color }} font-extrabold">
+                                <div
+                                    class="flex items-center justify-center gap-x-2 font-extrabold text-lg"
+                                    style="color: {{ $ability->color }}"
+                                >
                                     <i class="fas {{ $ability->icon }}"></i>
                                     <p>
                                         {{ $ability->pivot->ability_value >= 10 ? "+{$ability->modifierAbility()}" : $ability->modifierAbility() }}

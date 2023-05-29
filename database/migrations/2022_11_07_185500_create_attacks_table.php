@@ -33,7 +33,7 @@ return new class extends Migration {
         Attack::insert([
             'id' => Str::uuid(),
             'name' => 'Attaque sournoise',
-            'description' => 'Une fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature si vous l\'avez touchée avec une attaque basée sur la Dextérité (avec votre épée courte ou votre arc court, par exemple) et que vous êtes avantagé sur votre jet d\'attaque. Vous n\'avez pas besoin d\'être avantagé sur le jet d\'attaque si un autre ennemi de votre cible se trouve dans un rayon de 1,50 mètre autour d\'elle, à condition que cet ennemi ne soit pas neutralisé. Par contre, vous ne pouvez pas infliger de dégâts supplémentaires si vous êtes désavantagé sur votre jet d\'attaque.'
+            'description' => '<p>Une fois par tour, vous pouvez infliger 1d6 dégâts supplémentaires à une créature si vous l\'avez touchée avec une attaque basée sur la Dextérité (avec votre épée courte ou votre arc court, par exemple) et que vous êtes avantagé sur votre jet d\'attaque. Vous n\'avez pas besoin d\'être avantagé sur le jet d\'attaque si un autre ennemi de votre cible se trouve dans un rayon de 1,50 mètre autour d\'elle, à condition que cet ennemi ne soit pas neutralisé. Par contre, vous ne pouvez pas infliger de dégâts supplémentaires si vous êtes désavantagé sur votre jet d\'attaque.</p>'
         ]);
         Attack::insert([
             'id' => Str::uuid(),

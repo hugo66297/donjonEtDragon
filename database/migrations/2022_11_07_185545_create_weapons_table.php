@@ -31,7 +31,7 @@ return new class extends Migration {
             'name' => 'Javeline',
             'atk_bonus' => 5,
             'damage_type' => '1d6 + 3 perforants',
-            'sub_info' => 'Vous pouvez lancer une javeline à une distance de 9 mètres, ou jusqu\'à 36 mètres en étant désavantagé lors du jet d\'attaque.'
+            'sub_info' => '<p>Vous pouvez lancer une javeline à une distance de 9 mètres, ou jusqu\'à 36 mètres en étant désavantagé lors du jet d\'attaque.</p>'
         ]);
         Weapon::insert([
             'id' => Str::uuid(),
@@ -44,7 +44,7 @@ return new class extends Migration {
             'name' => 'Hachette',
             'atk_bonus' => 4,
             'damage_type' => '1d6 + 2 tranchants',
-            'sub_info' => 'Vous pouvez lancer une hachette à une distance de 6 mètres ou jusqu\'à 18 mètres en étant désavantagé lors du jet d\'attaque.'
+            'sub_info' => '<p>Vous pouvez lancer une hachette à une distance de 6 mètres ou jusqu\'à 18 mètres en étant désavantagé lors du jet d\'attaque.</p>'
         ]);
         Weapon::insert([
             'id' => Str::uuid(),
@@ -57,7 +57,7 @@ return new class extends Migration {
             'name' => 'Arc court',
             'atk_bonus' => 5,
             'damage_type' => '1d6 + 3 perforants',
-            'sub_info' => 'Vous pouvez tirer avec votre arc court à une distance de 24 mètres, ou jusqu\'à 96 mètres en étant désavantagé lors du jet d\'attaque.'
+            'sub_info' => '<p>Vous pouvez tirer avec votre arc court à une distance de 24 mètres, ou jusqu\'à 96 mètres en étant désavantagé lors du jet d\'attaque.</p>'
         ]);
         Weapon::insert([
             'id' => Str::uuid(),
@@ -76,7 +76,7 @@ return new class extends Migration {
             'name' => 'Arc long',
             'atk_bonus' => 7,
             'damage_type' => '1d8 + 3 perforants',
-            'sub_info' => 'Vous pouvez utiliser votre arc long pour tirer jusqu\'à une distance de 45 mètres ou jusqu\'à 180 mètres en étant désavantagé lors du jet d\'attaque.'
+            'sub_info' => '<p>Vous pouvez utiliser votre arc long pour tirer jusqu\'à une distance de 45 mètres ou jusqu\'à 180 mètres en étant désavantagé lors du jet d\'attaque.</p>'
         ]);
     }
 

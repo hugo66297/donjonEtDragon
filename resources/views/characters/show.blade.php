@@ -149,60 +149,71 @@
                 <div class="text-justify space-y-4 p-4">
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Traits de personnalité</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->personality_traits }}</p>
+                        <p class="text-gray-500 sm:indent-4">{{ $hero->personality_traits }}</p>
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Idéaux</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->ideals }}</p>
+                        <p class="text-gray-500 sm:indent-4">{{ $hero->ideals }}</p>
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Liens</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->bonds }}</p>
+                        <p class="text-gray-500 sm:indent-4">{{ $hero->bonds }}</p>
                     </div>
                     <div>
                         <p class="font-titleMiddleAge text-xl text-red-900">Défauts</p>
-                        <p class="text-gray-500 indent-4">{{ $hero->flaws }}</p>
+                        <p class="text-gray-500 sm:indent-4">{{ $hero->flaws }}</p>
                     </div>
                 </div>
             </x-tab-item>
             <x-tab-item :title="'Statistiques'" :id="'stats'" :ariaLabel="'stats-tab'">
-                <div id="flex-col" class="grid grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-6 gap-8">
+                <div id="flex-col" class="grid grid-cols-2 md:grid-cols-3 gap-8">
                     @foreach($hero->abilities as $ability)
-                        <x-stat-bloc :textColor="$ability->color" :borderColor="$ability->color" :name="$ability->name"
-                                     :modifier="$ability->modifierAbility()" :value="$ability->pivot->ability_value">
-                            <div class="space-y-4 p-2">
-                                <div>
-                                    <p class="font-titleMiddleAge text-lg text-center underline">Jet sauvegarde</p>
-                                    <div class="flex items-center space-x-2 mt-2">
-                                            <?php $currentSavingThrow = $hero->savingThrows()->where('ability_id', $ability->getKey())->first() ?>
-                                        <p class="min-w-[0.6rem] min-h-[0.6rem] rounded-full border border-black {{ $currentSavingThrow->pivot->is_proficient ? 'bg-black' : 'bg-white' }} mr-2"></p>
-                                        <p>
-                                            <?php $modifier = $currentSavingThrow->modifierSavingThrow($ability, $hero) ?>
-                                            {{ $modifier >= 0 ? "+$modifier" : $modifier }}
-                                        </p>
-                                        <p>
-                                            {{ $ability->savingThrow->name }}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="font-titleMiddleAge text-xl text-center underline">Compétence</p>
-                                    <?php $currentSkills = $hero->skills()->where('ability_id', $ability->getKey())->get() ?>
-                                    @foreach($currentSkills as $skill)
-                                        <div class="flex items-center space-x-2 mt-2">
-                                            <?php $modifier = $skill->modifierSkill($ability, $hero) ?>
-                                            <p class="min-w-[0.6rem] min-h-[0.6rem] rounded-full border border-black {{ $skill->pivot->is_proficient ? 'bg-black' : 'bg-white' }} mr-2"></p>
-                                            <p>
-                                                {{ $modifier >= 0 ? "+$modifier" : $modifier }}
-                                            </p>
-                                            <p>
-                                                {{ $skill->name }}
-                                            </p>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </x-stat-bloc>
+                        <x-stats-card
+                            :ability="$ability"
+                            :savingThrow="$hero->savingThrows()->where('ability_id', $ability->getKey())->first()"
+                            :skills="$hero->skills()->where('ability_id', $ability->getKey())->get()"
+                            :color="$ability->color"
+                        />
+{{--                        <x-stat-bloc--}}
+{{--                            :textColor="$ability->color"--}}
+{{--                            :borderColor="$ability->color"--}}
+{{--                            :name="$ability->name"--}}
+{{--                            :modifier="$ability->modifierAbility()"--}}
+{{--                            :value="$ability->pivot->ability_value"--}}
+{{--                        >--}}
+{{--                            <div class="space-y-4 p-2">--}}
+{{--                                <div>--}}
+{{--                                    <p class="font-titleMiddleAge text-lg text-center underline">Jet sauvegarde</p>--}}
+{{--                                    <div class="flex items-center space-x-2 mt-2">--}}
+{{--                                            <?php $currentSavingThrow = $hero->savingThrows()->where('ability_id', $ability->getKey())->first() ?>--}}
+{{--                                        <p class="min-w-[0.6rem] min-h-[0.6rem] rounded-full border border-black {{ $currentSavingThrow->pivot->is_proficient ? 'bg-black' : 'bg-white' }} mr-2"></p>--}}
+{{--                                        <p>--}}
+{{--                                            <?php $modifier = $currentSavingThrow->modifierSavingThrow($ability, $hero) ?>--}}
+{{--                                            {{ $modifier >= 0 ? "+$modifier" : $modifier }}--}}
+{{--                                        </p>--}}
+{{--                                        <p>--}}
+{{--                                            {{ $ability->savingThrow->name }}--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div>--}}
+{{--                                    <p class="font-titleMiddleAge text-xl text-center underline">Compétence</p>--}}
+{{--                                    <?php $currentSkills = $hero->skills()->where('ability_id', $ability->getKey())->get() ?>--}}
+{{--                                    @foreach($currentSkills as $skill)--}}
+{{--                                        <div class="flex items-center space-x-2 mt-2">--}}
+{{--                                            <?php $modifier = $skill->modifierSkill($ability, $hero) ?>--}}
+{{--                                            <p class="min-w-[0.6rem] min-h-[0.6rem] rounded-full border border-black {{ $skill->pivot->is_proficient ? 'bg-black' : 'bg-white' }} mr-2"></p>--}}
+{{--                                            <p>--}}
+{{--                                                {{ $modifier >= 0 ? "+$modifier" : $modifier }}--}}
+{{--                                            </p>--}}
+{{--                                            <p>--}}
+{{--                                                {{ $skill->name }}--}}
+{{--                                            </p>--}}
+{{--                                        </div>--}}
+{{--                                    @endforeach--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </x-stat-bloc>--}}
                     @endforeach
                 </div>
             </x-tab-item>
@@ -244,21 +255,21 @@
                             </div>
                         @endforeach
                         @foreach($hero->weapons()->whereNotNull('sub_info')->get() as $weapon)
-                            <p class="">
-                                *{{ $weapon->sub_info }}
-                            </p>
+                            <div class="flex">
+                                *{!! $weapon->sub_info !!}
+                            </div>
                         @endforeach
                     </div>
                     <div class="space-y-3 w-full md:w-4/5 md:ml-[10%]">
                         @foreach($hero->attacks as $attack)
-                            <p class="text-xs md:text-sm lg:text-base">
-                                <span class="font-bold italic">
+                            <div class="">
+                                <p class="font-bold italic">
                                     {{ $attack->name }}.
-                                </span>
-                                <span>
-                                    {{ $attack->description ?? $attack->pivot->other_description }}
-                                </span>
-                            </p>
+                                </p>
+                                <div class="text-justify">
+                                    {!! $attack->description ?? $attack->pivot->other_description !!}
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -349,50 +360,54 @@
                     <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
                         {{ $hero->subrace->race->name }}
                     </h2>
-                    <div class="p-4 space-y-4">
-                        <div class="">
+                    <div class="space-y-4 my-1">
+                        <div class="sm:indent-4 space-y-1">
                             {!! $hero->subrace->race->description !!}
                         </div>
-                        <div class="bg-slate-100 shadow-md rounded p-4">
-                             {!! $hero->subrace->race->example_surname !!}
-                        </div>
+                        @if($hero->subrace->race->example_surname)
+                            <div class="bg-slate-100 shadow-md rounded p-4 space-y-1">
+                                {!! $hero->subrace->race->example_surname !!}
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <hr class="border border-gray-300 my-4">
-                <div class="px-4 pt-4 text-justify">
+                <div class="px-4 text-justify">
                     <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
                         {{ $hero->category->name }}
                     </h2>
-                    <div class="p-4 space-y-4">
-                        <div class="">
-                            <p class="indent-4">
-                                {{ $hero->category->description }}
-                            </p>
+                    <div class="space-y-4 my-1">
+                        <div class="sm:indent-4 space-y-1">
+                            {!! $hero->category->description !!}
                         </div>
                     </div>
                 </div>
                 <hr class="border border-gray-300 my-4">
-                <div class="p-4 text-justify">
+                <div class="px-4 text-justify">
                     <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
                         Historique
                     </h2>
-                    <div class="p-4 space-y-4">
-                        <div class="">
-                            <p class="indent-4">
+                    <div class="sm:px-4 space-y-4">
+                        @if($hero->character_past)
+                            <div class="sm:indent-4 space-y-1 my-1">
                                 {{ $hero->character_past }}
+                            </div>
+                        @endif
+                        <div class="my-1">
+                            <p class="font-titleMiddleAge text-xl text-red-900">
+                                Votre objectif : {{ $hero->goal->name }}
                             </p>
-                        </div>
-                        <div class="">
-                            <p class="indent-4">
-                                <span class="font-titleMiddleAge text-xl text-red-900">Votre objectif : {{ $hero->goal->name }}.</span>
-                                {{ $hero->goal->description }}
-                            </p>
+                            <div class="sm:indent-4 space-y-1">
+                                {!! $hero->goal->description !!}
+                            </div>
                         </div>
                         <div>
-                            <p class="indent-4">
-                                <span class="font-titleMiddleAge text-xl text-red-900">Alignement : {{ $hero->alignment->name }}.</span>
-                                {{ $hero->alignment->description }}
+                            <p class="font-titleMiddleAge text-xl text-red-900">
+                                Alignement : {{ $hero->alignment->name }}.
                             </p>
+                            <div class="sm:indent-4 space-y-1">
+                                {!! $hero->alignment->description !!}
+                            </div>
                         </div>
                     </div>
                 </div>

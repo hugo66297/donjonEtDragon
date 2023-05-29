@@ -25,42 +25,42 @@ return new class extends Migration {
             'id' => Str::uuid(),
             'name' => 'Force',
             'slug' => 'force',
-            'color' => 'yellow-600',
+            'color' => '#ca8a04',
             'icon' => 'fa-fist-raised'
         ]);
         Ability::insert([
             'id' => Str::uuid(),
             'name' => 'Dextérité',
             'slug' => 'dexterite',
-            'color' => 'lime-600',
+            'color' => '#65a30d',
             'icon' => 'fa-dice'
         ]);
         Ability::insert([
             'id' => Str::uuid(),
             'name' => 'Constitution',
             'slug' => 'constitution',
-            'color' => 'blue-600',
+            'color' => '#2563eb',
             'icon' => 'fa-male'
         ]);
         Ability::insert([
             'id' => Str::uuid(),
             'name' => 'Intelligence',
             'slug' => 'intelligence',
-            'color' => 'red-600',
+            'color' => '#dc2626',
             'icon' => 'fa-brain'
         ]);
         Ability::insert([
             'id' => Str::uuid(),
             'name' => 'Sagesse',
             'slug' => 'sagesse',
-            'color' => 'fuchsia-600',
+            'color' => '#c026d3',
             'icon' => 'fa-book'
         ]);
         Ability::insert([
             'id' => Str::uuid(),
             'name' => 'Charisme',
             'slug' => 'charisme',
-            'color' => 'amber-400',
+            'color' => '#fbbf24',
             'icon' => 'fa-bolt'
         ]);
 
