@@ -1,7 +1,11 @@
 <x-app-layout>
     <div class="sm:flex sm:flex-col grow">
-        <div id="default-sidebar" data-tabs-toggle="#myTabContent" role="tablist"
-             class="h-screen box-border py-3 px-2 z-40 transition-transform -translate-x-full fixed sm:translate-x-0 bg-gray-800 sm:bg-[#fafaf8]">
+        <div
+            id="default-sidebar"
+            data-tabs-toggle="#myTabContent"
+            role="tablist"
+            class="h-screen box-border py-3 px-2 z-40 transition-transform -translate-x-full fixed sm:translate-x-0 bg-gray-800 sm:bg-[#fafaf8]"
+        >
             <div class="flex flex-col h-full sm:justify-center space-y-4">
                 <div class="text-right">
                     <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
@@ -166,7 +170,7 @@
                 </div>
             </x-tab-item>
             <x-tab-item :title="'Statistiques'" :id="'stats'" :ariaLabel="'stats-tab'">
-                <div id="flex-col" class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     @foreach($hero->abilities as $ability)
                         <x-stats-card
                             :ability="$ability"
@@ -175,8 +179,7 @@
                             :color="$ability->color"
                         />
 {{--                        <x-stat-bloc--}}
-{{--                            :textColor="$ability->color"--}}
-{{--                            :borderColor="$ability->color"--}}
+{{--                            :color="$ability->color"--}}
 {{--                            :name="$ability->name"--}}
 {{--                            :modifier="$ability->modifierAbility()"--}}
 {{--                            :value="$ability->pivot->ability_value"--}}
@@ -215,7 +218,7 @@
 {{--                            </div>--}}
 {{--                        </x-stat-bloc>--}}
                     @endforeach
-                </div>
+                </section>
             </x-tab-item>
             <x-tab-item :title="'Attaques et équipements'" :id="'attaques'" :ariaLabel="'attaques-tab'">
                 <div class="p-4 space-y-4">
@@ -318,7 +321,7 @@
             </x-tab-item>
             <x-tab-item :title="'Compétences et aptitudes'" :id="'competences'" :ariaLabel="'competences-tab'">
                 <div class="p-4">
-                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4">
+                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
                         Compétences
                     </h2>
                     <div class="space-y-4">
@@ -340,19 +343,19 @@
                 </div>
                 <hr class="border border-gray-300 my-4">
                 <div class="px-4 pb-4">
-                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide p-4">
+                    <h2 class="text-center text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
                         Aptitudes
                     </h2>
-                    <div class="space-y-4 text-justify">
+                    <section class="space-y-4 text-justify">
                         @foreach($hero->features as $feature)
-                            <p>
-                                <span class="font-titleMiddleAge text-xl text-red-900">{{ $feature->name }}.</span>
-                                <span>
-                                    {{ $feature->description }}
-                                </span>
-                            </p>
+                            <div>
+                                <h4 class="font-titleMiddleAge text-xl text-red-900">{{ $feature->name }}.</h4>
+                                <div class="sm:indent-4 space-y-1">
+                                    {!! $feature->description !!}
+                                </div>
+                            </div>
                         @endforeach
-                    </div>
+                    </section>
                 </div>
             </x-tab-item>
             <x-tab-item :title="'Origine du personnage'" :id="'origine'" :ariaLabel="'origine-tab'">
