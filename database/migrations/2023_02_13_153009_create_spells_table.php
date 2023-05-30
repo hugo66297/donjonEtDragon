@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Level;
+use App\Models\School;
 use App\Models\Spell;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -19,7 +20,8 @@ return new class extends Migration
         Schema::create('spells', function (Blueprint $table) {
             $table->uuid('id')->primary()->default(Str::uuid());
             $table->string('name', 191);
-            $table->string('school', 191);
+            $table->string('slug');
+            $table->foreignIdFor(School::class)->constrained();
             $table->foreignIdFor(Level::class)->constrained();
             $table->boolean('is_rituel')->default(false);
             $table->string('cast_time', 191);
@@ -32,7 +34,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Agrandissement/Rapetissement',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Agrandissement/Rapetissement'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -43,7 +46,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aide',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Aide'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -55,7 +59,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Alarme',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Alarme'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -67,7 +72,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Allié planaire',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Allié planaire'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '18 mètres',
@@ -78,7 +84,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Amélioration de caractéristique',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Amélioration de caractéristique'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -90,7 +97,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Amitié avec les animaux',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Amitié avec les animaux'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -102,7 +110,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Animation des morts',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Animation des morts'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '3 mètres',
@@ -114,7 +123,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Animation des objets',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Animation des objets'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -126,7 +136,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Anticipation / Contingence',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Anticipation / Contingence'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => 'personnelle',
@@ -137,7 +148,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Antidétection / Non-détection',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Antidétection / Non-détection'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -148,7 +160,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Apaisement des émotions',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Apaisement des émotions'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -159,7 +172,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Apparence trompeuse',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Apparence trompeuse'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -170,7 +184,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Appel de destrier / Trouver une monture',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Appel de destrier / Trouver une monture'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '9 mètres',
@@ -181,7 +196,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Appel de familier',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Appel de familier'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 heure',
@@ -193,7 +209,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Appel de la foudre',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Appel de la foudre'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -205,7 +222,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Arme élémentaire',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Arme élémentaire'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -217,7 +235,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Arme magique',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Arme magique'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'contact',
@@ -229,7 +248,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Arme spirituelle',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Arme spirituelle'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
@@ -241,7 +261,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Armure d\'Agathys',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Armure d\'Agathys'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -253,7 +274,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Armure du mage',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Armure du mage'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -264,7 +286,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Arrêt du temps',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Arrêt du temps'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -275,7 +298,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aspersion acide',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Aspersion acide'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -286,7 +310,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Assassin imaginaire',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Assassin imaginaire'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -298,7 +323,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Assistance',
-            'school' => 'Divination',
+            'slug' => Str::slug('Assistance'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -309,7 +335,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Augure',
-            'school' => 'Divination',
+            'slug' => Str::slug('Augure'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'personnelle',
@@ -320,7 +347,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aura de pureté',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Aura de pureté'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (9 m de rayon)',
@@ -331,7 +359,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aura de vie',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Aura de vie'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (9 m de rayon)',
@@ -342,7 +371,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aura de vitalité',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Aura de vitalité'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (9 m de rayon)',
@@ -353,7 +383,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aura du croisé',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Aura du croisé'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -364,7 +395,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aura magique de Nystul',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Aura magique de Nystul'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -375,7 +407,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Aura sacrée',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Aura sacrée'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -386,7 +419,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bagou',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Bagou'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -397,7 +431,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Baies nourricières',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Baies nourricières'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -408,7 +443,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Balisage / Rayon traçant',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Balisage / Rayon traçant'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -420,7 +456,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bannissement',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Bannissement'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -432,7 +469,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Barrière de lames',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Barrière de lames'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -443,7 +481,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bénédiction',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Bénédiction'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -455,7 +494,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Blessure',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Blessure'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -467,7 +507,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bouche magique',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Bouche magique'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -479,7 +520,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bouclier',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Bouclier'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 réaction à effectuer lorsque vous êtes touché par une attaque ou un sort de projectile magique',
             'range' => 'personnelle',
@@ -490,7 +532,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bouclier de feu',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Bouclier de feu'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -501,7 +544,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bouclier de la foi',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Bouclier de la foi'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
@@ -512,7 +556,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bouffée de poison',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Bouffée de poison'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '3 mètres',
@@ -523,7 +568,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Boule de feu',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Boule de feu'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -535,7 +581,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Boule de feu à retardement',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Boule de feu à retardement'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -547,7 +594,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Bourrasque',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Bourrasque'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (ligne de 18 mètres)',
@@ -558,7 +606,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Brume mortelle / Nuage mortel',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Brume mortelle / Nuage mortel'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -570,7 +619,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cage de force',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Cage de force'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '30 mètres',
@@ -581,7 +631,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Caresse du vampire',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Caresse du vampire'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -593,7 +644,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Carquois magique / Vif carquois',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Carquois magique / Vif carquois'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'contact',
@@ -604,7 +656,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cécité/Surdité',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Cécité/Surdité'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -616,7 +669,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cercle de mort',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Cercle de mort'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -628,7 +682,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cercle de pouvoir',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Cercle de pouvoir'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (9 mètres de rayon)',
@@ -639,7 +694,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cercle de téléportation',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Cercle de téléportation'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '3 mètres',
@@ -650,7 +706,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cercle magique',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Cercle magique'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '3 mètres',
@@ -662,7 +719,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Chaîne d\'éclairs',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Chaîne d\'éclairs'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '450 mètres',
@@ -674,7 +732,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Champ antimagie',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Champ antimagie'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (sphère de 3 mètres de rayon)',
@@ -685,7 +744,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Changement de forme',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Changement de forme'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -696,7 +756,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Changement de plan',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Changement de plan'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -707,7 +768,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Charme-personne',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Charme-personne'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -719,7 +781,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment aveuglant / Frappe aveuglante',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Châtiment aveuglant / Frappe aveuglante'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -730,7 +793,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment calcinant / Frappe ardente',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Châtiment calcinant / Frappe ardente'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -742,7 +806,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment Courroucé / Frappe colérique',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Châtiment Courroucé / Frappe colérique'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -753,7 +818,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment débilitant / Frappe assommante',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Châtiment débilitant / Frappe assommante'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -764,7 +830,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment du ban / Frappe du bannissement',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Châtiment du ban / Frappe du bannissement'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -775,7 +842,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment révélateur / Frappe lumineuse',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Châtiment révélateur / Frappe lumineuse'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -787,7 +855,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Châtiment tonitruant / Frappe tonitruante',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Châtiment tonitruant / Frappe tonitruante'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -798,7 +867,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Chien de garde de Mordenkainen',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Chien de garde de Mordenkainen'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -809,7 +879,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Clairvoyance',
-            'school' => 'Divination',
+            'slug' => Str::slug('Clairvoyance'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '1,5 kilomètre',
@@ -820,7 +891,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Clignotement',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Clignotement'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -831,7 +903,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Clone',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Clone'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => 'contact',
@@ -842,7 +915,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Coffre secret de Léomund',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Coffre secret de Léomund'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -853,7 +927,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Colonne de flamme',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Colonne de flamme'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -865,7 +940,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Communication à distance / Envoi de message',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Communication à distance / Envoi de message'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'illimitée',
@@ -876,7 +952,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Communication avec les animaux',
-            'school' => 'Divination',
+            'slug' => Str::slug('Communication avec les animaux'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -888,7 +965,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Communication avec les morts',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Communication avec les morts'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '3 mètres',
@@ -899,7 +977,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Communication avec les plantes',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Communication avec les plantes'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (9 mètres de rayon)',
@@ -910,7 +989,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Communion',
-            'school' => 'Divination',
+            'slug' => Str::slug('Communion'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -922,7 +1002,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Communion avec la nature',
-            'school' => 'Divination',
+            'slug' => Str::slug('Communion avec la nature'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -934,7 +1015,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Compréhension des langues',
-            'school' => 'Divination',
+            'slug' => Str::slug('Compréhension des langues'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -946,7 +1028,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Compulsion',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Compulsion'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -957,7 +1040,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cône de froid',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Cône de froid'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 18 mètres)',
@@ -969,7 +1053,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Confusion',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Confusion'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -981,7 +1066,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contact avec les plans',
-            'school' => 'Divination',
+            'slug' => Str::slug('Contact avec les plans'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -993,7 +1079,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contact glacial',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Contact glacial'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1004,7 +1091,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contagion',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Contagion'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1015,7 +1103,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contamination',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Contamination'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1026,7 +1115,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contresort',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Contresort'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 réaction à utiliser quand vous voyez une créature située dans un rayon de 18 mètres autour de vous lancer un sort',
             'range' => '18 mètres',
@@ -1038,7 +1128,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contrôle de l\'eau',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Contrôle de l\'eau'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '90 mètres',
@@ -1049,7 +1140,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Contrôle du climat',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Contrôle du climat'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => 'personnelle (rayon de 7,5 kilomètres)',
@@ -1060,7 +1152,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Convocations instantanées de Drawmij',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Convocations instantanées de Drawmij'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -1072,7 +1165,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Coquille antivie',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Coquille antivie'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (3 mètres de rayon)',
@@ -1083,7 +1177,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Corde enchantée',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Corde enchantée'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1094,7 +1189,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Cordon de flèches',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Cordon de flèches'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '1,50 mètre',
@@ -1106,7 +1202,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Couleurs dansantes',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Couleurs dansantes'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 4,50 mètres)',
@@ -1118,7 +1215,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Coup au but / Viser juste',
-            'school' => 'Divination',
+            'slug' => Str::slug('Coup au but / Viser juste'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1129,7 +1227,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Couronne du dément',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Couronne du dément'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1140,7 +1239,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Création',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Création'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '9 mètres',
@@ -1152,7 +1252,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Création de mort-vivant',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Création de mort-vivant'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '3 mètres',
@@ -1164,7 +1265,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Création de nourriture et d\'eau',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Création de nourriture et d\'eau'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1175,7 +1277,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Création ou destruction d\'eau',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Création ou destruction d\'eau'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1187,7 +1290,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Croissance d\'épines',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Croissance d\'épines'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -1198,7 +1302,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Croissance végétale',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Croissance végétale'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action ou 8 heures',
             'range' => '45 mètres',
@@ -1209,7 +1314,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Danse irrésistible d\'Otto',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Danse irrésistible d\'Otto'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1220,7 +1326,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Déblocage',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Déblocage'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1231,7 +1338,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Décharge occulte / Explosion occulte',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Décharge occulte / Explosion occulte'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1242,7 +1350,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Dédale / Labyrinthe',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Dédale / Labyrinthe'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1253,7 +1362,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Déguisement',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Déguisement'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1264,7 +1374,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Demi-plan',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Demi-plan'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1275,7 +1386,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Désintégration',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Désintégration'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1287,7 +1399,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Détection de la magie',
-            'school' => 'Divination',
+            'slug' => Str::slug('Détection de la magie'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1action',
@@ -1299,7 +1412,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Détection de l\'invisibilité / Voir l\'invisible',
-            'school' => 'Divination',
+            'slug' => Str::slug('Détection de l\'invisibilité / Voir l\'invisible'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1310,7 +1424,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Détection des pensées',
-            'school' => 'Divination',
+            'slug' => Str::slug('Détection des pensées'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1321,7 +1436,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Détection des pièges / Trouver les pièges',
-            'school' => 'Divination',
+            'slug' => Str::slug('Détection des pièges / Trouver les pièges'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1332,7 +1448,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Détection du bien et du mal',
-            'school' => 'Divination',
+            'slug' => Str::slug('Détection du bien et du mal'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1343,7 +1460,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Détection du poison et des maladies',
-            'school' => 'Divination',
+            'slug' => Str::slug('Détection du poison et des maladies'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -1355,7 +1473,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Disque flottant de Tenser',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Disque flottant de Tenser'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -1367,7 +1486,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Dissimulation suprême / Séquestration',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Dissimulation suprême / Séquestration'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1378,7 +1498,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Dissipation de la magie',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Dissipation de la magie'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1390,7 +1511,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Dissipation du bien et du mal',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Dissipation du bien et du mal'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1400,8 +1522,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Divination',
-            'school' => 'Divination',
+            'name' => 'divination',
+            'slug' => Str::slug('divination'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -1413,7 +1536,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Doigt de mort',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Doigt de mort'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1424,7 +1548,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Domination d\'animal',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Domination d\'animal'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1436,7 +1561,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Domination de monstre',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Domination de monstre'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1448,7 +1574,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Domination de personne',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Domination de personne'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1460,7 +1587,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Don des langues / Langues',
-            'school' => 'Divination',
+            'slug' => Str::slug('Don des langues / Langues'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1471,7 +1599,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Double illusoire / Tromperie',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Double illusoire / Tromperie'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1482,7 +1611,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Doux repos',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Doux repos'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -1494,7 +1624,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Druidisme',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Druidisme'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1505,7 +1636,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Duel forcé',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Duel forcé'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
@@ -1516,7 +1648,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Éclair',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Éclair'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (ligne de 30 mètres)',
@@ -1528,7 +1661,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Éclat du soleil',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Éclat du soleil'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -1539,7 +1673,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Embruns prismatiques',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Embruns prismatiques'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 18 mètres)',
@@ -1550,7 +1685,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Emprisonnement',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Emprisonnement'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '9 mètres',
@@ -1561,7 +1697,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Enchevêtrement',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Enchevêtrement'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -1572,7 +1709,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Entrave planaire',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Entrave planaire'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => '18 mètres',
@@ -1584,7 +1722,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Envoûtement / Discours captivant',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Envoûtement / Discours captivant'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1595,7 +1734,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Épée de Mordenkainen',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Épée de Mordenkainen'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1606,7 +1746,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Esprit faible',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Esprit faible'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -1617,7 +1758,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Esprit impénétrable',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Esprit impénétrable'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1628,7 +1770,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Esprits gardiens',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Esprits gardiens'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (4,50 mètres de rayon)',
@@ -1640,7 +1783,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Étrangeté / Ennemi subconscient',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Étrangeté / Ennemi subconscient'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1651,7 +1795,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Éveil',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Éveil'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '8 heures',
             'range' => 'contact',
@@ -1662,7 +1807,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Fabrication',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Fabrication'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '36 mètres',
@@ -1673,7 +1819,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Façonnage de la pierre',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Façonnage de la pierre'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1684,7 +1831,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Faux amis / Amis',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Faux amis / Amis'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1695,7 +1843,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Faveur divine',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Faveur divine'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -1706,7 +1855,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Feindre la mort / État cadavérique',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Feindre la mort / État cadavérique'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -1718,7 +1868,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Festin des héros',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Festin des héros'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '9 mètres',
@@ -1729,7 +1880,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flamme éternelle',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Flamme éternelle'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1740,7 +1892,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flamme sacrée',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Flamme sacrée'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1751,7 +1904,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flammes / Produire une flamme',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Flammes / Produire une flamme'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1762,7 +1916,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Fléau d\'insectes',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Fléau d\'insectes'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '90 mètres',
@@ -1774,7 +1929,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flèche acide de Melf',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Flèche acide de Melf'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -1786,7 +1942,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flèche de foudre',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Flèche de foudre'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -1798,7 +1955,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flétrissement',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Flétrissement'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1810,7 +1968,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Flou',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Flou'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1821,7 +1980,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Force fantasmagorique',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Force fantasmagorique'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1832,7 +1992,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Forme éthérée',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Forme éthérée'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -1844,7 +2005,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Forme gazeuse',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Forme gazeuse'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -1855,7 +2017,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Fou rire de Tasha',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Fou rire de Tasha'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1866,7 +2029,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Fouet épineux',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Fouet épineux'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1877,7 +2041,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Foulée brumeuse / Pas brumeux',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Foulée brumeuse / Pas brumeux'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -1888,7 +2053,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Fracassement / Briser',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Fracassement / Briser'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1900,7 +2066,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Frappe piégeuse',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Frappe piégeuse'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -1912,7 +2079,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Fusion dans la pierre',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Fusion dans la pierre'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -1924,7 +2092,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Gardien de la foi',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Gardien de la foi'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -1935,7 +2104,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Glissement de terrain / Déplacer la terre',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Glissement de terrain / Déplacer la terre'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -1946,7 +2116,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Globe d\'invulnérabilité',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Globe d\'invulnérabilité'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (3 mètres de rayon)',
@@ -1958,7 +2129,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Glyphe de garde',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Glyphe de garde'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => 'contact',
@@ -1970,7 +2142,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Gourdin magique / Crosse des druides',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Gourdin magique / Crosse des druides'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'contact',
@@ -1981,7 +2154,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Graisse',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Graisse'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -1992,7 +2166,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Grande foulée',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Grande foulée'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2004,7 +2179,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Grêle d\'épines',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Grêle d\'épines'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -2016,7 +2192,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Guérison',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Guérison'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2028,7 +2205,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Guérison de groupe',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Guérison de groupe'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2039,7 +2217,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Hâte',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Hâte'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2049,8 +2228,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Hérissement de projectiles / Invocation d\'un tir de barrage',
-            'school' => 'Invocation',
+            'name' => 'Hérissement de projectiles / invocation d\'un tir de barrage',
+            'slug' => Str::slug('Hérissement de projectiles / invocation d\'un tir de barrage'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 18 mètres)',
@@ -2061,7 +2241,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Héroïsme',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Héroïsme'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2073,7 +2254,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Identification',
-            'school' => 'Divination',
+            'slug' => Str::slug('Identification'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -2084,8 +2266,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Illusion mineure',
-            'school' => 'Illusion',
+            'name' => 'illusion mineure',
+            'slug' => Str::slug('illusion mineure'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2095,8 +2278,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Illusion programmée',
-            'school' => 'Illusion',
+            'name' => 'illusion programmée',
+            'slug' => Str::slug('illusion programmée'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2107,7 +2291,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Image majeure',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Image majeure'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2119,7 +2304,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Image miroir',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Image miroir'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -2130,7 +2316,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Image projetée',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Image projetée'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '750 kilomètres',
@@ -2141,7 +2328,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Image silencieuse',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Image silencieuse'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2152,7 +2340,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Immobilisation de monstre',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Immobilisation de monstre'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -2164,7 +2353,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Immobilisation de personne',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Immobilisation de personne'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2176,7 +2366,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Imprécation / Fléau',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Imprécation / Fléau'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2188,7 +2379,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Injonction',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Injonction'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2200,7 +2392,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Insecte géant',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Insecte géant'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2211,7 +2404,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Interdiction',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Interdiction'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '10 minutes',
@@ -2223,7 +2417,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Inversion de la gravité',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Inversion de la gravité'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '30 mètres',
@@ -2234,7 +2429,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Invisibilité',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Invisibilité'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2246,7 +2442,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Invisibilité suprême',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Invisibilité suprême'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2256,8 +2453,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation d\'animaux',
-            'school' => 'Invocation',
+            'name' => 'invocation d\'animaux',
+            'slug' => Str::slug('invocation d\'animaux'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2268,8 +2466,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation de céleste',
-            'school' => 'Invocation',
+            'name' => 'invocation de céleste',
+            'slug' => Str::slug('invocation de céleste'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '27 mètres',
@@ -2280,8 +2479,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation d\'élémentaire',
-            'school' => 'Invocation',
+            'name' => 'invocation d\'élémentaire',
+            'slug' => Str::slug('invocation d\'élémentaire'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '27 mètres',
@@ -2292,8 +2492,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation d\'élémentaire mineurs',
-            'school' => 'Invocation',
+            'name' => 'invocation d\'élémentaire mineurs',
+            'slug' => Str::slug('invocation d\'élémentaire mineurs'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '27 mètres',
@@ -2304,8 +2505,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation d\'êtres sylvestres',
-            'school' => 'Invocation',
+            'name' => 'invocation d\'êtres sylvestres',
+            'slug' => Str::slug('invocation d\'êtres sylvestres'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2316,8 +2518,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation de fée',
-            'school' => 'Invocation',
+            'name' => 'invocation de fée',
+            'slug' => Str::slug('invocation de fée'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '27 mètres',
@@ -2328,8 +2531,9 @@ return new class extends Migration
         ]);
         Spell::insert([
             'id' => Str::uuid(),
-            'name' => 'Invocation d\'une volée de projectiles',
-            'school' => 'Invocation',
+            'name' => 'invocation d\'une volée de projectiles',
+            'slug' => Str::slug('invocation d\'une volée de projectiles'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '15 mètres',
@@ -2340,7 +2544,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Jeter une malédiction / Malédiction',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Jeter une malédiction / Malédiction'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2352,7 +2557,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lame de feu',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Lame de feu'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -2364,7 +2570,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Léger comme une plume / Feuille morte',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Léger comme une plume / Feuille morte'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 réaction, que vous effectuez quand vous-même ou une créature située dans un rayon de 18 mètres tombe soudain',
             'range' => '18 mètres',
@@ -2375,7 +2582,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lenteur',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Lenteur'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2386,7 +2594,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lever une malédiction / Délivrance des malédictions',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Lever une malédiction / Délivrance des malédictions'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2397,7 +2606,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lévitation',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Lévitation'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2408,7 +2618,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Liane avide',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Liane avide'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
@@ -2419,7 +2630,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Liberté de mouvement',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Liberté de mouvement'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2430,7 +2642,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lien de protection',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Lien de protection'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2441,7 +2654,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lien télépathique de Rary',
-            'school' => 'Divination',
+            'slug' => Str::slug('Lien télépathique de Rary'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -2453,7 +2667,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Localisation d\'animaux ou de plantes',
-            'school' => 'Divination',
+            'slug' => Str::slug('Localisation d\'animaux ou de plantes'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -2465,7 +2680,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Localisation de créature',
-            'school' => 'Divination',
+            'slug' => Str::slug('Localisation de créature'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -2476,7 +2692,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Localisation d\'objet',
-            'school' => 'Divination',
+            'slug' => Str::slug('Localisation d\'objet'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -2487,7 +2704,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lueur d\'espoir',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Lueur d\'espoir'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2498,7 +2716,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lueurs féeriques',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Lueurs féeriques'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2509,7 +2728,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lumière',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Lumière'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2520,7 +2740,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lumière du jour',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Lumière du jour'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2531,7 +2752,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Lumières dansantes',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Lumières dansantes'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2542,7 +2764,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Main de Bigby',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Main de Bigby'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2554,7 +2777,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Main du mage',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Main du mage'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2565,7 +2789,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mains brûlantes',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mains brûlantes'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact (cône de 4,50 mètres)',
@@ -2577,7 +2802,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Maléfice',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Maléfice'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '27 mètres',
@@ -2589,7 +2815,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Manoir somptueux de Mordenkainen',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Manoir somptueux de Mordenkainen'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '90 mètres',
@@ -2600,7 +2827,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Marche sur l\'onde',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Marche sur l\'onde'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -2612,7 +2840,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Marque du chasseur',
-            'school' => 'Divination',
+            'slug' => Str::slug('Marque du chasseur'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '27 mètres',
@@ -2624,7 +2853,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mauvais oeil',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Mauvais oeil'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -2635,7 +2865,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Message',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Message'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2646,7 +2877,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Messager Animal',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Messager Animal'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -2659,7 +2891,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Métal brûlant / Chauffer le métal',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Métal brûlant / Chauffer le métal'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2671,7 +2904,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Métamorphose',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Métamorphose'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2682,7 +2916,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Métamorphose animale / Formes animales',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Métamorphose animale / Formes animales'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2693,7 +2928,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Métamorphose suprême',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Métamorphose suprême'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2704,7 +2940,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mirage',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Mirage'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => 'vision',
@@ -2715,7 +2952,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Modification d\'apparence',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Modification d\'apparence'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -2726,7 +2964,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Modification de mémoire',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Modification de mémoire'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -2738,7 +2977,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Monture fantôme',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Monture fantôme'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -2750,7 +2990,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Moquerie cruelle',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Moquerie cruelle'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2761,7 +3002,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mot de guérison',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mot de guérison'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
@@ -2773,7 +3015,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mot de guérison de groupe',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mot de guérison de groupe'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '18 mètres',
@@ -2785,7 +3028,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mot de pouvoir étourdissant',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Mot de pouvoir étourdissant'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2796,7 +3040,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mot de pouvoir guérisseur',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mot de pouvoir guérisseur'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -2807,7 +3052,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mot de pouvoir mortel',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Mot de pouvoir mortel'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2818,7 +3064,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mot de retour',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Mot de retour'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '1,50 mètre',
@@ -2829,7 +3076,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Motif hypnotique',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Motif hypnotique'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2840,7 +3088,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur d\'épines',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Mur d\'épines'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2852,7 +3101,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur de feu',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mur de feu'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2864,7 +3114,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur de force',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mur de force'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2875,7 +3126,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur de glace',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mur de glace'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2887,7 +3139,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur de pierre',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mur de pierre'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2898,7 +3151,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur de vent',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Mur de vent'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2909,7 +3163,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mur prismatique',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Mur prismatique'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2920,7 +3175,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Murmures dissonants',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Murmures dissonants'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2932,7 +3188,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Mythes et légendes / Légende',
-            'school' => 'Divination',
+            'slug' => Str::slug('Mythes et légendes / Légende'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => 'personnelle',
@@ -2943,7 +3200,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Nappe de brouillard',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Nappe de brouillard'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -2955,7 +3213,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Nuage incendiaire',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Nuage incendiaire'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -2966,7 +3225,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Nuage nauséabond',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Nuage nauséabond'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -2977,7 +3237,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Nuée de dagues',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Nuée de dagues'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -2989,7 +3250,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Nuée de météores',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Nuée de météores'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '1,5 kilomètre',
@@ -3000,7 +3262,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Oeil du mage',
-            'school' => 'Divination',
+            'slug' => Str::slug('Oeil du mage'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -3011,7 +3274,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Orbe chromatique',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Orbe chromatique'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -3023,7 +3287,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Orientation / Trouver un chemin',
-            'school' => 'Divination',
+            'slug' => Str::slug('Orientation / Trouver un chemin'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'personnelle',
@@ -3034,7 +3299,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Parole divine',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Parole divine'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
@@ -3045,7 +3311,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Passage par les arbres',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Passage par les arbres'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -3056,7 +3323,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Passage sans trace',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Passage sans trace'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -3067,7 +3335,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Passe-muraille',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Passe-muraille'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -3078,7 +3347,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Pattes d\'araignée',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Pattes d\'araignée'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3089,7 +3359,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Peau d\'écorce',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Peau d\'écorce'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3100,7 +3371,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Peau de pierre',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Peau de pierre'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3111,7 +3383,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Petite hutte de Léomund',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Petite hutte de Léomund'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -3123,7 +3396,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Pétrification',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Pétrification'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3134,7 +3408,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Poigne électrique',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Poigne électrique'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3145,7 +3420,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Portail',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Portail'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3156,7 +3432,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Portail arcanique',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Portail arcanique'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '150 mètres',
@@ -3167,7 +3444,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Porte dimensionnelle',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Porte dimensionnelle'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '150 mètres',
@@ -3178,7 +3456,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Possession',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Possession'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'personnelle',
@@ -3189,7 +3468,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Prémonition',
-            'school' => 'Divination',
+            'slug' => Str::slug('Prémonition'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -3200,7 +3480,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Prestidigitation',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Prestidigitation'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '3 mètres',
@@ -3211,7 +3492,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Prière de guérison',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Prière de guérison'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '9 mètres',
@@ -3223,7 +3505,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Projectile magique',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Projectile magique'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -3235,7 +3518,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Projection astrale',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Projection astrale'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => '3 mètres',
@@ -3246,7 +3530,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Protection contre l\'énergie',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Protection contre l\'énergie'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3257,7 +3542,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Protection contre la mort',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Protection contre la mort'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3268,7 +3554,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Protection contre le bien et le mal',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Protection contre le bien et le mal'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3279,7 +3566,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Protection contre le poison',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Protection contre le poison'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3290,7 +3578,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Protection contre les armes',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Protection contre les armes'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -3301,7 +3590,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Protections et sceaux',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Protections et sceaux'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => 'contact',
@@ -3312,7 +3602,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Purification de la nourriture et de l\'eau',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Purification de la nourriture et de l\'eau'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '3 mètres',
@@ -3323,7 +3614,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Quête / Coercition mystique',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Quête / Coercition mystique'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '18 mètres',
@@ -3335,7 +3627,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rappel à la vie / Relever les morts',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Rappel à la vie / Relever les morts'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => 'contact',
@@ -3346,7 +3639,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rayon affaiblissant',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Rayon affaiblissant'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3357,7 +3651,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rayon ardent',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Rayon ardent'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -3369,7 +3664,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rayon de givre',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Rayon de givre'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3380,7 +3676,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rayon de lune',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Rayon de lune'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -3392,7 +3689,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rayon de soleil',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Rayon de soleil'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (ligne de 18 mètres)',
@@ -3403,7 +3701,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Rayon empoisonné',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Rayon empoisonné'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3415,7 +3714,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Régénération',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Régénération'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -3426,7 +3726,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Réincarnation',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Réincarnation'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => 'contact',
@@ -3437,7 +3738,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Réparation',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Réparation'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -3448,7 +3750,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Repli expéditif',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Repli expéditif'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => 'personnelle',
@@ -3459,7 +3762,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Représailles infernales',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Représailles infernales'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 réaction en réponse aux dégâts que vous inflige une créature située dans votre champ de vision et dans un rayon de 18 mètres autour de vous',
             'range' => '18 mètres',
@@ -3471,7 +3775,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Répulsion/attirance / Aversion/attirance',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Répulsion/attirance / Aversion/attirance'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => '18 mètres',
@@ -3482,7 +3787,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Résistance',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Résistance'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3493,7 +3799,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Respiration aquatique',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Respiration aquatique'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -3505,7 +3812,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Restauration partielle',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Restauration partielle'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3516,7 +3824,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Restauration suprême',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Restauration suprême'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3527,7 +3836,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Résurrection',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Résurrection'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => 'contact',
@@ -3538,7 +3848,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Résurrection suprême',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Résurrection suprême'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 heure',
             'range' => 'contact',
@@ -3549,7 +3860,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Revigorer / Retour à la vie',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Revigorer / Retour à la vie'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3560,7 +3872,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sanctification',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Sanctification'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '24 heures',
             'range' => 'contact',
@@ -3571,7 +3884,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sanctuaire',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Sanctuaire'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action bonus',
             'range' => '9 mètres',
@@ -3582,7 +3896,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sanctuaire privé de Mordenkainen',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Sanctuaire privé de Mordenkainen'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '36 mètres',
@@ -3594,7 +3909,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Saut',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Saut'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3605,7 +3921,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Scrutation',
-            'school' => 'Divination',
+            'slug' => Str::slug('Scrutation'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => 'personnelle',
@@ -3616,7 +3933,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sens animal',
-            'school' => 'Divination',
+            'slug' => Str::slug('Sens animal'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -3628,7 +3946,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Serviteur invisible',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Serviteur invisible'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -3640,7 +3959,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Silence',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Silence'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 action',
@@ -3652,7 +3972,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Simulacre',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Simulacre'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '12 heures',
             'range' => 'contact',
@@ -3663,7 +3984,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Simulacre de vie',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Simulacre de vie'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -3675,7 +3997,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Soin des blessures',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Soin des blessures'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3687,7 +4010,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Soin des blessures de groupe',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Soin des blessures de groupe'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3699,7 +4023,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sommeil',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Sommeil'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -3711,7 +4036,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Songe /Rêve',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Songe /Rêve'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'spéciale',
@@ -3722,7 +4048,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Souhait',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Souhait'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle',
@@ -3733,7 +4060,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sphère de feu',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Sphère de feu'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3745,7 +4073,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sphère glacée d\'Otiluke',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Sphère glacée d\'Otiluke'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '90 mètres',
@@ -3757,7 +4086,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Sphère résiliente d\'Otiluke',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Sphère résiliente d\'Otiluke'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -3768,7 +4098,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Stabilisation / Épargner les mourants',
-            'school' => 'Nécromancie',
+            'slug' => Str::slug('Stabilisation / Épargner les mourants'),
+            'school_id' => School::where('slug', 'necromancie')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -3779,7 +4110,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Suggestion',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Suggestion'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -3790,7 +4122,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Suggestion de groupe',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Suggestion de groupe'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3802,7 +4135,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Symbole',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Symbole'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'contact',
@@ -3813,7 +4147,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Télékinésie',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Télékinésie'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3824,7 +4159,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Télépathie',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Télépathie'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'illimitée',
@@ -3835,7 +4171,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Téléportation',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Téléportation'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '3 mètres',
@@ -3846,7 +4183,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tempête de feu',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Tempête de feu'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 7)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -3857,7 +4195,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tempête de grêle',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Tempête de grêle'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '90 mètres',
@@ -3869,7 +4208,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tempête de neige',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Tempête de neige'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -3880,7 +4220,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tempête vengeresse',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Tempête vengeresse'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 9)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'champ de vision',
@@ -3891,7 +4232,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Ténèbres',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Ténèbres'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3902,7 +4244,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tentacules d\'Hadar',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Tentacules d\'Hadar'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (3 m de rayon)',
@@ -3914,7 +4257,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tentacules noirs d\'Evard',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Tentacules noirs d\'Evard'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '27 mètres',
@@ -3925,7 +4269,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Terrain hallucinatoire',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Terrain hallucinatoire'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 4)->first()->getKey(),
             'cast_time' => '10 minutes',
             'range' => '90 mètres',
@@ -3936,7 +4281,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Terreur / Peur',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Terreur / Peur'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (cône de 9 mètres)',
@@ -3947,7 +4293,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Texte illusoire',
-            'school' => 'Illusion',
+            'slug' => Str::slug('Texte illusoire'),
+            'school_id' => School::where('slug', 'illusion')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'is_rituel' => true,
             'cast_time' => '1 minute',
@@ -3959,7 +4306,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Thaumaturgie',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Thaumaturgie'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -3970,7 +4318,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Toile d\'araignée',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Toile d\'araignée'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
@@ -3981,7 +4330,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Trait de feu',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Trait de feu'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 0)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '36 mètres',
@@ -3992,7 +4342,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Trait ensorcelé / Carreau ensorcelé',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Trait ensorcelé / Carreau ensorcelé'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '9 mètres',
@@ -4004,7 +4355,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Transport végétal / Voie végétale',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Transport végétal / Voie végétale'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '3 mètres',
@@ -4015,7 +4367,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tremblement de terre',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Tremblement de terre'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '150 mètres',
@@ -4026,7 +4379,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Tsunami',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Tsunami'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 8)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => 'champ de vision',
@@ -4037,7 +4391,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Vague destructrice',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Vague destructrice'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 5)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (9 mètres)',
@@ -4048,7 +4403,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Vague tonnante',
-            'school' => 'Évocation',
+            'slug' => Str::slug('Vague tonnante'),
+            'school_id' => School::where('slug', 'evocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 1)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'personnelle (cube de 4,50 mètres)',
@@ -4060,7 +4416,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Vent divin / Marche sur le vent',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Vent divin / Marche sur le vent'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 minute',
             'range' => '9 mètres',
@@ -4071,7 +4428,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Verrou magique',
-            'school' => 'Abjuration',
+            'slug' => Str::slug('Verrou magique'),
+            'school_id' => School::where('slug', 'abjuration')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -4082,7 +4440,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Vision dans le noir',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Vision dans le noir'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -4093,7 +4452,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Vision suprême',
-            'school' => 'Divination',
+            'slug' => Str::slug('Vision suprême'),
+            'school_id' => School::where('slug', 'divination')->first()->getKey(),
             'level_id' => Level::where('level_name', 6)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -4104,7 +4464,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Vol',
-            'school' => 'Transmutation',
+            'slug' => Str::slug('Vol'),
+            'school_id' => School::where('slug', 'transmutation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => 'contact',
@@ -4116,7 +4477,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Voracité d\'Hadar / Appétit d\'Hadar',
-            'school' => 'Invocation',
+            'slug' => Str::slug('Voracité d\'Hadar / Appétit d\'Hadar'),
+            'school_id' => School::where('slug', 'invocation')->first()->getKey(),
             'level_id' => Level::where('level_name', 3)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '45 mètres',
@@ -4127,7 +4489,8 @@ return new class extends Migration
         Spell::insert([
             'id' => Str::uuid(),
             'name' => 'Zone de vérité',
-            'school' => 'Enchantement',
+            'slug' => Str::slug('Zone de vérité'),
+            'school_id' => School::where('slug', 'enchantement')->first()->getKey(),
             'level_id' => Level::where('level_name', 2)->first()->getKey(),
             'cast_time' => '1 action',
             'range' => '18 mètres',
