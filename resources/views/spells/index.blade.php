@@ -22,7 +22,10 @@
                     <div class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
                         <div class="flex justify-between p-2">
                             <div class="">
-                            <span class="bg-{{$spell->level->background_color}} text-{{$spell->level->text_color}} text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">
+                            <span
+                                class="text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded"
+                                style="color: {{ $spell->level->text_color }}; background-color: {{ $spell->level->background_color }}"
+                            >
                                 {{ $spell->level->level_name === 0 ? 'Tour de magie' : "Level {$spell->level->level_name}" }}
                             </span>
                             </div>
@@ -63,7 +66,9 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
                                     </svg>
                                 </button>
-                                <div class="rounded-full h-4 w-4 bg-{{$spell->level->background_color}} text-xs text-{{$spell->level->text_color}}">
+                                <div class="rounded-full h-4 w-4 text-xs text-{{$spell->level->text_color}}"
+                                     style="color: {{ $spell->level->text_color }}; background-color: {{ $spell->level->background_color }}"
+                                >
                                     {{ $spell->level->level_name }}
                                 </div>
                             </div>

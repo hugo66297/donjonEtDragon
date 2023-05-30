@@ -33,6 +33,7 @@ class StoreCharacterRequest extends FormRequest
             'hero.background_id' => ['required', 'uuid', 'exists:backgrounds,id'],
             'hero.alignment_id' => ['required', 'uuid', 'exists:alignments,id'],
             'hero.goal_id' => ['required', 'uuid', 'exists:goals,id'],
+            'hero.character_past' => ['nullable'],
             'hero.passive_wisdom' => ['required', 'integer'],
             'hero.proficiency_bonus' => ['required', 'integer'],
             'hero.armor_class' => ['required', 'integer'],

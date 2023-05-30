@@ -86,7 +86,7 @@
                             <p class="font-titleMiddleAge md:text-xl text-red-900">Historique</p>
                         </div>
                         <div class="flex flex-col">
-                            <p class="text-gray-500">{{ $hero->subrace->race->name }}</p>
+                            <p class="text-gray-500">{{ $hero->subrace->fullname() }}</p>
                             <hr class="border border-t-gray-500">
                             <p class="font-titleMiddleAge md:text-xl text-red-900">Race</p>
                         </div>
@@ -373,6 +373,20 @@
                             </div>
                         @endif
                     </div>
+                </div>
+                <div class="px-4 pt-4 text-justify">
+                    @if($hero->subrace->name)
+                        <h2 class="text-2xl sm:text-3xl text-red-900 font-titleMiddleAge tracking-wide">
+                            {{ $hero->subrace->fullname() }}
+                        </h2>
+                        <div class="sm:indent-4 my-1">
+                            {!! $hero->subrace->description !!}
+                        </div>
+                    @else
+                        <div class="sm:indent-4 my-1">
+                            {!! $hero->subrace->description !!}
+                        </div>
+                    @endif
                 </div>
                 <hr class="border border-gray-300 my-4">
                 <div class="px-4 text-justify">
