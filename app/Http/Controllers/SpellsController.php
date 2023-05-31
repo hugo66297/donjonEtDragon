@@ -35,15 +35,9 @@ class SpellsController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Spell  $spell
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Spell $spell, int $page)
+
+    public function show(Spell $spell)
     {
-        session(['previous_page' => $page]);
         return view('spells.show')->with(compact('spell'));
     }
 

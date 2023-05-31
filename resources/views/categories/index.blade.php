@@ -4,7 +4,16 @@
     </h2>
     <div class="hidden sm:gap-4 sm:px-8 sm:py-4 sm:grid grid-cols-2 grid-rows-6 md:grid-cols-3 md:grid-rows-4 lg:grid-cols-4 lg:grid-rows-3">
         @foreach($categories as $category)
-            <a href="{{ route('characters.index', $category) }}" class="transition ease-in-out duration-500 block p-6 max-w-sm rounded-lg border border-gray-200 shadow-md bg-cover lg:h-36 md:h-40 h-44 grayscale hover:grayscale-0 hover:scale-105" style="background-image: url({{ asset($category->picture_path) }})">
+            <a
+                href="{{ route('characters.index', $category) }}"
+                class="relative flex justify-center items-center p-6 h-44 max-w-sm rounded-lg border border-gray-200 shadow-md bg-cover grayscale transition ease-in-out duration-500 lg:h-36 md:h-40 hover:grayscale-0 hover:scale-105"
+                style="background-image: url({{ asset($category->picture_path) }})"
+            >
+                <span
+                    class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-800 border-2 border-white rounded-full -top-2 -right-2"
+                >
+                    {{ $category->characters_count }}
+                </span>
                 <span class="font-semibold text-white text-3xl">{{ $category->name }}</span>
             </a>
         @endforeach
@@ -16,7 +25,17 @@
             <!-- Carousel wrapper -->
             <div class="relative overflow-hidden rounded-lg h-60">
                 @foreach($categories as $category)
-                    <a href="{{ route('characters.index', $category) }}" class="hidden duration-700 ease-in-out bg-cover" data-carousel-item="{{ $category->name === 'Barbare' ? 'active' : ''  }}" style="background-image: url({{ asset($category->picture_path) }})">
+                    <a
+                        href="{{ route('characters.index', $category) }}"
+                        class="hidden duration-700 ease-in-out bg-cover"
+                        data-carousel-item="{{ $category->name === 'Barbare' ? 'active' : ''  }}"
+                        style="background-image: url({{ asset($category->picture_path) }})"
+                    >
+                        <span
+                            class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-800 border-2 border-white rounded-full top-2 right-2"
+                        >
+                            {{ $category->characters_count }}
+                        </span>
                         <span class="z-10 absolute font-semibold text-white -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 text-3xl">{{ $category->name }}</span>
                     </a>
                 @endforeach

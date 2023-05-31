@@ -34,8 +34,8 @@ return new class extends Migration {
         Level::insert([
             'id' => Str::uuid(),
             'level_name' => 2,
-            'background_color' => '#115e59',
-            'text_color' => '#34d399'
+            'background_color' => '#014737',
+            'text_color' => '#84e1bc'
         ]);
         Level::insert([
             'id' => Str::uuid(),

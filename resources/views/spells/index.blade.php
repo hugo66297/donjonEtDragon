@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="max-[390px]:px-8 sm:gap-4 sm:px-8 sm:py-4">
+    <div class="px-2 md:px-8">
         <form class="flex items-center" action="{{ route('spells.search') }}" method="GET">
             @csrf
             <label for="simple-search" class="sr-only">Search</label>
@@ -15,9 +15,10 @@
             </button>
         </form>
     </div>
-    <div class="px-1 gap-2 max-[390px]:px-8 sm:gap-4 sm:px-8 sm:py-4 grid max-[390px]:grid-cols-1 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+
+    <ul role="list" class="px-2 sm:px-8 sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         @foreach($spells as $spell)
-            <div class="flip-card min-h-[20rem]">
+            <div class="hidden sm:block flip-card min-h-[20rem]">
                 <div class="flip-card-inner">
                     <div class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
                         <div class="flex justify-between p-2">
@@ -38,7 +39,7 @@
                         <dl class="grid grid-cols-1 gap-x-2 gap-y-6 text-gray-900 p-2">
                             <div class="flex flex-col items-center justify-center">
                                 <dt class="text-sm text-slate-100 font-weight-bold">
-                                    {{ $spell->school }}
+                                    {{ $spell->school->name }}
                                 </dt>
                                 <dd class="text-xs font-light text-gray-400">
                                     École
@@ -114,9 +115,33 @@
                     </div>
                 </div>
             </div>
+            <a href="{{ route('spells.show', $spell) }}" class="sm:hidden flex justify-between gap-x-6 py-5 border-b border-gray-200">
+                <div class="flex gap-x-4">
+                    <div class="min-w-0 flex-auto">
+                        <p class="text-sm font-bold leading-6 text-gray-900">{{ $spell->name }}</p>
+                        <p class="text-sm leading-5 text-gray-700">{{ $spell->school->name }}</p>
+                        <p class="text-sm leading-5 text-gray-700">{{ $spell->cast_time }}</p>
+                        <div class="flex flex-wrap gap-2 mt-1">
+                            @foreach($spell->tags as $tag)
+                                <p class="text-xs text-center font-medium px-2.5 py-0.5 rounded bg-gray-300 text-gray-900">
+                                    {{ $tag->name }}
+                                </p>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <p
+                        class="text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded"
+                        style="color: {{ $spell->level->text_color }}; background-color: {{ $spell->level->background_color }}"
+                    >
+                        {{ $spell->level->level_name === 0 ? 'Cantrip' : "Lvl {$spell->level->level_name}" }}
+                    </p>
+                </div>
+            </a>
         @endforeach
-    </div>
-    {{ $spells->appends(['page' => $spells->currentPage()])->links() }}
+    </ul>
+    {{ $spells->links() }}
 </x-app-layout>
 
 <script>

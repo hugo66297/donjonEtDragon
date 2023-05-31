@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class School extends Model
 {
     use HasFactory, HasUuids;
+
+    public function spells() {
+        return $this->hasMany(Spell::class);
+    }
 }

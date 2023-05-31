@@ -14,4 +14,12 @@ class Spell extends Model
     public function level(){
         return $this->belongsTo(Level::class);
     }
+
+    public function school() {
+        return $this->belongsTo(School::class);
+    }
+
+    public function tags() {
+        return $this->belongsToMany(Tag::class, 'spell_tag');
+    }
 }

@@ -8,6 +8,7 @@
                 placeholder="Choisis des armes"
                 dropdown="dropdownWeapons"
             />
+            <x-form-alert error="weapons" />
         </div>
     </div>
     <div id="div-attacks">
@@ -94,7 +95,7 @@
                                         rows="4"
                                         class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
                                         placeholder="Je suis convaincu..."
-                                    >{{ $oldAttack['description'] ?? '' }}</textarea>
+                                    >{{ $oldAttack['other_description'] ?? '' }}</textarea>
                                 </td>
                                 <td class="px-6 py-4">
                                     <button
@@ -110,20 +111,28 @@
                     @endif
                 </tbody>
                 <tfoot>
-                <tr class="font-semibold text-gray-900">
-                    <th id="add-line" scope="row" colspan="5" class="px-6 py-3">
-                        <div class="font-bold text-red-800 flex justify-end">
+                    <tr class="font-semibold text-gray-900">
+                    <th id="add-line" scope="row" colspan="3" class="px-6 py-3 font-bold text-red-800">
+                        <div class="w-full flex items-center space-x-2 {{ $errors->has('attacks.*') ? 'justify-between' : 'justify-end' }}">
+                            <div>
+                                @if($errors->has('attacks.*.attack_id'))
+                                    <x-form-alert error="attacks.*.attack_id" />
+                                @endif
+                                @if($errors->has('attacks.*.other_description'))
+                                    <x-form-alert error="attacks.*.other_description" />
+                                @endif
+                            </div>
                             <p
-                                class="w-fit cursor-pointer hover:underline"
+                                class="w-fit cursor-pointer hover:underline self-end"
                                 @click="elt = document.createElement('tr');
-                                        uuid = self.crypto.randomUUID()
-                                        elt.innerHTML = component.innerHTML;
-                                        elt.querySelector('select').name = `attacks[${uuid}][attack_id]`
-                                        elt.querySelector('select').selectedIndex = 0
-                                        elt.querySelector('textarea').name = `attacks[${uuid}][other_description]`
-                                        elt.querySelector('textarea').value = ''
-                                        elt.classList = component.classList
-                                        $refs.tbody.appendChild(elt)"
+                                    uuid = self.crypto.randomUUID()
+                                    elt.innerHTML = component.innerHTML;
+                                    elt.querySelector('select').name = `attacks[${uuid}][attack_id]`
+                                    elt.querySelector('select').selectedIndex = 0
+                                    elt.querySelector('textarea').name = `attacks[${uuid}][other_description]`
+                                    elt.querySelector('textarea').value = ''
+                                    elt.classList = component.classList
+                                    $refs.tbody.appendChild(elt)"
                             >
                                 Ajouter une ligne
                             </p>

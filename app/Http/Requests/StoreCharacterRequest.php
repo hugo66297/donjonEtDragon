@@ -25,6 +25,7 @@ class StoreCharacterRequest extends FormRequest
      */
     public function rules()
     {
+//        dd($this->request->all());
         return [
             // Hero
             'hero' => ['required', 'array'],
@@ -73,12 +74,12 @@ class StoreCharacterRequest extends FormRequest
             // Attacks
             'attacks' => ['array'],
             'attacks.*' => ['array'],
-            'attacks.*.attack_id' => ['nullable', 'uuid', 'exists:attacks,id', 'distinct'],
+            'attacks.*.attack_id' => ['nullable', 'uuid', 'exists:attacks,id', 'distinct', 'filled'],
             'attacks.*.other_description' => ['nullable', 'max:255'],
             // Utilities
             'utilities' => ['array'],
             'utilities.*' => ['array'],
-            'utilities.*.utility_id' => ['nullable', 'uuid', 'exists:utilities,id', 'distinct'],
+            'utilities.*.utility_id' => ['nullable', 'uuid', 'exists:utilities,id', 'distinct', 'filled'],
             'utilities.*.description' => ['nullable', 'max:255'],
              // Coins
             'coins' => ['required', 'array', 'size:5'],

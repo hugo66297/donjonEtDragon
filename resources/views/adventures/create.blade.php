@@ -30,7 +30,7 @@
                 />
             </div>
             <div class="flex flex-col items-center">
-                <p class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                <p class="block text-lg font-medium text-red-800 font-titleMiddleAge">
                     Rendu du badge
                 </p>
                 <p id="preview" class="text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded">

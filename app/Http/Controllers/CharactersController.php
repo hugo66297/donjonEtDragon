@@ -38,7 +38,8 @@ class CharactersController extends Controller
     public function store(StoreCharacterRequest $request)
     {
         $hero = new Character();
-        $hero->equipment = Str::markdown($request->validated('hero.equipment'));
+
+        $hero->equipment = Str::markdown(strip_tags($request->validated('hero.equipment', '<p><strong><ul><li>')));
         $hero->fill($request->validated('hero'));
         $hero->save();
 
@@ -47,8 +48,12 @@ class CharactersController extends Controller
         $hero->savingThrows()->sync(\Arr::divide($request->validated('savingThrows'))[1]);
         $hero->coins()->sync(\Arr::divide($request->validated('coins'))[1]);
         $hero->adventures()->sync($request->validated('adventures'));
-        $hero->attacks()->sync(\Arr::divide($request->validated('attacks'))[1]);
-        $hero->utilities()->sync(\Arr::divide($request->validated('utilities'))[1]);
+        if ($request->validated('attacks')) {
+            $hero->attacks()->sync(\Arr::divide($request->validated('attacks'))[1]);
+        }
+        if ($request->validated('utilities')) {
+            $hero->utilities()->sync(\Arr::divide($request->validated('utilities'))[1]);
+        }
         $hero->features()->sync($request->validated('features'));
         $hero->weapons()->sync($request->validated('weapons'));
 

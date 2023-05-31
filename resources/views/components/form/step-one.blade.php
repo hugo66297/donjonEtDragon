@@ -98,6 +98,7 @@
                 type="number"
                 label="Vitesse"
                 step="0.1"
+                decimal
             />
             <x-form-alert error="hero.speed" />
         </div>

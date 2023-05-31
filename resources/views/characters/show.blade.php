@@ -110,7 +110,7 @@
                             <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
                                     <i class="fas fa-lightbulb"></i>
-                                    <span>{{ $hero->initiative }}</span>
+                                    <span>{{ $hero->initiative >= 0 ? "+$hero->initiative" : $hero->initiative }}</span>
                                 </p>
                                 <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">
                                     Initiative</p>
@@ -178,45 +178,6 @@
                             :skills="$hero->skills()->where('ability_id', $ability->getKey())->get()"
                             :color="$ability->color"
                         />
-{{--                        <x-stat-bloc--}}
-{{--                            :color="$ability->color"--}}
-{{--                            :name="$ability->name"--}}
-{{--                            :modifier="$ability->modifierAbility()"--}}
-{{--                            :value="$ability->pivot->ability_value"--}}
-{{--                        >--}}
-{{--                            <div class="space-y-4 p-2">--}}
-{{--                                <div>--}}
-{{--                                    <p class="font-titleMiddleAge text-lg text-center underline">Jet sauvegarde</p>--}}
-{{--                                    <div class="flex items-center space-x-2 mt-2">--}}
-{{--                                            <?php $currentSavingThrow = $hero->savingThrows()->where('ability_id', $ability->getKey())->first() ?>--}}
-{{--                                        <p class="min-w-[0.6rem] min-h-[0.6rem] rounded-full border border-black {{ $currentSavingThrow->pivot->is_proficient ? 'bg-black' : 'bg-white' }} mr-2"></p>--}}
-{{--                                        <p>--}}
-{{--                                            <?php $modifier = $currentSavingThrow->modifierSavingThrow($ability, $hero) ?>--}}
-{{--                                            {{ $modifier >= 0 ? "+$modifier" : $modifier }}--}}
-{{--                                        </p>--}}
-{{--                                        <p>--}}
-{{--                                            {{ $ability->savingThrow->name }}--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div>--}}
-{{--                                    <p class="font-titleMiddleAge text-xl text-center underline">Compétence</p>--}}
-{{--                                    <?php $currentSkills = $hero->skills()->where('ability_id', $ability->getKey())->get() ?>--}}
-{{--                                    @foreach($currentSkills as $skill)--}}
-{{--                                        <div class="flex items-center space-x-2 mt-2">--}}
-{{--                                            <?php $modifier = $skill->modifierSkill($ability, $hero) ?>--}}
-{{--                                            <p class="min-w-[0.6rem] min-h-[0.6rem] rounded-full border border-black {{ $skill->pivot->is_proficient ? 'bg-black' : 'bg-white' }} mr-2"></p>--}}
-{{--                                            <p>--}}
-{{--                                                {{ $modifier >= 0 ? "+$modifier" : $modifier }}--}}
-{{--                                            </p>--}}
-{{--                                            <p>--}}
-{{--                                                {{ $skill->name }}--}}
-{{--                                            </p>--}}
-{{--                                        </div>--}}
-{{--                                    @endforeach--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </x-stat-bloc>--}}
                     @endforeach
                 </section>
             </x-tab-item>

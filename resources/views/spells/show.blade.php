@@ -15,7 +15,7 @@
     </div>
     <div id="myTabContent" class="flex grow px-16">
         <div class="flex flex-col md:flex-row md:gap-y-0 gap-x-16 p-4 justify-between items-center">
-            <div class="grid gap-y-7 md:w-2/5 w-full sm:w-4/5">
+            <div class="grid gap-y-7 w-full">
                 <div class="flex flex-col gap-y-2">
                     <div class="flex gap-x-4 items-center">
                         <p class="font-titleMiddleAge md:text-xl text-red-900">Niveau :</p>
@@ -27,7 +27,7 @@
                 <div class="flex flex-col gap-y-2">
                     <div class="flex gap-x-4 items-center">
                         <p class="font-titleMiddleAge md:text-xl text-red-900">École :</p>
-                        <p class="text-gray-500">{{ $spell->school }}</p>
+                        <p class="text-gray-500">{{ $spell->school->name }}</p>
                     </div>
                     <hr class="border border-t-gray-500">
                 </div>

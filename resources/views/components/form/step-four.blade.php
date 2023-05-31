@@ -17,6 +17,7 @@
             placeholder="Choisis des aptitudes"
             dropdown="dropdownFeatures"
         />
+        <x-form-alert error="features" />
     </div>
     <div id="div-maitrise" class="">
         <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-md">
@@ -119,8 +120,16 @@
                 </tbody>
                 <tfoot>
                     <tr class="font-semibold text-gray-900">
-                        <th id="add-line" scope="row" colspan="3" class="px-6 py-3 text-right">
-                            <div class="font-bold text-red-800 flex justify-end">
+                        <th id="add-line" scope="row" colspan="3" class="px-6 py-3 font-bold text-red-800">
+                            <div class="w-full flex items-center space-x-2 {{ $errors->has('utilities.*') ? 'justify-between' : 'justify-end' }}">
+                                <div>
+                                    @if($errors->has('utilities.*.utility_id'))
+                                        <x-form-alert error="utilities.*.utility_id" />
+                                    @endif
+                                    @if($errors->has('utilities.*.description'))
+                                        <x-form-alert error="utilities.*.description" />
+                                    @endif
+                                </div>
                                 <p
                                     class="w-fit cursor-pointer hover:underline"
                                     @click="elt = document.createElement('tr');

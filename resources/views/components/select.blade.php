@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="p-2">
-                <label for="input-group-search" class="sr-only">Search</label>
+                <label for="input-group-search-{{ $name }}" class="sr-only">Search</label>
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -67,7 +67,7 @@
                     </div>
                     <input
                         type="text"
-                        id="input-group-search"
+                        id="input-group-search-{{ $name }}"
                         class="block w-full p-2 pl-10 text-sm bg-transparent rounded-lg border-1 border-gray-600 appearance-none focus:outline-none focus:ring-0 focus:border-red-800"
                         placeholder="Recherche ici"
                         x-model="query"

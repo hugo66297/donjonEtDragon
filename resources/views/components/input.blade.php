@@ -20,5 +20,6 @@
         name="{{$name}}"
         placeholder="{{$placeholder}}"
         value="{{$value}}"
+        step="{{ $type === 'number' && $decimal ? '0.1' : '1' }}"
     />
 @endif

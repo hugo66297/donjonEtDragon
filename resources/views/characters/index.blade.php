@@ -29,7 +29,10 @@
                                     </span>
                                 @endforeach
                             </div>
-                            <div class="rounded-full h-12 w-12 m-0 bg-cover" style="background-image: url({{asset("storage/img/races/{$hero->subrace->race->name}.png")}});"></div>
+                            <div
+                                class="rounded-full h-12 w-12 m-0 bg-cover"
+                                style="background-image: url({{asset("storage/img/races/{$hero->subrace->race->name}.png")}});"
+                            ></div>
                         </div>
                         <dl class="grid grid-cols-2 gap-x-2 gap-y-6 text-gray-900 p-2">
                             <div class="flex flex-col items-center justify-center">
@@ -89,7 +92,7 @@
                             </div>
                             <div class="flex items-center justify-center gap-x-2 text-gray-400 font-extrabold">
                                 <i class="fas fa-lightbulb"></i>
-                                <p>{{ $hero->initiative }}</p>
+                                <p>{{ $hero->initiative >= 0 ? "+$hero->initiative" : $hero->initiative }}</p>
                             </div>
                             <div class="flex items-center justify-center gap-x-2 text-gray-400 font-extrabold">
                                 <i class="fas fa-running"></i>
