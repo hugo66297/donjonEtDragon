@@ -11,7 +11,12 @@ class Category extends Model
     use HasFactory, HasUuids;
     public $timestamps = false;
 
-    public function characters() {
+    public function characters()
+    {
         return $this->hasMany(Character::class);
+    }
+    public function spells()
+    {
+        return $this->belongsToMany(Spell::class);
     }
 }

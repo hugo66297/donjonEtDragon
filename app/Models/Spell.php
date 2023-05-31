@@ -11,15 +11,22 @@ class Spell extends Model
     use HasFactory, HasUuids;
     public $timestamps = false;
 
-    public function level(){
+    public function level()
+    {
         return $this->belongsTo(Level::class);
     }
 
-    public function school() {
+    public function school()
+    {
         return $this->belongsTo(School::class);
     }
 
-    public function tags() {
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class, 'spell_tag');
+    }
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 }
