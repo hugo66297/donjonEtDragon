@@ -29,6 +29,7 @@ class Character extends Model
         'bonds',
         'flaws',
         'character_past',
+        'equipment'
     ];
 
     // One-to-one relationships
@@ -80,10 +81,10 @@ class Character extends Model
     }
     public function skills() {
         return $this->morphedByMany(Skill::class, 'charactable')
-            ->withPivot('is_proficient');
+            ->withPivot('is_proficient', 'other_modifier_skill');
     }
     public function savingThrows() {
         return $this->morphedByMany(SavingThrow::class, 'charactable')
-            ->withPivot('is_proficient');
+            ->withPivot('is_proficient', 'other_modifier_throw');
     }
 }

@@ -368,7 +368,7 @@
                     <div class="sm:px-4 space-y-4">
                         @if($hero->character_past)
                             <div class="sm:indent-4 space-y-1 my-1">
-                                {{ $hero->character_past }}
+                                {!! $hero->character_past !!}
                             </div>
                         @endif
                         <div class="my-1">

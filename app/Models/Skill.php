@@ -26,6 +26,7 @@ class Skill extends Model
     public function modifierSkill(Ability $ability, $hero)
     {
         $modifier = $ability->modifierAbility();
+
         if ($this->pivot->other_modifier_skill && $this->pivot->is_proficient) {
             return $modifier + $this->pivot->other_modifier_skill + $hero->proficiency_bonus;
         } elseif ($this->pivot->other_modifier_skill) {
