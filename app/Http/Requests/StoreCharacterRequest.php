@@ -75,12 +75,12 @@ class StoreCharacterRequest extends FormRequest
             'attacks' => ['array'],
             'attacks.*' => ['array'],
             'attacks.*.attack_id' => ['nullable', 'uuid', 'exists:attacks,id', 'distinct', 'filled'],
-            'attacks.*.other_description' => ['nullable', 'max:255'],
+            'attacks.*.other_description' => ['nullable', 'max:500'],
             // Utilities
             'utilities' => ['array'],
             'utilities.*' => ['array'],
             'utilities.*.utility_id' => ['nullable', 'uuid', 'exists:utilities,id', 'distinct', 'filled'],
-            'utilities.*.description' => ['nullable', 'max:255'],
+            'utilities.*.description' => ['nullable', 'max:500'],
              // Coins
             'coins' => ['required', 'array', 'size:5'],
             'coins.*' => ['array'],
