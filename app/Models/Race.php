@@ -12,7 +12,7 @@ class Race extends Model
     public $timestamps = false;
 
     protected $fillable = [
-      'name', 'description', 'example_surname'
+      'name', 'description', 'exemple_surname'
     ];
 
     public function subRace() {

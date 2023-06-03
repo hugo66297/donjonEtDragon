@@ -140,7 +140,7 @@
                             </div>
                             <div class="justify-self-center">
                                 <p class="text-gray-800 text-center">
-                                    <i class="fa-solid fa-book-open"></i>
+                                    <i class="fa-solid fa-dice-six"></i>
                                     <span>{{ $hero->passive_wisdom }}</span>
                                 </p>
                                 <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Sagesse
