@@ -8,6 +8,7 @@
         </div>
         <div>
             <x-rich-text-editor
+                id="description"
                 name="description"
                 label="Informations sur l'aptitude"
                 placeholder="Vous possédez une réserve limitée..."

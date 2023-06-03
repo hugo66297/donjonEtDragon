@@ -8,6 +8,7 @@
         </div>
         <div>
             <x-rich-text-editor
+                id="description"
                 name="description"
                 label="Informations sur l'attaque"
                 placeholder="Tour de magie"
