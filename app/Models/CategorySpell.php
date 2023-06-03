@@ -5,7 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SpellCategory extends Model
+class CategorySpell extends Model
 {
     use HasFactory;
+
+    protected $table = 'category_spell';
 }
