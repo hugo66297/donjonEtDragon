@@ -6,6 +6,7 @@
                 name="hero[proficiency_bonus]"
                 value="2"
                 label="Bonus de maitrise"
+                required
             />
         </div>
     </div>
@@ -20,6 +21,14 @@
         <x-form-alert error="features" />
     </div>
     <div id="div-maitrise" class="">
+        <p class="font-titleMiddleAge text-red-800">
+            Maitrises
+            <i class="fa-solid fa-circle-info" data-tooltip-target="tooltip-utilities"></i>
+        </p>
+        <div id="tooltip-utilities" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Si le personnage n'a pas de maitrise, vous devez enlever la ligne
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
         <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-md">
             <table
                 id="table-maitrises"
@@ -119,20 +128,20 @@
                 @endif
                 </tbody>
                 <tfoot>
-                    <tr class="font-semibold text-gray-900">
-                        <th id="add-line" scope="row" colspan="3" class="px-6 py-3 font-bold text-red-800">
-                            <div class="w-full flex items-center space-x-2 {{ $errors->has('utilities.*') ? 'justify-between' : 'justify-end' }}">
-                                <div>
-                                    @if($errors->has('utilities.*.utility_id'))
-                                        <x-form-alert error="utilities.*.utility_id" />
-                                    @endif
-                                    @if($errors->has('utilities.*.description'))
-                                        <x-form-alert error="utilities.*.description" />
-                                    @endif
-                                </div>
-                                <p
-                                    class="w-fit cursor-pointer hover:underline"
-                                    @click="elt = document.createElement('tr');
+                <tr class="font-semibold text-gray-900">
+                    <th id="add-line" scope="row" colspan="3" class="px-6 py-3 font-bold text-red-800">
+                        <div class="w-full flex items-center space-x-2 {{ $errors->has('utilities.*') ? 'justify-between' : 'justify-end' }}">
+                            <div>
+                                @if($errors->has('utilities.*.utility_id'))
+                                    <x-form-alert error="utilities.*.utility_id" />
+                                @endif
+                                @if($errors->has('utilities.*.description'))
+                                    <x-form-alert error="utilities.*.description" />
+                                @endif
+                            </div>
+                            <p
+                                class="w-fit cursor-pointer hover:underline"
+                                @click="elt = document.createElement('tr');
                                             uuid = self.crypto.randomUUID()
                                             elt.innerHTML = component.innerHTML;
                                             elt.querySelector('select').name = `utilities[${uuid}][utility_id]`
@@ -141,12 +150,12 @@
                                             elt.querySelector('textarea').value = ''
                                             elt.classList = component.classList
                                             $refs.tbody.appendChild(elt)"
-                                >
-                                    Ajouter une ligne
-                                </p>
-                            </div>
-                        </th>
-                    </tr>
+                            >
+                                Ajouter une ligne
+                            </p>
+                        </div>
+                    </th>
+                </tr>
                 </tfoot>
             </table>
         </div>

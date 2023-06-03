@@ -12,6 +12,14 @@
         </div>
     </div>
     <div id="div-attacks">
+        <p class="font-titleMiddleAge text-red-800">
+            Attaques
+            <i class="fa-solid fa-circle-info" data-tooltip-target="tooltip-attacks"></i>
+        </p>
+        <div id="tooltip-attacks" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Si le personnage n'a pas d'attaque, vous devez enlever la ligne
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
         <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-md">
             <table
                 id="table-attacks"
@@ -33,7 +41,43 @@
                 </tr>
                 </thead>
                 <tbody x-ref="tbody">
-                    @if(!old('attacks'))
+                @if(!old('attacks'))
+                    <tr x-data="" x-ref="line" class="border-b">
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            @php $key = \Illuminate\Support\Str::uuid(); @endphp
+                            <select
+                                onchange="disabledDescription(this)"
+                                id="attack_id"
+                                name="attacks[{{ $key }}][attack_id]"
+                                class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
+                            >
+                                <option value="">Choisis une option</option>
+                                @foreach($attacks as $attack)
+                                    <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
+                                @endforeach
+                            </select>
+                        </td>
+                        <td class="px-6 py-4">
+                        <textarea
+                            id="attack_description"
+                            name="attacks[{{ $key }}][other_description]"
+                            rows="4"
+                            class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
+                            placeholder="Je suis convaincu..."
+                        ></textarea>
+                        </td>
+                        <td class="px-6 py-4">
+                            <button
+                                type="button"
+                                class="font-bold text-red-800 hover:underline cursor-pointer"
+                                @click.prevent="$el.parentNode.parentNode.remove()"
+                            >
+                                Supprimer
+                            </button>
+                        </td>
+                    </tr>
+                @else
+                    @foreach(old('attacks') as $oldAttack)
                         <tr x-data="" x-ref="line" class="border-b">
                             <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 @php $key = \Illuminate\Support\Str::uuid(); @endphp
@@ -45,18 +89,21 @@
                                 >
                                     <option value="">Choisis une option</option>
                                     @foreach($attacks as $attack)
-                                        <option value="{{$attack->getKey()}}">{{$attack->name}}</option>
+                                        <option
+                                            @selected($oldAttack['attack_id'] === $attack->getKey())
+                                            value="{{$attack->getKey()}}"
+                                        >{{$attack->name}}</option>
                                     @endforeach
                                 </select>
                             </td>
                             <td class="px-6 py-4">
-                        <textarea
-                            id="attack_description"
-                            name="attacks[{{ $key }}][other_description]"
-                            rows="4"
-                            class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
-                            placeholder="Je suis convaincu..."
-                        ></textarea>
+                                    <textarea
+                                        id="attack_description"
+                                        name="attacks[{{ $key }}][other_description]"
+                                        rows="4"
+                                        class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
+                                        placeholder="Je suis convaincu..."
+                                    >{{ $oldAttack['other_description'] ?? '' }}</textarea>
                             </td>
                             <td class="px-6 py-4">
                                 <button
@@ -68,50 +115,11 @@
                                 </button>
                             </td>
                         </tr>
-                    @else
-                        @foreach(old('attacks') as $oldAttack)
-                            <tr x-data="" x-ref="line" class="border-b">
-                                <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    @php $key = \Illuminate\Support\Str::uuid(); @endphp
-                                    <select
-                                        onchange="disabledDescription(this)"
-                                        id="attack_id"
-                                        name="attacks[{{ $key }}][attack_id]"
-                                        class="py-2 px-3 w-full bg-white flex justify-between text-sm cursor-pointer rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-600 focus:ring-inset"
-                                    >
-                                        <option value="">Choisis une option</option>
-                                        @foreach($attacks as $attack)
-                                            <option
-                                                @selected($oldAttack['attack_id'] === $attack->getKey())
-                                                value="{{$attack->getKey()}}"
-                                            >{{$attack->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <textarea
-                                        id="attack_description"
-                                        name="attacks[{{ $key }}][other_description]"
-                                        rows="4"
-                                        class="block w-full text-sm text-black rounded-md shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-red-800 focus:ring-inset"
-                                        placeholder="Je suis convaincu..."
-                                    >{{ $oldAttack['other_description'] ?? '' }}</textarea>
-                                </td>
-                                <td class="px-6 py-4">
-                                    <button
-                                        type="button"
-                                        class="font-bold text-red-800 hover:underline cursor-pointer"
-                                        @click.prevent="$el.parentNode.parentNode.remove()"
-                                    >
-                                        Supprimer
-                                    </button>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
+                    @endforeach
+                @endif
                 </tbody>
                 <tfoot>
-                    <tr class="font-semibold text-gray-900">
+                <tr class="font-semibold text-gray-900">
                     <th id="add-line" scope="row" colspan="3" class="px-6 py-3 font-bold text-red-800">
                         <div class="w-full flex items-center space-x-2 {{ $errors->has('attacks.*') ? 'justify-between' : 'justify-end' }}">
                             <div>

@@ -38,6 +38,8 @@ class RacesController extends Controller
     {
         $race = new Race;
         $race->fill($request->validated());
+        $race->description = strip_tags($request->validated('description'), ['<p>', '<strong>', '<ul>', '<li>']);
+        $race->example_surname = strip_tags($request->validated('example_surname'), ['<p>', '<strong>', '<ul>', '<li>']);
         $race->save();
 
         return back();

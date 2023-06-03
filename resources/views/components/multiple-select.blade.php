@@ -1,4 +1,4 @@
-@props(['data', 'name', 'label', 'dropdown', 'placeholder'])
+@props(['data', 'name', 'label', 'dropdown', 'placeholder', 'required' => false])
 
 <div
     class="relative"
@@ -26,7 +26,7 @@
     "
 >
     <p class="font-titleMiddleAge text-red-800">
-        {{ $label }}
+        {{ $label }}@if($required)<sup>*</sup>@endif
     </p>
     <div>
         <div

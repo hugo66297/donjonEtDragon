@@ -66,10 +66,10 @@ class StoreCharacterRequest extends FormRequest
             'savingThrows.*.is_proficient' => ['nullable', 'boolean'],
             'savingThrows.*.other_modifier_throw' => ['nullable', 'integer'],
             // Weapons
-            'weapons' => ['required', 'array'],
+            'weapons' => ['array'],
             'weapons.*' => ['uuid', 'exists:weapons,id', 'distinct'],
             // Features
-            'features' => ['required', 'array'],
+            'features' => ['array'],
             'features.*' => ['uuid', 'exists:features,id', 'distinct'],
             // Attacks
             'attacks' => ['array'],

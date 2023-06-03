@@ -9,6 +9,7 @@ class Input extends \BladeUIKit\Components\Forms\Inputs\Input
     public string $label;
     public string $placeholder;
     public bool $decimal;
+    public bool $required;
     public function __construct(
         string $name,
         string $type = 'text',
@@ -16,7 +17,8 @@ class Input extends \BladeUIKit\Components\Forms\Inputs\Input
         string $label = null,
         string $placeholder = null,
         ?string $value = '',
-        bool $decimal = false
+        bool $decimal = false,
+        bool $required = false
     )
     {
         parent::__construct($name, $id, $type);
@@ -24,6 +26,7 @@ class Input extends \BladeUIKit\Components\Forms\Inputs\Input
         $this->label = $label ?? '';
         $this->placeholder = $placeholder ?? $label ?? '';
         $this->decimal = $decimal;
+        $this->required = $required;
     }
     public function transformName(): array|string {
         if (str_contains($this->name, '[') !== false) {
