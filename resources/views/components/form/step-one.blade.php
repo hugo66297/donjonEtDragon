@@ -7,7 +7,6 @@
                 name="hero[category_id]"
                 placeholder="Choisis une catégorie"
                 dropdown="dropdownCategories"
-                required
             />
             <x-form-alert error="hero.category_id" />
         </div>
@@ -18,7 +17,6 @@
                 name="hero[background_id]"
                 placeholder="Choisis un historique"
                 dropdown="dropdownBackgrounds"
-                required
             />
             <x-form-alert error="hero.background_id" />
         </div>
@@ -29,7 +27,6 @@
                 name="hero[subrace_id]"
                 placeholder="Choisis une race"
                 dropdown="dropdownRaces"
-                required
             />
             <x-form-alert error="hero.subrace_id" />
         </div>
@@ -40,7 +37,6 @@
                 name="hero[alignment_id]"
                 placeholder="Choisis un alignement"
                 dropdown="dropdownAlignments"
-                required
             />
             <x-form-alert error="hero.alignment_id" />
         </div>
@@ -51,7 +47,6 @@
                 name="hero[goal_id]"
                 placeholder="Choisis un objectif"
                 dropdown="dropdownGoals"
-                required
             />
             <x-form-alert error="hero.goal_id" />
         </div>
@@ -62,16 +57,15 @@
                 name="adventures"
                 placeholder="Choisis des aventures"
                 dropdown="dropdownAdventures"
-                required
             />
             <x-form-alert error="adventures" />
         </div>
         <div class="relative col-span-2">
-            <x-rich-text-editor
-                :key="'past'"
+            <x-input
                 id="past"
                 name="hero[character_past]"
                 placeholder="Je suis convaincu..."
+                type="textarea"
                 label="Passé du personnage"
             />
             <x-form-alert error="hero.character_past" />
@@ -85,7 +79,6 @@
                 name="hero[armor_class]"
                 type="number"
                 label="Classe d'armure"
-                required
             />
             <x-form-alert error="hero.armor_class" />
         </div>
@@ -95,7 +88,6 @@
                 name="hero[initiative]"
                 type="number"
                 label="Initiative"
-                required
             />
             <x-form-alert error="hero.initiative" />
         </div>
@@ -107,7 +99,6 @@
                 label="Vitesse"
                 step="0.1"
                 decimal
-                required
             />
             <x-form-alert error="hero.speed" />
         </div>
@@ -117,7 +108,6 @@
                 name="hero[maximum_hp]"
                 type="number"
                 label="Point de vie"
-                required
             />
             <x-form-alert error="hero.maximum_hp" />
         </div>
@@ -126,7 +116,6 @@
                 id="des"
                 name="hero[hit_dice]"
                 label="Dés de vie"
-                required
             />
             <x-form-alert error="hero.hit_dice" />
         </div>
@@ -136,7 +125,6 @@
                 name="hero[passive_wisdom]"
                 type="number"
                 label="Sagesse passive"
-                required
             />
             <x-form-alert error="hero.passive_wisdom" />
         </div>
@@ -150,7 +138,6 @@
                 placeholder="Je suis convaincu..."
                 type="textarea"
                 label="Traits de personnalité"
-                required
             />
             <x-form-alert error="hero.personality_traits" />
         </div>
@@ -161,7 +148,6 @@
                 placeholder="Je suis convaincu..."
                 type="textarea"
                 label="Idéaux"
-                required
             />
             <x-form-alert error="hero.ideals" />
         </div>
@@ -172,7 +158,6 @@
                 placeholder="Je suis convaincu..."
                 type="textarea"
                 label="Liens"
-                required
             />
             <x-form-alert error="hero.bonds" />
         </div>
@@ -183,7 +168,6 @@
                 placeholder="Je suis convaincu..."
                 type="textarea"
                 label="Défauts"
-                required
             />
             <x-form-alert error="hero.flaws" />
         </div>

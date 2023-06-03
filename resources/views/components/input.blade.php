@@ -19,6 +19,7 @@
         name="{{$name}}"
         placeholder="{{$placeholder}}"
         @checked($value)
+        value="1"
     />
 @else
     <input

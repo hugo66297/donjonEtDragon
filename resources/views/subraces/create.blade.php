@@ -22,6 +22,7 @@
         </label>
         <div>
             <x-rich-text-editor
+                example_surname
                 name="description"
                 label="Informations sur la sous-race"
                 placeholder="Vous possédez une réserve limitée..."

@@ -38,7 +38,6 @@ class BackgroundsController extends Controller
     {
         $background = new Background;
         $background->fill($request->validated());
-        $background->description = strip_tags($request->validated('description'), ['<p>', '<strong>', '<ul>', '<li>']);
         $background->save();
 
         return back();

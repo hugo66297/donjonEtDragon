@@ -38,7 +38,6 @@ class FeaturesController extends Controller
     {
         $feature = new Feature;
         $feature->fill($request->validated());
-        $feature->description = strip_tags($request->validated('description'), ['<p>', '<strong>', '<ul>', '<li>']);
         $feature->save();
 
         return back();

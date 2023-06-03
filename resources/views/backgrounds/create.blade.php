@@ -8,6 +8,7 @@
         </div>
         <div>
             <x-rich-text-editor
+                id="description"
                 name="description"
                 label="Informations sur l'historique"
                 placeholder="Vous venez d’une famille habituée à la richesse, au pouvoir et aux privilèges..."

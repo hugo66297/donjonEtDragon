@@ -40,7 +40,6 @@ class SubRacesController extends Controller
     {
         $subRace = new SubRace;
         $subRace->fill($request->validated());
-        $subRace->description = strip_tags($request->validated('description'), ['<p>', '<strong>', '<ul>', '<li>']);
         $subRace->save();
 
         return back();
