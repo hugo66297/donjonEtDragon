@@ -8,7 +8,6 @@
         </div>
         <div>
             <x-rich-text-editor
-                id="description"
                 name="description"
                 label="Informations sur la race"
                 placeholder="Vous possédez une réserve limitée..."
@@ -16,7 +15,6 @@
         </div>
         <div>
             <x-rich-text-editor
-                id="example_surname"
                 name="example_surname"
                 label="Noms populaires dans cette race"
                 placeholder="Vous possédez une réserve limitée..."

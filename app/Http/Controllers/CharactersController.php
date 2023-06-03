@@ -39,9 +39,8 @@ class CharactersController extends Controller
     {
         $hero = new Character();
 
+        $hero->equipment = Str::markdown(strip_tags($request->validated('hero.equipment', '<p><strong><ul><li>')));
         $hero->fill($request->validated('hero'));
-        $hero->equipment = strip_tags($request->validated('hero.equipment'), ['<p>', '<strong>', '<ul>', '<li>']);
-        $hero->character_past = strip_tags($request->validated('hero.character_past'), ['<p>', '<strong>', '<ul>', '<li>']);
         $hero->save();
 
         $hero->abilities()->sync(\Arr::divide($request->validated('abilities'))[1]);
