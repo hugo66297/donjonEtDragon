@@ -19,7 +19,7 @@ return new class extends Migration
             $table->primary(['character_id', 'coin_id']);
             $table->foreignIdFor(Character::class)->constrained();
             $table->foreignIdFor(Coin::class)->constrained();
-            $table->integer('quantity')->nullable()->default(0);
+            $table->integer('quantity')->default(0);
         });
     }
 
