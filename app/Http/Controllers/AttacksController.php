@@ -38,6 +38,7 @@ class AttacksController extends Controller
     {
         $attack = new Attack;
         $attack->fill($request->validated());
+        $attack->description = strip_tags($request->validated('description'), ['<p>', '<strong>', '<ul>', '<li>']);
         $attack->save();
 
         return back();

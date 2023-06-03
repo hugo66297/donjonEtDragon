@@ -11,7 +11,6 @@ class EasyMDE extends \BladeUIKit\Components\Editors\EasyMDE
         return array_merge([
             'maxHeight' => '250px',
             'hideIcons' => ['fullscreen', 'side-by-side', 'guide', 'image', 'link', 'ordered-list', 'quote', 'heading', 'italic'],
-            'showIcons' => ['table'],
             'status' => false,
         ], parent::options());
     }

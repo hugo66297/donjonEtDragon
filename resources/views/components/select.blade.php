@@ -1,4 +1,4 @@
-@props(['data', 'name', 'label' => null, 'dropdown', 'placeholder'])
+@props(['data', 'name', 'label' => null, 'dropdown', 'placeholder', 'required' => false])
 
 @php
     $transformName = function ($value) {
@@ -34,7 +34,7 @@
 >
     @if($label)
         <p class="font-titleMiddleAge text-red-800">
-            {{ $label }}
+            {{ $label }}@if($required)<sup>*</sup>@endif
         </p>
     @endif
     <div class="">

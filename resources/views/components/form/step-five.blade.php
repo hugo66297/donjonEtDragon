@@ -16,11 +16,13 @@
         </div>
     </div>
     <div id="div-equipment" class="">
-        <x-easy-mde
+        <x-rich-text-editor
+            :key="'equipment'"
+            id="equipment"
             name="hero[equipment]"
-            placeholder="L'équipement du personnage"
+            placeholder="Une cotte de mailles*, une hache à deux mains, 3 javelines, un sac-à-dos, ..."
             label="Équipement"
-        ></x-easy-mde>
-
+            required
+        />
     </div>
 </div>

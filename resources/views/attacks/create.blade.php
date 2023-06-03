@@ -7,11 +7,11 @@
             />
         </div>
         <div>
-            <x-easy-mde
+            <x-rich-text-editor
                 name="description"
-                placeholder="Tour de magie"
                 label="Informations sur l'attaque"
-            ></x-easy-mde>
+                placeholder="Tour de magie"
+            />
         </div>
     </x-form-create>
 </x-app-layout>

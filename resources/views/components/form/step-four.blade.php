@@ -6,6 +6,7 @@
                 name="hero[proficiency_bonus]"
                 value="2"
                 label="Bonus de maitrise"
+                required
             />
         </div>
     </div>
@@ -20,6 +21,14 @@
         <x-form-alert error="features" />
     </div>
     <div id="div-maitrise" class="">
+        <p class="font-titleMiddleAge text-red-800">
+            Maitrises
+            <i class="fa-solid fa-circle-info" data-tooltip-target="tooltip-utilities"></i>
+        </p>
+        <div id="tooltip-utilities" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Si le personnage n'a pas de maitrise, vous devez enlever la ligne
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
         <div class="relative overflow-x-auto table-auto shadow-md sm:rounded-md">
             <table
                 id="table-maitrises"

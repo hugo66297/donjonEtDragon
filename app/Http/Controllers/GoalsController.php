@@ -38,6 +38,7 @@ class GoalsController extends Controller
     {
         $goal = new Goal;
         $goal->fill($request->validated());
+        $goal->description = strip_tags($request->validated('description'), ['<p>', '<strong>', '<ul>', '<li>']);
         $goal->save();
 
         return back();

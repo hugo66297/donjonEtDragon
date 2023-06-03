@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Datatable;
+namespace App\View\Components\Datatable;
 
-use Livewire\Component;
+use Illuminate\View\Component;
 
 class SimpleDatatable extends Component
 {
@@ -10,7 +10,7 @@ class SimpleDatatable extends Component
     public array $collections;
     public array $names;
     public array $fields;
-    public function mount(array $collections, array $headings, array $names, array $fields): void
+    public function __construct(array $collections, array $headings, array $names, array $fields)
     {
         $this->collections = $collections;
         $this->headings = $headings;
@@ -20,6 +20,6 @@ class SimpleDatatable extends Component
 
     public function render()
     {
-        return view('livewire.datatable.simple-datatable');
+        return view('components.datatable.simple-datatable');
     }
 }
