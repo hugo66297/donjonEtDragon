@@ -21,11 +21,11 @@
             <span class="ml-3 text-sm font-medium text-gray-900">Nom avant la race ?</span>
         </label>
         <div>
-            <x-rich-text-editor
-                name="description"
+            <x-easy-mde
                 label="Informations sur la sous-race"
+                name="description"
                 placeholder="Vous possédez une réserve limitée..."
-            />
+            ></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>

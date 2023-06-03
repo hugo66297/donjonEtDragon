@@ -7,11 +7,11 @@
             />
         </div>
         <div>
-            <x-rich-text-editor
+            <x-easy-mde
                 name="description"
-                label="Informations sur l'aptitude"
                 placeholder="Vous possédez une réserve limitée..."
-            />
+                label="Informations sur l'aptitude"
+            ></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>

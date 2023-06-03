@@ -7,11 +7,10 @@
             />
         </div>
         <div>
-            <x-rich-text-editor
-                name="description"
-                label="Informations sur l'historique"
-                placeholder="Vous venez d’une famille habituée à la richesse, au pouvoir et aux privilèges..."
-            />
+            <label for="description" class="block mb-2 text-lg font-medium text-red-800 font-titleMiddleAge">
+                Informations sur l'historique
+            </label>
+            <x-easy-mde name="description" placeholder="Vous venez d’une famille habituée à la richesse, au pouvoir et aux privilèges..."></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>

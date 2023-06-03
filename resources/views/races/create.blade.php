@@ -7,18 +7,18 @@
             />
         </div>
         <div>
-            <x-rich-text-editor
-                name="description"
+            <x-easy-mde
                 label="Informations sur la race"
+                name="description"
                 placeholder="Vous possédez une réserve limitée..."
-            />
+            ></x-easy-mde>
         </div>
         <div>
-            <x-rich-text-editor
-                name="example_surname"
+            <x-easy-mde
                 label="Noms populaires dans cette race"
+                name="example_surname"
                 placeholder="Vous possédez une réserve limitée..."
-            />
+            ></x-easy-mde>
         </div>
     </x-form-create>
 </x-app-layout>
