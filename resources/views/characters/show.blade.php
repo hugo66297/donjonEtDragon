@@ -203,7 +203,7 @@
                                 <div
                                     class="px-4 py-2 border rounded-tl-2xl rounded-br-2xl bg-[#e7e7db]/[.2] shadow-md font-bold">
                                     <p class="text-xs md:text-sm lg:text-base">
-                                        {{ $weapon->sub_info ? "$weapon->name*" : $weapon->name }}
+                                        {{ $weapon->sub_info ? "*$weapon->name" : $weapon->name }}
                                     </p>
                                 </div>
                                 <div class="px-4 py-2 border rounded-tl-2xl rounded-br-2xl bg-[#e7e7db]/[.2] shadow-md">
