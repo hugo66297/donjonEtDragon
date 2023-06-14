@@ -12,15 +12,6 @@ use App\Http\Controllers\SubRacesController;
 use App\Http\Controllers\UtilitiesController;
 use App\Http\Controllers\WeaponsController;
 use App\Http\Controllers\SpellsController;
-use App\Models\Adventure;
-use App\Models\Attack;
-use App\Models\Background;
-use App\Models\Feature;
-use App\Models\Goal;
-use App\Models\Race;
-use App\Models\Subrace;
-use App\Models\Utility;
-use App\Models\Weapon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,9 +42,7 @@ Route::get('/D&D/aventures/lmop', function () {
 })->name('lmop');
 
 Route::resource('categories', CategoriesController::class)->only('index');
-Route::resource('spells', SpellsController::class)->only('index');
-Route::get('spells/{spell}/{page?}', [SpellsController::class, 'show'])->name('spells.show');
-Route::get('/search', [SpellsController::class, 'search'])->name('spells.search');
+Route::resource('spells', SpellsController::class)->only('index', 'show');
 
 Route::get('categories/{category}/characters', [CharactersController::class, 'index'])->name('characters.index');
 Route::resource('heroes', CharactersController::class)->except('index');

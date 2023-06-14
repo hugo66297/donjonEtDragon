@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Spell extends Model
 {
     use HasFactory, HasUuids;
+
     public $timestamps = false;
 
     public function level()

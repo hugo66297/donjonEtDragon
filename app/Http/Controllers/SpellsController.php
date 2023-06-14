@@ -41,14 +41,6 @@ class SpellsController extends Controller
         return view('spells.show')->with(compact('spell'));
     }
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-
-        $spells = Spell::where('name', 'LIKE', "%$query%")->orderBy('name')->paginate(20);
-        return view('spells.index')->with(compact('spells'));
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
