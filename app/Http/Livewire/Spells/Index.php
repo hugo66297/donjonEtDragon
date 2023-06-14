@@ -67,7 +67,8 @@ class Index extends Component
     public function render()
     {
         return view('livewire.spells.index', [
-            'spells' => Spell::join('levels', 'levels.id', 'spells.level_id')
+            'spells' => Spell::select('spells.*')
+                ->join('levels', 'levels.id', 'spells.level_id')
                 ->when($this->search, function (Builder $builder) {
                     $builder->where('name', 'like', "%$this->search%");
                 })
