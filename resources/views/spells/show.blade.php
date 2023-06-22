@@ -62,8 +62,8 @@
             </div>
             <div class="w-full">
                 <div class="justify-self-center">
-                    <p class="text-gray-800 text-justify">
-                        <span>{{ $spell->description }}</span>
+                    <p class="text-gray-800 text-justify space-y-5">
+                        <span>{!! $spell->description !!}</span>
                     </p>
                     <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Description</p>
                 </div>
