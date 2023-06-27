@@ -1,5 +1,4 @@
-<x-app-layout>
-    <div class="relative flex flex-col flex-1" x-data="{ open: false }">
+<div class="relative flex flex-col flex-1" x-data="{ open: false }">
         <div class="flex flex-col justify-center items-center p-2 sm:px-8">
             <div class="w-full">
                 <label for="simple-search" class="">Search</label>
@@ -113,8 +112,8 @@
             class="px-2 pb-2 sm:px-8 sm:grid sm:gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
         >
             @foreach($spells as $spell)
-                <div class="hidden sm:block flip-card min-h-[20rem]" wire:key="{{ $spell->getKey() }}">
-                    <div class="flip-card-inner">
+                <div class="hidden sm:block flip-card min-h-[20rem]">
+                    <div class="flip-card-inner" :key="{{ $spell->getKey() }}">
                         <div
                             class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
                             <div class="flex justify-between p-2">
@@ -252,7 +251,6 @@
         </ul>
         {{ $spells->links() }}
     </div>
-</x-app-layout>
 
 <style>
     input[type=range]::-webkit-slider-thumb {
