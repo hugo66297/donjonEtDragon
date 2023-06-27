@@ -1,6 +1,4 @@
-<x-app-layout>
-    @livewire('spells.index')
-</x-app-layout>
+@livewire('spells.index')
 
 <script>
     let cards = document.querySelectorAll(".flip-card")

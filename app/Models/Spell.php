@@ -28,6 +28,6 @@ class Spell extends Model
     }
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'spell_category');
+        return $this->belongsToMany(Category::class, 'category_spell');
     }
 }

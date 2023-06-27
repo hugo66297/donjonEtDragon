@@ -17,6 +17,6 @@ class Category extends Model
     }
     public function spells()
     {
-        return $this->belongsToMany(Spell::class);
+        return $this->belongsToMany(Spell::class, 'category_spell');
     }
 }

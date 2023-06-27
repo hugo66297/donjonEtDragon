@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Spells;
 
+use App\Models\Category;
 use App\Models\Level;
 use App\Models\School;
 use App\Models\Spell;
@@ -16,9 +17,12 @@ class Index extends Component
     public string $search = '';
     public $page = 1;
     public array $range = [];
+    public int $lowerValue = 0;
+    public int $upperValue = 9;
     public string $selectSchool = '';
+    public string $selectCategory = '';
     public bool $isRituel = false;
-    public array $filtres = [];
+    public array $filters = [];
 
     protected $queryString = [
         'search' => ['except' => ''],
@@ -27,9 +31,12 @@ class Index extends Component
 
     public function mount() {
         $this->range = [
-            'min' => [0, 5],
-            'max' => [4, 9],
-            'values' => [0, 9],
+            'min' => 0,
+            'max' => 9,
+            'values' => [
+                $this->lowerValue,
+                $this->upperValue
+            ]
         ];
     }
 
@@ -37,31 +44,52 @@ class Index extends Component
     {
         $this->resetPage();
         if ($value !== '') {
-            $this->filtres['search'] = $value;
+            $this->filters['search'] = $value;
         } else {
-            unset($this->filtres['search']);
+            unset($this->filters['search']);
         }
     }
 
-    public function updatingRange($value): void
+    public function updatingLowerValue(int $value): void
     {
         $this->resetPage();
+        $this->range['values'][0] = $value;
+    }
+
+    public function updatingUpperValue(int $value): void
+    {
+        $this->resetPage();
+        $this->range['values'][1] = $value;
     }
 
     public function updatingSelectSchool($value): void
     {
         $this->resetPage();
         if ($value !== '') {
-            $this->filtres['school'] = $value;
+            $this->filters['school'] = $value;
         } else {
-            unset($this->filtres['school']);
+            unset($this->filters['school']);
+        }
+    }
+
+    public function updatingSelectCategory($value): void
+    {
+        $this->resetPage();
+        if ($value !== '') {
+            $this->filters['category'] = $value;
+        } else {
+            unset($this->filters['category']);
         }
     }
 
     public function updatingIsRituel($value): void
     {
         $this->resetPage();
-        $this->filtres['is_rituel'] = $value;
+        if ($value === true) {
+            $this->filters['is_rituel'] = $value;
+        } else {
+            unset($this->filters['is_rituel']);
+        }
     }
 
     public function render()
@@ -75,14 +103,19 @@ class Index extends Component
                 ->when($this->selectSchool, function (Builder $builder) {
                     $builder->where('school_id', $this->selectSchool);
                 })
-                ->when($this->isRituel, function (Builder $builder) {
+                ->when($this->selectCategory, function (Builder $builder) {
+                    $builder->join('category_spell', 'category_spell.spell_id', 'spells.id')
+                        ->where('category_id', $this->selectCategory);
+                })
+                ->when($this->isRituel === true, function (Builder $builder) {
                     $builder->where('is_rituel', $this->isRituel);
                 })
-                ->whereBetween('levels.level_name', $this->range['values'])
+                ->whereBetween('levels.level_name', collect($this->range['values'])->sort())
                 ->orderBy('name')
                 ->paginate(20),
             'levels' => Level::all(),
-            'schools' => School::all()
+            'schools' => School::all(),
+            'categories' => Category::all(),
         ]);
     }
 }

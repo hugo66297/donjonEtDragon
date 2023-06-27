@@ -30,14 +30,6 @@
                     <i class="fa-solid fa-list-ul"></i>
                     <span class="sr-only">Upload image</span>
                 </button>
-                <button
-                    type="button"
-                    class="p-2 text-gray-500 rounded cursor-pointer hover:text-gray-900 hover:bg-gray-100"
-                    onclick="table('{{ $id }}')"
-                >
-                    <i class="fa-solid fa-table-list"></i>
-                    <span class="sr-only">Upload image</span>
-                </button>
             </div>
         </div>
     </div>
@@ -66,24 +58,6 @@
 
     function list(id) {
         let content = '<ul>\n<li></li>\n</ul>'
-        let textarea = document.querySelector('#' + id)
-
-        textarea.value = textarea.value.slice(0, textarea.selectionStart) + content + textarea.value.slice(textarea.selectionStart)
-    }
-
-    function table(id) {
-        let content = "<table>" +
-            "\n<thead>" +
-            "\n<th></th>" +
-            "\n<th></th>" +
-            "\n<th></th>" +
-            "\n</thead>" +
-            "\n<tbody>" +
-            "\n<tr>\n<td></td>\n</tr>" +
-            "\n<tr>\n<td></td>\n</tr>" +
-            "\n<tr>\n<td></td>\n</tr>" +
-            "\n</tbody>" +
-            "\n</table>"
         let textarea = document.querySelector('#' + id)
 
         textarea.value = textarea.value.slice(0, textarea.selectionStart) + content + textarea.value.slice(textarea.selectionStart)

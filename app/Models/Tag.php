@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory, HasUuids;
+
+    public function spells() {
+        return $this->belongsToMany(Spell::class, 'spell_tag');
+    }
 }

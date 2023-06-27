@@ -25,7 +25,6 @@
             });
 
             CategorySpell::insert([
-
                 'spell_id' => Spell::where('slug', 'coup-au-but-viser-juste')->first()->getKey(),
                 'category_id' => Category::where('slug', 'barde')->first()->getKey(),
             ]);
