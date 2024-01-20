@@ -143,8 +143,7 @@
                                     <i class="fa-solid fa-book-open"></i>
                                     <span>{{ $hero->passive_wisdom }}</span>
                                 </p>
-                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Sagesse
-                                    passive</p>
+                                <p class="font-titleMiddleAge text-center text-base md:text-xl text-red-900">Sagesse passive</p>
                             </div>
                         </div>
                     </div>

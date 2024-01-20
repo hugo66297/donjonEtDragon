@@ -78,7 +78,14 @@
 
     <form action="{{route('heroes.store')}}" method="post" id="form-perso">
         @csrf
-        <x-form.step-one />
+        <x-form.step-one
+            :categories="$categories"
+            :adventures="$adventures"
+            :alignments="$alignments"
+            :goals="$goals"
+            :backgrounds="$backgrounds"
+            :subRaces="$subRaces"
+        />
         <x-form.step-two />
         <x-form.step-three />
         <x-form.step-four />

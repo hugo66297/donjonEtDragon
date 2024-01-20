@@ -32,7 +32,28 @@ class CharactersController extends Controller
 
     public function create()
     {
-        return view('characters.create');
+        $categories = Category::all();
+        $backgrounds = Background::all();
+        $subRaces = Subrace::all()->map(function (Subrace $subRace) {
+            return Subrace::hydrate([
+                [
+                    'id' => $subRace->getKey(),
+                    'name' => $subRace->fullName(),
+                ]
+            ])->first();
+        });
+        $alignments = Alignment::all();
+        $goals = Goal::all()->map(function (Goal $goal) {
+            return Goal::hydrate([
+                [
+                    'id' => $goal->getKey(),
+                    'name' => ucfirst($goal->name),
+                ]
+            ])->first();
+        });
+        $adventures = Adventure::all();
+        return view('characters.create')
+            ->with(compact('adventures', 'alignments', 'goals', 'backgrounds', 'categories', 'subRaces'));
     }
 
     public function store(StoreCharacterRequest $request)

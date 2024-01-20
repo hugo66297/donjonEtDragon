@@ -114,16 +114,15 @@
             @foreach($spells as $spell)
                 <div class="hidden sm:block flip-card min-h-[20rem]">
                     <div class="flip-card-inner" :key="{{ $spell->getKey() }}">
-                        <div
-                            class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
+                        <div class="flip-card-front w-full min-h-[20rem] rounded-lg bg-gray-700 flex flex-col justify-between">
                             <div class="flex justify-between p-2">
                                 <div class="">
-                            <span
-                                class="text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded"
-                                style="color: {{ $spell->level->text_color }}; background-color: {{ $spell->level->background_color }}"
-                            >
-                                {{ $spell->level->level_name === 0 ? 'Tour de magie' : "Level {$spell->level->level_name}" }}
-                            </span>
+                                    <span
+                                        class="text-xs text-center font-medium px-2.5 py-0.5 mx-1 rounded"
+                                        style="color: {{ $spell->level->text_color }}; background-color: {{ $spell->level->background_color }}"
+                                    >
+                                        {{ $spell->level->level_name === 0 ? 'Tour de magie' : "Level {$spell->level->level_name}" }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="flex items-center text-lg font-titleMiddleAge text-slate-100 p-2">
@@ -142,8 +141,7 @@
                                 </div>
                             </dl>
                             <div class="flex justify-end p-2">
-                                <button type="button" id="flipRecto"
-                                        class="p-1 text-white bg-gray-700 hover:bg-gray-400 focus:outline-none font-medium rounded-full text-center items-center">
+                                <button type="button" id="flipRecto" class="p-1 text-white bg-gray-700 hover:bg-gray-400 focus:outline-none font-medium rounded-full text-center items-center">
                                     <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                                          class="w-5 h-5">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -152,8 +150,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div
-                            class="flip-card-back w-full min-h-[20rem] rounded-lg shadow-md bg-gray-700 flex flex-col justify-between">
+                        <div class="flip-card-back w-full min-h-[20rem] rounded-lg shadow-md bg-gray-700 flex flex-col justify-between">
                             <div class="">
                                 <div class="flex justify-between p-2">
                                     <button type="button" id="flipVerso"

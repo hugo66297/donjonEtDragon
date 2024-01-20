@@ -18,6 +18,7 @@
         type="{{$type}}"
         name="{{$name}}"
         placeholder="{{$placeholder}}"
+        value="1"
         @checked($value)
     />
 @else
